@@ -40,7 +40,7 @@ namespace ConsoleApp6
         public const string Edit = "Редактирование";
         public const string ExitMain = "                                 Выход в главное меню                                   ";
         public const string Deleteind = "Удаление по номеру элемента";
-        public const string BackBig = "                                         Выход                                          ";
+        public const string BackBig = "                                         Назад                                          ";
 
 
         //Метод построения главного меню 1

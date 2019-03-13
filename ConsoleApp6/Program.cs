@@ -1405,7 +1405,7 @@ namespace ConsoleApp6
                     Console.Clear();
                     consolebd.Attention();
                     Console.Clear();
-                    DeleteElementIndex();
+                    DeleteMenu();
                     index = 1;
                 }
                 else
