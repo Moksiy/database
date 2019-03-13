@@ -650,5 +650,16 @@ namespace ConsoleApp6
             Console.WriteLine("╙" + new string('─', 90) + "╜");
 
         }
+
+        //Метод построения меню удаления элемента по индексу
+        public void DeleteElementIndex()
+        {
+            Console.WriteLine("╓" + new string('─', 90) + "╖");
+            Console.WriteLine("║" + new string(' ', 26) + "     Удаление элемента по индексу     " + new string(' ', 26) + "║");
+            Console.WriteLine("╟" + new string('─', 90) + "╢");
+            Console.WriteLine("║ Введите индекс элемента: " + new string (' ',64) + "║");
+            Console.WriteLine("║" + new string(' ', 90) + "║");
+            Console.WriteLine("╙" + new string('─', 90) + "╜");
+        }
     }
 }

@@ -1382,22 +1382,45 @@ namespace ConsoleApp6
             //Строка для конвертирования введенного значения с клавиатуры
             string indexstring;
 
+            //Вызов метода построения меню
+            consolebd.DeleteElementIndex();
+
+            //Перемещение каретки в указанную точку
+            Console.SetCursorPosition(27, 3);
+
             //Считывание с консоли
             indexstring = Console.ReadLine();
 
             //Проверка на правильность ввода
             if (! Int32.TryParse(indexstring, out index))
             {
+                Console.Clear();
                 consolebd.Attention();
-                Console.ReadKey();
                 Main();
             }
+            else
+            {
+                if (data.Count() < index)
+                {
+                    Console.Clear();
+                    consolebd.Attention();
+                    Console.Clear();
+                    DeleteElementIndex();
+                    index = 1;
+                }
+                else
+                {
+                    --index;
 
-            --index;
+                    data.DeleteElement(index);
 
-            data.DeleteElement(index);
+                    Console.ReadKey();
+                    Console.Clear();
+                    Main();
+                }
+            }
 
-            Main();
+
 
             
 
