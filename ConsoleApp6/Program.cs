@@ -91,10 +91,10 @@ namespace ConsoleApp6
                                 Console.Clear();
 
                                 //Вызов метода построения меню добавления автомобиля
-                                consolebd.Addcar(c);
+                                consolebd.AddElement(c);
 
                                 //Вызов метода выбора
-                                AddCar1(c);
+                                AddCar();
                                 break;
 
                             //Таблицы
@@ -276,8 +276,7 @@ namespace ConsoleApp6
         //Метод для считывания клавиш в меню добавления элементов
         public static void AddCar()
         {
-            Data data = new Data();
-
+           
             //Объявление локальных переменных для передачи данных в список
             string tpvio;       //Тип нарушения
             string gps;         //GPS- координаты
@@ -289,352 +288,79 @@ namespace ConsoleApp6
             string prkadress;   //Адрес автостоянки
             string prknumber;   //Телефон автостоянки
 
-            //Переменная для определения количества элементов в списке
-            int index = data.Count();
-
-            //Создание элементов списка
-            data.AddElement();
-
-            //Создание экземпляра класса построения меню
+            //Создание экземпляра класса с методами построения меню
             Consolebd consolebd = new Consolebd();
 
-            string Addstrname()
-            {
-                Console.Clear();
-
-                //Вызов метода построения меню
-                consolebd.Addcar2();
-
-                //Присвоения перменной названий улицы значения с консоли
-                strname = Console.ReadLine();
-
-                //Проверка на правильность ввода
-                if (strname.Length > 50 || strname == "")
-                {
-                    Console.Clear();
-                    consolebd.Attention();
-                    Addstrname();
-                }
-
-                return strname;
-
-            }
-
-            //присвоение после удачного ввода
-            strname = Addstrname();
-
-            //Заполенение элемента списка правильным занчением
-            data.AddElementStrname(strname, index);
-
-            string Addstrlength()
-            {
-                Console.Clear();
-
-                double len = 0;
-
-                //Вызов метода построения меню
-                consolebd.Addcar3(strname);
-
-                //присвоение переменной длины улицы значения с консоли
-                strlength = Console.ReadLine();
-
-                if (Double.TryParse(strlength, out len))
-                {
-                    //проверка на правильность ввода
-                    if (strlength.Length > 50 || strlength == "")
-                    {
-                        Console.Clear();
-                        consolebd.Attention();
-                        Addstrlength();
-                    }
-                }
-                else { Console.Clear(); consolebd.Attention(); Addstrlength(); }
-
-                return strlength;
-
-            }
-
-            //Присвоение после удачного ввода
-            strlength = Addstrlength();
-
-            //Заполение элемента списка правильным значением
-            data.AddElementStlength(strlength, index);
-
-            //Блок проверки на правильность ввода
-            string Addprkname()
-            {
-                Console.Clear();
-
-                //Вызов метода построения меню
-                consolebd.Addcar4(strname, strlength);
-
-                //присвоение переменной названия автостоянки значения с консоли
-                prkname = Console.ReadLine();
-
-                //проверка на правильность ввода
-                if (prkname.Length > 30 || prkname == "")
-                {
-                    Console.Clear();
-                    consolebd.Attention();
-                    Addprkname();
-                }
-                return prkname;
-            }
-
-            //Присвоение после удачного ввода
-            prkname = Addprkname();
-
-            //заполение элемента списка правильным значением
-            data.Addparkingname(prkname, index);
-
-            //Блок проверки на правильность ввода
-            string Addprkadress()
-            {
-                Console.Clear();
-
-                //Вызов метода построения меню
-                consolebd.Addcar5(strname, strlength, prkname);
-
-                //присвоение переменной адреса автостоянки значения с консоли
-                prkadress = Console.ReadLine();
-
-                //проверка на правильность ввода
-                if (prkadress.Length > 50 || prkadress == "")
-                {
-                    Console.Clear();
-                    consolebd.Attention();
-                    Addprkadress();
-                }
-                return prkadress;
-            }
-
-            //присвоение после удачного ввода
-            prkadress = Addprkadress();
-
-            //заполение элемента списка правильным значением
-            data.Addparkingadress(prkadress, index);
-
-            //Блок проверки на правильность ввода
-            string Addprknumber()
-            {
-                Console.Clear();
-
-                //Вызов метода построения меню
-                consolebd.Addcar6(strname, strlength, prkname, prkadress);
-
-                //присвоение переменной телефона автостоянки значения с консоли
-                prknumber = Console.ReadLine();
-
-                //Проверка на правильность ввода
-                if (prknumber.Length > 50 || prknumber == "")
-                {
-                    Console.Clear();
-                    consolebd.Attention();
-                    Addprknumber();
-                }
-                return prknumber;
-            }
-
-            //присовение после удачного ввода
-            prknumber = Addprknumber();
-
-            //Заполнение элемента списка правильным значением
-            data.Addparkingnumber(prknumber, index);
-
-            //Блок проверки на правильность ввода
-            string Addgps()
-            {
-                Console.Clear();
-
-                //Вызов метода построения меню
-                consolebd.Addcar7(strname, strlength, prkname, prkadress, prknumber);
-
-                //Присовение пересенной gps-координат значения с консоли
-                gps = Console.ReadLine();
-
-                //Проверка на правильность ввода
-                if (gps.Length > 50 || gps == "")
-                {
-                    Console.Clear();
-                    consolebd.Attention();
-                    Addgps();
-                }
-                return gps;
-            }
-
-            //Присвоение после удачного ввода
-            gps = Addgps();
-
-            //Заполение элемента правильным значением
-            data.AddElementgps(gps, index);
-
-            Console.Clear();
-
-            //Вызов метода построения меню
-            consolebd.Addcar8(strname, strlength, prkname, prkadress, prknumber, gps);
-
-            //Блок проверки на правильность ввода
-            string Addtpvio()
-            {
-
-                ConsoleKeyInfo key;
-
-                tpvio = " ";
-
-                key = Console.ReadKey(true);
-
-                Addtpvio1();
-
-                void Addtpvio1()
-                {
-
-                    if (key.Key == ConsoleKey.D1 || key.Key == ConsoleKey.D2 || key.Key == ConsoleKey.D3)
-                    {
-                        switch (key.Key)
-                        {
-                            case ConsoleKey.D1:
-                                tpvio = "Стоянка на проезжей части в месте запрета";
-                                break;
-
-                            case ConsoleKey.D2:
-                                tpvio = "Стоянка на тротуаре";
-                                break;
-
-                            case ConsoleKey.D3:
-                                tpvio = "Стоянка на газоне";
-                                break;
-
-                        }
-                    }
-                    else { Addtpvio(); }
-                }
-
-                //Проверка на правильность ввода
-                if (tpvio.Length > 50 || tpvio == "")
-                {
-                    Console.Clear();
-                    consolebd.Attention();
-                    Addtpvio();
-                }
-                return tpvio;
-            }
-
-            //Присвоение после удачного ввода
-            tpvio = Addtpvio();
-
-            //Заполение элемента правильными значениями
-            data.AddElementtpvio(tpvio, index);
-
-            //Блок проверки на правильность ввода
-            string Addcarnum()
-            {
-                Console.Clear();
-
-                //Вызов метода построения меню
-                consolebd.Addcar9(strname, strlength, prkname, prkadress, prknumber, gps, tpvio);
-
-                //присвоение переменной номера втомобиля значения с консоли
-                carnum = Console.ReadLine();
-
-                //Проверка на правильность ввода
-                if (carnum.Length > 50 || carnum == "")
-                {
-                    Console.Clear();
-                    consolebd.Attention();
-                    Addcarnum();
-                }
-                return carnum;
-            }
-
-            //Присвоение после удачного ввода
-            carnum = Addcarnum();
-
-            //Заполение элемента правильными значениями
-            data.Addcarnumber(carnum, index);
-
-            Console.Clear();
-
-            //Вызов метода построения меню
-            consolebd.Addcar10(strname, strlength, prkname, prkadress, prknumber, gps, tpvio, carnum);
-
-            //Блок проверки на правильность ввода
-            string Addcartp()
-            {
-
-                ConsoleKeyInfo key;
-
-                //Значение по умолчанию
-                cartp = " ";
-
-                key = Console.ReadKey(true);
-
-                Addtpcar1();
-
-                void Addtpcar1()
-                {
-
-                    if (key.Key == ConsoleKey.D1 || key.Key == ConsoleKey.D2 || key.Key == ConsoleKey.D3)
-                    {
-                        switch (key.Key)
-                        {
-                            case ConsoleKey.D1:
-                                cartp = "Легковой";
-                                break;
-
-                            case ConsoleKey.D2:
-                                cartp = "Грузовой малой тонажности";
-                                break;
-
-                            case ConsoleKey.D3:
-                                cartp = "Грузовой большой тонажности";
-                                break;
-
-                        }
-                    }
-                    else { Addcartp(); }
-                }
-
-                //проверка на правильность ввода
-                if (cartp.Length > 50 || cartp == "")
-                {
-                    Console.Clear();
-                    consolebd.Attention();
-                    Addcartp();
-                }
-
-                return cartp;
-            }
-
-            //присвоение после удачного ввода
-            cartp = Addcartp();
-
-            //Заполение элемента правильными значениями
-            data.Addcartype(cartp, index);
-
-            //очистка консоли
-            Console.Clear();
-
-            //Вызов метода построения меню
-            consolebd.Addcar11(strname, strlength, prkname, prkadress, prknumber, gps, tpvio, carnum, cartp);
+            //Создание экземпляра класса с полями, свойствами и методами для возвращения значений
+            Data data = new Data();
 
             //Переменная для хранения информации о нажатой клавише
-            ConsoleKeyInfo key2;
+            ConsoleKeyInfo key;
 
-            //Считывание клавиши
-            key2 = Console.ReadKey(true);
+            //Переменная для передачи параметра пункта меню
+            int j = 1;
 
-            while (key2.Key != ConsoleKey.Enter)
+            do
             {
-                key2 = Console.ReadKey(true);
-            }
+                // Считывание нажатой клавиши
+                key = Console.ReadKey(true);
 
-            //Очистка консоли
-            Console.Clear();
+                //If для отсеивания ложных нажатий
+                if (key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow || key.Key == ConsoleKey.Enter)
+                {
+                    //Очистка консоли
+                    Console.Clear();
 
-            //Выход в главное меню
-            Main();
+                    //оператор выбора
+                    switch (key.Key)
+                    {
+                        case ConsoleKey.DownArrow:
+                            j++;
+                            if (j > 4) { j = 1; }
+                            if (j < 1) { j = 4; }
+                            break;
 
-        }      //ДОДЕЛАТЬ ИСКЛЮЧЕНИЯ ДЛЯ GPS-КООРДИНАТ
+                        case ConsoleKey.UpArrow:
+                            j--;
+                            if (j > 4) { j = 1; }
+                            if (j < 1) { j = 4; }
+                            break;
+                    }
+
+                    //Вызов метода построения меню добавления элемента
+                    consolebd.AddElement(j);
+
+                    if (key.Key == ConsoleKey.Enter)
+                    {
+                        switch (j)
+                        {
+                            case 1:
+                                Console.Clear();
+                                
+                                break;
+
+                            case 2:
+                                Console.Clear();
+                                
+                                break;
+
+                            case 3:
+                                Console.Clear();
+                                
+                                break;
+
+                            case 4:
+                                Console.Clear();
+                                Main();
+                                break;
+                        }
+                    }
+                }
+
+            } while (key.Key != ConsoleKey.Enter);
+            
+
+        }    
 
         //Метод для считывания клавиш в меню выбора таблицы
         public static void Tables(int c)
@@ -673,7 +399,7 @@ namespace ConsoleApp6
                             break;
                     }
 
-                    //Вызов метода построения меню подтверждения выхода
+                    //Вызов метода построения меню таблиц
                     consolebd.Tables(c);
 
                     if (key.Key == ConsoleKey.Enter)
@@ -1425,6 +1151,8 @@ namespace ConsoleApp6
             
 
         }
+
+        //
 
     }
 }

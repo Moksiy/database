@@ -14,7 +14,7 @@ namespace ConsoleApp6
 
         //Поля для хранения пунктов меню
         public const string SearchFile = "Загрузка файла";
-        public const string AddCar = "Добавить эвакуированный автомобиль";
+        public const string AddCar = "Добавление";
         public const string Tabs = "Таблицы";
         public const string Search = "Поиск";
         public const string Redact = "Редактирование";
@@ -41,6 +41,9 @@ namespace ConsoleApp6
         public const string ExitMain = "                                 Выход в главное меню                                   ";
         public const string Deleteind = "Удаление по номеру элемента";
         public const string BackBig = "                                         Назад                                          ";
+        public const string AddStreet = "Добавить улицу";
+        public const string AddCarparking = "Добавить автостоянку";
+        public const string AddAct = "Добавить акт эвакуации";
 
 
         //Метод построения главного меню 1
@@ -60,7 +63,7 @@ namespace ConsoleApp6
             if (j == 2) { Console.BackgroundColor = ConsoleColor.Blue; }
             Console.Write(AddCar);
             Console.ResetColor();
-            Console.WriteLine(new string (' ', 54) + "║");
+            Console.WriteLine(new string (' ', 78) + "║");
             Console.Write("║ " + " ");
             if (j == 3) { Console.BackgroundColor = ConsoleColor.Blue; }
             Console.Write(Tabs);
@@ -113,6 +116,35 @@ namespace ConsoleApp6
             Console.WriteLine("╙" + new string('─', 90) + "╜");
         }
 
+        //Метод для построения меню добавления нового элемента
+        public void AddElement(int j)
+        {
+            Console.WriteLine("╓" + new string('─', 90) + "╖");
+            Console.WriteLine("║" + new string(' ', 26) + "             Добавление               " + new string(' ', 26) + "║");
+            Console.WriteLine("╟" + new string('─', 90) + "╢");
+            Console.Write("║ " + " ");
+            if (j == 1) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(AddStreet);
+            Console.ResetColor();
+            Console.WriteLine(new string(' ', 74) + "║");
+            Console.Write("║ " + " ");
+            if (j == 2) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(AddCarparking);
+            Console.ResetColor();
+            Console.WriteLine(new string(' ', 68) + "║");
+            Console.Write("║ " + " ");
+            if (j == 3) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(AddAct);
+            Console.ResetColor();
+            Console.WriteLine(new string(' ', 66) + "║");
+            Console.WriteLine("╟" + new string('─', 90) + "╢");
+            Console.Write("║ ");
+            if (j == 4) { Console.BackgroundColor = ConsoleColor.DarkRed; }
+            Console.Write(ExitMain);
+            Console.ResetColor();
+            Console.WriteLine(" ║");
+            Console.WriteLine("╙" + new string('─', 90) + "╜");
+        }
         
         //Метод для построения меню добавления авто
         public void Addcar(int c)
