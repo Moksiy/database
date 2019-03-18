@@ -693,5 +693,11 @@ namespace ConsoleApp6
             Console.WriteLine("║" + new string(' ', 90) + "║");
             Console.WriteLine("╙" + new string('─', 90) + "╜");
         }
+
+        //Метод построения меню добавления улицы
+        public void AddElemStreet(int j)
+        {
+            Console.WriteLine("");
+        }
     }
 }

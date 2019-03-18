@@ -276,7 +276,7 @@ namespace ConsoleApp6
         //Метод для считывания клавиш в меню добавления элементов
         public static void AddCar()
         {
-           
+
             //Объявление локальных переменных для передачи данных в список
             string tpvio;       //Тип нарушения
             string gps;         //GPS- координаты
@@ -336,17 +336,17 @@ namespace ConsoleApp6
                         {
                             case 1:
                                 Console.Clear();
-                                
+
                                 break;
 
                             case 2:
                                 Console.Clear();
-                                
+
                                 break;
 
                             case 3:
                                 Console.Clear();
-                                
+
                                 break;
 
                             case 4:
@@ -358,9 +358,9 @@ namespace ConsoleApp6
                 }
 
             } while (key.Key != ConsoleKey.Enter);
-            
 
-        }    
+
+        }
 
         //Метод для считывания клавиш в меню выбора таблицы
         public static void Tables(int c)
@@ -510,7 +510,7 @@ namespace ConsoleApp6
                 const string Next = "Далее";
                 const string Main = " Выход в главное меню ";
 
-                Console.WriteLine("╓" + new string ('─', 3) + "╥" + new string('─', 52) + "╥" + new string('─', 52) + "╖");
+                Console.WriteLine("╓" + new string('─', 3) + "╥" + new string('─', 52) + "╥" + new string('─', 52) + "╖");
                 Console.WriteLine("║" + " № " + "║" + new string(' ', 19) + "Название улицы" + new string(' ', 19) + "║" + new string(' ', 21) + "Длина улицы" + new string(' ', 20) + "║");
                 Console.WriteLine("╟" + new string('─', 3) + "╫" + new string('─', 52) + "╫" + new string('─', 52) + "╢");
                 int count = data.Count();
@@ -521,7 +521,7 @@ namespace ConsoleApp6
                     string number = Convert.ToString(i + 1);
                     Console.Write(number);
                     int g = 3 - number.Length;
-                    Console.Write(new string (' ',g) + "║ ");
+                    Console.Write(new string(' ', g) + "║ ");
                     string strname = data.OutPutSt(i);
                     int p = 50 - strname.Length;
                     Console.Write(strname);
@@ -535,7 +535,7 @@ namespace ConsoleApp6
                     Console.WriteLine("╟" + "───╫" + new string('─', 52) + "╫" + new string('─', 52) + "╢");
 
                 }
-                Console.WriteLine("╟" + new string('─', 3) + "╨" + new string('─', 20) + "╥" + new string ('─', 31) + "╨" + new string ('─', 44) + "╥" + new string('─', 7) + "╢");
+                Console.WriteLine("╟" + new string('─', 3) + "╨" + new string('─', 20) + "╥" + new string('─', 31) + "╨" + new string('─', 44) + "╥" + new string('─', 7) + "╢");
                 Console.Write("║ ");
                 if (c1 == 1) { Console.BackgroundColor = ConsoleColor.DarkRed; }
                 Console.Write(Main);
@@ -547,7 +547,7 @@ namespace ConsoleApp6
                 Console.Write(Next);
                 Console.ResetColor();
                 Console.WriteLine(" ║");
-                Console.WriteLine("╙" + new string('─', 24) + "╨" + new string('─', 76) + "╨" + new string ('─', 7) + "╜");
+                Console.WriteLine("╙" + new string('─', 24) + "╨" + new string('─', 76) + "╨" + new string('─', 7) + "╜");
             }
 
         }
@@ -655,9 +655,9 @@ namespace ConsoleApp6
                     Console.Write(prknumber);
                     Console.Write(new string(' ', p));
                     Console.WriteLine("║");
-                    Console.WriteLine("╟" + "───╫" + new string('─', 32) + "╫" + new string('─', 52) + "╫" + new string('─', 24) +"╢");
+                    Console.WriteLine("╟" + "───╫" + new string('─', 32) + "╫" + new string('─', 52) + "╫" + new string('─', 24) + "╢");
                 }
-                Console.WriteLine("╟" + new string('─', 3) + "╨" + new string('─', 20) + "╥" + new string('─', 11) + "╨" + new string('─', 52) + "╨" + new string ('─', 16) + "╥" + new string('─', 7) + "╢");
+                Console.WriteLine("╟" + new string('─', 3) + "╨" + new string('─', 20) + "╥" + new string('─', 11) + "╨" + new string('─', 52) + "╨" + new string('─', 16) + "╥" + new string('─', 7) + "╢");
                 Console.Write("║ ");
                 if (c1 == 1) { Console.BackgroundColor = ConsoleColor.DarkRed; }
                 Console.Write(Main);
@@ -839,7 +839,7 @@ namespace ConsoleApp6
         public static void SearchFileMain()
         {
             Console.Clear();
-           
+
             //Создание экземпляра класса с консольными таблицами
             Consolebd consolebd = new Consolebd();
 
@@ -942,7 +942,7 @@ namespace ConsoleApp6
                     //очистка консоли
                     Console.Clear();
 
-                    switch(key.Key)
+                    switch (key.Key)
                     {
                         //UPARROW
                         case ConsoleKey.UpArrow:
@@ -967,7 +967,7 @@ namespace ConsoleApp6
                     if (key.Key == ConsoleKey.Enter)
                     {
                         //Метод выбора
-                        switch(j)
+                        switch (j)
                         {
                             //1 ПУНКТ УДАЛЕНИЕ
                             case 1:
@@ -1118,7 +1118,7 @@ namespace ConsoleApp6
             indexstring = Console.ReadLine();
 
             //Проверка на правильность ввода
-            if (! Int32.TryParse(indexstring, out index))
+            if (!Int32.TryParse(indexstring, out index))
             {
                 Console.Clear();
                 consolebd.Attention();
@@ -1148,11 +1148,105 @@ namespace ConsoleApp6
 
 
 
-            
+
 
         }
 
-        //
+        //Метод меню добаваления улицы
+        public static void AddStreet()
+        {
+            //Очистка консоли
+            Console.Clear();
+
+            //Создание экземпляра класса построения меню
+            Consolebd consolebd = new Consolebd();
+
+            //Создание экземпляра класса с данными
+            Data data = new Data();
+
+            //Объявление переменно для хранения информации о нажатой клавише
+            ConsoleKeyInfo key;
+
+            //Объявление и инициализация переменной-счетчика для отображения выбранного пункта меню
+            int j = 1;
+
+            //Основной цикл выполнения
+            do
+            {
+                //Считывание информации о нажатой клавише
+                key = Console.ReadKey(true);
+
+                //Условие для отсеивания ложных нажатий
+                if (key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow || key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.LeftArrow || key.Key == ConsoleKey.RightArrow)
+                {
+                    //Очистка консоли
+                    Console.Clear();
+
+                    //оператор присвоения пункта меню
+                    switch(key.Key)
+                    {
+                        //UPARROW
+                        case ConsoleKey.UpArrow:
+                            j--;
+                            if (j < 1) { j = 3; }
+                            if (j > 3) { j = 1; }
+                            break;
+
+                        //DOWNARROW
+                        case ConsoleKey.DownArrow:
+                            j++;
+                            if (j < 1) { j = 3; }
+                            if (j > 3) { j = 1; }
+                            break;
+
+                        //LEFTARROW
+                        case ConsoleKey.LeftArrow:
+                            if (j == 3 || j == 300)
+                            {
+                                j /= 100;
+                                if (j < 3) { j = 300; }
+                                if (j > 300) { j = 3; }
+                            }
+                            break;
+
+                        //RIGHTARROW
+                        case ConsoleKey.RightArrow:
+                            if (j == 3 || j == 300)
+                            {
+                                j *= 100;
+                                if (j < 3) { j = 300; }
+                                if (j > 300) { j = 3; }
+                            }
+                            break;
+                    }
+
+                    //Вызов метода построения добавления улицы с передачей переменной в качестве параметра
+                    consolebd.AddElemStreet(j);
+
+                    //Выбор пункта меню добавления улицы
+                    if (key.Key == ConsoleKey.Enter)
+                    {
+                        //Выбор пункта мпню
+                        switch(j)
+                        {
+                            case 1:
+                                break;
+
+                            case 2:
+                                break;
+
+                            case 3:
+                                break;
+
+                            case 300:
+                                break;
+                        }
+                    }
+                }
+            }
+            while (key.Key != ConsoleKey.Enter);
+
+        }
 
     }
 }
