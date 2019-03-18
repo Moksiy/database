@@ -22,15 +22,15 @@ namespace ConsoleApp6
         public const string Exit1 = "                                        Выход                                           ";
         public const string Yes = "  Да   ";
         public const string No = "  Нет  ";
-        public const string StreetName = "Название улицы: ";
-        public const string StreetLength = "Длина улицы: ";
-        public const string ParkingName = "Название автостоянки: ";
-        public const string ParkingAdress = "Адрес автостоянки: ";
-        public const string ParkingNumber = "Телефон автостоянки: ";
-        public const string GPS = "GPS-координаты: ";
-        public const string TypeViolation = "Тип нарушения: ";
-        public const string CarNumber = "Номер автомобиля: ";
-        public const string Cartype = "Тип автомобиля: ";
+        public const string StreetName = "Название улицы ";
+        public const string StreetLength = "Длина улицы ";
+        public const string ParkingName = "Название автостоянки ";
+        public const string ParkingAdress = "Адрес автостоянки ";
+        public const string ParkingNumber = "Телефон автостоянки ";
+        public const string GPS = "GPS-координаты ";
+        public const string TypeViolation = "Тип нарушения ";
+        public const string CarNumber = "Номер автомобиля ";
+        public const string Cartype = "Тип автомобиля ";
         public const string Next = " Далее ";
         public const string Back = " Назад ";
         public const string Tablest = "Таблица улиц";
@@ -44,6 +44,7 @@ namespace ConsoleApp6
         public const string AddStreet = "Добавить улицу";
         public const string AddCarparking = "Добавить автостоянку";
         public const string AddAct = "Добавить акт эвакуации";
+        public const string Save = " Сохранить ";
 
 
         //Метод построения главного меню 1
@@ -117,6 +118,7 @@ namespace ConsoleApp6
         }
 
         //Метод для построения меню добавления нового элемента
+        //Главное меню добавления элемента
         public void AddElement(int j)
         {
             Console.WriteLine("╓" + new string('─', 90) + "╖");
@@ -145,393 +147,7 @@ namespace ConsoleApp6
             Console.WriteLine(" ║");
             Console.WriteLine("╙" + new string('─', 90) + "╜");
         }
-        
-        //Метод для построения меню добавления авто
-        public void Addcar(int c)
-        {
-            Console.WriteLine("╓" + new string('─', 90) + "╖");
-            Console.WriteLine("║" + new string(' ', 26) + " Добавление эвакуированного автомобиля" + new string(' ', 26) + "║");
-            Console.WriteLine("╟" + new string('─', 90) + "╢");
-            Console.WriteLine("║ " + "Ввод информации:                    " + new string(' ', 53) + "║");
-            Console.WriteLine("║ " + "      -Название улицы               " + new string(' ', 53) + "║");
-            Console.WriteLine("║ " + "      -Длина улицы                  " + new string(' ', 53) + "║");
-            Console.WriteLine("║ " + "      -Название автостоянки         " + new string(' ', 53) + "║");
-            Console.WriteLine("║ " + "      -Адрес автостоянки            " + new string(' ', 53) + "║");
-            Console.WriteLine("║ " + "      -Телефон автостоянки          " + new string(' ', 53) + "║");
-            Console.WriteLine("║ " + "      -GPS-координаты               " + new string(' ', 53) + "║");
-            Console.WriteLine("║ " + "      -Тип нарушения                " + new string(' ', 53) + "║");
-            Console.WriteLine("║ " + "      -Номер автомобиля             " + new string(' ', 53) + "║");
-            Console.WriteLine("║ " + "      -Тип автомобиля               " + new string(' ', 53) + "║");
-            Console.WriteLine("║" + new string(' ', 90) + "║");
-            Console.Write("║" + new string (' ',5));
-            if (c == 1) { Console.BackgroundColor = ConsoleColor.DarkRed; }
-            Console.Write(Back);
-            Console.ResetColor();
-            Console.Write(new string (' ', 66));
-            if (c == 2) { Console.BackgroundColor = ConsoleColor.Blue; }
-            Console.Write(Next);
-            Console.ResetColor();
-            Console.WriteLine(new string(' ', 5) + "║");
-            Console.WriteLine("╙" + new string('─', 90) + "╜");
-        }
-
-        //Метод построения меню 2-2 добавления авто
-        public void Addcar3(string sname)
-        {
-            int p = 0;
-            Console.WriteLine("╓" + new string('─', 90) + "╖");
-            Console.WriteLine("║" + new string(' ', 26) + " Добавление эвакуированного автомобиля" + new string(' ', 26) + "║");
-            Console.WriteLine("╟" + new string('─', 90) + "╢");
-            Console.WriteLine("║ " + "Введенная информация:               " + new string(' ', 53) + "║");
-            Console.Write("║ " + "      -Название улицы: ");
-            Console.Write(sname);
-            int len = sname.Length;
-            p = 66 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.WriteLine("╙" + new string('─', 90) + "╜");
-            Console.Write("Введите длину улицы: ");
-
-        }
-
-        //Метод построения меню 2 добавления авто
-        public void Addcar2()
-        {
-            Console.WriteLine("╓" + new string('─', 90) + "╖");
-            Console.WriteLine("║" + new string(' ', 26) + " Добавление эвакуированного автомобиля" + new string(' ', 26) + "║");
-            Console.WriteLine("╟" + new string('─', 90) + "╢");
-            Console.WriteLine("║ " + "Введенная информация:               " + new string(' ', 53) + "║");
-            Console.WriteLine("║" + new string(' ', 90) + "║");
-            Console.WriteLine("╙" + new string('─', 90) + "╜");
-            Console.Write("Введите название улицы: ");
-        }
-
-        //Метод построения меню 4 добавления авто
-        public void Addcar4(string sname, string stlength)
-        {
-            int p = 0;
-            Console.WriteLine("╓" + new string('─', 90) + "╖");
-            Console.WriteLine("║" + new string(' ', 26) + " Добавление эвакуированного автомобиля" + new string(' ', 26) + "║");
-            Console.WriteLine("╟" + new string('─', 90) + "╢");
-            Console.WriteLine("║ " + "Введенная информация:               " + new string(' ', 53) + "║");
-            Console.Write("║ " + "      -Название улицы: ");
-            Console.Write(sname);
-            int len = sname.Length;
-            p = 66 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -Длина улицы: ");
-            Console.Write(stlength);
-            len = stlength.Length;
-            p = 69 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.WriteLine("╙" + new string('─', 90) + "╜");
-            Console.Write("Введите название автостоянки: ");
-
-        }
-
-        //Метод построения меню 5 добавления авто
-        public void Addcar5(string sname, string stlength, string pname)
-        {
-            int p = 0;
-            Console.WriteLine("╓" + new string('─', 90) + "╖");
-            Console.WriteLine("║" + new string(' ', 26) + " Добавление эвакуированного автомобиля" + new string(' ', 26) + "║");
-            Console.WriteLine("╟" + new string('─', 90) + "╢");
-            Console.WriteLine("║ " + "Введенная информация:               " + new string(' ', 53) + "║");
-            Console.Write("║ " + "      -Название улицы: ");
-            Console.Write(sname);
-            int len = sname.Length;
-            p = 66 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -Длина улицы: ");
-            Console.Write(stlength);
-            len = stlength.Length;
-            p = 69 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -Название автостоянки: ");
-            Console.Write(pname);
-            len = pname.Length;
-            p = 60 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.WriteLine("╙" + new string('─', 90) + "╜");
-            Console.Write("Введите адрес автостоянки: ");
-        }
-
-        //Метод построения меню 6 добавления авто
-        public void Addcar6(string sname, string stlength, string pname, string padress)
-        {
-            int p = 0;
-            Console.WriteLine("╓" + new string('─', 90) + "╖");
-            Console.WriteLine("║" + new string(' ', 26) + " Добавление эвакуированного автомобиля" + new string(' ', 26) + "║");
-            Console.WriteLine("╟" + new string('─', 90) + "╢");
-            Console.WriteLine("║ " + "Введенная информация:               " + new string(' ', 53) + "║");
-            Console.Write("║ " + "      -Название улицы: ");
-            Console.Write(sname);
-            int len = sname.Length;
-            p = 66 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -Длина улицы: ");
-            Console.Write(stlength);
-            len = stlength.Length;
-            p = 69 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -Название автостоянки: ");
-            Console.Write(pname);
-            len = pname.Length;
-            p = 60 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -Адрес автостоянки: ");
-            Console.Write(padress);
-            len = padress.Length;
-            p = 63 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.WriteLine("╙" + new string('─', 90) + "╜");
-            Console.Write("Введите телефон автостоянки: ");
-        }
-
-        //Метод построения меню 7 добавления авто
-        public void Addcar7(string sname, string stlength, string pname, string padress, string pnumber)
-        {
-            int p = 0;
-            Console.WriteLine("╓" + new string('─', 90) + "╖");
-            Console.WriteLine("║" + new string(' ', 26) + " Добавление эвакуированного автомобиля" + new string(' ', 26) + "║");
-            Console.WriteLine("╟" + new string('─', 90) + "╢");
-            Console.WriteLine("║ " + "Введенная информация:               " + new string(' ', 53) + "║");
-            Console.Write("║ " + "      -Название улицы: ");
-            Console.Write(sname);
-            int len = sname.Length;
-            p = 66 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -Длина улицы: ");
-            Console.Write(stlength);
-            len = stlength.Length;
-            p = 69 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -Название автостоянки: ");
-            Console.Write(pname);
-            len = pname.Length;
-            p = 60 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -Адрес автостоянки: ");
-            Console.Write(padress);
-            len = padress.Length;
-            p = 63 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -Телефон автостоянки: ");
-            Console.Write(pnumber);
-            len = pnumber.Length;
-            p = 61 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.WriteLine("╙" + new string('─', 90) + "╜");
-            Console.Write("Введите GPS-координаты: ");
-        }
-
-        //Метод построения меню 8 добавления авто
-        public void Addcar8(string sname, string stlength, string pname, string padress, string pnumber, string GPS)
-        {
-            int p = 0;
-            Console.WriteLine("╓" + new string('─', 90) + "╖");
-            Console.WriteLine("║" + new string(' ', 26) + " Добавление эвакуированного автомобиля" + new string(' ', 26) + "║");
-            Console.WriteLine("╟" + new string('─', 90) + "╢");
-            Console.WriteLine("║ " + "Введенная информация:               " + new string(' ', 53) + "║");
-            Console.Write("║ " + "      -Название улицы: ");
-            Console.Write(sname);
-            int len = sname.Length;
-            p = 66 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -Длина улицы: ");
-            Console.Write(stlength);
-            len = stlength.Length;
-            p = 69 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -Название автостоянки: ");
-            Console.Write(pname);
-            len = pname.Length;
-            p = 60 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -Адрес автостоянки: ");
-            Console.Write(padress);
-            len = padress.Length;
-            p = 63 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -Телефон автостоянки: ");
-            Console.Write(pnumber);
-            len = pnumber.Length;
-            p = 61 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -GPS-координаты: ");
-            Console.Write(GPS);
-            len = GPS.Length;
-            p = 66 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.WriteLine("║" + new string('─', 90) + "║");
-            Console.WriteLine("║" + " Выберите тип нарушения:" + new string (' ', 66) + "║");
-            Console.WriteLine("║" + " 1. Стоянка на проезжей части в месте запрета" + new string(' ', 45) + "║");
-            Console.WriteLine("║" + " 2. Стоянка на тротуаре  " + new string(' ', 65) + "║");
-            Console.WriteLine("║" + " 3. Стоянка на газоне  " + new string(' ', 67) + "║");
-            Console.WriteLine("╙" + new string('─', 90) + "╜");
-            Console.Write("Выберите тип нарушения: ");
-        }
-
-        //Метод построения меню 8 добавления авто
-        public void Addcar9(string sname, string stlength, string pname, string padress, string pnumber, string GPS, string vio)
-        {
-            int p = 0;
-            Console.WriteLine("╓" + new string('─', 90) + "╖");
-            Console.WriteLine("║" + new string(' ', 26) + " Добавление эвакуированного автомобиля" + new string(' ', 26) + "║");
-            Console.WriteLine("╟" + new string('─', 90) + "╢");
-            Console.WriteLine("║ " + "Введенная информация:               " + new string(' ', 53) + "║");
-            Console.Write("║ " + "      -Название улицы: ");
-            Console.Write(sname);
-            int len = sname.Length;
-            p = 66 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -Длина улицы: ");
-            Console.Write(stlength);
-            len = stlength.Length;
-            p = 69 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -Название автостоянки: ");
-            Console.Write(pname);
-            len = pname.Length;
-            p = 60 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -Адрес автостоянки: ");
-            Console.Write(padress);
-            len = padress.Length;
-            p = 63 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -Телефон автостоянки: ");
-            Console.Write(pnumber);
-            len = pnumber.Length;
-            p = 61 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -GPS-координаты: ");
-            Console.Write(GPS);
-            len = GPS.Length;
-            p = 66 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -Тип нарушения: ");
-            Console.Write(vio);
-            len = vio.Length;
-            p = 67 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.WriteLine("╙" + new string('─', 90) + "╜");
-            Console.Write("Введите номер автомобиля: ");
-        }
-
-        //Метод построения меню 8 добавления авто
-        public void Addcar10(string sname, string stlength, string pname, string padress, string pnumber, string GPS, string vio, string carnm)
-        {
-            int p = 0;
-            Console.WriteLine("╓" + new string('─', 90) + "╖");
-            Console.WriteLine("║" + new string(' ', 26) + " Добавление эвакуированного автомобиля" + new string(' ', 26) + "║");
-            Console.WriteLine("╟" + new string('─', 90) + "╢");
-            Console.WriteLine("║ " + "Введенная информация:               " + new string(' ', 53) + "║");
-            Console.Write("║ " + "      -Название улицы: ");
-            Console.Write(sname);
-            int len = sname.Length;
-            p = 66 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -Длина улицы: ");
-            Console.Write(stlength);
-            len = stlength.Length;
-            p = 69 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -Название автостоянки: ");
-            Console.Write(pname);
-            len = pname.Length;
-            p = 60 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -Адрес автостоянки: ");
-            Console.Write(padress);
-            len = padress.Length;
-            p = 63 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -Телефон автостоянки: ");
-            Console.Write(pnumber);
-            len = pnumber.Length;
-            p = 61 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -GPS-координаты: ");
-            Console.Write(GPS);
-            len = GPS.Length;
-            p = 66 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -Тип нарушения: ");
-            Console.Write(vio);
-            len = vio.Length;
-            p = 67 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -Номер автомобиля: ");
-            Console.Write(carnm);
-            len = carnm.Length;
-            p = 64 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.WriteLine("║" + new string('─', 90) + "║");
-            Console.WriteLine("║" + " Выберите тип автомобиля:" + new string(' ', 65) + "║");
-            Console.WriteLine("║" + " 1. Легковой" + new string(' ', 78) + "║");
-            Console.WriteLine("║" + " 2. Грузовой малой тонажности" + new string(' ', 61) + "║");
-            Console.WriteLine("║" + " 3. Грузовой большой тонажности" + new string(' ', 59) + "║");
-            Console.WriteLine("╙" + new string('─', 90) + "╜");
-            Console.Write("Выберете тип автомобиля: ");
-        }
-
-        //Метод построения меню 8 добавления авто
-        public void Addcar11(string sname, string stlength, string pname, string padress, string pnumber, string GPS, string vio, string carnm, string cart)
-        {
-            int p = 0;
-            Console.WriteLine("╓" + new string('─', 90) + "╖");
-            Console.WriteLine("║" + new string(' ', 26) + " Добавление эвакуированного автомобиля" + new string(' ', 26) + "║");
-            Console.WriteLine("╟" + new string('─', 90) + "╢");
-            Console.WriteLine("║ " + "Введенная информация:               " + new string(' ', 53) + "║");
-            Console.Write("║ " + "      -Название улицы: ");
-            Console.Write(sname);
-            int len = sname.Length;
-            p = 66 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -Длина улицы: ");
-            Console.Write(stlength);
-            len = stlength.Length;
-            p = 69 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -Название автостоянки: ");
-            Console.Write(pname);
-            len = pname.Length;
-            p = 60 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -Адрес автостоянки: ");
-            Console.Write(padress);
-            len = padress.Length;
-            p = 63 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -Телефон автостоянки: ");
-            Console.Write(pnumber);
-            len = pnumber.Length;
-            p = 61 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -GPS-координаты: ");
-            Console.Write(GPS);
-            len = GPS.Length;
-            p = 66 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -Тип нарушения: ");
-            Console.Write(vio);
-            len = vio.Length;
-            p = 67 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -Номер автомобиля: ");
-            Console.Write(carnm);
-            len = carnm.Length;
-            p = 64 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.Write("║ " + "      -Тип автомобиля: ");
-            Console.Write(cart);
-            len = cart.Length;
-            p = 66 - len;
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.WriteLine("╙" + new string('─', 90) + "╜");
-            Console.Write("                       Нажмите Enter чтобы выйти в главное меню  ");
-        }
-
+         
         //Метод построения меню предупреждения
         public void Attention()
         {
@@ -695,9 +311,76 @@ namespace ConsoleApp6
         }
 
         //Метод построения меню добавления улицы
-        public void AddElemStreet(int j)
+        public void AddElemStreet(int j, string stname, string stlen)
         {
-            Console.WriteLine("");
+            Console.WriteLine("╓" + new string('─', 90) + "╖");
+            Console.WriteLine("║" + new string(' ', 26) + "            Добавление улицы          " + new string(' ', 26) + "║");
+            Console.WriteLine("╟" + new string('─', 17) + "╥" + new string('─', 72)+ "╢");
+            Console.Write("║ ");
+            if (j == 1) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(StreetName);
+            Console.ResetColor();
+            Console.Write(" ║ ");
+            Console.Write(stname);
+            int p = 71 - stname.Length;
+            Console.WriteLine(new string(' ', p) + "║");
+            Console.WriteLine("╟" + new string('─', 17) + "╫" + new string('─', 72) + "╢");
+            Console.Write("║ ");
+            if (j == 2) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(StreetLength);
+            Console.ResetColor();
+            Console.Write("    ║ " + stlen);
+            p = 71 - stlen.Length;
+            Console.WriteLine(new string(' ', p) + "║");
+            Console.WriteLine("╟" + new string('─', 17) + "╨" + new string('─', 72) + "╢");
+            Console.Write("║" + new string(' ', 10));
+            if (j == 3) { Console.BackgroundColor = ConsoleColor.Red; }
+            Console.Write(Back);
+            Console.ResetColor();
+            Console.Write(new string(' ', 12) + "║ Выберете пункт для ввода ║" + new string(' ', 12));
+            if (j == 300) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(Save);
+            Console.ResetColor();
+            Console.WriteLine(new string(' ', 10) + "║");
+            Console.WriteLine("╙" + new string('─', 90) + "╜");
+        }
+
+        //Метод вывода предупреждения в случае пустого поля при добавлении элемента
+        public void AttentionAddElement()
+        {
+            //Отступ
+            for (int i = 0; i < 4; i++)
+            {
+                Console.WriteLine();
+            }
+            //Прорисовка самой таблицы
+            Console.WriteLine("╓" + new string('─', 90) + "╖");
+            Console.WriteLine("║" + new string(' ', 26) + "                 ОШИБКА               " + new string(' ', 26) + "║");
+            Console.WriteLine("║" + new string(' ', 90) + "║");
+            Console.WriteLine("║" + new string(' ', 26) + "        Некорректный ввод данных      " + new string(' ', 26) + "║");
+            Console.WriteLine("║" + new string(' ', 90) + "║");
+            Console.WriteLine("║" + new string(' ', 90) + "║");
+            Console.WriteLine("║" + new string(' ', 26) + " Нажмите любую клавишу для продолжения" + new string(' ', 26) + "║");
+            Console.WriteLine("║" + new string(' ', 90) + "║");
+            Console.WriteLine("╙" + new string('─', 90) + "╜");
+            Console.ReadKey();
+
+        }
+
+        //Метод вывода предупреждения о том, что не все поля заполены
+        public void AttentionNullableFields()
+        {
+            Console.WriteLine("╓" + new string('─', 90) + "╖");
+            Console.WriteLine("║" + new string(' ', 26) + "                 ОШИБКА               " + new string(' ', 26) + "║");
+            Console.WriteLine("║" + new string(' ', 90) + "║");
+            Console.WriteLine("║" + new string(' ', 26) + "        Некорректный ввод данных      " + new string(' ', 26) + "║");
+            Console.WriteLine("║" + new string(' ', 24) + "    Присутствуют незаполненные строки     " + new string(' ', 24) + "║");
+            Console.WriteLine("║" + new string(' ', 90) + "║");
+            Console.WriteLine("║" + new string(' ', 90) + "║");
+            Console.WriteLine("║" + new string(' ', 26) + " Нажмите любую клавишу для продолжения" + new string(' ', 26) + "║");
+            Console.WriteLine("║" + new string(' ', 90) + "║");
+            Console.WriteLine("╙" + new string('─', 90) + "╜");
+            Console.ReadKey();
         }
     }
 }
