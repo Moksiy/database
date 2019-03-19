@@ -8,7 +8,7 @@ namespace ConsoleApp6
 {
     //Значки псевдографики, используемые для построения таблицы ╓ ╥ ╖ ╟ ╫ ╢ ╙ ╨ ╜ ─ ║
 
-    public class Consolebd 
+    public class Consolebd
     {
         Data data = new Data();
 
@@ -39,12 +39,15 @@ namespace ConsoleApp6
         public const string Delete = "Удаление";
         public const string Edit = "Редактирование";
         public const string ExitMain = "                                 Выход в главное меню                                   ";
-        public const string Deleteind = "Удаление по номеру элемента";
+        public const string Deleteind = " Удаление по номеру элемента ";
         public const string BackBig = "                                         Назад                                          ";
         public const string AddStreet = "Добавить улицу";
         public const string AddCarparking = "Добавить автостоянку";
         public const string AddAct = "Добавить акт эвакуации";
         public const string Save = " Сохранить ";
+        public const string DeleteStreet = " Удалить улицу ";
+        public const string DeleteParking = " Удалить автостоянку ";
+        public const string DeleteAct = " Удалить акт эвакуации ";
 
 
         //Метод построения главного меню 1
@@ -52,19 +55,19 @@ namespace ConsoleApp6
         {
             //Методы построения таблицы
 
-            Console.WriteLine("╓" + new string ('─', 90) + "╖");
-            Console.WriteLine("║" + new string (' ', 26) + "База данных эвакуированных автомобилей" + new string(' ',26) + "║");
-            Console.WriteLine("╟" + new string ('─', 90) + "╢");
+            Console.WriteLine("╓" + new string('─', 90) + "╖");
+            Console.WriteLine("║" + new string(' ', 26) + "База данных эвакуированных автомобилей" + new string(' ', 26) + "║");
+            Console.WriteLine("╟" + new string('─', 90) + "╢");
             Console.Write("║ " + " ");
-            if (j == 1) { Console.BackgroundColor = ConsoleColor.Blue; } 
+            if (j == 1) { Console.BackgroundColor = ConsoleColor.Blue; }
             Console.Write(SearchFile);
             Console.ResetColor();
-            Console.WriteLine(new string ( ' ', 74) + "║");
+            Console.WriteLine(new string(' ', 74) + "║");
             Console.Write("║ " + " ");
             if (j == 2) { Console.BackgroundColor = ConsoleColor.Blue; }
             Console.Write(AddCar);
             Console.ResetColor();
-            Console.WriteLine(new string (' ', 78) + "║");
+            Console.WriteLine(new string(' ', 78) + "║");
             Console.Write("║ " + " ");
             if (j == 3) { Console.BackgroundColor = ConsoleColor.Blue; }
             Console.Write(Tabs);
@@ -91,7 +94,7 @@ namespace ConsoleApp6
             Console.Write(Exit1);
             Console.ResetColor();
             Console.WriteLine(" ║");
-            Console.WriteLine("╙" + new string ('─', 90) + "╜");
+            Console.WriteLine("╙" + new string('─', 90) + "╜");
         }
 
         //Метод для построения меню подтверждения выхода
@@ -104,11 +107,11 @@ namespace ConsoleApp6
             }
             Console.WriteLine("║" + new string(' ', 24) + "Вы уверены, что хотите выйти из программы?" + new string(' ', 24) + "║");
             Console.WriteLine("║" + new string(' ', 90) + "║");
-            Console.Write("║" + new string (' ', 33));
+            Console.Write("║" + new string(' ', 33));
             if (e == 1) { Console.BackgroundColor = ConsoleColor.DarkRed; }
             Console.Write(Yes);
             Console.ResetColor();
-            Console.Write(new string (' ', 10));
+            Console.Write(new string(' ', 10));
             if (e == 2) { Console.BackgroundColor = ConsoleColor.Blue; }
             Console.Write(No);
             Console.ResetColor();
@@ -147,7 +150,7 @@ namespace ConsoleApp6
             Console.WriteLine(" ║");
             Console.WriteLine("╙" + new string('─', 90) + "╜");
         }
-         
+
         //Метод построения меню предупреждения
         public void Attention()
         {
@@ -174,7 +177,7 @@ namespace ConsoleApp6
             Console.WriteLine("║" + new string(' ', 26) + " Добавление эвакуированного автомобиля" + new string(' ', 26) + "║");
             Console.WriteLine("║" + new string(' ', 26) + "             Загрузка файла           " + new string(' ', 26) + "║");
             Console.WriteLine("╟" + new string('─', 90) + "╢");
-            Console.WriteLine("║ " + "Загруженный файл: " + new string (' ', 71) + "║");
+            Console.WriteLine("║ " + "Загруженный файл: " + new string(' ', 71) + "║");
             Console.WriteLine("║" + new string(' ', 90) + "║");
             Console.WriteLine("╙" + new string('─', 90) + "╜");
             Console.Write("  Введите имя файла: ");
@@ -193,7 +196,7 @@ namespace ConsoleApp6
             Console.Write("║ " + "Загруженный файл: ");
             Console.Write(data.FileName);
             int p = 71 - data.FilenameLength();
-            Console.WriteLine( new string(' ', p) + "║");
+            Console.WriteLine(new string(' ', p) + "║");
             Console.WriteLine("║" + new string(' ', 90) + "║");
             Console.WriteLine("╙" + new string('─', 90) + "╜");
         }
@@ -281,22 +284,57 @@ namespace ConsoleApp6
             Console.WriteLine("╟" + new string('─', 90) + "╢");
             Console.Write("║ " + " ");
             if (j == 1) { Console.BackgroundColor = ConsoleColor.Blue; }
-            Console.Write(Deleteind);
+            Console.Write(DeleteStreet);
             Console.ResetColor();
-            Console.WriteLine(new string(' ', 61) + "║");
+            Console.WriteLine(new string(' ', 73) + "║");
             Console.Write("║ " + " ");
             if (j == 2) { Console.BackgroundColor = ConsoleColor.Blue; }
-            Console.Write(Edit);
+            Console.Write(DeleteParking);
             Console.ResetColor();
-            Console.WriteLine(new string(' ', 74) + "║");
+            Console.WriteLine(new string(' ', 67) + "║");
+            Console.Write("║ " + " ");
+            if (j == 3) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(DeleteAct);
+            Console.ResetColor();
+            Console.WriteLine(new string(' ', 65) + "║");
             Console.WriteLine("╟" + new string('─', 90) + "╢");
             Console.Write("║ ");
-            if (j == 3) { Console.BackgroundColor = ConsoleColor.DarkRed; }
+            if (j == 4) { Console.BackgroundColor = ConsoleColor.DarkRed; }
             Console.Write(BackBig);
             Console.ResetColor();
             Console.WriteLine(" ║");
             Console.WriteLine("╙" + new string('─', 90) + "╜");
 
+        }
+
+        //Метод построения меню выбора типа удаления элемента
+        public void ChoiseTypeOfDelete(int j)
+        {
+            Console.WriteLine("╓" + new string('─', 90) + "╖");
+            Console.WriteLine("║" + new string(' ', 26) + "        Выберите тип удаления         " + new string(' ', 26) + "║");
+            Console.WriteLine("╟" + new string('─', 90) + "╢");
+            Console.Write("║ " + " ");
+            if (j == 1) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(Deleteind);
+            Console.ResetColor();
+            Console.WriteLine(new string(' ', 59) + "║");
+            Console.Write("║ " + " ");
+            if (j == 2) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(DeleteParking);
+            Console.ResetColor();
+            Console.WriteLine(new string(' ', 67) + "║");
+            Console.Write("║ " + " ");
+            if (j == 3) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(DeleteAct);
+            Console.ResetColor();
+            Console.WriteLine(new string(' ', 65) + "║");
+            Console.WriteLine("╟" + new string('─', 90) + "╢");
+            Console.Write("║ ");
+            if (j == 4) { Console.BackgroundColor = ConsoleColor.DarkRed; }
+            Console.Write(BackBig);
+            Console.ResetColor();
+            Console.WriteLine(" ║");
+            Console.WriteLine("╙" + new string('─', 90) + "╜");
         }
 
         //Метод построения меню удаления элемента по индексу
@@ -305,7 +343,7 @@ namespace ConsoleApp6
             Console.WriteLine("╓" + new string('─', 90) + "╖");
             Console.WriteLine("║" + new string(' ', 26) + "     Удаление элемента по индексу     " + new string(' ', 26) + "║");
             Console.WriteLine("╟" + new string('─', 90) + "╢");
-            Console.WriteLine("║ Введите индекс элемента: " + new string (' ',64) + "║");
+            Console.WriteLine("║ Введите индекс элемента: " + new string(' ', 64) + "║");
             Console.WriteLine("║" + new string(' ', 90) + "║");
             Console.WriteLine("╙" + new string('─', 90) + "╜");
         }
@@ -315,7 +353,7 @@ namespace ConsoleApp6
         {
             Console.WriteLine("╓" + new string('─', 90) + "╖");
             Console.WriteLine("║" + new string(' ', 26) + "            Добавление улицы          " + new string(' ', 26) + "║");
-            Console.WriteLine("╟" + new string('─', 17) + "╥" + new string('─', 72)+ "╢");
+            Console.WriteLine("╟" + new string('─', 17) + "╥" + new string('─', 72) + "╢");
             Console.Write("║ ");
             if (j == 1) { Console.BackgroundColor = ConsoleColor.Blue; }
             Console.Write(StreetName);
@@ -425,7 +463,7 @@ namespace ConsoleApp6
             if (j == 1) { Console.BackgroundColor = ConsoleColor.Blue; }
             Console.Write(ParkingName);
             Console.ResetColor();
-            Console.Write(new string(' ',6) + " ║ ");
+            Console.Write(new string(' ', 6) + " ║ ");
             Console.Write(prkname);
             int p = 71 - prkname.Length;
             Console.WriteLine(new string(' ', p) + "║");
@@ -434,7 +472,7 @@ namespace ConsoleApp6
             if (j == 2) { Console.BackgroundColor = ConsoleColor.Blue; }
             Console.Write(ParkingAdress);
             Console.ResetColor();
-            Console.Write(new string(' ',9) + " ║ " + prkadress);
+            Console.Write(new string(' ', 9) + " ║ " + prkadress);
             p = 71 - prkadress.Length;
             Console.WriteLine(new string(' ', p) + "║");
             Console.WriteLine("╟" + new string('─', 17) + "╫" + new string('─', 72) + "╢");
@@ -456,6 +494,21 @@ namespace ConsoleApp6
             Console.ResetColor();
             Console.WriteLine(new string(' ', 10) + "║");
             Console.WriteLine("╙" + new string('─', 90) + "╜");
+        }
+
+        //Метод построения окна предупреждения несуществуещего элемента
+        public void AttentionDeleteElement()
+        {
+            Console.WriteLine("╓" + new string('─', 90) + "╖");
+            Console.WriteLine("║" + new string(' ', 26) + "                 ОШИБКА               " + new string(' ', 26) + "║");
+            Console.WriteLine("║" + new string(' ', 90) + "║");
+            Console.WriteLine("║" + new string(' ', 23) + "Элемента по введенному индексу не существует" + new string(' ', 23) + "║");
+            Console.WriteLine("║" + new string(' ', 90) + "║");
+            Console.WriteLine("║" + new string(' ', 90) + "║");
+            Console.WriteLine("║" + new string(' ', 26) + " Нажмите любую клавишу для продолжения" + new string(' ', 26) + "║");
+            Console.WriteLine("║" + new string(' ', 90) + "║");
+            Console.WriteLine("╙" + new string('─', 90) + "╜");
+            Console.ReadKey();
         }
     }
 }

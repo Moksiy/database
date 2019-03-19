@@ -37,7 +37,7 @@ namespace ConsoleApp6
 
         //Создание списка таблицы 3
         static List<ElementsTab3> Tab3List = new List<ElementsTab3>(100);
-        
+
         //Поле имени файла
         private static string filename;
 
@@ -70,7 +70,7 @@ namespace ConsoleApp6
         //string prkadress;
         //string prknumber;
 
-            //Метод для ввода названия улицы в список
+        //Метод для ввода названия улицы в список
         public void AddElementStrname(string sname, int ind)
         {
             Tab2List[ind].StreetName = sname;
@@ -145,7 +145,7 @@ namespace ConsoleApp6
         //Метод, возвращающий название улицы
         public string OutPutSt(int i)
         {
-            return Tab2List[i].StreetName; 
+            return Tab2List[i].StreetName;
         }
 
         //Метод, возвращающий длину улицы
@@ -215,11 +215,21 @@ namespace ConsoleApp6
         }
 
 
-        //Метод удаления элементов по индексам
-        public void DeleteElement(int i)
+        //Метод удаления элементов по индексам из списка 1
+        public void DeleteElementTab1(int i)
         {
             Tab1List.RemoveAt(i);
+        }
+
+        //Метод удаления элементов по индексам из списка 2
+        public void DeleteElementTab2(int i)
+        {
             Tab2List.RemoveAt(i);
+        }
+
+        //Метод удаления элементов по индексам из списка 3
+        public void DeleteElementTab3(int i)
+        {
             Tab3List.RemoveAt(i);
         }
 
@@ -230,7 +240,7 @@ namespace ConsoleApp6
             bool result = true;
 
             //Основной цикл перебора элементов
-            foreach(ElementsTab2 Tab2 in Tab2List)
+            foreach (ElementsTab2 Tab2 in Tab2List)
             {
                 if (streetname == Tab2.StreetName)
                 {
@@ -248,18 +258,18 @@ namespace ConsoleApp6
             bool result = true;
 
             //основной цикл перебора элементов
-            foreach(ElementsTab3 Tab3 in Tab3List)
+            foreach (ElementsTab3 Tab3 in Tab3List)
             {
                 if (prkname == Tab3.ParkingName)
                 {
                     result = false;
-                }   
+                }
             }
 
             return result;
         }
     }
-   
+
 
 }
 

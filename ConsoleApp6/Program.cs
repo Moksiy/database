@@ -218,15 +218,15 @@ namespace ConsoleApp6
         {
 
             //Объявление локальных переменных для передачи данных в список
-            string tpvio;       //Тип нарушения
-            string gps;         //GPS- координаты
-            string carnum;      //Номер машины
-            string cartp;       //Тип машины
-            string strname;     //Название улицы
-            string strlength;   //Длина улицы
-            string prkname;     //Название автостоянки
-            string prkadress;   //Адрес автостоянки
-            string prknumber;   //Телефон автостоянки
+            //string tpvio;       //Тип нарушения
+            //string gps;         //GPS- координаты
+            //string carnum;      //Номер машины
+            //string cartp;       //Тип машины
+            //string strname;     //Название улицы
+            //string strlength;   //Длина улицы
+            //string prkname;     //Название автостоянки
+            //string prkadress;   //Адрес автостоянки
+            //string prknumber;   //Телефон автостоянки
 
             //Создание экземпляра класса с методами построения меню
             Consolebd consolebd = new Consolebd();
@@ -586,7 +586,7 @@ namespace ConsoleApp6
                 Console.WriteLine("╓" + new string('─', 3) + "╥" + new string('─', 32) + "╥" + new string('─', 52) + "╥" + new string('─', 24) + "╖");
                 Console.WriteLine("║" + " № " + "║" + new string(' ', 6) + "Название автостоянки" + new string(' ', 6) + "║" + new string(' ', 18) + "Адрес автостоянки" + new string(' ', 17) + "║" + new string(' ', 2) + "Телефон автостоянки" + new string(' ', 3) + "║");
                 Console.WriteLine("╟" + new string('─', 3) + "╫" + new string('─', 32) + "╫" + new string('─', 52) + "╫" + new string('─', 24) + "╢");
-                int count = data.CountTab3(); 
+                int count = data.CountTab3();
                 if (count > 20) { count = 20; }
                 for (int i = 0; i < count; i++)
                 {
@@ -754,8 +754,8 @@ namespace ConsoleApp6
             void OutputTabAct2(int c1)
             {
                 //Константы для пунктов выбора
-                const string Next = "Далее";
-                const string Back = " Назад ";
+                //const string Next = "Далее";
+                //const string Back = " Назад ";
 
                 int count = data.CountTab2();
 
@@ -777,8 +777,8 @@ namespace ConsoleApp6
             void OutputTabAct3()
             {
                 //Константы для пунктов выбора
-                const string Next = "Далее";
-                const string Back = " Назад ";
+                //const string Next = "Далее";
+                //const string Back = " Назад ";
 
                 int count = data.CountTab3();
 
@@ -994,15 +994,15 @@ namespace ConsoleApp6
                         //UPARROW
                         case ConsoleKey.UpArrow:
                             j--;
-                            if (j < 1) { j = 3; }
-                            if (j > 3) { j = 1; }
+                            if (j < 1) { j = 4; }
+                            if (j > 4) { j = 1; }
                             break;
 
                         //DOWNARROW
                         case ConsoleKey.DownArrow:
                             j++;
-                            if (j < 1) { j = 3; }
-                            if (j > 3) { j = 1; }
+                            if (j < 1) { j = 4; }
+                            if (j > 4) { j = 1; }
                             break;
 
                     }
@@ -1016,28 +1016,52 @@ namespace ConsoleApp6
                         //Метод выбора
                         switch (j)
                         {
-                            //1 ПУНКТ УДАЛЕНИЕ ПО ИНДЕКСУ
+                            //1 ПУНКТ УДАЛЕНИЕ УЛИЦЫ
                             case 1:
                                 //Очистка консоли
                                 Console.Clear();
 
-                                //Вызов метода построения меню удаления по индексу
-                                DeleteElementIndex();
+                                //Вызов меню выбора способа удаления
+                                consolebd.DeleteMenu(1);
+
+                                //Вызов метода считывания нажатой клавиши
+                                DeleteStreet();
                                 break;
 
-                            //2 ПУНКТ РЕДАКТИРОВАНИЕ
+                            //2 ПУНКТ УДАЛЕНИЕ АВТОСТОЯНКИ
                             case 2:
                                 //Очистка консоли
                                 Console.Clear();
 
+                                //Вызов меню выбора способа удаления
+                                consolebd.DeleteMenu(1);
+
+                                //Вызов метода считывания нажатой клавиши
+                                DeleteParking();
                                 break;
 
-                            //3 ПУНКТ ВЫХОД В ГЛАВНОЕ МЕНЮ
+                            //3 ПУНКТ УДАЛЕНИЕ АКТА ЭВАКУАЦИИ
                             case 3:
                                 //Очистка консоли
                                 Console.Clear();
 
-                                //Вызов главного меню
+                                //Вызов меню выбора способа удаления
+                                consolebd.DeleteMenu(1);
+
+                                //Вызов метода считывания нажатой клавиши
+                                DeleteAct();
+
+                                break;
+
+                            //4 ПУНКТ ВЫХОД В МЕНЮ РЕДАКТИРОВАНИЯ
+                            case 4:
+                                //Очистка консоли
+                                Console.Clear();
+
+                                //Вызов метода построения меню редактирования
+                                consolebd.EditMenu(1);
+
+                                //Вызов метода считывания клавиш для меню редактирования
                                 EditMenu();
                                 break;
                         }
@@ -1046,66 +1070,7 @@ namespace ConsoleApp6
 
             } while (key.Key != ConsoleKey.Enter);
 
-        }
-
-        //Метод меню удаления элемента по индексу
-        public static void DeleteElementIndex()
-        {
-            //Создание экземпляра класса с построениями меню
-            Consolebd consolebd = new Consolebd();
-
-            //Создание экземпляра класса с данными
-            Data data = new Data();
-
-            //Создание переменной для хранения индекса элемента, введенного с клавиатуры
-            int index;
-
-            //Строка для конвертирования введенного значения с клавиатуры
-            string indexstring;
-
-            //Вызов метода построения меню
-            consolebd.DeleteElementIndex();
-
-            //Перемещение каретки в указанную точку
-            Console.SetCursorPosition(27, 3);
-
-            //Считывание с консоли
-            indexstring = Console.ReadLine();
-
-            //Проверка на правильность ввода
-            if (!Int32.TryParse(indexstring, out index))
-            {
-                Console.Clear();
-                consolebd.Attention();
-                Main();
-            }
-            else
-            {
-                if (data.CountTab2() < index)
-                {
-                    Console.Clear();
-                    consolebd.Attention();
-                    Console.Clear();
-                    DeleteMenu();
-                    index = 1;
-                }
-                else
-                {
-                    --index;
-
-                    data.DeleteElement(index);
-
-                    Console.ReadKey();
-                    Console.Clear();
-                    Main();
-                }
-            }
-
-
-
-
-
-        }
+        }        
 
         //Метод меню добаваления улицы
         public static void AddStreet()
@@ -1462,7 +1427,7 @@ namespace ConsoleApp6
             //Переменные для считывания строки с клавиатуры, проверки, и далее передачи в список проверенной строки
             string prkname = " ";     //Название автостоянки
             string prkadress = " ";   //Адрес автостоянки
-            string prknumber= " ";   //Телефон автостоянки
+            string prknumber = " ";   //Телефон автостоянки
 
             //Вызов вложенного метода
             AddParkingMain();
@@ -1545,7 +1510,7 @@ namespace ConsoleApp6
                         if (key.Key == ConsoleKey.Enter)
                         {
                             //Выбор пункта меню
-                            switch(j)
+                            switch (j)
                             {
                                 //ввод названия автостоянки
                                 case 1:
@@ -1714,7 +1679,7 @@ namespace ConsoleApp6
                                     consolebd.AddElement(1);
 
                                     //Вызов метода по считыванию клавиш в главном меню добавления нового элемента
-                                    AddCar();                                
+                                    AddCar();
                                     break;
 
                                 //Сохранить
@@ -1836,6 +1801,198 @@ namespace ConsoleApp6
                     }
                 } while (key.Key != ConsoleKey.Enter);
             }
+        }
+
+        //Метод меню добавления акта эвакуации
+        public static void AddAct()
+        {
+            //
+
+        }
+
+        //Метод меню удаления улицы
+        public static void DeleteStreet()
+        {
+            //Создание переменной для хранения номера выбранного пункта мпеню
+            int j = 1;
+
+            //Очистка консоли
+            Console.Clear();
+
+            //Создание экземпляра класса с методами построения меню
+            Consolebd consolebd = new Consolebd();
+
+            //Создание экземпляра класса с данными
+            Data data = new Data();
+
+            //Объявление переменной для хранения информации о нажатой клавише
+            ConsoleKeyInfo key;
+
+            do
+            {
+                //Очистка консоли
+                Console.Clear();
+
+                //Вызов метода построения меню удаления
+                consolebd.ChoiseTypeOfDelete(j);
+
+                //Считывание информации о нажатой клавише
+                key = Console.ReadKey(true);
+
+                //Условие для отсеивания ложных нажатий
+                if (key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow || key.Key == ConsoleKey.Enter)
+                {
+                    //Очистка консоли
+                    Console.Clear();
+
+                    //Оператор присваивания пункта меню
+                    switch (key.Key)
+                    {
+                        //UPARROW
+                        case ConsoleKey.UpArrow:
+                            j--;
+                            if (j < 1) { j = 4; }
+                            if (j > 4) { j = 1; }
+                            break;
+
+                        //DOWNARROW
+                        case ConsoleKey.DownArrow:
+                            j++;
+                            if (j < 1) { j = 4; }
+                            if (j > 4) { j = 1; }
+                            break;
+
+
+                    }
+                }
+
+                //Вызов метода построения меню выбора типа удаления элемента
+                consolebd.ChoiseTypeOfDelete(j);
+
+                //Выбор пункта меню удаления элемента
+                if (key.Key == ConsoleKey.Enter)
+                {
+                    //Выбор пункта меню
+                    switch (j)
+                    {
+                        //Удаление элемента по индексу
+                        case 1:
+                            //Очистка консоли
+                            Console.Clear();
+
+                            //Вызов метода построения меню удаления элемента по индексу
+                            consolebd.DeleteElementIndex();
+
+                            //Перемещение курсора в нужную позицию
+                            Console.SetCursorPosition(27, 3);
+
+                            //объявление переменной для хранения введенного индекса
+                            int index = 0;
+
+                            //Считывание введенного индекса
+                            string ind = Console.ReadLine();
+
+                            //Проверка на возможность конвертации в тип int
+                            if (int.TryParse(ind, out index))
+                            {
+                                //Присвоение 
+                                index = int.Parse(ind);
+                            }
+                            else
+                            {
+                                //Очистка консоли
+                                Console.Clear();
+
+                                //Вывод предупреждения 
+                                consolebd.Attention();
+
+                                //Очистка консоли
+                                Console.Clear();
+
+                                //обнуление переменной после неверного присвоения
+                                ind = " ";
+
+                                //Вызов метода повторного построения меню удаления 
+                                consolebd.DeleteElementIndex();
+
+                                //Повторный вызов текущего метода
+                                DeleteStreet();
+                            }
+
+                            //Дикремент для корректной работы
+                            index--;
+
+                            //Переменная для хранения количества элементов в списке таблицы 2
+                            int count = data.CountTab2();
+                            //Проверка на существование элемента по введенному индексу
+                            if (index < count)
+                            {
+
+                                //Удаление элемента списка после успешной проверки
+                                data.DeleteElementTab2(index);
+
+                                //Очистка консоли
+                                Console.Clear();
+
+                                //Выход в меню выбора удаления элемента
+                                consolebd.DeleteMenu(j);
+
+                                //Вызов метода считывания нажатых клавиш
+                                DeleteMenu();
+
+                            }
+                            else
+                            {
+                                //Очистка консоли
+                                Console.Clear();
+
+                                //Вызов метода построения окна предупреждения
+                                consolebd.AttentionDeleteElement();
+
+                                //Очистка консоли
+                                Console.Clear();
+
+                                //Вызов меню удаления элемента
+                                consolebd.DeleteMenu(j);
+
+                                //Вызов меню считывания клавиш
+                                DeleteMenu();
+                            }
+                            break;
+
+                        case 2:
+
+                            break;
+
+                        case 3:
+
+                            break;
+
+                        case 4:
+
+                            break;
+                    }
+                }
+
+            } while (key.Key != ConsoleKey.Enter);
+        }
+
+        //Метод меню удаления автостоянки
+        public static void DeleteParking()
+        {
+            //Очистка консоли
+            Console.Clear();
+
+
+        }
+
+        //Метод меню удаления акта эвакуации
+        public static void DeleteAct()
+        {
+            //Очистка консоли
+            Console.Clear();
+
+
         }
 
     }
