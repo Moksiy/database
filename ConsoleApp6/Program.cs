@@ -290,6 +290,11 @@ namespace ConsoleApp6
                             case 2:
                                 Console.Clear();
 
+                                //Вызов метода построения меню добавления автостоянки
+                                consolebd.AddElemParking(j, " ", " ", " ");
+
+                                //Вызов метода для считывания клавиш
+                                AddParking();
                                 break;
 
                             //Добавить акт эвакуации
@@ -463,7 +468,7 @@ namespace ConsoleApp6
                 Console.WriteLine("╓" + new string('─', 3) + "╥" + new string('─', 52) + "╥" + new string('─', 52) + "╖");
                 Console.WriteLine("║" + " № " + "║" + new string(' ', 19) + "Название улицы" + new string(' ', 19) + "║" + new string(' ', 21) + "Длина улицы" + new string(' ', 20) + "║");
                 Console.WriteLine("╟" + new string('─', 3) + "╫" + new string('─', 52) + "╫" + new string('─', 52) + "╢");
-                int count = data.Count();
+                int count = data.CountTab2();
                 if (count > 20) { count = 20; }
                 for (int i = 0; i < count; i++)
                 {
@@ -581,7 +586,7 @@ namespace ConsoleApp6
                 Console.WriteLine("╓" + new string('─', 3) + "╥" + new string('─', 32) + "╥" + new string('─', 52) + "╥" + new string('─', 24) + "╖");
                 Console.WriteLine("║" + " № " + "║" + new string(' ', 6) + "Название автостоянки" + new string(' ', 6) + "║" + new string(' ', 18) + "Адрес автостоянки" + new string(' ', 17) + "║" + new string(' ', 2) + "Телефон автостоянки" + new string(' ', 3) + "║");
                 Console.WriteLine("╟" + new string('─', 3) + "╫" + new string('─', 32) + "╫" + new string('─', 52) + "╫" + new string('─', 24) + "╢");
-                int count = data.Count();
+                int count = data.CountTab3(); 
                 if (count > 20) { count = 20; }
                 for (int i = 0; i < count; i++)
                 {
@@ -701,7 +706,7 @@ namespace ConsoleApp6
                 Console.WriteLine("╓" + new string('─', 32) + "╥" + new string('─', 52) + "╥" + new string('─', 24) + "╖");
                 Console.WriteLine("║" + new string(' ', 6) + "Название автостоянки" + new string(' ', 6) + "║" + new string(' ', 18) + "Адрес автостоянки" + new string(' ', 17) + "║" + new string(' ', 2) + "Телефон автостоянки" + new string(' ', 3) + "║");
                 Console.WriteLine("╟" + new string('─', 32) + "╫" + new string('─', 52) + "╫" + new string('─', 24) + "╢");
-                int count = data.Count();
+                int count = data.CountTab3();
                 if (count > 20) { count = 20; }
                 for (int i = 0; i < count; i++)
                 {
@@ -738,7 +743,7 @@ namespace ConsoleApp6
                 Console.WriteLine("╙" + new string('─', 32) + "╨" + new string('─', 52) + "╨" + new string('─', 24) + "╜");
             }  //ПЕРЕДЕЛАТЬ
 
-            int co = data.Count();
+            int co = data.CountTab3();
 
             if (co > 20)
             {
@@ -752,7 +757,7 @@ namespace ConsoleApp6
                 const string Next = "Далее";
                 const string Back = " Назад ";
 
-                int count = data.Count();
+                int count = data.CountTab2();
 
                 if (count > 40) { count = 40; }
                 for (int i = 21; i < count; i++)
@@ -761,7 +766,7 @@ namespace ConsoleApp6
                 }
             }
 
-            co = data.Count();
+            co = data.CountTab2();
 
             if (co > 60)
             {
@@ -775,7 +780,7 @@ namespace ConsoleApp6
                 const string Next = "Далее";
                 const string Back = " Назад ";
 
-                int count = data.Count();
+                int count = data.CountTab3();
 
                 if (count > 40) { count = 40; }
                 for (int i = 21; i < count; i++)
@@ -1076,7 +1081,7 @@ namespace ConsoleApp6
             }
             else
             {
-                if (data.Count() < index)
+                if (data.CountTab2() < index)
                 {
                     Console.Clear();
                     consolebd.Attention();
@@ -1116,7 +1121,6 @@ namespace ConsoleApp6
             //используется для того, чтобы при добавлении элементов не обнулялись их значения
             void AddStreetMain()
             {
-
 
                 //Очистка консоли
                 Console.Clear();
@@ -1271,7 +1275,7 @@ namespace ConsoleApp6
                                     strlength = Console.ReadLine();
 
                                     //Проверка на правильность ввода
-                                    if (strlength == " " || strlength == null || strlength.Length > 50 || strlength == "" )
+                                    if (strlength == " " || strlength == null || strlength.Length > 50 || strlength == "")
                                     {
                                         //Обнуление переменной 
                                         strlength = " ";
@@ -1356,6 +1360,7 @@ namespace ConsoleApp6
                                     //Если поле удовлетворяет условиям заполнения и не пустое -> true, иначе false
                                     bool strlengthBool = false;
                                     bool strnameBool = false;
+                                    bool IsAlreadyExistsStreet = false;
 
                                     //Проверка на пустое поле для переменной имени улицы
                                     if (strname == "" || strname == " ")
@@ -1377,30 +1382,51 @@ namespace ConsoleApp6
                                         strlengthBool = true;
                                     }
 
+                                    //Вызов метода перебора всех элементов списка 
+                                    //И присвоение результата булевой переменной
+                                    IsAlreadyExistsStreet = data.IsAlreadyExistsStreet(strname);
+
                                     //Финальная проверка результата
-                                    if (strlengthBool == false || strnameBool == false)
+                                    if (strlengthBool == false || strnameBool == false || IsAlreadyExistsStreet == false)
                                     {
-                                        //Очистка консоли
-                                        Console.Clear();
+                                        if (IsAlreadyExistsStreet == false)
+                                        {
+                                            //очистка консоли
+                                            Console.Clear();
 
-                                        //Вызов метода построения меню предупреждения
-                                        consolebd.AttentionNullableFields();
+                                            //Вызов метода построения меню предупреждения
+                                            consolebd.AttentionAlreadyHasStreet();
 
-                                        //Повторный вызов метода добавления улицы
-                                        consolebd.AddElemStreet(1, strname, strlength);
+                                            //Повторный вызов метода добавления улицы
+                                            consolebd.AddElemStreet(1, strname, strname);
 
-                                        //Повторный вызов метода считывания клавиш
-                                        AddStreetMain();
+                                            //Повторный вызов метода считывания клавиш
+                                            AddStreetMain();
+                                        }
+                                        else
+                                        {
+                                            //Очистка консоли
+                                            Console.Clear();
+
+                                            //Вызов метода построения меню предупреждения
+                                            consolebd.AttentionNullableFields();
+
+                                            //Повторный вызов метода добавления улицы
+                                            consolebd.AddElemStreet(1, strname, strlength);
+
+                                            //Повторный вызов метода считывания клавиш
+                                            AddStreetMain();
+                                        }
                                     }
                                     else
                                     {
                                         //Добавление проверреных полей в список
                                         //Вызов метода создания нового элемента списка
-                                        data.AddElement();
+                                        data.AddElementTab2();
 
                                         //Вызов метода, возвращающего количество элементов в списке
                                         //И присвоение этого значения переменной
-                                        int ind = data.Count() - 1;
+                                        int ind = data.CountTab2() - 1;
 
                                         //Обращение к нужному элементу списка
                                         //Передача названия улицы и индекса элемента в качестве параметров
@@ -1427,6 +1453,388 @@ namespace ConsoleApp6
                 }
                 while (key.Key != ConsoleKey.Enter);
 
+            }
+        }
+
+        //Метод меню добавления автостоянки
+        public static void AddParking()
+        {
+            //Переменные для считывания строки с клавиатуры, проверки, и далее передачи в список проверенной строки
+            string prkname = " ";     //Название автостоянки
+            string prkadress = " ";   //Адрес автостоянки
+            string prknumber= " ";   //Телефон автостоянки
+
+            //Вызов вложенного метода
+            AddParkingMain();
+
+            //вложенный метод
+            //используется для того, чтобы при добавлении элементов не обнулялись их значения
+            void AddParkingMain()
+            {
+                //Очистка консоли
+                Console.Clear();
+
+                //Создание экземпляра класса построения меню
+                Consolebd consolebd = new Consolebd();
+
+                //Создание экземпляра класса с данными
+                Data data = new Data();
+
+                //Объявление переменно для хранения информации о нажатой клавише
+                ConsoleKeyInfo key;
+
+                //Объявление и инициализация переменной-счетчика для отображения выбранного пункта меню
+                int j = 1;
+
+                //Вызов метода построения меню добавления автостоянки
+                consolebd.AddElemParking(1, prkname, prkadress, prknumber);
+
+                do
+                {
+                    //Считывание информации о нажатой клавише
+                    key = Console.ReadKey(true);
+
+                    //Условие для отвеивания ложных нажатий
+                    if (key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow || key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.LeftArrow || key.Key == ConsoleKey.RightArrow)
+                    {
+                        //Очистка консоли
+                        Console.Clear();
+
+                        //Оператор присвоения пункта меню
+                        switch (key.Key)
+                        {
+                            //UPARROW
+                            case ConsoleKey.UpArrow:
+                                j--;
+                                if (j < 1) { j = 4; }
+                                if (j > 4) { j = 1; }
+                                break;
+
+                            //DOWNARROW
+                            case ConsoleKey.DownArrow:
+                                j++;
+                                if (j < 1) { j = 4; }
+                                if (j > 4) { j = 1; }
+                                break;
+
+                            //LEFTARROW
+                            case ConsoleKey.LeftArrow:
+                                if (j == 4 || j == 400)
+                                {
+                                    j /= 100;
+                                    if (j < 4) { j = 400; }
+                                    if (j > 400) { j = 4; }
+                                }
+                                break;
+
+                            //RIGHTARROW
+                            case ConsoleKey.RightArrow:
+                                if (j == 4 || j == 400)
+                                {
+                                    j *= 100;
+                                    if (j < 4) { j = 400; }
+                                    if (j > 400) { j = 4; }
+                                }
+                                break;
+                        }
+
+                        //Вызов метода построения добавления автостоянки с передачей переменной в качестве параметра
+                        consolebd.AddElemParking(j, prkname, prkadress, prknumber);
+
+                        //Выбор пункта меню добавления улицы
+                        if (key.Key == ConsoleKey.Enter)
+                        {
+                            //Выбор пункта меню
+                            switch(j)
+                            {
+                                //ввод названия автостоянки
+                                case 1:
+                                    //Начало ввода названия автостоянки
+
+                                    //Обнуление переменной названия автостоянки
+                                    prkname = " ";
+
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов метода построения текущего меню
+                                    //С передачей нуля в качестве параметра 
+                                    //Для того чтобы не было активных пунктов выбора меню
+                                    consolebd.AddElemParking(0, prkname, prkadress, prknumber);
+
+                                    //перемещение каретки в нужное положение в таблице
+                                    Console.SetCursorPosition(20, 3);
+
+                                    //Считывание строки
+                                    prkname = Console.ReadLine();
+
+                                    //Проверка на правильность ввода
+                                    if (prkname == " " || prkname == null || prkname.Length > 50 || prkname == "")
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов меню ошибки
+                                        consolebd.AttentionAddElement();
+
+                                        //обнуление переменной названия автостоянки
+                                        prkname = " ";
+
+                                        //Повторный вызов метода построения меню добавления автостоянки
+                                        consolebd.AddElemParking(1, prkname, prkadress, prknumber);
+
+                                        //Повторный вызов метода считывания клавиш
+                                        AddParkingMain();
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов метода построения меню добавления автостоянки
+                                        consolebd.AddElemParking(1, prkname, prkadress, prknumber);
+
+                                        //Повторный вызов метода для считывания клавиш
+                                        AddParkingMain();
+                                    }
+
+                                    break;
+
+                                //Ввод адреса автостоянки
+                                case 2:
+                                    //Начало ввода адреса автостоянки
+
+                                    //обнуление переменной адреса автостоянки
+                                    prkadress = " ";
+
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов метода построения текущего меню
+                                    //С передачей нуля в качестве параметра
+                                    //Для того чтобы не было активных пунктов выбора меню
+                                    consolebd.AddElemParking(0, prkname, prkadress, prknumber);
+
+                                    //Перемещение каретки в нужное положение в табоице
+                                    Console.SetCursorPosition(20, 5);
+
+                                    //Считывание строки
+                                    prkadress = Console.ReadLine();
+
+                                    //Проверка на правильность ввода
+                                    if (prkadress == " " || prkadress == null || prkadress.Length > 50 || prkadress == "")
+                                    {
+                                        //Обнуление переменной
+                                        prkadress = " ";
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов меню ошибки 
+                                        consolebd.AttentionAddElement();
+
+                                        //Вызов метода построения меню добавления элемента
+                                        consolebd.AddElemParking(2, prkname, prkadress, prknumber);
+
+                                        //Вызов метода считывания нажатой клавиши
+                                        AddParkingMain();
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов метода построения меню
+                                        consolebd.AddElemParking(2, prkname, prkadress, prknumber);
+
+                                        //Повторный вызов метода для считывания клаваиш
+                                        AddParkingMain();
+                                    }
+
+                                    break;
+
+                                //Ввод номера автостоянки
+                                case 3:
+                                    //начало ввода номера автостоянки
+
+                                    //Обнуление переменной номера автостоянки
+                                    prknumber = " ";
+
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов метода построения текущего меню
+                                    //с передачей нуля в качестве параметра
+                                    //для того чтобы не было активных пунктов меню выбора
+                                    consolebd.AddElemParking(0, prkname, prkadress, prknumber);
+
+                                    //Перемещение каретки в нужное положение в таблице
+                                    Console.SetCursorPosition(20, 7);
+
+                                    //Считывание строки
+                                    prknumber = Console.ReadLine();
+
+                                    //Проверка на правильность ввода
+                                    if (prknumber == " " || prknumber == null || prknumber.Length > 50 || prknumber == "")
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов окошка ошибки
+                                        consolebd.AttentionAddElement();
+
+                                        //Обнуление переменной номера автостоянки
+                                        prknumber = " ";
+
+                                        //Повторный вызов метода построения меню добавления автостоянки
+                                        consolebd.AddElemParking(1, prkname, prkadress, prknumber);
+
+                                        //Повторный вызов метода считывания клавиш
+                                        AddParkingMain();
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов метода построения меню
+                                        consolebd.AddElemParking(1, prkname, prkadress, prknumber);
+
+                                        //Повторный вызов метода для считывания клавиш
+                                        AddParkingMain();
+                                    }
+                                    break;
+
+                                case 4:
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов меню построения главного меню добавления элемента
+                                    //С передачей в качестве параметра единицы
+                                    consolebd.AddElement(1);
+
+                                    //Вызов метода по считыванию клавиш в главном меню добавления нового элемента
+                                    AddCar();                                
+                                    break;
+
+                                //Сохранить
+                                //Введенная информация сохраняется и записывается в список
+                                //Далее происходит переход в главное меню добавления нового элемента
+                                case 400:
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Проверка на то, что все поля заполнены
+
+                                    //Объявление переменноых для хранения промежуточного результата
+                                    //Если поле удовлетворяет условиям заполнения и не пустое -> true, иначе false
+                                    bool prknameBool = false;
+                                    bool prkadressBool = false;
+                                    bool prknumberBool = false;
+                                    bool IsAlreadyExistsParking = false;
+
+                                    //Проверка на пустое поле для переменной названия автостоянки
+                                    if (prkname == "" || prkname == " ")
+                                    {
+                                        prknameBool = false;
+                                    }
+                                    else
+                                    {
+                                        prknameBool = true;
+                                    }
+
+                                    //Проверка на пустое поле для переменной адреса автостоянки
+                                    if (prkadress == "" || prkadress == " ")
+                                    {
+                                        prkadressBool = false;
+                                    }
+                                    else
+                                    {
+                                        prkadressBool = true;
+                                    }
+
+                                    //Проверка на пустое поле для переменной номера автостоянки
+                                    if (prknumber == "" || prknumber == " ")
+                                    {
+                                        prknumberBool = false;
+                                    }
+                                    else
+                                    {
+                                        prknumberBool = true;
+                                    }
+
+                                    //Вызов метода перебора всех элементов списка
+                                    //И присвоение результата булевой переменной
+                                    IsAlreadyExistsParking = data.IsAlreadyExistsParking(prkname);
+
+                                    //Финальная проверка результата
+                                    if (prknameBool == false || prkadressBool == false || prknumberBool == false || IsAlreadyExistsParking == false)
+                                    {
+                                        if (IsAlreadyExistsParking == false)
+                                        {
+                                            //Очистка консоли
+                                            Console.Clear();
+
+                                            //Вызов метода построения меню предупреждения
+                                            consolebd.AttentionAlreadyHasParking();
+
+                                            //Повторный вызов метода добавления улицы
+                                            consolebd.AddElemParking(1, prkname, prkadress, prknumber);
+
+                                            //Повторный вызов метода считывания клавиш
+                                            AddParkingMain();
+                                        }
+                                        else
+                                        {
+                                            //Очистка консоли
+                                            Console.Clear();
+
+                                            //Вызов метода построения меню предупреждения
+                                            consolebd.AttentionNullableFields();
+
+                                            //Повторный вызов метода добавления автостоянки
+                                            consolebd.AddElemParking(1, prkname, prkadress, prknumber);
+
+                                            //повторный вызов метода считывания клавиш
+                                            AddParkingMain();
+                                        }
+                                    }
+                                    else
+                                    {
+                                        //Добавление проверенных полей в список
+                                        //Вызов метода создания нового элемента списка
+                                        data.AddElementTab3();
+
+                                        //Вызов метода, возвращающего количество элементов в списке
+                                        //и присвоение этого значения переменной
+                                        int ind = data.CountTab3() - 1;
+
+                                        //Обращение к нужному элементу списка
+                                        //Передача названия автостоянки и индекса элемента в качестве параметра
+                                        data.Addparkingname(prkname, ind);
+
+                                        //Передача адреса автостоянки и индекса элемента в качестве параметра
+                                        data.Addparkingadress(prkadress, ind);
+
+                                        //Передача номера автостоянки и индекса элемента в качестве параметра
+                                        data.Addparkingnumber(prknumber, ind);
+
+                                        //очистка консоли
+                                        Console.Clear();
+
+                                        //Переход в главное меню добавления элемента
+
+                                        //Вызов метода построения главного меню добавления нового элемента
+                                        consolebd.AddElement(1);
+
+                                        //Вызов метода считывания клавиши
+                                        AddCar();
+                                    }
+                                    break;
+                            }
+                        }
+                    }
+                } while (key.Key != ConsoleKey.Enter);
             }
         }
 

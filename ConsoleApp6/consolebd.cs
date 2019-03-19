@@ -24,9 +24,9 @@ namespace ConsoleApp6
         public const string No = "  Нет  ";
         public const string StreetName = "Название улицы ";
         public const string StreetLength = "Длина улицы ";
-        public const string ParkingName = "Название автостоянки ";
-        public const string ParkingAdress = "Адрес автостоянки ";
-        public const string ParkingNumber = "Телефон автостоянки ";
+        public const string ParkingName = "Название ";
+        public const string ParkingAdress = "Адрес ";
+        public const string ParkingNumber = "Телефон ";
         public const string GPS = "GPS-координаты ";
         public const string TypeViolation = "Тип нарушения ";
         public const string CarNumber = "Номер автомобиля ";
@@ -381,6 +381,81 @@ namespace ConsoleApp6
             Console.WriteLine("║" + new string(' ', 90) + "║");
             Console.WriteLine("╙" + new string('─', 90) + "╜");
             Console.ReadKey();
+        }
+
+        //Метод вывода предупреждения о том, что введенная улица уже существует
+        public void AttentionAlreadyHasStreet()
+        {
+            Console.WriteLine("╓" + new string('─', 90) + "╖");
+            Console.WriteLine("║" + new string(' ', 26) + "                 ОШИБКА               " + new string(' ', 26) + "║");
+            Console.WriteLine("║" + new string(' ', 90) + "║");
+            Console.WriteLine("║" + new string(' ', 26) + "        Некорректный ввод данных      " + new string(' ', 26) + "║");
+            Console.WriteLine("║" + new string(' ', 24) + "      Введенная улица уже добавлена       " + new string(' ', 24) + "║");
+            Console.WriteLine("║" + new string(' ', 90) + "║");
+            Console.WriteLine("║" + new string(' ', 90) + "║");
+            Console.WriteLine("║" + new string(' ', 26) + " Нажмите любую клавишу для продолжения" + new string(' ', 26) + "║");
+            Console.WriteLine("║" + new string(' ', 90) + "║");
+            Console.WriteLine("╙" + new string('─', 90) + "╜");
+            Console.ReadKey();
+        }
+
+        //Метод вывод предупреждения о том, что введенная автостоянка уже существует
+        public void AttentionAlreadyHasParking()
+        {
+            Console.WriteLine("╓" + new string('─', 90) + "╖");
+            Console.WriteLine("║" + new string(' ', 26) + "                 ОШИБКА               " + new string(' ', 26) + "║");
+            Console.WriteLine("║" + new string(' ', 90) + "║");
+            Console.WriteLine("║" + new string(' ', 26) + "        Некорректный ввод данных      " + new string(' ', 26) + "║");
+            Console.WriteLine("║" + new string(' ', 24) + "   Введенная автостоянка уже добавлена    " + new string(' ', 24) + "║");
+            Console.WriteLine("║" + new string(' ', 90) + "║");
+            Console.WriteLine("║" + new string(' ', 90) + "║");
+            Console.WriteLine("║" + new string(' ', 26) + " Нажмите любую клавишу для продолжения" + new string(' ', 26) + "║");
+            Console.WriteLine("║" + new string(' ', 90) + "║");
+            Console.WriteLine("╙" + new string('─', 90) + "╜");
+            Console.ReadKey();
+        }
+
+        //Метод построения меню добавления автостоянки
+        public void AddElemParking(int j, string prkname, string prkadress, string prknumber)
+        {
+            Console.WriteLine("╓" + new string('─', 90) + "╖");
+            Console.WriteLine("║" + new string(' ', 26) + "         Добавление автостоянки       " + new string(' ', 26) + "║");
+            Console.WriteLine("╟" + new string('─', 17) + "╥" + new string('─', 72) + "╢");
+            Console.Write("║ ");
+            if (j == 1) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(ParkingName);
+            Console.ResetColor();
+            Console.Write(new string(' ',6) + " ║ ");
+            Console.Write(prkname);
+            int p = 71 - prkname.Length;
+            Console.WriteLine(new string(' ', p) + "║");
+            Console.WriteLine("╟" + new string('─', 17) + "╫" + new string('─', 72) + "╢");
+            Console.Write("║ ");
+            if (j == 2) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(ParkingAdress);
+            Console.ResetColor();
+            Console.Write(new string(' ',9) + " ║ " + prkadress);
+            p = 71 - prkadress.Length;
+            Console.WriteLine(new string(' ', p) + "║");
+            Console.WriteLine("╟" + new string('─', 17) + "╫" + new string('─', 72) + "╢");
+            Console.Write("║ ");
+            if (j == 3) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(ParkingNumber);
+            Console.ResetColor();
+            Console.Write(new string(' ', 7) + " ║ " + prknumber);
+            p = 71 - prknumber.Length;
+            Console.WriteLine(new string(' ', p) + "║");
+            Console.WriteLine("╟" + new string('─', 17) + "╨" + new string('─', 72) + "╢");
+            Console.Write("║" + new string(' ', 10));
+            if (j == 4) { Console.BackgroundColor = ConsoleColor.Red; }
+            Console.Write(Back);
+            Console.ResetColor();
+            Console.Write(new string(' ', 12) + "║ Выберете пункт для ввода ║" + new string(' ', 12));
+            if (j == 400) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(Save);
+            Console.ResetColor();
+            Console.WriteLine(new string(' ', 10) + "║");
+            Console.WriteLine("╙" + new string('─', 90) + "╜");
         }
     }
 }

@@ -124,10 +124,22 @@ namespace ConsoleApp6
             Tab3List[ind].ParkingNumber = prknum;
         }
 
-        //Метод, возвращающий количество элементов в списке
-        public int Count()
+        //Метод, возвращающий количество элементов в списке 2
+        public int CountTab2()
         {
             return Tab2List.Count;
+        }
+
+        //Метод, возвращающий количество элементов в списке 3
+        public int CountTab3()
+        {
+            return Tab3List.Count;
+        }
+
+        //Метод, возвращающий количество элементов в списке 1
+        public int CountTab1()
+        {
+            return Tab1List.Count;
         }
 
         //Метод, возвращающий название улицы
@@ -184,13 +196,24 @@ namespace ConsoleApp6
             return Tab1List[i].CarType;
         }
 
-        //Метод создания новых элементов в списках
-        public void AddElement()
+        //Метод создания новых элементов в списке 1
+        public void AddElementTab1()
         {
             Tab1List.Add(new ElementsTab1());
+        }
+
+        //Метод создания новых элементов в списке 1
+        public void AddElementTab2()
+        {
             Tab2List.Add(new ElementsTab2());
+        }
+
+        //Метод создания новых элементов в списке 1
+        public void AddElementTab3()
+        {
             Tab3List.Add(new ElementsTab3());
         }
+
 
         //Метод удаления элементов по индексам
         public void DeleteElement(int i)
@@ -200,6 +223,41 @@ namespace ConsoleApp6
             Tab3List.RemoveAt(i);
         }
 
+        //Метод проверки на уже существующую улицу
+        public bool IsAlreadyExistsStreet(string streetname)
+        {
+            //Объявление переменной для вывода результата проверки на уже существующую улицу
+            bool result = true;
+
+            //Основной цикл перебора элементов
+            foreach(ElementsTab2 Tab2 in Tab2List)
+            {
+                if (streetname == Tab2.StreetName)
+                {
+                    result = false;
+                }
+            }
+
+            return result;
+        }
+
+        //Метод проверки на уже существующую автостоянку
+        public bool IsAlreadyExistsParking(string prkname)
+        {
+            //Объявление переменной для вывода результата проверки 
+            bool result = true;
+
+            //основной цикл перебора элементов
+            foreach(ElementsTab3 Tab3 in Tab3List)
+            {
+                if (prkname == Tab3.ParkingName)
+                {
+                    result = false;
+                }   
+            }
+
+            return result;
+        }
     }
    
 
