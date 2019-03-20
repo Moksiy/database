@@ -2098,7 +2098,7 @@ namespace ConsoleApp6
                             if (index < count)
                             {
                                 //Удаление элемента списка после успешной проверки
-                                data.DeleteElementTab2(index);
+                                data.DeleteElementTab3(index);
 
                                 //очистка консоли
                                 Console.Clear();
@@ -2150,7 +2150,164 @@ namespace ConsoleApp6
             //Очистка консоли
             Console.Clear();
 
+            //Создание переменной для хранения номера выбранного пункта меню
+            int j = 1;
 
+            //Создание экземпляра класса с методами построения меню
+            Consolebd consolebd = new Consolebd();
+
+            //Создание экземпляра класса с данными
+            Data data = new Data();
+
+            //Объявление переменной для хранения информации о нажатой клавише
+            ConsoleKeyInfo key;
+
+            //Основной блок выполнения
+            do
+            {
+                //очистка консоли
+                Console.Clear();
+
+                //Вызов метода построения меню удаления
+                consolebd.ChoiseTypeOfDelete(j);
+
+                //Считывание информации о нажатой клавише
+                key = Console.ReadKey(true);
+
+                //Условие для отсеивания ложных нажатий
+                if (key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow || key.Key == ConsoleKey.Enter)
+                {
+                    //Очистка консоли
+                    Console.Clear();
+
+                    //Оператор присвоения пункта меню 
+                    switch(key.Key)
+                    {
+                        //UPARROW
+                        case ConsoleKey.UpArrow:
+                            j--;
+                            if (j < 1) { j = 4; }
+                            if (j > 4) { j = 1; }
+                            break;
+
+                        //DOWNARROW
+                        case ConsoleKey.DownArrow:
+                            j++;
+                            if (j < 1) { j = 4; }
+                            if (j > 4) { j = 1; }
+                            break;
+                    }
+                }
+
+                //вызов метода построения меню выбора типа удаления элемента
+                consolebd.ChoiseTypeOfDelete(j);
+
+                //Выбор пункта меню удаления элемента
+                if (key.Key == ConsoleKey.Enter)
+                {
+                    //Выбор пункта меню
+                    switch(j)
+                    {
+                        //Удаление элемента по индексу
+                        case 1:
+                            //очистка консоли
+                            Console.Clear();
+
+                            //Вызов метода построения меню удаления элемента по индексу
+                            consolebd.DeleteElementIndex();
+
+                            //перемещение каретки в нужную позицию
+                            Console.SetCursorPosition(27, 3);
+
+                            //Объявление переменной для хранения введенного индекса
+                            int index = 0;
+
+                            //Считывание введенного индекса
+                            string ind = Console.ReadLine();
+
+                            //проверка на возможность конвертации в int
+                            if (int.TryParse(ind, out index))
+                            {
+                                //Присвоение
+                                index = int.Parse(ind);
+                            }
+                            else
+                            {
+                                //очистка консоли
+                                Console.Clear();
+
+                                //Вывод предупреждения
+                                consolebd.Attention();
+
+                                //Очистка консоли
+                                Console.Clear();
+
+                                //Обнуление переменной после некорректоного присвоения
+                                ind = " ";
+
+                                //Вызов метода повторного построения меню удаления элемента
+                                consolebd.DeleteElementIndex();
+
+                                //Повторный вызов текущего метода
+                                DeleteAct();
+                            }
+
+                            //Декремент для корректной работы
+                            index--;
+
+                            //переменная для хранения количества элементов в списке
+                            int count = data.CountTab1();
+
+                            //проверка на существование элементапо введенному индексу
+                            if(index < count)
+                            {
+                                //Удаление элемента списка после успешной проверки
+                                data.DeleteElementTab1(index);
+
+                                //Очистка консоли
+                                Console.Clear();
+
+                                //Выход в меню выбора удаления элемента
+                                consolebd.DeleteMenu(j);
+
+                                //Вызов метода считывания нажатых клавиш
+                                DeleteMenu();
+                            }
+                            else
+                            {
+                                //Очистка консоли
+                                Console.Clear();
+
+                                //Вызов метода построения окна предупреждения
+                                consolebd.AttentionDeleteElement();
+
+                                //Очистка консоли
+                                Console.Clear();
+
+                                //Вызов меню удаления элемента
+                                consolebd.DeleteMenu(j);
+
+                                //Вызов меню считывания клавиш
+                                DeleteMenu();
+                            }
+
+                            break;
+
+                        case 2:
+
+                            break;
+
+                        case 3:
+
+                            break;
+
+                        case 4:
+
+                            break;
+                    }
+                }
+
+            } while (key.Key != ConsoleKey.Enter);
         }
 
     }
