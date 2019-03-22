@@ -19,6 +19,10 @@ using System.Threading;
 //Таблица актов эвакуации    |   Улица   |   Автостоянка   |   GPS - координаты   |   Тип нарушения   |   Номер автомобиля   |   Тип автомобиля   |
 
 
+
+
+// ------> 3140
+
 namespace ConsoleApp6
 {
     public class Program
@@ -1816,9 +1820,6 @@ namespace ConsoleApp6
             //Создание переменной для хранения номера выбранного пункта мпеню
             int j = 1;
 
-            //Очистка консоли
-            Console.Clear();
-
             //Создание экземпляра класса с методами построения меню
             Consolebd consolebd = new Consolebd();
 
@@ -1828,13 +1829,14 @@ namespace ConsoleApp6
             //Объявление переменной для хранения информации о нажатой клавише
             ConsoleKeyInfo key;
 
+            //Очистка консоли
+            Console.Clear();
+
+            //Вызов метода построения меню удаления
+            consolebd.ChoiseTypeOfDelete(j);
+
             do
             {
-                //Очистка консоли
-                Console.Clear();
-
-                //Вызов метода построения меню удаления
-                consolebd.ChoiseTypeOfDelete(j);
 
                 //Считывание информации о нажатой клавише
                 key = Console.ReadKey(true);
@@ -1864,7 +1866,7 @@ namespace ConsoleApp6
 
 
                     }
-                }
+                
 
                 //Вызов метода построения меню выбора типа удаления элемента
                 consolebd.ChoiseTypeOfDelete(j);
@@ -1925,7 +1927,7 @@ namespace ConsoleApp6
                             //Переменная для хранения количества элементов в списке таблицы 2
                             int count = data.CountTab2();
                             //Проверка на существование элемента по введенному индексу
-                            if (index < count)
+                            if (index < count && index >= 0)
                             {
 
                                 //Удаление элемента списка после успешной проверки
@@ -1971,11 +1973,21 @@ namespace ConsoleApp6
 
                             break;
 
+                        //Выход в меню редактирования
                         case 4:
+                                //Очистка консоли
+                                Console.Clear();
 
+                                //Вызов ментода построения меню
+                                consolebd.DeleteMenu(1);
+
+                                //Вызов метода считывания клавиш
+                                DeleteMenu();
                             break;
+
                     }
                 }
+            }
 
             } while (key.Key != ConsoleKey.Enter);
         }
@@ -1998,15 +2010,15 @@ namespace ConsoleApp6
             //Объявление переменной для хранения информации о нажатой клавише
             ConsoleKeyInfo key;
 
+            //очистка консоли
+            Console.Clear();
+
+            //Вызов метода построения меню удаления
+            consolebd.ChoiseTypeOfDelete(j);
+
             //основной блок выполнения
             do
             {
-                //очистка консоли
-                Console.Clear();
-
-                //Вызов метода построения меню удаления
-                consolebd.ChoiseTypeOfDelete(j);
-
                 //Считывание инормации о нажатой клавише
                 key = Console.ReadKey(true);
 
@@ -2034,7 +2046,7 @@ namespace ConsoleApp6
                             break;
                     }
 
-                }
+                
 
                 //Вызов метода построения меню выбора типа удаления элемента
                 consolebd.ChoiseTypeOfDelete(j);
@@ -2043,7 +2055,7 @@ namespace ConsoleApp6
                 if (key.Key == ConsoleKey.Enter)
                 {
                     //Выбор пункта меню
-                    switch(j)
+                    switch (j)
                     {
                         //Удаление элемента по индексу
                         case 1:
@@ -2095,7 +2107,7 @@ namespace ConsoleApp6
                             int count = data.CountTab3();
 
                             //проверка на существование элемента повведенному индексу
-                            if (index < count)
+                            if (index < count && index >= 0)
                             {
                                 //Удаление элемента списка после успешной проверки
                                 data.DeleteElementTab3(index);
@@ -2126,7 +2138,7 @@ namespace ConsoleApp6
                                 //Вызов меню считывания клавиш
                                 DeleteMenu();
 
-                                
+
                             }
                             break;
 
@@ -2136,11 +2148,21 @@ namespace ConsoleApp6
                         case 3:
                             break;
 
+                        //Выход в меню редактирования
                         case 4:
+                                //Очистка консоли
+                                Console.Clear();
+
+                                //Вызов метода построения меню редактирования
+                                consolebd.DeleteMenu(1);
+
+                                //Вызов метода считывания клавиш
+                                DeleteMenu();
                             break;
                     }
                 }
 
+            }
             } while (key.Key != ConsoleKey.Enter);
         }
 
@@ -2162,15 +2184,16 @@ namespace ConsoleApp6
             //Объявление переменной для хранения информации о нажатой клавише
             ConsoleKeyInfo key;
 
+            //очистка консоли
+            Console.Clear();
+
+            //Вызов метода построения меню удаления
+            consolebd.ChoiseTypeOfDelete(j);
+
+
             //Основной блок выполнения
             do
             {
-                //очистка консоли
-                Console.Clear();
-
-                //Вызов метода построения меню удаления
-                consolebd.ChoiseTypeOfDelete(j);
-
                 //Считывание информации о нажатой клавише
                 key = Console.ReadKey(true);
 
@@ -2181,7 +2204,7 @@ namespace ConsoleApp6
                     Console.Clear();
 
                     //Оператор присвоения пункта меню 
-                    switch(key.Key)
+                    switch (key.Key)
                     {
                         //UPARROW
                         case ConsoleKey.UpArrow:
@@ -2197,7 +2220,7 @@ namespace ConsoleApp6
                             if (j > 4) { j = 1; }
                             break;
                     }
-                }
+                
 
                 //вызов метода построения меню выбора типа удаления элемента
                 consolebd.ChoiseTypeOfDelete(j);
@@ -2206,7 +2229,7 @@ namespace ConsoleApp6
                 if (key.Key == ConsoleKey.Enter)
                 {
                     //Выбор пункта меню
-                    switch(j)
+                    switch (j)
                     {
                         //Удаление элемента по индексу
                         case 1:
@@ -2259,7 +2282,7 @@ namespace ConsoleApp6
                             int count = data.CountTab1();
 
                             //проверка на существование элементапо введенному индексу
-                            if(index < count)
+                            if (index < count && count >= 0)
                             {
                                 //Удаление элемента списка после успешной проверки
                                 data.DeleteElementTab1(index);
@@ -2301,11 +2324,21 @@ namespace ConsoleApp6
 
                             break;
 
+                        //выход в меню редактирования
                         case 4:
+                                //Очистка консоли
+                                Console.Clear();
+
+                                //Вызов метода построения меню редактирования
+                                consolebd.DeleteMenu(1);
+
+                                //Вызов метода считывания клавиш
+                                DeleteMenu();
 
                             break;
                     }
                 }
+            }
 
             } while (key.Key != ConsoleKey.Enter);
         }
