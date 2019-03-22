@@ -6,20 +6,25 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp6
 {
-
+    //Класс с авто-свойствами для таблицы 1 "акты эвакуации"
     public class ElementsTab1
     {
         public string GPS { get; set; }
         public string TypeViolation { get; set; }
         public string CarNumber { get; set; }
         public string CarType { get; set; }
+        public ElementsTab2 Street { get; set; }
+        public ElementsTab3 Parking { get; set; }
     }
+
+    //Класс с авто-свойствами для таблицы 2 "улицы"
     public class ElementsTab2
     {
         public string StreetName { get; set; }
         public string StreetLength { get; set; }
     }
 
+    //Класс с авто-свойствами для таблицы 3 "автостоянки"
     public class ElementsTab3
     {
         public string ParkingName { get; set; }
@@ -37,6 +42,8 @@ namespace ConsoleApp6
 
         //Создание списка таблицы 3
         static List<ElementsTab3> Tab3List = new List<ElementsTab3>(100);
+
+        
 
         //Поле имени файла
         private static string filename;
@@ -232,6 +239,12 @@ namespace ConsoleApp6
         {
             Tab3List.RemoveAt(i);
         }
+        
+        //Метод, возвращающий элемент списка таблицы 2 УЛИЦЫ
+        public ElementsTab2 ReturnElementTab2(int i)
+        {
+            return Tab2List[i];
+        }
 
         //Метод проверки на уже существующую улицу
         public bool IsAlreadyExistsStreet(string streetname)
@@ -269,6 +282,7 @@ namespace ConsoleApp6
             return result;
         }
     }
+    
 
 
 }
