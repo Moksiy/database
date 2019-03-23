@@ -252,6 +252,12 @@ namespace ConsoleApp6
             return Tab2List[i];
         }
 
+        //Метод, возвращающий элемент из списка таблицы 3 АВТОСТОЯНКИ
+        public ElementsTab3 ReturnElementTab3(int i)
+        {
+            return Tab3List[i];
+        }
+
         //Метод проверки на уже существующую улицу
         public bool IsAlreadyExistsStreet(string streetname)
         {
