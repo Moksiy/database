@@ -21,7 +21,7 @@ using System.Threading;
 
 
 
-//    ----->3140
+//    ----->4783
 
 namespace ConsoleApp6
 {
@@ -1824,8 +1824,9 @@ namespace ConsoleApp6
             string typeofcar = "";
             string streetname = "";
             string parkingname = "";
-            ElementsTab2 street;
-            ElementsTab3 parking;
+            int indexStreet = 0;
+            ElementsTab2 street = null;
+            ElementsTab3 parking = null;
 
             //Вызов вложенного метода
             AddActEvacuation();
@@ -2039,7 +2040,7 @@ namespace ConsoleApp6
 
                                     break;
 
-                                    //Добавление типа автомобиля
+                                //Добавление типа автомобиля
                                 case 4:
                                     //начало ввода типа автомобиля
 
@@ -2062,7 +2063,7 @@ namespace ConsoleApp6
                                     AddActEvacuation();
                                     break;
 
-                                    //Улица
+                                //Улица
                                 case 5:
                                     //Начало выбора улицы
 
@@ -2080,8 +2081,16 @@ namespace ConsoleApp6
                                         //Очистка консоли
                                         Console.Clear();
 
-                                        //Вызов метода выбора улицы из существующих
+                                        //ChoiseStreet();
 
+                                        //Вызов метода выбора улицы из существующих
+                                        int index = ChoiseStreet();
+
+                                        //передача индекса в переменную
+                                        indexStreet = index - 1;
+
+                                        //Присвоение 
+                                        if (indexStreet < 0) { streetname = " "; } else { streetname = data.OutPutSt(index - 1); }
                                     }
                                     else
                                     {
@@ -2429,20 +2438,161 @@ namespace ConsoleApp6
                                         }
                                     }
 
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Повторный вызов меню добавления акта эвакуации
+                                    //consolebd.AddElemActEvacuation(j, GPS, typeviolation, numberofcar, typeofcar, streetname, parkingname);
+
+                                    //Повторый вызов метода считывания клавиш
+                                    AddActEvacuation();
+
                                     break;
 
-                                    //Автостоянка
+                                //Автостоянка
                                 case 6:
 
                                     break;
 
-                                    //Назад
+                                //Назад
                                 case 7:
+                                    //Очистка консоли
+                                    Console.Clear();
 
+                                    //Вызов главного меню добавления элемента
+                                    //с передачей в качестве параметра еденицы
+                                    consolebd.AddElement(1);
+
+                                    //Вызов метода по считыванию клавиш в главном меню добавления нового элемента
+                                    AddCar();
                                     break;
 
-                                    //Сохранить
+                                //Сохранить
+                                //Введенная информация сохраняется и записывается в список
+                                //Далее происходит преход в главное меню добавления нового элемента
                                 case 700:
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Проверка на то, что все поля заполнены
+
+                                    //Объявление переменных для сохранения промежуточного результата
+                                    //Если поле удовлетворяет условиям заполнения и не пустое -> true, иначе false
+                                    bool GPSBool = false;
+                                    bool typevioBool = false;
+                                    bool numofcarBool = false;
+                                    bool typeofcarBool = false;
+                                    bool streetBool = false;
+                                    bool parkingBool = false;
+                                    bool IsAlreadyExistsAct = false;
+
+                                    //Проверка на пустое поле для переменной gps
+                                    if (GPS == " " || GPS == "")
+                                    {
+                                        GPSBool = false;
+                                    }
+                                    else
+                                    {
+                                        GPSBool = true;
+                                    }
+
+                                    //Проверка на пустое поле для переменной типа нарушения
+                                    if (typeviolation == "" || typeviolation == " ")
+                                    {
+                                        typevioBool = false;
+                                    }
+                                    else
+                                    {
+                                        typevioBool = true;
+                                    }
+
+                                    //Проверка на пустое поле для переменной номера автомобиля
+                                    if (numberofcar == "" || numberofcar == " ")
+                                    {
+                                        numofcarBool = false;
+                                    }
+                                    else
+                                    {
+                                        numofcarBool = true;
+                                    }
+
+                                    //Проверка на пустое поле для переменной типа автомобиля
+                                    if (typeofcar == "" || typeofcar == " ")
+                                    {
+                                        typeofcarBool = false;
+                                    }
+                                    else
+                                    {
+                                        typeofcarBool = true;
+                                    }
+
+                                    //Проверка на пустое поле для переменной улицы
+                                    if (streetname == "" || streetname == " ")
+                                    {
+                                        streetBool = false;
+                                    }
+                                    else
+                                    {
+                                        streetBool = true;
+                                    }
+
+                                    //Проверка на пустое поле для переменной парковки
+                                    if (parkingname == "" || parkingname == " ")
+                                    {
+                                        parkingBool = false;
+                                    }
+                                    else
+                                    {
+                                        parkingBool = true;
+                                    }
+
+                                    if (GPSBool == false || typevioBool == false || numofcarBool == false || typeofcarBool == false || streetBool == false || parkingBool == false)
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.AttentionNullableFields();
+
+                                        //Повторный вызов метода добавления акта эвакуации
+                                        AddActEvacuation();
+                                    }
+                                    else
+                                    {
+                                        //Добавление проверенных полей в список
+                                        //Вызов метода создания нового списка
+                                        data.AddElementTab1();
+
+                                        //Вызов метода, возвращающего количество элементов в списке
+                                        //и присвоение этого значения переменной
+                                        int ind = data.CountTab1() - 1;
+
+                                        //Обращение к нужному элементу списка
+                                        //Передача gps координат и индекса элемента в качестве параметра
+                                        data.Addgps(GPS, ind);
+
+                                        //передача типа нарушения в список
+                                        data.AddTypeVio(typeviolation, ind);
+
+                                        //передача номера автомобиля в список
+                                        data.Addcarnumber(numberofcar, ind);
+
+                                        //передача типа автомобиля в список
+                                        data.AddTypeOfCar(typeofcar, ind);
+
+                                        //передача улицы в список
+                                        data.AddStreet(street, ind);
+
+                                        //Передача автостоянки в список
+                                        data.AddParking(parking, ind);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //переход в главное меню добавления элемента
+                                        consolebd.AddElement(1);
+                                        AddAct();
+                                    }
 
                                     break;
                             }
@@ -3169,11 +3319,8 @@ namespace ConsoleApp6
         }
 
         //Метод меню выбора улицы из уже добавленных
-        public static string ChoiseStreet()
+        public static int ChoiseStreet()
         {
-            //переменная для хранения улицы
-            string streetname = " ";
-
             //Создание экземпляра класса с методами построения меню
             Consolebd consolebd = new Consolebd();
 
@@ -3186,16 +3333,297 @@ namespace ConsoleApp6
             //переменная, хранящая индекс
             int index = 0;
 
-            //Вызов метода отрисовки таблицы
+            //Переменная для выбора пункта меню
+            int j = 1;
 
-            
+            //Переменная для передачи в качества параметра в метод построения меню значения нижнего предела
+            int num = 1;
+
+            //переменная для хранения количества элементов в списке
+            int counttab2 = data.CountTab2();
+
+            consolebd.ChoiseStreet(1, num, counttab2);
+
+            ChoiseStreetMain();
+
+            //Вложенный метод
+            void ChoiseStreetMain()
+            {
+
+                //Основной блок выполнения программы
+                do
+                {
+                    //Считывание информации с нажатой клавиши
+                    key = Console.ReadKey(true);
+
+                    //Условие для отсеивания ложных нажатий
+                    if (key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow || key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.LeftArrow || key.Key == ConsoleKey.RightArrow)
+                    {
+                        //Оператор выбора 
+                        switch (key.Key)
+                        {
+                            //UPARROW
+                            case ConsoleKey.UpArrow:
+                                j--;
+                                if (j < 1) { j = 11; }
+                                if (j > 11) { j = 1; }
+                                break;
+
+                            //DOWNARROW
+                            case ConsoleKey.DownArrow:
+                                j++;
+                                if (j < 1) { j = 11; }
+                                if (j > 11) { j = 1; }
+                                break;
+
+                            //LEFTARROW
+                            case ConsoleKey.LeftArrow:
+                                if (j == 11 || j == 1100)
+                                {
+                                    j /= 100;
+                                    if (j < 11) { j = 1100; }
+                                    if (j > 1100) { j = 11; }
+                                }
+                                break;
+
+                            //RIGHTARROW
+                            case ConsoleKey.RightArrow:
+                                if (j == 11 || j == 1100)
+                                {
+                                    j *= 100;
+                                    if (j < 11) { j = 1100; }
+                                    if (j > 1100) { j = 11; }
+                                }
+                                break;
+                        }
+
+                        //Вызов метода построения таблицы
+                        consolebd.ChoiseStreet(j, num, counttab2);
+
+                        //Выбор пункта меню
+                        if (key.Key == ConsoleKey.Enter)
+                        {
+                            //Выюор пункта таблицы
+                            switch (j)
+                            {
+                                case 1:
+                                    if (num <= data.CountTab2())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+                                    }
+                                    break;
+
+                                case 2:
+                                    num += 1;
+                                    if (num <= data.CountTab2())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+                                    }
+                                    break;
+
+                                case 3:
+                                    num += 2;
+                                    if (num <= data.CountTab2())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+                                    }
+                                    break;
+
+                                case 4:
+                                    num += 3;
+                                    if (num <= data.CountTab2())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+                                    }
+                                    break;
+
+                                case 5:
+                                    num += 4;
+                                    if (num <= data.CountTab2())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+                                    }
+                                    break;
+
+                                case 6:
+                                    num += 5;
+                                    if (num <= data.CountTab2())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+                                    }
+                                    break;
+
+                                case 7:
+                                    num += 6;
+                                    if (num <= data.CountTab2())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+                                    }
+                                    break;
+
+                                case 8:
+                                    num += 7;
+                                    if (num <= data.CountTab2())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+                                    }
+                                    break;
+
+                                case 9:
+                                    num += 8;
+                                    if (num <= data.CountTab2())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+                                    }
+                                    break;
+
+                                case 10:
+                                    num += 9;
+                                    if (num <= data.CountTab2())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+                                    }
+                                    break;
+
+                                case 11:
+                                    if (num >=0 && num <= 11) { index = -1; }
+                                    if (num == 11)
+                                    {
+                                        num = 1;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов меню
+                                        consolebd.ChoiseStreet(j, num, counttab2);
+
+                                        //Повторный вызов метода 
+                                        ChoiseStreetMain();
+                                    }
+                                    if (num >= 20)
+                                    {
+                                        num -= 10;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов меню
+                                        consolebd.ChoiseStreet(j, num, counttab2);
+
+                                        //Повторный вызов метода 
+                                        ChoiseStreetMain();
+                                    }
+                                    break;
+
+                                case 1100:                                    
+                                    if (num <= 91 && num > 10) { num += 10; }
+                                    if (num == 1) { num = 11; }
+                                    if (num == 100) { num = 91; }
+
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов меню
+                                    consolebd.ChoiseStreet(j, num, counttab2);
+
+                                    //Повторный вызов метода 
+                                    ChoiseStreetMain();
+                                    break;
+                            }
+                        }
+                    }
+
+                }
+                while (key.Key != ConsoleKey.Enter);
+
+            }
 
             //Очистка консоли
             Console.Clear();
+            
 
 
-
-            return streetname;
+            return index;
         }
 
         

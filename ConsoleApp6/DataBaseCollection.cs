@@ -77,6 +77,12 @@ namespace ConsoleApp6
         //string prkadress;
         //string prknumber;
 
+        //Метод для добавления ссылки на улицу в таблицу 1
+        public void AddStreet(int ind1, int ind2)
+        {
+            Tab1List[ind1].Street = Tab2List[ind2];
+        }
+
         //Метод для ввода названия улицы в список
         public void AddElementStrname(string sname, int ind)
         {
@@ -281,6 +287,44 @@ namespace ConsoleApp6
 
             return result;
         }
+
+        //Метод для добавления gps-координат в список
+        public void Addgps(string gps, int ind)
+        {
+            Tab1List[ind].GPS = gps;
+        }
+
+        //Метод для добавления типа нарушения в список
+        public void AddTypeVio(string tpvio, int ind)
+        {
+            Tab1List[ind].TypeViolation = tpvio;
+        }
+
+        //Метод для добавления номера автомобиля в список
+        public void AddCarNumber(string carnum, int ind)
+        {
+            Tab1List[ind].CarNumber = carnum;
+        }
+
+        //Метод для добавления типа автомобиля в список
+        public void AddTypeOfCar(string cartp, int ind)
+        {
+            Tab1List[ind].CarType = cartp;
+        }
+
+        //Метод для добавления улицы в список
+        public void AddStreet(ElementsTab2 street, int ind)
+        {
+            Tab1List[ind].Street = street;
+        }
+
+        //Метод для добавления парковки в список
+        public void AddParking(ElementsTab3 parking, int ind)
+        {
+            Tab1List[ind].Parking = parking;
+        }
+
+      
     }
     
 

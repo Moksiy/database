@@ -652,7 +652,7 @@ namespace ConsoleApp6
         }
 
         //Метод построения меню выбора улицы
-        public void ChoiseStreet(int j)
+        public void ChoiseStreet(int j, int limit, int counttab2)
         {
             //Создание экземпляра класса с данными
             Data data = new Data();
@@ -663,95 +663,152 @@ namespace ConsoleApp6
             //переменная для хранения улицы
             string street = " ";
 
-            if (count <= 90)
+            if (limit <= 80)
             {
-                Table1(count, j);
+                //Очистка консоли
+                Console.Clear();
+
+                //Построение таблицы 
+                Table1(limit, j, counttab2);
+            }
+            else
+            {
+                //Очистка консоли
+                Console.Clear();
+
+                //Построение таблицы
+                Table2(limit, j, counttab2);
             }
 
-            void Table1(int c, int num)
+            void Table1(int num, int l, int counttab)
             {
                 Console.WriteLine("╓" + new string('─', 60) + "╖");
-                int p = 58 - data.OutPutSt(1).Length;
-                if (data.OutPutSt(c) != null) { street = data.OutPutSt(1); } else { street = " "; }
+                Console.WriteLine("║" + new string(' ', 15) + "         Выберите улицу       " + new string(' ', 15) + "║");
+                string st;
+                if ((counttab - 1) >= (num -1)) { st = data.OutPutSt(num-1); } else { st = " "; }
+                int p = 58 - st.Length;
                 Console.Write("║ ");
-                if (j == 1) { Console.BackgroundColor = ConsoleColor.Blue; }
-                Console.Write(street);
-                Console.ResetColor();
-                Console.WriteLine(new string(' ',p) + " ║");
-                if (data.OutPutSt(c) != null) { street = data.OutPutSt(1); } else { street = " "; }
-                p = 58 - data.OutPutSt(1).Length;
+                if (l == 1) { Console.BackgroundColor = ConsoleColor.Blue; }
+                Console.Write(st + new string(' ', p)); Console.ResetColor(); Console.WriteLine(" ║");
+                if ((counttab - 1) >= (num)) { st = data.OutPutSt(num); } else { st = " "; }
+                p = 58 - st.Length;
                 Console.Write("║ ");
-                if (j == 2) { Console.BackgroundColor = ConsoleColor.Blue; }
-                Console.Write(street);
-                Console.ResetColor();
-                Console.WriteLine(new string(' ', p) + " ║");
-                if (data.OutPutSt(c) != null) { street = data.OutPutSt(1); } else { street = " "; }
-                p = 58 - data.OutPutSt(1).Length;
+                if (l == 2) { Console.BackgroundColor = ConsoleColor.Blue; }
+                Console.Write(st + new string(' ', p)); Console.ResetColor(); Console.WriteLine(" ║");
+                if ((counttab - 1) >= (num + 1)) { st = data.OutPutSt(num + 1); } else { st = " "; }
+                p = 58 - st.Length;
                 Console.Write("║ ");
-                if (j == 3) { Console.BackgroundColor = ConsoleColor.Blue; }
-                Console.Write(street);
-                Console.ResetColor();
-                Console.WriteLine(new string(' ', p) + " ║");
-                if (data.OutPutSt(c) != null) { street = data.OutPutSt(1); } else { street = " "; }
-                p = 58 - data.OutPutSt(1).Length;
+                if (l == 3) { Console.BackgroundColor = ConsoleColor.Blue; }
+                Console.Write(st + new string(' ', p)); Console.ResetColor(); Console.WriteLine(" ║");
+                if ((counttab - 1) >= (num + 2)) { st = data.OutPutSt(num + 2); } else { st = " "; }
+                p = 58 - st.Length;
                 Console.Write("║ ");
-                if (j == 4) { Console.BackgroundColor = ConsoleColor.Blue; }
-                Console.Write(street);
-                Console.ResetColor();
-                Console.WriteLine(new string(' ', p) + " ║");
-                if (data.OutPutSt(c) != null) { street = data.OutPutSt(1); } else { street = " "; }
-                p = 58 - data.OutPutSt(1).Length;
+                if (l == 4) { Console.BackgroundColor = ConsoleColor.Blue; }
+                Console.Write(st + new string(' ', p)); Console.ResetColor(); Console.WriteLine(" ║");
+                if ((counttab - 1) >= (num + 3)) { st = data.OutPutSt(num + 3); } else { st = " "; }
+                p = 58 - st.Length;
                 Console.Write("║ ");
-                if (j == 5) { Console.BackgroundColor = ConsoleColor.Blue; }
-                Console.Write(street);
-                Console.ResetColor();
-                Console.WriteLine(new string(' ', p) + " ║");
-                if (data.OutPutSt(c) != null) { street = data.OutPutSt(1); } else { street = " "; }
-                p = 58 - data.OutPutSt(1).Length;
+                if (l == 5) { Console.BackgroundColor = ConsoleColor.Blue; }
+                Console.Write(st + new string(' ', p)); Console.ResetColor(); Console.WriteLine(" ║");
+                if ((counttab - 1) >= (num + 4)) { st = data.OutPutSt(num + 4); } else { st = " "; }
+                p = 58 - st.Length;
                 Console.Write("║ ");
-                if (j == 6) { Console.BackgroundColor = ConsoleColor.Blue; }
-                Console.Write(street);
-                Console.ResetColor();
-                Console.WriteLine(new string(' ', p) + " ║");
-                if (data.OutPutSt(c) != null) { street = data.OutPutSt(1); } else { street = " "; }
-                p = 58 - data.OutPutSt(1).Length;
+                if (l == 6) { Console.BackgroundColor = ConsoleColor.Blue; }
+                Console.Write(st + new string(' ', p)); Console.ResetColor(); Console.WriteLine(" ║");
+                if ((counttab - 1) >= (num + 5)) { st = data.OutPutSt(num + 5); } else { st = " "; }
+                p = 58 - st.Length;
                 Console.Write("║ ");
-                if (j == 7) { Console.BackgroundColor = ConsoleColor.Blue; }
-                Console.Write(street);
-                Console.ResetColor();
-                Console.WriteLine(new string(' ', p) + " ║");
-                if (data.OutPutSt(c) != null) { street = data.OutPutSt(1); } else { street = " "; }
-                p = 58 - data.OutPutSt(1).Length;
+                if (l == 7) { Console.BackgroundColor = ConsoleColor.Blue; }
+                Console.Write(st + new string(' ', p)); Console.ResetColor(); Console.WriteLine(" ║");
+                if ((counttab - 1) >= (num + 6)) { st = data.OutPutSt(num + 6); } else { st = " "; }
+                p = 58 - st.Length;
                 Console.Write("║ ");
-                if (j == 8) { Console.BackgroundColor = ConsoleColor.Blue; }
-                Console.Write(street);
-                Console.ResetColor();
-                Console.WriteLine(new string(' ', p) + " ║");
-                if (data.OutPutSt(c) != null) { street = data.OutPutSt(1); } else { street = " "; }
-                p = 58 - data.OutPutSt(1).Length;
+                if (l == 8) { Console.BackgroundColor = ConsoleColor.Blue; }
+                Console.Write(st + new string(' ', p)); Console.ResetColor(); Console.WriteLine(" ║");
+                if ((counttab - 1) >= (num + 7)) { st = data.OutPutSt(num + 7); } else { st = " "; }
+                p = 58 - st.Length;
                 Console.Write("║ ");
-                if (j == 9) { Console.BackgroundColor = ConsoleColor.Blue; }
-                Console.Write(street);
-                Console.ResetColor();
-                Console.WriteLine(new string(' ', p) + " ║");
-                if (data.OutPutSt(c) != null) { street = data.OutPutSt(1); } else { street = " "; }
-                p = 58 - data.OutPutSt(1).Length;
+                if (l == 9) { Console.BackgroundColor = ConsoleColor.Blue; }
+                Console.Write(st + new string(' ', p)); Console.ResetColor(); Console.WriteLine(" ║");
+                if ((counttab - 1) >= (num + 8)) { st = data.OutPutSt(num + 8); } else { st = " "; }
+                p = 58 - st.Length;
                 Console.Write("║ ");
-                if (j == 10) { Console.BackgroundColor = ConsoleColor.Blue; }
-                Console.Write(street);
-                Console.ResetColor();
-                Console.WriteLine(new string(' ', p) + " ║");
+                if (l == 10) { Console.BackgroundColor = ConsoleColor.Blue; }
+                Console.Write(st + new string(' ', p)); Console.ResetColor(); Console.WriteLine(" ║");
+                if ((counttab - 1) >= (num + 9)) { st = data.OutPutSt(num + 9); } else { st = " "; }
+                p = 58 - st.Length;
                 Console.Write("║ ");
-                if (j == 11) { Console.BackgroundColor = ConsoleColor.Red; }
-                Console.ResetColor();
-                Console.Write(new string (' ', 40));
-                if (j == 110) { }
+                if (l == 11) { Console.BackgroundColor = ConsoleColor.Red; } Console.Write(Back); Console.ResetColor();
+                Console.Write(new string (' ',44));
+                if (l == 1100) { Console.BackgroundColor = ConsoleColor.Blue; } Console.Write(Next); Console.ResetColor();
+                Console.WriteLine(" ║");
                 Console.WriteLine("╙" + new string('─',60) + "╜");
             }
 
-            void Table2()
+            void Table2(int num, int l, int counttab)
             {
-
+                Console.WriteLine("╓" + new string('─', 60) + "╖");
+                Console.WriteLine("║" + new string(' ', 15) + "         Выберите улицу       " + new string(' ', 15) + "║");
+                string st;
+                if ((counttab - 1) >= (num -1)) { st = data.OutPutSt(num - 1); } else { st = " "; }
+                int p = 58 - st.Length;
+                Console.Write("║ ");
+                if (l == 1) { Console.BackgroundColor = ConsoleColor.Blue; }
+                Console.Write(st + new string(' ', p)); Console.ResetColor(); Console.WriteLine(" ║");
+                if ((counttab - 1) >= (num)) { st = data.OutPutSt(num); } else { st = " "; }
+                p = 58 - st.Length;
+                Console.Write("║ ");
+                if (l == 2) { Console.BackgroundColor = ConsoleColor.Blue; }
+                Console.Write(st + new string(' ', p)); Console.ResetColor(); Console.WriteLine(" ║");
+                if ((counttab - 1) >= (num + 1)) { st = data.OutPutSt(num + 1); } else { st = " "; }
+                p = 58 - st.Length;
+                Console.Write("║ ");
+                if (l == 3) { Console.BackgroundColor = ConsoleColor.Blue; }
+                Console.Write(st + new string(' ', p)); Console.ResetColor(); Console.WriteLine(" ║");
+                if ((counttab - 1) >= (num + 2)) { st = data.OutPutSt(num + 2); } else { st = " "; }
+                p = 58 - st.Length;
+                Console.Write("║ ");
+                if (l == 4) { Console.BackgroundColor = ConsoleColor.Blue; }
+                Console.Write(st + new string(' ', p)); Console.ResetColor(); Console.WriteLine(" ║");
+                if ((counttab - 1) >= (num + 3)) { st = data.OutPutSt(num + 3); } else { st = " "; }
+                p = 58 - st.Length;
+                Console.Write("║ ");
+                if (l == 5) { Console.BackgroundColor = ConsoleColor.Blue; }
+                Console.Write(st + new string(' ', p)); Console.ResetColor(); Console.WriteLine(" ║");
+                if ((counttab - 1) >= (num + 4)) { st = data.OutPutSt(num + 4); } else { st = " "; }
+                p = 58 - st.Length;
+                Console.Write("║ ");
+                if (l == 6) { Console.BackgroundColor = ConsoleColor.Blue; }
+                Console.Write(st + new string(' ', p)); Console.ResetColor(); Console.WriteLine(" ║");
+                if ((counttab - 1) >= (num + 5)) { st = data.OutPutSt(num + 5); } else { st = " "; }
+                p = 58 - st.Length;
+                Console.Write("║ ");
+                if (l == 7) { Console.BackgroundColor = ConsoleColor.Blue; }
+                Console.Write(st + new string(' ', p)); Console.ResetColor(); Console.WriteLine(" ║");
+                if ((counttab - 1) >= (num + 6)) { st = data.OutPutSt(num + 6); } else { st = " "; }
+                p = 58 - st.Length;
+                Console.Write("║ ");
+                if (l == 8) { Console.BackgroundColor = ConsoleColor.Blue; }
+                Console.Write(st + new string(' ', p)); Console.ResetColor(); Console.WriteLine(" ║");
+                if ((counttab - 1) >= (num + 7)) { st = data.OutPutSt(num + 7); } else { st = " "; }
+                p = 58 - st.Length;
+                Console.Write("║ ");
+                if (l == 9) { Console.BackgroundColor = ConsoleColor.Blue; }
+                Console.Write(st + new string(' ', p)); Console.ResetColor(); Console.WriteLine(" ║");
+                if ((counttab - 1) >= (num + 8)) { st = data.OutPutSt(num + 8); } else { st = " "; }
+                p = 58 - st.Length;
+                Console.Write("║ ");
+                if (l == 10) { Console.BackgroundColor = ConsoleColor.Blue; }
+                Console.Write(st + new string(' ', p)); Console.ResetColor(); Console.WriteLine(" ║");
+                if ((counttab - 1) >= (num + 9)) { st = data.OutPutSt(num + 9); } else { st = " "; }
+                p = 58 - st.Length;
+                if (l == 1100) { l = 11; }
+                Console.Write("║ ");
+                if (l == 11) { Console.BackgroundColor = ConsoleColor.Red; }
+                Console.Write(Back); Console.ResetColor();
+                Console.Write(new string(' ', 50));
+                Console.WriteLine(" ║");
+                Console.WriteLine("╙" + new string('─', 60) + "╜");
             }
         }
     }
