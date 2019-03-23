@@ -1210,7 +1210,7 @@ namespace ConsoleApp6
                                         strname = " ";
 
                                         //Повторный вызов метода построения меню добавления улицы
-                                        consolebd.AddElemStreet(1, strname, strlength);
+                                        consolebd.AddElemStreet(j, strname, strlength);
 
                                         //Повторный вызов метода считывания клавиш
                                         AddStreetMain();
@@ -1221,7 +1221,7 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Повторный вызов метода построения меню 
-                                        consolebd.AddElemStreet(1, strname, strlength);
+                                        consolebd.AddElemStreet(j, strname, strlength);
 
                                         //Повторный вызов метода для считывания клавиш
                                         AddStreetMain();
@@ -1263,7 +1263,7 @@ namespace ConsoleApp6
                                         consolebd.AttentionAddElement();
 
                                         //Вызов метода построения меню добавления элемента
-                                        consolebd.AddElemStreet(2, strname, strlength);
+                                        consolebd.AddElemStreet(j, strname, strlength);
 
                                         //Вызов метода считывания нажатой клавиши
                                         AddStreetMain();
@@ -1283,7 +1283,7 @@ namespace ConsoleApp6
                                             slen = Double.Parse(strlength);
 
                                             //Повторный вызов метода построения меню 
-                                            consolebd.AddElemStreet(2, strname, strlength);
+                                            consolebd.AddElemStreet(j, strname, strlength);
 
                                             //Повторный вызов метода для считывания клавиш
                                             AddStreetMain();
@@ -1300,7 +1300,7 @@ namespace ConsoleApp6
                                             consolebd.AttentionAddElement();
 
                                             //Повторный вызов меню добавления улицы
-                                            consolebd.AddElemStreet(2, strname, strlength);
+                                            consolebd.AddElemStreet(j, strname, strlength);
 
                                             //Вызов метода выбора пункта меню
                                             AddStreetMain();
@@ -1374,7 +1374,7 @@ namespace ConsoleApp6
                                             consolebd.AttentionAlreadyHasStreet();
 
                                             //Повторный вызов метода добавления улицы
-                                            consolebd.AddElemStreet(1, strname, strname);
+                                            consolebd.AddElemStreet(j, strname, strname);
 
                                             //Повторный вызов метода считывания клавиш
                                             AddStreetMain();
@@ -1388,7 +1388,7 @@ namespace ConsoleApp6
                                             consolebd.AttentionNullableFields();
 
                                             //Повторный вызов метода добавления улицы
-                                            consolebd.AddElemStreet(1, strname, strlength);
+                                            consolebd.AddElemStreet(j, strname, strlength);
 
                                             //Повторный вызов метода считывания клавиш
                                             AddStreetMain();
@@ -1440,6 +1440,10 @@ namespace ConsoleApp6
             string prkadress = " ";   //Адрес автостоянки
             string prknumber = " ";   //Телефон автостоянки
 
+
+            //Объявление и инициализация переменной-счетчика для отображения выбранного пункта меню
+            int j = 1;
+
             //Вызов вложенного метода
             AddParkingMain();
 
@@ -1459,11 +1463,8 @@ namespace ConsoleApp6
                 //Объявление переменно для хранения информации о нажатой клавише
                 ConsoleKeyInfo key;
 
-                //Объявление и инициализация переменной-счетчика для отображения выбранного пункта меню
-                int j = 1;
-
                 //Вызов метода построения меню добавления автостоянки
-                consolebd.AddElemParking(1, prkname, prkadress, prknumber);
+                consolebd.AddElemParking(j, prkname, prkadress, prknumber);
 
                 do
                 {
@@ -1557,7 +1558,7 @@ namespace ConsoleApp6
                                         prkname = " ";
 
                                         //Повторный вызов метода построения меню добавления автостоянки
-                                        consolebd.AddElemParking(1, prkname, prkadress, prknumber);
+                                        consolebd.AddElemParking(j, prkname, prkadress, prknumber);
 
                                         //Повторный вызов метода считывания клавиш
                                         AddParkingMain();
@@ -1568,7 +1569,7 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Повторный вызов метода построения меню добавления автостоянки
-                                        consolebd.AddElemParking(1, prkname, prkadress, prknumber);
+                                        consolebd.AddElemParking(j, prkname, prkadress, prknumber);
 
                                         //Повторный вызов метода для считывания клавиш
                                         AddParkingMain();
@@ -1610,7 +1611,7 @@ namespace ConsoleApp6
                                         consolebd.AttentionAddElement();
 
                                         //Вызов метода построения меню добавления элемента
-                                        consolebd.AddElemParking(2, prkname, prkadress, prknumber);
+                                        consolebd.AddElemParking(j, prkname, prkadress, prknumber);
 
                                         //Вызов метода считывания нажатой клавиши
                                         AddParkingMain();
@@ -1621,7 +1622,7 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Повторный вызов метода построения меню
-                                        consolebd.AddElemParking(2, prkname, prkadress, prknumber);
+                                        consolebd.AddElemParking(j, prkname, prkadress, prknumber);
 
                                         //Повторный вызов метода для считывания клаваиш
                                         AddParkingMain();
@@ -1663,7 +1664,7 @@ namespace ConsoleApp6
                                         prknumber = " ";
 
                                         //Повторный вызов метода построения меню добавления автостоянки
-                                        consolebd.AddElemParking(1, prkname, prkadress, prknumber);
+                                        consolebd.AddElemParking(j, prkname, prkadress, prknumber);
 
                                         //Повторный вызов метода считывания клавиш
                                         AddParkingMain();
@@ -1674,7 +1675,7 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Повторный вызов метода построения меню
-                                        consolebd.AddElemParking(1, prkname, prkadress, prknumber);
+                                        consolebd.AddElemParking(j, prkname, prkadress, prknumber);
 
                                         //Повторный вызов метода для считывания клавиш
                                         AddParkingMain();
@@ -1755,7 +1756,7 @@ namespace ConsoleApp6
                                             consolebd.AttentionAlreadyHasParking();
 
                                             //Повторный вызов метода добавления улицы
-                                            consolebd.AddElemParking(1, prkname, prkadress, prknumber);
+                                            consolebd.AddElemParking(j, prkname, prkadress, prknumber);
 
                                             //Повторный вызов метода считывания клавиш
                                             AddParkingMain();
@@ -1769,7 +1770,7 @@ namespace ConsoleApp6
                                             consolebd.AttentionNullableFields();
 
                                             //Повторный вызов метода добавления автостоянки
-                                            consolebd.AddElemParking(1, prkname, prkadress, prknumber);
+                                            consolebd.AddElemParking(j, prkname, prkadress, prknumber);
 
                                             //повторный вызов метода считывания клавиш
                                             AddParkingMain();
@@ -1829,8 +1830,12 @@ namespace ConsoleApp6
             ElementsTab2 street = null;
             ElementsTab3 parking = null;
 
+            //Объявление и инициализация переменной-счетчика для отображения выбранного пункта меню
+            int j = 1;
+
             //Вызов вложенного метода
             AddActEvacuation();
+
 
             //Вложенный метод
             //используется для того, чтобы при добавлении элементов не обнулялись поля
@@ -1848,11 +1853,8 @@ namespace ConsoleApp6
                 //Объявление переменной для хранения информации о нажатой кнопке
                 ConsoleKeyInfo key;
 
-                //Объявление и инициализация переменной-счетчика для отображения выбранного пункта меню
-                int j = 1;
-
                 //Вызов метода построения меню добавления автостоянки
-                consolebd.AddElemActEvacuation(1, GPS, typeviolation, numberofcar, typeofcar, streetname, parkingname);
+                consolebd.AddElemActEvacuation(j, GPS, typeviolation, numberofcar, typeofcar, streetname, parkingname);
 
                 do
                 {
