@@ -660,7 +660,7 @@ namespace ConsoleApp6
             //объявление переменной для хранения количества элементов в списке
             int count = data.CountTab2();
 
-            if (limit <= 80)
+            if (limit <= 81)
             {
                 //Очистка консоли
                 Console.Clear();
@@ -963,8 +963,9 @@ namespace ConsoleApp6
                 Console.Write("║ ");
                 if (l == 11) { Console.BackgroundColor = ConsoleColor.Red; }
                 Console.Write(Back); Console.ResetColor();
-                Console.Write(new string(' ', 50));
+                Console.Write(new string(' ', 51));
                 Console.WriteLine(" ║");
+
                 Console.WriteLine("╙" + new string('─', 60) + "╜");
             }
         }

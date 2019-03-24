@@ -21,7 +21,9 @@ using System.Threading;
 
 
 
-//    ----->5681
+//-------------->5681
+
+
 
 namespace ConsoleApp6
 {
@@ -1198,7 +1200,7 @@ namespace ConsoleApp6
                                     strname = Console.ReadLine();
 
                                     //Проверка на правильность ввода
-                                    if (strname == " " || strname == null || strname.Length > 50 || strname == "")
+                                    if (strname == " " || strname == null || strname.Length > 50 || strname == "" || strname.Contains('\t'))
                                     {
                                         //Очистка консоли
                                         Console.Clear();
@@ -1251,7 +1253,7 @@ namespace ConsoleApp6
                                     strlength = Console.ReadLine();
 
                                     //Проверка на правильность ввода
-                                    if (strlength == " " || strlength == null || strlength.Length > 50 || strlength == "")
+                                    if (strlength == " " || strlength == null || strlength.Length > 50 || strlength == "" || strlength.Contains('\t'))
                                     {
                                         //Обнуление переменной 
                                         strlength = " ";
@@ -1546,7 +1548,7 @@ namespace ConsoleApp6
                                     prkname = Console.ReadLine();
 
                                     //Проверка на правильность ввода
-                                    if (prkname == " " || prkname == null || prkname.Length > 50 || prkname == "")
+                                    if (prkname == " " || prkname == null || prkname.Length > 50 || prkname == "" || prkname.Contains('\t'))
                                     {
                                         //Очистка консоли
                                         Console.Clear();
@@ -1599,7 +1601,7 @@ namespace ConsoleApp6
                                     prkadress = Console.ReadLine();
 
                                     //Проверка на правильность ввода
-                                    if (prkadress == " " || prkadress == null || prkadress.Length > 50 || prkadress == "")
+                                    if (prkadress == " " || prkadress == null || prkadress.Length > 50 || prkadress == "" || prkadress.Contains('\t'))
                                     {
                                         //Обнуление переменной
                                         prkadress = " ";
@@ -1652,7 +1654,7 @@ namespace ConsoleApp6
                                     prknumber = Console.ReadLine();
 
                                     //Проверка на правильность ввода
-                                    if (prknumber == " " || prknumber == null || prknumber.Length > 50 || prknumber == "")
+                                    if (prknumber == " " || prknumber == null || prknumber.Length > 50 || prknumber == "" || prknumber.Contains('\t'))
                                     {
                                         //Очистка консоли
                                         Console.Clear();
@@ -1936,7 +1938,7 @@ namespace ConsoleApp6
                                     GPS = Console.ReadLine();
 
                                     //Проверка на правильность ввода
-                                    if (GPS == " " || GPS == null || GPS == "" || GPS.Length > 50)
+                                    if (GPS == " " || GPS == null || GPS == "" || GPS.Length > 50 || GPS.Contains('\t'))
                                     {
                                         //Очистка консоли
                                         Console.Clear();
@@ -2012,7 +2014,7 @@ namespace ConsoleApp6
                                     numberofcar = Console.ReadLine();
 
                                     //проверка на правильность ввода
-                                    if (numberofcar == "" || numberofcar == " " || numberofcar == null || numberofcar.Length > 50)
+                                    if (numberofcar == "" || numberofcar == " " || numberofcar == null || numberofcar.Length > 50 || numberofcar.Contains('\t'))
                                     {
                                         //обнуление переменной
                                         numberofcar = " ";
@@ -2212,7 +2214,7 @@ namespace ConsoleApp6
                                                                 strname = Console.ReadLine();
 
                                                                 //Проверка на правильность ввода
-                                                                if (strname == " " || strname == null || strname.Length > 50 || strname == "")
+                                                                if (strname == " " || strname == null || strname.Length > 50 || strname == "" || strname.Contains('\t'))
                                                                 {
                                                                     //Очистка консоли
                                                                     Console.Clear();
@@ -2265,7 +2267,7 @@ namespace ConsoleApp6
                                                                 strlength = Console.ReadLine();
 
                                                                 //Проверка на правильность ввода
-                                                                if (strlength == " " || strlength == null || strlength.Length > 50 || strlength == "")
+                                                                if (strlength == " " || strlength == null || strlength.Length > 50 || strlength == "" || strlength.Contains('\t'))
                                                                 {
                                                                     //Обнуление переменной 
                                                                     strlength = " ";
@@ -2604,7 +2606,7 @@ namespace ConsoleApp6
                                                                 prkname = Console.ReadLine();
 
                                                                 //Проверка на правильность ввода
-                                                                if (prkname == " " || prkname == null || prkname.Length > 50 || prkname == "")
+                                                                if (prkname == " " || prkname == null || prkname.Length > 50 || prkname == "" || prkname.Contains('\t'))
                                                                 {
                                                                     //Очистка консоли
                                                                     Console.Clear();
@@ -2657,7 +2659,7 @@ namespace ConsoleApp6
                                                                 prkadress = Console.ReadLine();
 
                                                                 //Проверка на правильность ввода
-                                                                if (prkadress == " " || prkadress == null || prkadress.Length > 50 || prkadress == "")
+                                                                if (prkadress == " " || prkadress == null || prkadress.Length > 50 || prkadress == "" || prkadress.Contains('\t'))
                                                                 {
                                                                     //Обнуление переменной
                                                                     prkadress = " ";
@@ -2710,7 +2712,7 @@ namespace ConsoleApp6
                                                                 prknumber = Console.ReadLine();
 
                                                                 //Проверка на правильность ввода
-                                                                if (prknumber == " " || prknumber == null || prknumber.Length > 50 || prknumber == "")
+                                                                if (prknumber == " " || prknumber == null || prknumber.Length > 50 || prknumber == "" || prknumber.Contains('\t'))
                                                                 {
                                                                     //Очистка консоли
                                                                     Console.Clear();
@@ -3126,7 +3128,7 @@ namespace ConsoleApp6
                                     Console.Clear();
 
                                     //Вывод предупреждения 
-                                    consolebd.Attention();
+                                    //consolebd.Attention();
 
                                     //Очистка консоли
                                     Console.Clear();
@@ -3135,10 +3137,10 @@ namespace ConsoleApp6
                                     ind = " ";
 
                                     //Вызов метода повторного построения меню удаления 
-                                    consolebd.DeleteElementIndex();
+                                    //consolebd.DeleteElementIndex();
 
                                     //Повторный вызов текущего метода
-                                    DeleteStreet();
+                                    //DeleteStreet();
                                 }
 
                                 //Дикремент для корректной работы
@@ -3306,7 +3308,7 @@ namespace ConsoleApp6
                                     Console.Clear();
 
                                     //Вывод предупреждения
-                                    consolebd.Attention();
+                                    //consolebd.Attention();
 
                                     //очистка консоли
                                     Console.Clear();
@@ -3315,10 +3317,10 @@ namespace ConsoleApp6
                                     ind = " ";
 
                                     //Вызов метода повторного построения меню удаления
-                                    consolebd.DeleteElementIndex();
+                                    //consolebd.DeleteElementIndex();
 
                                     //Повторный вызов текущего метода
-                                    DeleteParking();
+                                    //DeleteParking();
                                 }
                                 //Декремент для корректной работы
                                 index--;
@@ -3479,7 +3481,7 @@ namespace ConsoleApp6
                                     Console.Clear();
 
                                     //Вывод предупреждения
-                                    consolebd.Attention();
+                                    //consolebd.Attention();
 
                                     //Очистка консоли
                                     Console.Clear();
@@ -3488,10 +3490,10 @@ namespace ConsoleApp6
                                     ind = " ";
 
                                     //Вызов метода повторного построения меню удаления элемента
-                                    consolebd.DeleteElementIndex();
+                                    //consolebd.DeleteElementIndex();
 
                                     //Повторный вызов текущего метода
-                                    DeleteAct();
+                                    //DeleteAct();
                                 }
 
                                 //Декремент для корректной работы
@@ -3786,6 +3788,8 @@ namespace ConsoleApp6
                     //Считывание информации с нажатой клавиши
                     key = Console.ReadKey(true);
 
+                    if (num == 91) { j = 11; }
+
                     //Условие для отсеивания ложных нажатий
                     if (key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow || key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.LeftArrow || key.Key == ConsoleKey.RightArrow)
                     {
@@ -3813,6 +3817,8 @@ namespace ConsoleApp6
                                     j /= 100;
                                     if (j < 11) { j = 1100; }
                                     if (j > 1100) { j = 11; }
+                                    if (num == 91) { j = 11; }
+                                    if (num == 101) { j = 11; }
                                 }
                                 break;
 
@@ -3823,9 +3829,13 @@ namespace ConsoleApp6
                                     j *= 100;
                                     if (j < 11) { j = 1100; }
                                     if (j > 1100) { j = 11; }
+                                    if (num == 91) { j = 11; }
+                                    if (num == 101) { j = 11; }
                                 }
                                 break;
                         }
+
+                        if (num == 91) { j = 11; }
 
                         //Вызов метода построения таблицы
                         consolebd.ChoiseStreet(j, num, counttab2);
@@ -3996,7 +4006,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 11:
+                                    if (num == 91) { j = 11; }
                                     if (num >=0 && num <= 11) { index = -1; }
+                                    if (num == 101) { num = 91; }
                                     if (num == 11)
                                     {
                                         num = 1;
@@ -4026,6 +4038,7 @@ namespace ConsoleApp6
                                     break;
 
                                 case 1100:                                    
+                                    if (num == 91) { j = 11; }
                                     if (num <= 91 && num > 10) { num += 10; }
                                     if (num == 1) { num = 11; }
                                     if (num == 100) { num = 91; }
@@ -4095,6 +4108,8 @@ namespace ConsoleApp6
                     //Считывание информации о нажатой клавише
                     key = Console.ReadKey(true);
 
+                    if (num == 91) { j = 11; }
+
                     //Условие для отсеивания ложных нажатий
                     if (key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow || key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.LeftArrow || key.Key == ConsoleKey.RightArrow)
                     {
@@ -4122,6 +4137,8 @@ namespace ConsoleApp6
                                     j /= 100;
                                     if (j < 11) { j = 1100; }
                                     if (j > 1100) { j = 11; }
+                                    if (num == 91) { j = 11; }
+                                    if (num == 101) { j = 11; }
                                 }
                                 break;
 
@@ -4129,12 +4146,16 @@ namespace ConsoleApp6
                             case ConsoleKey.RightArrow:
                                 if (j == 11 || j == 1100)
                                 {
-                                    j *= 100;
+                                    j *= 100;                                    
                                     if (j < 11) { j = 1100; }
                                     if (j > 1100) { j = 11; }
+                                    if (num == 91) { j = 11; }
+                                    if (num == 101) { j = 11; }
                                 }
                                 break;
                         }
+
+                        if (num == 91) { j = 11; }
 
                         //Вызов метода построения таблицы
                         consolebd.ChoiseParking(j, num, counttab3);
@@ -4306,7 +4327,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 11:
+                                    if (num == 91) { j = 11; }
                                     if (num >= 0 && num <= 11) { index = -1; }
+                                    if (num == 101) { num = 91; }
                                     if (num == 11)
                                     {
                                         num = 1;
@@ -4331,11 +4354,12 @@ namespace ConsoleApp6
                                         consolebd.ChoiseParking(j, num, counttab3);
 
                                         //Повторный вызов метода 
-                                        ChoiseParking();
+                                        ChoiseParkingMain();
                                     }
                                     break;
 
                                 case 1100:
+                                    if (num == 91) { j = 11; }
                                     if (num <= 91 && num > 10) { num += 10; }
                                     if (num == 1) { num = 11; }
                                     if (num == 100) { num = 91; }
