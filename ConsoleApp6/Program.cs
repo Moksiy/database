@@ -1092,6 +1092,9 @@ namespace ConsoleApp6
             string strname = " ";     //Название улицы
             string strlength = " ";   //Длина улицы
 
+            //Объявление и инициализация переменной-счетчика для отображения выбранного пункта меню
+            int j = 1;
+
             //Вызов вложенного метода
             AddStreetMain();
 
@@ -1110,10 +1113,7 @@ namespace ConsoleApp6
                 Data data = new Data();
 
                 //Объявление переменно для хранения информации о нажатой клавише
-                ConsoleKeyInfo key;
-
-                //Объявление и инициализация переменной-счетчика для отображения выбранного пункта меню
-                int j = 1;
+                ConsoleKeyInfo key;                
 
                 //Вывод меню добавления элемента
                 consolebd.AddElemStreet(j, strname, strlength);
