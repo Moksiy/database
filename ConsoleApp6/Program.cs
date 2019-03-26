@@ -4388,6 +4388,7 @@ namespace ConsoleApp6
             return index;
         }
         
+        //Метод для работы с файлами
 
     }
 }
