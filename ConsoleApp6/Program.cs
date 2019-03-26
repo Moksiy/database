@@ -20,8 +20,7 @@ using System.Threading;
 
 
 
-
-//-------------->5681
+//-------------->5644
 
 
 
@@ -403,404 +402,225 @@ namespace ConsoleApp6
         //Метод по выводу таблицы 1 таблицы улиц
         public static void OutputTabStr()
         {
-            //Создание экземпляра класса со списками
-            Data data = new Data();
+            //Очистка консоли
+            Console.Clear();
 
-            int c = 1;
-
+            //Переменная для хранения информации о нажатой клавише
             ConsoleKeyInfo key;
 
-            //Цикл основного блока
-            do
+            //Создание экземпляра класса с методами построения меню
+            Consolebd consolebd = new Consolebd();
+
+            //переменная для передачи номера элемента
+            int index = 1;
+
+            //Переменная для хранения пункта выюранного меню
+            int j = 1;
+
+            //Вызов метода построения меню
+            consolebd.StreetTable(j, index);
+
+            //Вызов вложенного метода
+            OutputTabStrMain();
+
+            //Вложенный метод
+            void OutputTabStrMain()
             {
-                Console.Clear();
-
-                OutputTabStr1(c);
-
-                // Считывание нажатой клавиши
-                key = Console.ReadKey(true);
-
-                //If для отсеивания ложных нажатий
-                if (key.Key == ConsoleKey.LeftArrow || key.Key == ConsoleKey.RightArrow || key.Key == ConsoleKey.Enter)
+                //Основной блок выполнения программы
+                do
                 {
-                    //Очистка консоли
-                    Console.Clear();
+                    //Считывание нажатой клавиши
+                    key = Console.ReadKey(true);
 
-                    //оператор выбора
-                    switch (key.Key)
+                    //условие для отсеивания ложных нажатий
+                    if (key.Key == ConsoleKey.LeftArrow || key.Key == ConsoleKey.RightArrow || key.Key == ConsoleKey.Enter)
                     {
-                        case ConsoleKey.LeftArrow:
-                            c++;
-                            if (c > 2) { c = 1; }
-                            if (c < 1) { c = 2; }
-                            break;
+                        //Очистка консоли
+                        Console.Clear();
 
-                        case ConsoleKey.RightArrow:
-                            c--;
-                            if (c > 2) { c = 1; }
-                            if (c < 1) { c = 2; }
-                            break;
-                    }
-
-                    //Вызов метода построения меню подтверждения выхода
-                    OutputTabStr1(c);
-
-                    if (key.Key == ConsoleKey.Enter)
-                    {
-                        switch (c)
+                        switch(key.Key)
                         {
-                            case 1:
-                                Console.Clear();
-                                Main();
+                            case ConsoleKey.LeftArrow:
+                                j--;
+                                if (j > 3) { j = 1; }
+                                if (j < 1) { j = 3; }
                                 break;
 
-                            case 2:
-                                Console.Clear();
-                                //
-                                //
-                                // ПЕРЕДЕЛАТЬ
-                                //
-                                //
-                                Main();
+                            case ConsoleKey.RightArrow:
+                                j++;
+                                if (j > 3) { j = 1; }
+                                if (j < 1) { j = 3; }
                                 break;
+                        }
 
+                        //Вызов метода построения меню
+                        consolebd.StreetTable(j, index);
+
+                        if (key.Key == ConsoleKey.Enter)
+                        {
+                            switch (j)
+                            {
+                                case 1:
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов метода построения меню
+                                    consolebd.MainMenu(1);
+
+                                    //Вызов метода считывания клавиш
+                                    Main();
+                                    break;
+
+                                case 2:
+                                    index -= 20;
+                                    if (index < 1) { index = 81; }
+                                    if (index >= 100) { index = 1; }
+
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов метода построения меню
+                                    consolebd.StreetTable(j, index);
+
+                                    //Вызов метода считывания клавиш
+                                    OutputTabStrMain();
+                                    break;
+
+                                case 3:
+                                    index += 20;
+                                    if (index < 1) { index = 81; }
+                                    if (index >= 100) { index = 1; }
+
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов метода построения меню
+                                    consolebd.StreetTable(j, index);
+
+                                    //Вызов метода считывания клавиш
+                                    OutputTabStrMain();
+                                    break;
+                            }
                         }
                     }
 
-                }
-            } while (key.Key != ConsoleKey.Enter);
-            //Console.ReadKey();
-
-            //Метод вывода данных таблицы улиц
-            void OutputTabStr1(int c1)
-            {
-                //Константы для пунктов выбора
-                const string Next = "Далее";
-                const string Main = " Выход в главное меню ";
-
-                Console.WriteLine("╓" + new string('─', 3) + "╥" + new string('─', 52) + "╥" + new string('─', 52) + "╖");
-                Console.WriteLine("║" + " № " + "║" + new string(' ', 19) + "Название улицы" + new string(' ', 19) + "║" + new string(' ', 21) + "Длина улицы" + new string(' ', 20) + "║");
-                Console.WriteLine("╟" + new string('─', 3) + "╫" + new string('─', 52) + "╫" + new string('─', 52) + "╢");
-                int count = data.CountTab2();
-                if (count > 20) { count = 20; }
-                for (int i = 0; i < count; i++)
-                {
-                    Console.Write("║");
-                    string number = Convert.ToString(i + 1);
-                    Console.Write(number);
-                    int g = 3 - number.Length;
-                    Console.Write(new string(' ', g) + "║ ");
-                    string strname = data.OutPutSt(i);
-                    int p = 50 - strname.Length;
-                    Console.Write(strname);
-                    Console.Write(new string(' ', p));
-                    Console.Write(" ║ ");
-                    string strlength = data.OutPutStl(i);
-                    p = 51 - strlength.Length;
-                    Console.Write(strlength);
-                    Console.Write(new string(' ', p));
-                    Console.WriteLine("║");
-                    Console.WriteLine("╟" + "───╫" + new string('─', 52) + "╫" + new string('─', 52) + "╢");
-
-                }
-                Console.WriteLine("╟" + new string('─', 3) + "╨" + new string('─', 20) + "╥" + new string('─', 31) + "╨" + new string('─', 44) + "╥" + new string('─', 7) + "╢");
-                Console.Write("║ ");
-                if (c1 == 1) { Console.BackgroundColor = ConsoleColor.DarkRed; }
-                Console.Write(Main);
-                Console.ResetColor();
-                Console.Write(" ║");
-                Console.Write(new string(' ', 76));
-                Console.Write("║ ");
-                if (c1 == 2) { Console.BackgroundColor = ConsoleColor.Blue; }
-                Console.Write(Next);
-                Console.ResetColor();
-                Console.WriteLine(" ║");
-                Console.WriteLine("╙" + new string('─', 24) + "╨" + new string('─', 76) + "╨" + new string('─', 7) + "╜");
+                } while (key.Key != ConsoleKey.Enter);
             }
-
         }
 
         //Метод по выводу таблицы 2 таблицы штрафных автостоянок
         public static void OutputTabPrk()
         {
-            //Создание экземпляра класса со списками
-            Data data = new Data();
+            //Очистка консоли
+            Console.Clear();
 
-            int c = 1;
-
+            //Переменная для хранения информации о нажатой клавише
             ConsoleKeyInfo key;
 
-            //Цикл основного блока
-            do
+            //Создание экземпляра класса с методами построения меню
+            Consolebd consolebd = new Consolebd();
+
+            //переменная для передачи номера элемента
+            int index = 1;
+
+            //Переменная для хранения пункта выюранного меню
+            int j = 1;
+
+            //Вызов метода построения меню
+            consolebd.ParkingTable(j, index);
+
+            //Вызов вложенного метода
+            OutputTabPrkMain();
+
+            //Вложенный метод
+            void OutputTabPrkMain()
             {
-                Console.Clear();
-
-                OutputTabPrk1(c);
-
-                // Считывание нажатой клавиши
-                key = Console.ReadKey(true);
-
-                //If для отсеивания ложных нажатий
-                if (key.Key == ConsoleKey.LeftArrow || key.Key == ConsoleKey.RightArrow || key.Key == ConsoleKey.Enter)
+                //Основной блок выполнения программы
+                do
                 {
-                    //Очистка консоли
-                    Console.Clear();
+                    //Считывание нажатой клавиши
+                    key = Console.ReadKey(true);
 
-                    //оператор выбора
-                    switch (key.Key)
+                    //условие для отсеивания ложных нажатий
+                    if (key.Key == ConsoleKey.LeftArrow || key.Key == ConsoleKey.RightArrow || key.Key == ConsoleKey.Enter)
                     {
-                        case ConsoleKey.LeftArrow:
-                            c++;
-                            if (c > 2) { c = 1; }
-                            if (c < 1) { c = 2; }
-                            break;
+                        //Очистка консоли
+                        Console.Clear();
 
-                        case ConsoleKey.RightArrow:
-                            c--;
-                            if (c > 2) { c = 1; }
-                            if (c < 1) { c = 2; }
-                            break;
-                    }
-
-                    //Вызов метода построения меню подтверждения выхода
-                    OutputTabPrk1(c);
-
-                    if (key.Key == ConsoleKey.Enter)
-                    {
-                        switch (c)
+                        switch (key.Key)
                         {
-                            case 1:
-                                Console.Clear();
-                                Main();
+                            case ConsoleKey.LeftArrow:
+                                j--;
+                                if (j > 3) { j = 1; }
+                                if (j < 1) { j = 3; }
                                 break;
 
-                            case 2:
-                                Console.Clear();
-                                //
-                                //
-                                // ПЕРЕДЕЛАТЬ
-                                //
-                                //
-                                Main();
+                            case ConsoleKey.RightArrow:
+                                j++;
+                                if (j > 3) { j = 1; }
+                                if (j < 1) { j = 3; }
                                 break;
+                        }
 
+                        //Вызов метода построения меню
+                        consolebd.ParkingTable(j, index);
+
+                        if (key.Key == ConsoleKey.Enter)
+                        {
+                            switch (j)
+                            {
+                                case 1:
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов метода построения меню
+                                    consolebd.MainMenu(1);
+
+                                    //Вызов метода считывания клавиш
+                                    Main();
+                                    break;
+
+                                case 2:
+                                    index -= 20;
+                                    if (index < 1) { index = 81; }
+                                    if (index >= 100) { index = 1; }
+
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов метода построения меню
+                                    consolebd.ParkingTable(j, index);
+
+                                    //Вызов метода считывания клавиш
+                                    OutputTabPrkMain();
+                                    break;
+
+                                case 3:
+                                    index += 20;
+                                    if (index < 1) { index = 81; }
+                                    if (index >= 100) { index = 1; }
+
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов метода построения меню
+                                    consolebd.ParkingTable(j, index);
+
+                                    //Вызов метода считывания клавиш
+                                    OutputTabPrkMain();
+                                    break;
+                            }
                         }
                     }
 
-                }
-            } while (key.Key != ConsoleKey.Enter);
-
-            void OutputTabPrk1(int c1)
-            {
-                //Константы для пунктов выбора
-                const string Next = "Далее";
-                const string Main = " Выход в главное меню ";
-
-                Console.WriteLine("╓" + new string('─', 3) + "╥" + new string('─', 32) + "╥" + new string('─', 52) + "╥" + new string('─', 24) + "╖");
-                Console.WriteLine("║" + " № " + "║" + new string(' ', 6) + "Название автостоянки" + new string(' ', 6) + "║" + new string(' ', 18) + "Адрес автостоянки" + new string(' ', 17) + "║" + new string(' ', 2) + "Телефон автостоянки" + new string(' ', 3) + "║");
-                Console.WriteLine("╟" + new string('─', 3) + "╫" + new string('─', 32) + "╫" + new string('─', 52) + "╫" + new string('─', 24) + "╢");
-                int count = data.CountTab3();
-                if (count > 20) { count = 20; }
-                for (int i = 0; i < count; i++)
-                {
-                    Console.Write("║");
-                    string number = Convert.ToString(i + 1);
-                    Console.Write(number);
-                    int g = 3 - number.Length;
-                    Console.Write(new string(' ', g) + "║ ");
-                    string prkname = data.OutPutPrkname(i);
-                    int p = 30 - prkname.Length;
-                    Console.Write(prkname);
-                    Console.Write(new string(' ', p));
-                    Console.Write(" ║ ");
-                    string prkadress = data.OutPutPrkadress(i);
-                    p = 51 - prkadress.Length;
-                    Console.Write(prkadress);
-                    Console.Write(new string(' ', p));
-                    Console.Write("║ ");
-                    string prknumber = data.OutPutPrknumber(i);
-                    p = 23 - prknumber.Length;
-                    Console.Write(prknumber);
-                    Console.Write(new string(' ', p));
-                    Console.WriteLine("║");
-                    Console.WriteLine("╟" + "───╫" + new string('─', 32) + "╫" + new string('─', 52) + "╫" + new string('─', 24) + "╢");
-                }
-                Console.WriteLine("╟" + new string('─', 3) + "╨" + new string('─', 20) + "╥" + new string('─', 11) + "╨" + new string('─', 52) + "╨" + new string('─', 16) + "╥" + new string('─', 7) + "╢");
-                Console.Write("║ ");
-                if (c1 == 1) { Console.BackgroundColor = ConsoleColor.DarkRed; }
-                Console.Write(Main);
-                Console.ResetColor();
-                Console.Write(" ║");
-                Console.Write(new string(' ', 81) + "║ ");
-                if (c1 == 2) { Console.BackgroundColor = ConsoleColor.Blue; }
-                Console.Write(Next);
-                Console.ResetColor();
-                Console.WriteLine(" ║");
-                Console.WriteLine("╙" + new string('─', 24) + "╨" + new string('─', 81) + "╨" + new string('─', 7) + "╜");
+                } while (key.Key != ConsoleKey.Enter);
             }
         }
 
         //Метод по выводу таблицы 3 таблицы актов эвакуации
         public static void OutputTabAct()
         {
-            //Создание экземпляра класса со списками
-            Data data = new Data();
 
-            int c = 1;
-
-            ConsoleKeyInfo key;
-
-            //Цикл основного блока
-            do
-            {
-                Console.Clear();
-
-                OutputTabAct1(c);
-
-                // Считывание нажатой клавиши
-                key = Console.ReadKey(true);
-
-                //If для отсеивания ложных нажатий
-                if (key.Key == ConsoleKey.LeftArrow || key.Key == ConsoleKey.RightArrow || key.Key == ConsoleKey.Enter)
-                {
-                    //Очистка консоли
-                    Console.Clear();
-
-                    //оператор выбора
-                    switch (key.Key)
-                    {
-                        case ConsoleKey.LeftArrow:
-                            c++;
-                            if (c > 2) { c = 1; }
-                            if (c < 1) { c = 2; }
-                            break;
-
-                        case ConsoleKey.RightArrow:
-                            c--;
-                            if (c > 2) { c = 1; }
-                            if (c < 1) { c = 2; }
-                            break;
-                    }
-
-                    //Вызов метода построения меню подтверждения выхода
-                    OutputTabAct1(c);
-
-                    if (key.Key == ConsoleKey.Enter)
-                    {
-                        switch (c)
-                        {
-                            case 1:
-                                Console.Clear();
-                                Main();
-                                break;
-
-                            case 2:
-                                Console.Clear();
-                                //
-                                //
-                                // ПЕРЕДЕЛАТЬ
-                                //
-                                //
-                                Main();
-                                break;
-
-                        }
-                    }
-
-                }
-            } while (key.Key != ConsoleKey.Enter);
-
-            void OutputTabAct1(int c1)
-            {
-                //Константы для пунктов выбора
-                const string Next = "Далее";
-                const string Main = " Выход в главное меню ";
-
-                Console.WriteLine("╓" + new string('─', 32) + "╥" + new string('─', 52) + "╥" + new string('─', 24) + "╖");
-                Console.WriteLine("║" + new string(' ', 6) + "Название автостоянки" + new string(' ', 6) + "║" + new string(' ', 18) + "Адрес автостоянки" + new string(' ', 17) + "║" + new string(' ', 2) + "Телефон автостоянки" + new string(' ', 3) + "║");
-                Console.WriteLine("╟" + new string('─', 32) + "╫" + new string('─', 52) + "╫" + new string('─', 24) + "╢");
-                int count = data.CountTab3();
-                if (count > 20) { count = 20; }
-                for (int i = 0; i < count; i++)
-                {
-                    Console.Write("║ ");
-                    string prkname = data.OutPutPrkname(i);
-                    int p = 30 - prkname.Length;
-                    Console.Write(prkname);
-                    Console.Write(new string(' ', p));
-                    Console.Write(" ║ ");
-                    string prkadress = data.OutPutPrkadress(i);
-                    p = 51 - prkadress.Length;
-                    Console.Write(prkadress);
-                    Console.Write(new string(' ', p));
-                    Console.Write("║ ");
-                    string prknumber = data.OutPutPrknumber(i);
-                    p = 23 - prknumber.Length;
-                    Console.Write(prknumber);
-                    Console.Write(new string(' ', p));
-                    Console.WriteLine("║");
-                    Console.WriteLine("╟" + new string('─', 32) + "╫" + new string('─', 52) + "╫" + new string('─', 24) + "╢");
-                }
-                Console.Write("║" + new string(' ', 5));
-                if (c1 == 1) { Console.BackgroundColor = ConsoleColor.DarkRed; }
-                Console.Write(Main);
-                Console.ResetColor();
-                Console.Write(new string(' ', 5));
-                Console.Write("║");
-                Console.Write(new string(' ', 52) + "║");
-                Console.Write(new string(' ', 9));
-                if (c1 == 2) { Console.BackgroundColor = ConsoleColor.Blue; }
-                Console.Write(Next);
-                Console.ResetColor();
-                Console.WriteLine(new string(' ', 10) + "║");
-                Console.WriteLine("╙" + new string('─', 32) + "╨" + new string('─', 52) + "╨" + new string('─', 24) + "╜");
-            }  //ПЕРЕДЕЛАТЬ
-
-            int co = data.CountTab3();
-
-            if (co > 20)
-            {
-                Console.Clear();
-                OutputTabAct2(c);
-            }
-
-            void OutputTabAct2(int c1)
-            {
-                //Константы для пунктов выбора
-                //const string Next = "Далее";
-                //const string Back = " Назад ";
-
-                int count = data.CountTab2();
-
-                if (count > 40) { count = 40; }
-                for (int i = 21; i < count; i++)
-                {
-
-                }
-            }
-
-            co = data.CountTab2();
-
-            if (co > 60)
-            {
-                Console.Clear();
-                OutputTabAct3();
-            }
-
-            void OutputTabAct3()
-            {
-                //Константы для пунктов выбора
-                //const string Next = "Далее";
-                //const string Back = " Назад ";
-
-                int count = data.CountTab3();
-
-                if (count > 40) { count = 40; }
-                for (int i = 21; i < count; i++)
-                {
-
-                }
-            }
         }
 
         //Метод меню добавления файла
@@ -1083,7 +903,7 @@ namespace ConsoleApp6
 
             } while (key.Key != ConsoleKey.Enter);
 
-        }        
+        }
 
         //Метод меню добаваления улицы
         public static void AddStreet()
@@ -1113,7 +933,7 @@ namespace ConsoleApp6
                 Data data = new Data();
 
                 //Объявление переменно для хранения информации о нажатой клавише
-                ConsoleKeyInfo key;                
+                ConsoleKeyInfo key;
 
                 //Вывод меню добавления элемента
                 consolebd.AddElemStreet(j, strname, strlength);
@@ -1909,7 +1729,7 @@ namespace ConsoleApp6
 
                         //Вызов метода построения меню добавления нового акта эвакуации с передачей переменной в качестве параметра
                         consolebd.AddElemActEvacuation(j, GPS, typeviolation, numberofcar, typeofcar, streetname, parkingname);
-                        
+
                         //Выбор пункта меню добавления акта эвакуации
                         if (key.Key == ConsoleKey.Enter)
                         {
@@ -2742,7 +2562,7 @@ namespace ConsoleApp6
                                                                 }
                                                                 break;
 
-                                                                //Назад
+                                                            //Назад
                                                             case 4:
                                                                 //Очистка консоли
                                                                 Console.Clear();
@@ -3041,7 +2861,7 @@ namespace ConsoleApp6
         {
             //Создание переменной для хранения номера выбранного пункта мпеню
             int j = 1;
- 
+
             //Создание экземпляра класса с методами построения меню
             Consolebd consolebd = new Consolebd();
 
@@ -4007,7 +3827,7 @@ namespace ConsoleApp6
 
                                 case 11:
                                     if (num == 91) { j = 11; }
-                                    if (num >=0 && num <= 11) { index = -1; }
+                                    if (num >= 0 && num <= 11) { index = -1; }
                                     if (num == 101) { num = 91; }
                                     if (num == 11)
                                     {
@@ -4037,7 +3857,7 @@ namespace ConsoleApp6
                                     }
                                     break;
 
-                                case 1100:                                    
+                                case 1100:
                                     if (num == 91) { j = 11; }
                                     if (num <= 91 && num > 10) { num += 10; }
                                     if (num == 1) { num = 11; }
@@ -4063,7 +3883,7 @@ namespace ConsoleApp6
 
             //Очистка консоли
             Console.Clear();
-            
+
 
 
             return index;
@@ -4146,7 +3966,7 @@ namespace ConsoleApp6
                             case ConsoleKey.RightArrow:
                                 if (j == 11 || j == 1100)
                                 {
-                                    j *= 100;                                    
+                                    j *= 100;
                                     if (j < 11) { j = 1100; }
                                     if (j > 1100) { j = 11; }
                                     if (num == 91) { j = 11; }
@@ -4376,7 +4196,7 @@ namespace ConsoleApp6
                             }
                         }
 
-                        
+
                     }
 
                 } while (key.Key != ConsoleKey.Enter);
@@ -4387,7 +4207,7 @@ namespace ConsoleApp6
 
             return index;
         }
-        
+
         //Метод для работы с файлами
 
     }

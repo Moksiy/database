@@ -969,5 +969,120 @@ namespace ConsoleApp6
                 Console.WriteLine("╙" + new string('─', 60) + "╜");
             }
         }
+
+        //Метод построения таблицы улиц
+        public void StreetTable(int l, int num)
+        {
+            //Константы для пунктов выбора
+            const string Next = "Далее";
+            const string Main = " Выход в главное меню ";
+
+            Console.WriteLine("╓" + new string('─', 3) + "╥" + new string('─', 52) + "╥" + new string('─', 52) + "╖");
+            Console.WriteLine("║" + " № " + "║" + new string(' ', 19) + "Название улицы" + new string(' ', 19) + "║" + new string(' ', 21) + "Длина улицы" + new string(' ', 20) + "║");
+            Console.WriteLine("╟" + new string('─', 3) + "╫" + new string('─', 52) + "╫" + new string('─', 52) + "╢");
+            int count = data.CountTab2();
+            for (int i = num - 1; i < (num + 19); i++)
+            {
+                string strname = " ";
+                string strlength = " ";
+                Console.Write("║");
+                string number = Convert.ToString(i + 1);
+                Console.Write(number);
+                int g = 3 - number.Length;
+                Console.Write(new string(' ', g) + "║ ");
+                if ((count - 1) >= (i)) { strname = data.OutPutSt(i); } else { strname = " "; }
+                int p = 50 - strname.Length;
+                Console.Write(strname);
+                Console.Write(new string(' ', p));
+                Console.Write(" ║ ");
+                if ((count - 1) >= (i)) { strlength = data.OutPutStl(i); } else { strlength = " "; }
+                p = 51 - strlength.Length;
+                Console.Write(strlength);
+                Console.Write(new string(' ', p));
+                Console.WriteLine("║");
+                Console.WriteLine("╟" + "───╫" + new string('─', 52) + "╫" + new string('─', 52) + "╢");
+
+            }
+            Console.WriteLine("╟" + new string('─', 3) + "╨" + new string('─', 20) + "╥" + new string('─', 31) + "╨" + new string('─', 36) + "╥" + new string('─', 7) + "╥" + new string('─', 7) + "╢");
+            Console.Write("║ ");
+            if (l == 1) { Console.BackgroundColor = ConsoleColor.DarkRed; }
+            Console.Write(Main);
+            Console.ResetColor();
+            Console.Write(" ║");
+            Console.Write(new string(' ', 67));
+            Console.Write(" ║");
+            if (l == 2) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(Back);
+            Console.ResetColor();
+            Console.Write("║ ");
+            if (l == 3) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(Next);
+            Console.ResetColor();
+            Console.WriteLine(" ║");
+            Console.WriteLine("╙" + new string('─', 24) + "╨" + new string('─', 68) + "╨" + new string('─', 7) + "╨" + new string('─', 7) + "╜");
+        }
+
+        //Метод построения таблицы автостоянок
+        public void ParkingTable(int l, int num)
+        {
+            //Константы для пунктов выбора
+            const string Next = "Далее";
+            const string Main = " Выход в главное меню ";
+
+            Console.WriteLine("╓" + new string('─', 3) + "╥" + new string('─', 32) + "╥" + new string('─', 52) + "╥" + new string('─', 24) + "╖");
+            Console.WriteLine("║" + " № " + "║" + new string(' ', 6) + "Название автостоянки" + new string(' ', 6) + "║" + new string(' ', 18) + "Адрес автостоянки" + new string(' ', 17) + "║" + new string(' ', 2) + "Телефон автостоянки" + new string(' ', 3) + "║");
+            Console.WriteLine("╟" + new string('─', 3) + "╫" + new string('─', 32) + "╫" + new string('─', 52) + "╫" + new string('─', 24) + "╢");
+            int count = data.CountTab3();
+            string prkadress = " ";
+            string prkname = " ";
+            string prknumber = " ";
+            for (int i = num - 1; i < (num + 19); i++)
+            {
+                Console.Write("║");
+                string number = Convert.ToString(i + 1);
+                Console.Write(number);
+                int g = 3 - number.Length;
+                Console.Write(new string(' ', g) + "║ ");
+                if ((count - 1) >= (i)) { prkname = data.OutPutPrkname(i); } else { prkname = " "; }
+                int p = 30 - prkname.Length;
+                Console.Write(prkname);
+                Console.Write(new string(' ', p));
+                Console.Write(" ║ ");
+                if ((count - 1) >= (i)) { prkadress = data.OutPutPrkadress(i); } else { prkadress = " "; }
+                p = 51 - prkadress.Length;
+                Console.Write(prkadress);
+                Console.Write(new string(' ', p));
+                Console.Write("║ ");
+                if ((count - 1) >= (i)) { prknumber = data.OutPutPrknumber(i); } else { prknumber = " "; }
+                p = 23 - prknumber.Length;
+                Console.Write(prknumber);
+                Console.Write(new string(' ', p));
+                Console.WriteLine("║");
+                Console.WriteLine("╟" + "───╫" + new string('─', 32) + "╫" + new string('─', 52) + "╫" + new string('─', 24) + "╢");
+            }
+            Console.WriteLine("╟" + new string('─', 3) + "╨" + new string('─', 20) + "╥" + new string('─', 11) + "╨" + new string('─', 52) + "╨" + new string('─', 8) + "╥" + new string('─', 7) + "╥" + new string('─', 7) + "╢");
+            Console.Write("║ ");
+            if (l == 1) { Console.BackgroundColor = ConsoleColor.DarkRed; }
+            Console.Write(Main);
+            Console.ResetColor();
+            Console.Write(" ║");
+            Console.Write(new string(' ', 72));
+            Console.Write(" ║");
+            if (l == 2) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(Back);
+            Console.ResetColor();
+            Console.Write("║ ");
+            if (l == 3) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(Next);
+            Console.ResetColor();
+            Console.WriteLine(" ║");
+            Console.WriteLine("╙" + new string('─', 24) + "╨" + new string('─', 73) + "╨" + new string('─', 7) + "╨" + new string('─', 7) + "╜");
+        }
+
+        //Метод построения таблицы актов эвакуации
+        public void ActEvacuationTable()
+        {
+
+        }
     }
 }
