@@ -20,7 +20,7 @@ using System.Threading;
 
 
 
-//-------------->5644
+//-------------->7112
 
 
 
@@ -135,6 +135,7 @@ namespace ConsoleApp6
                             case 6:
                                 //Очистка консоли
                                 Console.Clear();
+
                                 break;
 
                             //Выход
@@ -438,7 +439,7 @@ namespace ConsoleApp6
                         //Очистка консоли
                         Console.Clear();
 
-                        switch(key.Key)
+                        switch (key.Key)
                         {
                             case ConsoleKey.LeftArrow:
                                 j--;
@@ -620,7 +621,951 @@ namespace ConsoleApp6
         //Метод по выводу таблицы 3 таблицы актов эвакуации
         public static void OutputTabAct()
         {
+            //Создание экземпляра класса с данными
+            Data data = new Data();
 
+            //Очистка консоли
+            Console.Clear();
+
+            //Переменная для хранения индекса
+            int index = 0;
+
+            //Переменная для хранения информации о нажатой кнопке
+            ConsoleKeyInfo key;
+
+            //Создание экземпляра класса с методами построения меню консоли
+            Consolebd consolebd = new Consolebd();
+
+            //Переменная для передачи номера элемента
+            int num = 1;
+
+            //Переменная для хранения пункта выбора меню
+            int j = 1;
+
+            //Вызов метода построения меню
+            consolebd.ActEvacuationTable(j, index);
+
+            //Вызов вложенного метода 
+            OutputTabActMain();
+
+            //Вложенный метод
+            void OutputTabActMain()
+            {
+                //Основной блок выполнения программы
+                do
+                {
+                    //Считывание нажатой клавиши
+                    key = Console.ReadKey(true);
+
+                    //Условие для отсеивания ложных нажатий
+                    if (key.Key == ConsoleKey.LeftArrow || key.Key == ConsoleKey.RightArrow || key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow)
+                    {
+                        //Очистка консоли
+                        Console.Clear();
+
+                        switch(key.Key)
+                        {
+                            //UPARROW
+                            case ConsoleKey.UpArrow:
+                                if (j <= 21) { j--; if (j < 1) { j = 21; } if (j > 21) { j = 1; } }
+                                if (j > 21 && j <= 2100) { j -= 100; if (j < 100) { j = 2100; }  if (j > 2100) { j = 100; } }                             
+                                break;
+
+                            //DOWNARROW
+                            case ConsoleKey.DownArrow:
+                                if (j <= 21) { j++; if (j < 1) { j = 21; } if (j > 21) { j = 1; } }
+                                if (j > 21 && j <= 2100) { j += 100; if (j < 100) { j = 2100; } if (j > 2100) { j = 100; } }
+                                break;
+
+                            //LEFTARROW
+                            case ConsoleKey.LeftArrow:
+                                if (j == 21) { j = 210000; }
+                                else
+                                {
+                                    if (j == 210000) { j = 2100; }
+                                    else
+                                    {
+                                        if (j <= 20) { j *= 100; }
+                                        else { j /= 100; }
+                                    }
+                                }
+                                
+                                break;
+
+                            //RIGHTARROW
+                            case ConsoleKey.RightArrow:
+                                if (j == 21) { j = 2100; } else if (j == 210000) { j = 21; } else
+                                if (j == 2100) { j = 210000; }
+                                else
+                                {
+                                    if (j == 210000) { j = 21; }
+                                    else
+                                    {
+                                        if (j <= 20) { j *= 100; }
+                                        else { j /= 100; }
+                                    }
+                                }
+                                break;
+                        }
+
+                        //Вызов метода построения таблицы
+                        consolebd.ActEvacuationTable(j, index);
+
+                        if (key.Key == ConsoleKey.Enter)
+                        {
+                            switch (j)
+                            {
+                                case 1:
+                                    if (num <= data.CountTab1())
+                                    {
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintStreetMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+
+                                    break;
+
+                                case 2:
+                                    num += 1;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+
+                                    break;
+
+                                case 3:
+                                    num += 2;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 4:
+                                    num += 3;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 5:
+                                    num += 4;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 6:
+                                    num += 5;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 7:
+                                    num += 6;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 8:
+                                    num += 7;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 9:
+                                    num += 8;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 10:
+                                    num += 9;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 11:
+                                    num += 10;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 12:
+                                    num += 11;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 13:
+                                    num += 12;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 14:
+                                    num += 13;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 15:
+                                    num += 14;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 16:
+                                    num += 15;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 17:
+                                    num += 16;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 18:
+                                    num += 17;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 19:
+                                    num += 18;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 20:
+                                    num += 19;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 100:
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 200:
+                                    num += 1;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 300:
+                                    num += 2;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 400:
+                                    num += 3;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 500:
+                                    num += 4;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 600:
+                                    num += 5;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 700:
+                                    num += 6;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 800:
+                                    num += 7;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 900:
+                                    num += 8;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 1000:
+                                    num += 9;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 1100:
+                                    num += 10;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 1200:
+                                    num += 11;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 1300:
+                                    num += 12;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 1400:
+                                    num += 12;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 1500:
+                                    num += 14;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 1600:
+                                    num += 15;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 1700:
+                                    num += 16;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 1800:
+                                    num += 17;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 1900:
+                                    num += 18;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 2000:
+                                    num += 19;
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, index);
+                                        OutputTabActMain();
+                                    }
+                                    break;
+
+                                case 21:
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов метода построения меню
+                                    consolebd.MainMenu(1);
+
+                                    //Вызов метода считывания клавиш
+                                    Main();
+                                    break;
+                                
+                                case 2100:
+                                    index -= 20;
+                                    if (index < 0) { index = 80; }
+                                    if (index >= 100) { index = 0; }
+
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //ВЫзов метода построения меню
+                                    consolebd.ActEvacuationTable(j, index);
+
+                                    //Вызов метода считывания клавиш
+                                    OutputTabActMain();
+
+                                    break;
+
+                                case 210000:
+                                    index += 20;
+                                    if (index < 0) { index = 80; }
+                                    if (index >= 100) { index = 0; }
+
+                                    //очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов метода построения меню
+                                    consolebd.ActEvacuationTable(j, index);
+
+                                    //Вызов метода считывания клавиш
+                                    OutputTabActMain();
+                                    break;
+                            }
+                        }
+                    }
+
+                } while (key.Key != ConsoleKey.Enter);
+            }
         }
 
         //Метод меню добавления файла
@@ -1649,8 +2594,8 @@ namespace ConsoleApp6
             string parkingname = "";
             int indexStreet = 0;
             int indexParking = 0;
-            ElementsTab2 street = null;
-            ElementsTab3 parking = null;
+            ElementsTab2 street = new ElementsTab2();
+            ElementsTab3 parking = new ElementsTab3();
 
             //Объявление и инициализация переменной-счетчика для отображения выбранного пункта меню
             int j = 1;
@@ -2247,12 +3192,6 @@ namespace ConsoleApp6
                                                                     //передача длины улицы и индекса элемента в качестве параметров
                                                                     data.AddElementStlength(strlength, ind);
 
-                                                                    //Присвоение переменной названия улицы
-                                                                    streetname = strname;
-
-                                                                    //Присвоение ссылки на элемент списка
-                                                                    street = data.ReturnElementTab2(ind);
-
                                                                     //Очистка консоли
                                                                     Console.Clear();
 
@@ -2832,11 +3771,9 @@ namespace ConsoleApp6
                                         //передача типа автомобиля в список
                                         data.AddTypeOfCar(typeofcar, ind);
 
-                                        //передача улицы в список
-                                        data.AddStreet(street, ind);
+                                        data.AddLinkTab2(indexStreet);
 
-                                        //Передача автостоянки в список
-                                        data.AddParking(parking, ind);
+                                        data.AddlinkTab3(indexParking);
 
                                         //Очистка консоли
                                         Console.Clear();
@@ -3573,11 +4510,12 @@ namespace ConsoleApp6
         //Метод меню выбора улицы из уже добавленных
         public static int ChoiseStreet()
         {
+            Data data = new Data();
+
+            ElementsTab2 str = new ElementsTab2();
+
             //Создание экземпляра класса с методами построения меню
             Consolebd consolebd = new Consolebd();
-
-            //Создание экземпляра класса с данными
-            Data data = new Data();
 
             //Создание переменной для хранения информации о нажатой клавише
             ConsoleKeyInfo key;
@@ -3663,7 +4601,7 @@ namespace ConsoleApp6
                         //Выбор пункта меню
                         if (key.Key == ConsoleKey.Enter)
                         {
-                            //Выюор пункта таблицы
+                            //Выбор пункта таблицы
                             switch (j)
                             {
                                 case 1:
@@ -3686,6 +4624,7 @@ namespace ConsoleApp6
                                     if (num <= data.CountTab2())
                                     {
                                         index = num;
+                                        data.AddLinkTab2(index);
                                     }
                                     else
                                     {
@@ -3702,6 +4641,7 @@ namespace ConsoleApp6
                                     if (num <= data.CountTab2())
                                     {
                                         index = num;
+                                        data.AddLinkTab2(index);
                                     }
                                     else
                                     {
@@ -3718,6 +4658,7 @@ namespace ConsoleApp6
                                     if (num <= data.CountTab2())
                                     {
                                         index = num;
+                                        data.AddLinkTab2(index);
                                     }
                                     else
                                     {
@@ -3734,6 +4675,7 @@ namespace ConsoleApp6
                                     if (num <= data.CountTab2())
                                     {
                                         index = num;
+                                        data.AddLinkTab2(index);
                                     }
                                     else
                                     {
@@ -3750,6 +4692,7 @@ namespace ConsoleApp6
                                     if (num <= data.CountTab2())
                                     {
                                         index = num;
+                                        data.AddLinkTab2(index);
                                     }
                                     else
                                     {
@@ -3766,6 +4709,7 @@ namespace ConsoleApp6
                                     if (num <= data.CountTab2())
                                     {
                                         index = num;
+                                        data.AddLinkTab2(index);
                                     }
                                     else
                                     {
@@ -3782,6 +4726,7 @@ namespace ConsoleApp6
                                     if (num <= data.CountTab2())
                                     {
                                         index = num;
+                                        data.AddLinkTab2(index);
                                     }
                                     else
                                     {
@@ -3798,6 +4743,7 @@ namespace ConsoleApp6
                                     if (num <= data.CountTab2())
                                     {
                                         index = num;
+                                        data.AddLinkTab2(index);
                                     }
                                     else
                                     {
@@ -3814,6 +4760,7 @@ namespace ConsoleApp6
                                     if (num <= data.CountTab2())
                                     {
                                         index = num;
+                                        data.AddLinkTab2(index);
                                     }
                                     else
                                     {
@@ -4208,7 +5155,29 @@ namespace ConsoleApp6
             return index;
         }
 
-        //Метод для работы с файлами
+        //Метод меню редактирования элементов
+        public static void EditElementsMenu()
+        {
+
+        }
+
+        //Метод меню редактирования улиц
+        public static void EditStreets()
+        {
+
+        }
+
+        //Метод меню редактирования автостоянок
+        public static void EditParkings()
+        {
+
+        }
+
+        //Метод меню редактирования актов эвакуации
+        public static void EditActs()
+        {
+
+        }
 
     }
 }

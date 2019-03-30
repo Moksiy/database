@@ -22,6 +22,7 @@ namespace ConsoleApp6
     {
         public string StreetName { get; set; }
         public string StreetLength { get; set; }
+        public ElementsTab1 Link { get; set; }            
     }
 
     //Класс с авто-свойствами для таблицы 3 "автостоянки"
@@ -30,6 +31,7 @@ namespace ConsoleApp6
         public string ParkingName { get; set; }
         public string ParkingAdress { get; set; }
         public string ParkingNumber { get; set; }
+        public ElementsTab1 Link { get; set; }
     }
 
     public class Data
@@ -158,55 +160,112 @@ namespace ConsoleApp6
         //Метод, возвращающий название улицы
         public string OutPutSt(int i)
         {
-            return Tab2List[i].StreetName;
+            if (CountTab2() > i && Tab2List[i] != null)
+            {
+                return Tab2List[i].StreetName;
+            }
+            else { return " "; }
         }
 
         //Метод, возвращающий длину улицы
         public string OutPutStl(int i)
         {
-            return Tab2List[i].StreetLength;
+            if (CountTab2() > i && Tab2List[i] != null)
+            {
+                return Tab2List[i].StreetLength;
+            }
+            else { return " "; }
+          
         }
 
         //Метод, возвращающий название автостоянки
         public string OutPutPrkname(int i)
         {
-            return Tab3List[i].ParkingName;
+            if (CountTab3() > i && Tab3List[i] != null)
+            {
+                return Tab3List[i].ParkingName;
+            }
+            else { return " "; }
         }
 
         //Метод, возвращающий адрес автостоянки
         public string OutPutPrkadress(int i)
         {
-            return Tab3List[i].ParkingAdress;
+            if (CountTab3() > i && Tab3List[i] != null)
+            {
+                return Tab3List[i].ParkingAdress;
+            }
+            else { return " "; }
         }
 
         //Метод, возвращающий телефон автостоянки
         public string OutPutPrknumber(int i)
         {
-            return Tab3List[i].ParkingNumber;
+            if (CountTab3() > i && Tab3List[i] != null)
+            {
+                return Tab3List[i].ParkingNumber;
+            }
+            else { return " "; }
         }
 
         //Метод, возвращающий GPS-координаты
         public string OutPutGPS(int i)
         {
-            return Tab1List[i].GPS;
+            if (CountTab1() > i && Tab1List[i] != null)
+            {
+                return Tab1List[i].GPS;
+            }
+            else { return " "; }
         }
 
         //Метод, возвращающий тип нарушения
         public string OutPutTypeVio(int i)
         {
-            return Tab1List[i].TypeViolation;
+            if (CountTab1() > i && Tab1List[i] != null)
+            {
+                return Tab1List[i].TypeViolation;
+            }
+            else { return " "; }
         }
 
         //Метод, возвращающий номер автомобиля
         public string OutPutCarNum(int i)
         {
-            return Tab1List[i].CarNumber;
+            if (CountTab1() > i && Tab1List[i] != null)
+            {
+                return Tab1List[i].CarNumber;
+            }
+            else { return " "; }
         }
 
         //Метод, возвращающий тип автомобиля
         public string OutPutCarType(int i)
         {
-            return Tab1List[i].CarType;
+            if (CountTab1() > i && Tab1List[i] != null)
+            {
+                return Tab1List[i].CarType;
+            }
+            else { return " "; }
+        }
+
+        //Метод, возвращающий улицу из таблицы 1
+        public string OutputStreetTab1(int i)
+        {
+            if(Tab1List[i].Street.StreetName != null)
+            {
+                return Tab1List[i].Street.StreetName;
+            }
+            else { return " "; }
+        }
+
+        //Метод, возвращающий автостоянку из таблицы 1
+        public string OutputParkingTab1(int i)
+        {
+            if (Tab1List[i].Street != null)
+            {
+                return Tab1List[i].Parking.ParkingName;
+            }
+            else { return " "; }
         }
 
         //Метод создания новых элементов в списке 1
@@ -237,6 +296,7 @@ namespace ConsoleApp6
         //Метод удаления элементов по индексам из списка 2
         public void DeleteElementTab2(int i)
         {
+            
             Tab2List.RemoveAt(i);
         }
 
@@ -318,17 +378,24 @@ namespace ConsoleApp6
             Tab1List[ind].CarType = cartp;
         }
 
-        //Метод для добавления улицы в список
-        public void AddStreet(ElementsTab2 street, int ind)
+        //Метод добавления ссылки на элемент таблицы 2
+        public void AddLinkTab2(int i)
         {
-            Tab1List[ind].Street = street;
+            int count = CountTab1() - 1;
+            Tab1List[count].Street = Tab2List[i];
+
         }
 
-        //Метод для добавления парковки в список
-        public void AddParking(ElementsTab3 parking, int ind)
+        //Метод добавления ссылки на элемент таблицы 3
+        public void AddlinkTab3(int i)
         {
-            Tab1List[ind].Parking = parking;
+            int count = CountTab1() - 1;
+            Tab1List[count].Parking = Tab3List[i];
         }
+
+        
+            
+
 
       
     }
