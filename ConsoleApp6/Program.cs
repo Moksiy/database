@@ -1520,9 +1520,9 @@ namespace ConsoleApp6
                                     break;
                                 
                                 case 2100:
-                                    index -= 20;
-                                    if (index < 0) { index = 80; }
-                                    if (index >= 100) { index = 0; }
+                                    num -= 20;
+                                    if (num < 1) { num = 81; }
+                                    if (num >= 100) { num = 1; }
 
                                     //Очистка консоли
                                     Console.Clear();
@@ -1536,9 +1536,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 210000:
-                                    index += 20;
-                                    if (index < 0) { index = 80; }
-                                    if (index >= 100) { index = 0; }
+                                    num += 20;
+                                    if (num < 1) { num = 81; }
+                                    if (num >= 100) { num = 1; }
 
                                     //очистка консоли
                                     Console.Clear();
@@ -2866,6 +2866,9 @@ namespace ConsoleApp6
                                         string strname = " ";     //Название улицы
                                         string strlength = " ";   //Длина улицы
 
+                                        //Объявление и инициализация переменной-счетчика для отображения выбранного пункта меню
+                                        int j1 = 1;
+
                                         //Вызов вложенного метода
                                         AddStreetMain();
 
@@ -2878,13 +2881,10 @@ namespace ConsoleApp6
                                             Console.Clear();
 
                                             //Объявление переменно для хранения информации о нажатой клавише
-                                            ConsoleKeyInfo key2;
-
-                                            //Объявление и инициализация переменной-счетчика для отображения выбранного пункта меню
-                                            int j1 = 1;
+                                            ConsoleKeyInfo key2;                        
 
                                             //Вывод меню добавления элемента
-                                            consolebd.AddElemStreet(1, strname, strlength);
+                                            consolebd.AddElemStreet(j1, strname, strlength);
 
                                             //Основной цикл выполнения
                                             do

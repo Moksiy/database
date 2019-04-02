@@ -22,7 +22,7 @@ namespace ConsoleApp6
     {
         public string StreetName { get; set; }
         public string StreetLength { get; set; }
-        public int Link { get; set; }            
+        public int Link { get; set; } = -1;         
     }
 
     //Класс с авто-свойствами для таблицы 3 "автостоянки"
@@ -31,7 +31,7 @@ namespace ConsoleApp6
         public string ParkingName { get; set; }
         public string ParkingAdress { get; set; }
         public string ParkingNumber { get; set; }
-        public int Link { get; set; }
+        public int Link { get; set; } = -1;
     }
 
     public class Data
@@ -297,8 +297,11 @@ namespace ConsoleApp6
         public void DeleteElementTab2(int i)
         {
             int j = Tab2List[i].Link;
-            Tab1List[j].Street.StreetLength = " ";
-            Tab1List[j].Street.StreetName = " ";
+            if (Tab2List[i].Link != -1)
+            {
+                Tab1List[j].Street.StreetLength = " ";
+                Tab1List[j].Street.StreetName = " ";                
+            }
             Tab2List.RemoveAt(i);
 
         }
@@ -307,9 +310,12 @@ namespace ConsoleApp6
         public void DeleteElementTab3(int i)
         {
             int j = Tab3List[i].Link;
-            Tab1List[j].Parking.ParkingAdress = " ";
-            Tab1List[j].Parking.ParkingName = " ";
-            Tab1List[j].Parking.ParkingNumber = " ";
+            if (Tab3List[i].Link != -1)
+            {
+                Tab1List[j].Parking.ParkingAdress = " ";
+                Tab1List[j].Parking.ParkingName = " ";
+                Tab1List[j].Parking.ParkingNumber = " ";               
+            }
             Tab3List.RemoveAt(i);
         }
         
