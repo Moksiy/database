@@ -628,7 +628,7 @@ namespace ConsoleApp6
             Console.Clear();
 
             //Переменная для хранения индекса
-            int index = 0;
+            int index = 1;
 
             //Переменная для хранения информации о нажатой кнопке
             ConsoleKeyInfo key;
@@ -709,20 +709,27 @@ namespace ConsoleApp6
                         }
 
                         //Вызов метода построения таблицы
-                        consolebd.ActEvacuationTable(j, index);
+                        consolebd.ActEvacuationTable(j, num);
 
                         if (key.Key == ConsoleKey.Enter)
+
                         {
                             switch (j)
                             {
                                 case 1:
                                     if (num <= data.CountTab1())
                                     {
+                                        index = num;
+
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintStreetMoreInfo(index);
 
                                         //Очистка консоли
                                         Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -733,17 +740,26 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
-
+                                    index = 0;
                                     break;
 
                                 case 2:
-                                    num += 1;
-                                    if (num <= data.CountTab1())
+                                    if (num+1 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+1;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintStreetMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -754,17 +770,26 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
-
+                                    index = 0;
                                     break;
 
                                 case 3:
-                                    num += 2;
-                                    if (num <= data.CountTab1())
+                                    if (num+2 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+2;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintStreetMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -775,16 +800,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 4:
-                                    num += 3;
-                                    if (num <= data.CountTab1())
+                                    if (num+3 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+3;
                                     }
                                     else
                                     {
@@ -795,16 +819,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 5:
-                                    num += 4;
-                                    if (num <= data.CountTab1())
+                                    if (num+4 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+4;
                                     }
                                     else
                                     {
@@ -815,16 +838,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 6:
-                                    num += 5;
-                                    if (num <= data.CountTab1())
+                                    if (num+5 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+5;
                                     }
                                     else
                                     {
@@ -835,16 +857,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 7:
-                                    num += 6;
-                                    if (num <= data.CountTab1())
+                                    if (num+6 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+6;
                                     }
                                     else
                                     {
@@ -855,16 +876,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 8:
-                                    num += 7;
-                                    if (num <= data.CountTab1())
+                                    if (num+7 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+7;
                                     }
                                     else
                                     {
@@ -875,16 +895,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 9:
-                                    num += 8;
-                                    if (num <= data.CountTab1())
+                                    if (num+8 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+8;
                                     }
                                     else
                                     {
@@ -895,16 +914,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 10:
-                                    num += 9;
-                                    if (num <= data.CountTab1())
+                                    if (num+9 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+9;
                                     }
                                     else
                                     {
@@ -915,16 +933,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 11:
-                                    num += 10;
-                                    if (num <= data.CountTab1())
+                                    if (num+10 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+10;
                                     }
                                     else
                                     {
@@ -935,16 +952,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 12:
-                                    num += 11;
-                                    if (num <= data.CountTab1())
+                                    if (num+11 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+11;
                                     }
                                     else
                                     {
@@ -955,16 +971,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 13:
-                                    num += 12;
-                                    if (num <= data.CountTab1())
+                                    if (num+12 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+12;
                                     }
                                     else
                                     {
@@ -975,16 +990,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 14:
-                                    num += 13;
-                                    if (num <= data.CountTab1())
+                                    if (num+13 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+13;
                                     }
                                     else
                                     {
@@ -995,16 +1009,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 15:
-                                    num += 14;
-                                    if (num <= data.CountTab1())
+                                    if (num+14 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+14;
                                     }
                                     else
                                     {
@@ -1015,16 +1028,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 16:
-                                    num += 15;
-                                    if (num <= data.CountTab1())
+                                    if (num+15 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+15;
                                     }
                                     else
                                     {
@@ -1035,16 +1047,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 17:
-                                    num += 16;
-                                    if (num <= data.CountTab1())
+                                    if (num+16 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+16;
                                     }
                                     else
                                     {
@@ -1055,16 +1066,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 18:
-                                    num += 17;
-                                    if (num <= data.CountTab1())
+                                    if (num+17 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+17;
                                     }
                                     else
                                     {
@@ -1075,16 +1085,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 19:
-                                    num += 18;
-                                    if (num <= data.CountTab1())
+                                    if (num+18 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+18;
                                     }
                                     else
                                     {
@@ -1095,16 +1104,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 20:
-                                    num += 19;
-                                    if (num <= data.CountTab1())
+                                    if (num+19 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+19;
                                     }
                                     else
                                     {
@@ -1115,7 +1123,7 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
@@ -1134,16 +1142,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 200:
-                                    num += 1;
-                                    if (num <= data.CountTab1())
+                                    if (num+1 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+1;
                                     }
                                     else
                                     {
@@ -1154,16 +1161,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 300:
-                                    num += 2;
-                                    if (num <= data.CountTab1())
+                                    if (num+2 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+2;
                                     }
                                     else
                                     {
@@ -1174,16 +1180,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 400:
-                                    num += 3;
-                                    if (num <= data.CountTab1())
+                                    if (num+3 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+3;
                                     }
                                     else
                                     {
@@ -1194,16 +1199,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 500:
-                                    num += 4;
-                                    if (num <= data.CountTab1())
+                                    if (num+4 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+4;
                                     }
                                     else
                                     {
@@ -1214,16 +1218,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 600:
-                                    num += 5;
-                                    if (num <= data.CountTab1())
+                                    if (num+5 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+5;
                                     }
                                     else
                                     {
@@ -1234,16 +1237,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 700:
-                                    num += 6;
-                                    if (num <= data.CountTab1())
+                                    if (num+6 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+6;
                                     }
                                     else
                                     {
@@ -1254,16 +1256,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 800:
-                                    num += 7;
-                                    if (num <= data.CountTab1())
+                                    if (num+7 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+7;
                                     }
                                     else
                                     {
@@ -1274,16 +1275,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 900:
-                                    num += 8;
-                                    if (num <= data.CountTab1())
+                                    if (num+8 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+8;
                                     }
                                     else
                                     {
@@ -1294,16 +1294,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 1000:
-                                    num += 9;
-                                    if (num <= data.CountTab1())
+                                    if (num+9 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+9;
                                     }
                                     else
                                     {
@@ -1314,16 +1313,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 1100:
-                                    num += 10;
-                                    if (num <= data.CountTab1())
+                                    if (num+10 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+10;
                                     }
                                     else
                                     {
@@ -1334,16 +1332,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 1200:
-                                    num += 11;
-                                    if (num <= data.CountTab1())
+                                    if (num+11 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+11;
                                     }
                                     else
                                     {
@@ -1354,16 +1351,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 1300:
-                                    num += 12;
-                                    if (num <= data.CountTab1())
+                                    if (num+12 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+12;
                                     }
                                     else
                                     {
@@ -1374,16 +1370,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 1400:
-                                    num += 12;
-                                    if (num <= data.CountTab1())
+                                    if (num+13 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+13;
                                     }
                                     else
                                     {
@@ -1394,16 +1389,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 1500:
-                                    num += 14;
-                                    if (num <= data.CountTab1())
+                                    if (num+14 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+14;
                                     }
                                     else
                                     {
@@ -1414,16 +1408,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 1600:
-                                    num += 15;
-                                    if (num <= data.CountTab1())
+                                    if (num+15 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+15;
                                     }
                                     else
                                     {
@@ -1434,16 +1427,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 1700:
-                                    num += 16;
-                                    if (num <= data.CountTab1())
+                                    if (num+16 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+16;
                                     }
                                     else
                                     {
@@ -1454,16 +1446,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 1800:
-                                    num += 17;
-                                    if (num <= data.CountTab1())
+                                    if (num+17 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+17;
                                     }
                                     else
                                     {
@@ -1474,16 +1465,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 1900:
-                                    num += 18;
-                                    if (num <= data.CountTab1())
+                                    if (num+18 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+18;
                                     }
                                     else
                                     {
@@ -1494,16 +1484,15 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
 
                                 case 2000:
-                                    num += 19;
-                                    if (num <= data.CountTab1())
+                                    if (num+19 <= data.CountTab1())
                                     {
-                                        index = num;
+                                        index = num+19;
                                     }
                                     else
                                     {
@@ -1514,7 +1503,7 @@ namespace ConsoleApp6
                                         consolebd.Attention();
 
                                         //Повторный вызов
-                                        consolebd.ActEvacuationTable(j, index);
+                                        consolebd.ActEvacuationTable(j, num);
                                         OutputTabActMain();
                                     }
                                     break;
@@ -1539,7 +1528,7 @@ namespace ConsoleApp6
                                     Console.Clear();
 
                                     //ВЫзов метода построения меню
-                                    consolebd.ActEvacuationTable(j, index);
+                                    consolebd.ActEvacuationTable(j, num);
 
                                     //Вызов метода считывания клавиш
                                     OutputTabActMain();
@@ -1555,7 +1544,7 @@ namespace ConsoleApp6
                                     Console.Clear();
 
                                     //Вызов метода построения меню
-                                    consolebd.ActEvacuationTable(j, index);
+                                    consolebd.ActEvacuationTable(j, num);
 
                                     //Вызов метода считывания клавиш
                                     OutputTabActMain();
@@ -2715,7 +2704,7 @@ namespace ConsoleApp6
                                         GPS = " ";
 
                                         //Повторный вызов метода построения меню добавления акта эвакуации
-                                        consolebd.AddElemActEvacuation(1, GPS, typeviolation, numberofcar, typeofcar, streetname, parkingname);
+                                        consolebd.AddElemActEvacuation(j, GPS, typeviolation, numberofcar, typeofcar, streetname, parkingname);
 
                                         //Повторный вызов метода считывания клавиш
                                         AddActEvacuation();
@@ -2726,7 +2715,7 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Повторный вызов метода построения меню добавления акта эвакуации
-                                        consolebd.AddElemActEvacuation(1, GPS, typeviolation, numberofcar, typeofcar, streetname, parkingname);
+                                        consolebd.AddElemActEvacuation(j, GPS, typeviolation, numberofcar, typeofcar, streetname, parkingname);
 
                                         //Повторный вызов метода считывания клавиш в текущем меню
                                         AddActEvacuation();
@@ -2895,7 +2884,7 @@ namespace ConsoleApp6
                                             int j1 = 1;
 
                                             //Вывод меню добавления элемента
-                                            consolebd.AddElemStreet(j1, strname, strlength);
+                                            consolebd.AddElemStreet(1, strname, strlength);
 
                                             //Основной цикл выполнения
                                             do
@@ -2991,7 +2980,7 @@ namespace ConsoleApp6
                                                                     strname = " ";
 
                                                                     //Повторный вызов метода построения меню добавления улицы
-                                                                    consolebd.AddElemStreet(1, strname, strlength);
+                                                                    consolebd.AddElemStreet(j1, strname, strlength);
 
                                                                     //Повторный вызов метода считывания клавиш
                                                                     AddStreetMain();
@@ -3002,7 +2991,7 @@ namespace ConsoleApp6
                                                                     Console.Clear();
 
                                                                     //Повторный вызов метода построения меню 
-                                                                    consolebd.AddElemStreet(1, strname, strlength);
+                                                                    consolebd.AddElemStreet(j1, strname, strlength);
 
                                                                     //Повторный вызов метода для считывания клавиш
                                                                     AddStreetMain();
@@ -3044,7 +3033,7 @@ namespace ConsoleApp6
                                                                     consolebd.AttentionAddElement();
 
                                                                     //Вызов метода построения меню добавления элемента
-                                                                    consolebd.AddElemStreet(2, strname, strlength);
+                                                                    consolebd.AddElemStreet(j1, strname, strlength);
 
                                                                     //Вызов метода считывания нажатой клавиши
                                                                     AddStreetMain();
@@ -3064,7 +3053,7 @@ namespace ConsoleApp6
                                                                         slen = Double.Parse(strlength);
 
                                                                         //Повторный вызов метода построения меню 
-                                                                        consolebd.AddElemStreet(2, strname, strlength);
+                                                                        consolebd.AddElemStreet(j1, strname, strlength);
 
                                                                         //Повторный вызов метода для считывания клавиш
                                                                         AddStreetMain();
@@ -3081,7 +3070,7 @@ namespace ConsoleApp6
                                                                         consolebd.AttentionAddElement();
 
                                                                         //Повторный вызов меню добавления улицы
-                                                                        consolebd.AddElemStreet(2, strname, strlength);
+                                                                        consolebd.AddElemStreet(j1, strname, strlength);
 
                                                                         //Вызов метода выбора пункта меню
                                                                         AddStreetMain();
@@ -3098,7 +3087,7 @@ namespace ConsoleApp6
 
                                                                 //Вызов меню построения главного меню добавления элемента
                                                                 //С передачей в качестве параметра еденицы (для изначального отображения первого пункта меню)
-                                                                consolebd.AddElemActEvacuation(j1, GPS, typeviolation, numberofcar, typeofcar, streetname, parkingname);
+                                                                consolebd.AddElemActEvacuation(j, GPS, typeviolation, numberofcar, typeofcar, streetname, parkingname);
 
                                                                 //Вызов метода по считыванию клавиш в главном меню добавления нового элемента
                                                                 AddActEvacuation();
@@ -3155,7 +3144,7 @@ namespace ConsoleApp6
                                                                         consolebd.AttentionAlreadyHasStreet();
 
                                                                         //Повторный вызов метода добавления улицы
-                                                                        consolebd.AddElemStreet(1, strname, strname);
+                                                                        consolebd.AddElemStreet(j1, strname, strname);
 
                                                                         //Повторный вызов метода считывания клавиш
                                                                         AddStreetMain();
@@ -3169,7 +3158,7 @@ namespace ConsoleApp6
                                                                         consolebd.AttentionNullableFields();
 
                                                                         //Повторный вызов метода добавления улицы
-                                                                        consolebd.AddElemStreet(1, strname, strlength);
+                                                                        consolebd.AddElemStreet(j1, strname, strlength);
 
                                                                         //Повторный вызов метода считывания клавиш
                                                                         AddStreetMain();
@@ -3192,11 +3181,15 @@ namespace ConsoleApp6
                                                                     //передача длины улицы и индекса элемента в качестве параметров
                                                                     data.AddElementStlength(strlength, ind);
 
+                                                                    indexStreet = ind;
+
                                                                     //Очистка консоли
                                                                     Console.Clear();
 
+                                                                    streetname = strname;
+
                                                                     //Вызов метода построения главного меню добовления нового элемента
-                                                                    consolebd.AddElemActEvacuation(j1, GPS, typeviolation, numberofcar, typeofcar, streetname, parkingname);
+                                                                    consolebd.AddElemActEvacuation(j, GPS, typeviolation, numberofcar, typeofcar, streetname, parkingname);
 
                                                                     //Вызов метода считывания клавиши
                                                                     AddActEvacuation();
@@ -4608,6 +4601,7 @@ namespace ConsoleApp6
                                     if (num <= data.CountTab2())
                                     {
                                         index = num;
+                                        //data.AddLinkTab2(index);
                                     }
                                     else
                                     {
@@ -4624,7 +4618,7 @@ namespace ConsoleApp6
                                     if (num <= data.CountTab2())
                                     {
                                         index = num;
-                                        data.AddLinkTab2(index);
+                                        //data.AddLinkTab2(index);
                                     }
                                     else
                                     {
@@ -4641,7 +4635,7 @@ namespace ConsoleApp6
                                     if (num <= data.CountTab2())
                                     {
                                         index = num;
-                                        data.AddLinkTab2(index);
+                                        //data.AddLinkTab2(index);
                                     }
                                     else
                                     {
@@ -4658,7 +4652,7 @@ namespace ConsoleApp6
                                     if (num <= data.CountTab2())
                                     {
                                         index = num;
-                                        data.AddLinkTab2(index);
+                                        //data.AddLinkTab2(index);
                                     }
                                     else
                                     {
@@ -4675,7 +4669,7 @@ namespace ConsoleApp6
                                     if (num <= data.CountTab2())
                                     {
                                         index = num;
-                                        data.AddLinkTab2(index);
+                                        //data.AddLinkTab2(index);
                                     }
                                     else
                                     {
@@ -4692,7 +4686,7 @@ namespace ConsoleApp6
                                     if (num <= data.CountTab2())
                                     {
                                         index = num;
-                                        data.AddLinkTab2(index);
+                                        //data.AddLinkTab2(index);
                                     }
                                     else
                                     {
@@ -4709,7 +4703,7 @@ namespace ConsoleApp6
                                     if (num <= data.CountTab2())
                                     {
                                         index = num;
-                                        data.AddLinkTab2(index);
+                                        //data.AddLinkTab2(index);
                                     }
                                     else
                                     {
@@ -4726,7 +4720,7 @@ namespace ConsoleApp6
                                     if (num <= data.CountTab2())
                                     {
                                         index = num;
-                                        data.AddLinkTab2(index);
+                                        //data.AddLinkTab2(index);
                                     }
                                     else
                                     {
@@ -4743,7 +4737,7 @@ namespace ConsoleApp6
                                     if (num <= data.CountTab2())
                                     {
                                         index = num;
-                                        data.AddLinkTab2(index);
+                                        //data.AddLinkTab2(index);
                                     }
                                     else
                                     {
@@ -4760,7 +4754,7 @@ namespace ConsoleApp6
                                     if (num <= data.CountTab2())
                                     {
                                         index = num;
-                                        data.AddLinkTab2(index);
+                                        //data.AddLinkTab2(index);
                                     }
                                     else
                                     {
@@ -5158,6 +5152,11 @@ namespace ConsoleApp6
         //Метод меню редактирования элементов
         public static void EditElementsMenu()
         {
+            //Создание экземпляра класса с методами построения меню
+            Consolebd consolebd = new Consolebd();
+
+            //Переменная для хранения информации о нажатой клавише
+            ConsoleKeyInfo key;
 
         }
 

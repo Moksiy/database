@@ -1100,9 +1100,12 @@ namespace ConsoleApp6
             string cartype = " ";
             string number = " ";
             int p = 0;
+            int num1 = 0;
+            num1 = num - 1;
+            num--;
             //Begin 1
             Console.Write("║");
-            number = Convert.ToString(/**/num+1); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
+            number = Convert.ToString(/**/num1 + 1); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
             if ((count - 1) >= (/**/num)) { street = data.OutputStreetTab1(/**/num); } else { street = " "; }
             if (/**/l == 1) { Console.BackgroundColor = ConsoleColor.Blue; }
             Console.Write(street); p = 50 - street.Length; Console.Write(new string(' ', p)); Console.ResetColor(); Console.Write(" ║ ");
@@ -1121,7 +1124,7 @@ namespace ConsoleApp6
             //End
             //Begin 2
             Console.Write("║");
-            number = Convert.ToString(/**/num + 2); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
+            number = Convert.ToString(/**/num1 + 2); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
             if ((count - 1) >= (/**/num+1)) { street = data.OutputStreetTab1(/**/num+1); } else { street = " "; }
             if (/**/l == 2) { Console.BackgroundColor = ConsoleColor.Blue; }
             Console.Write(street); p = 50 - street.Length; Console.Write(new string(' ', p)); Console.ResetColor(); Console.Write(" ║ ");
@@ -1140,7 +1143,7 @@ namespace ConsoleApp6
             //End
             //Begin 3
             Console.Write("║");
-            number = Convert.ToString(/**/num + 3); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
+            number = Convert.ToString(/**/num1 + 3); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
             if ((count - 1) >= (/**/num + 2)) { street = data.OutputStreetTab1(/**/num + 2); } else { street = " "; }
             if (/**/l == 3) { Console.BackgroundColor = ConsoleColor.Blue; }
             Console.Write(street); p = 50 - street.Length; Console.Write(new string(' ', p)); Console.ResetColor(); Console.Write(" ║ ");
@@ -1159,7 +1162,7 @@ namespace ConsoleApp6
             //End
             //Begin 4
             Console.Write("║");
-            number = Convert.ToString(/**/num + 4); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
+            number = Convert.ToString(/**/num1 + 4); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
             if ((count - 1) >= (/**/num + 3)) { street = data.OutputStreetTab1(/**/num + 3); } else { street = " "; }
             if (/**/l == 4) { Console.BackgroundColor = ConsoleColor.Blue; }
             Console.Write(street); p = 50 - street.Length; Console.Write(new string(' ', p)); Console.ResetColor(); Console.Write(" ║ ");
@@ -1178,7 +1181,7 @@ namespace ConsoleApp6
             //End
             //Begin 5
             Console.Write("║");
-            number = Convert.ToString(/**/num + 5); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
+            number = Convert.ToString(/**/num1 + 5); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
             if ((count - 1) >= (/**/num + 4)) { street = data.OutputStreetTab1(/**/num + 4); } else { street = " "; }
             if (/**/l == 5) { Console.BackgroundColor = ConsoleColor.Blue; }
             Console.Write(street); p = 50 - street.Length; Console.Write(new string(' ', p)); Console.ResetColor(); Console.Write(" ║ ");
@@ -1197,7 +1200,7 @@ namespace ConsoleApp6
             //End
             //Begin 6
             Console.Write("║");
-            number = Convert.ToString(/**/num + 6); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
+            number = Convert.ToString(/**/num1 + 6); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
             if ((count - 1) >= (/**/num + 5)) { street = data.OutputStreetTab1(/**/num + 5); } else { street = " "; }
             if (/**/l == 6) { Console.BackgroundColor = ConsoleColor.Blue; }
             Console.Write(street); p = 50 - street.Length; Console.Write(new string(' ', p)); Console.ResetColor(); Console.Write(" ║ ");
@@ -1216,7 +1219,7 @@ namespace ConsoleApp6
             //End
             //Begin 7
             Console.Write("║");
-            number = Convert.ToString(/**/num + 7); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
+            number = Convert.ToString(/**/num1 + 7); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
             if ((count - 1) >= (/**/num + 6)) { street = data.OutputStreetTab1(/**/num + 6); } else { street = " "; }
             if (/**/l == 7) { Console.BackgroundColor = ConsoleColor.Blue; }
             Console.Write(street); p = 50 - street.Length; Console.Write(new string(' ', p)); Console.ResetColor(); Console.Write(" ║ ");
@@ -1235,7 +1238,7 @@ namespace ConsoleApp6
             //End
             //Begin 8
             Console.Write("║");
-            number = Convert.ToString(/**/num + 8); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
+            number = Convert.ToString(/**/num1 + 8); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
             if ((count - 1) >= (/**/num + 7)) { street = data.OutputStreetTab1(/**/num + 7); } else { street = " "; }
             if (/**/l == 8) { Console.BackgroundColor = ConsoleColor.Blue; }
             Console.Write(street); p = 50 - street.Length; Console.Write(new string(' ', p)); Console.ResetColor(); Console.Write(" ║ ");
@@ -1254,7 +1257,7 @@ namespace ConsoleApp6
             //End
             //Begin 9
             Console.Write("║");
-            number = Convert.ToString(/**/num + 9); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
+            number = Convert.ToString(/**/num1 + 9); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
             if ((count - 1) >= (/**/num + 8)) { street = data.OutputStreetTab1(/**/num + 8); } else { street = " "; }
             if (/**/l == 9) { Console.BackgroundColor = ConsoleColor.Blue; }
             Console.Write(street); p = 50 - street.Length; Console.Write(new string(' ', p)); Console.ResetColor(); Console.Write(" ║ ");
@@ -1273,7 +1276,7 @@ namespace ConsoleApp6
             //End
             //Begin 10
             Console.Write("║");
-            number = Convert.ToString(/**/num + 10); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
+            number = Convert.ToString(/**/num1 + 10); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
             if ((count - 1) >= (/**/num + 9)) { street = data.OutputStreetTab1(/**/num + 9); } else { street = " "; }
             if (/**/l == 10) { Console.BackgroundColor = ConsoleColor.Blue; }
             Console.Write(street); p = 50 - street.Length; Console.Write(new string(' ', p)); Console.ResetColor(); Console.Write(" ║ ");
@@ -1292,7 +1295,7 @@ namespace ConsoleApp6
             //End
             //Begin 11
             Console.Write("║");
-            number = Convert.ToString(/**/num + 11); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
+            number = Convert.ToString(/**/num1 + 11); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
             if ((count - 1) >= (/**/num + 10)) { street = data.OutputStreetTab1(/**/num + 10); } else { street = " "; }
             if (/**/l == 11) { Console.BackgroundColor = ConsoleColor.Blue; }
             Console.Write(street); p = 50 - street.Length; Console.Write(new string(' ', p)); Console.ResetColor(); Console.Write(" ║ ");
@@ -1311,7 +1314,7 @@ namespace ConsoleApp6
             //End
             //Begin 12
             Console.Write("║");
-            number = Convert.ToString(/**/num + 12); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
+            number = Convert.ToString(/**/num1 + 12); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
             if ((count - 1) >= (/**/num + 11)) { street = data.OutputStreetTab1(/**/num + 11); } else { street = " "; }
             if (/**/l == 12) { Console.BackgroundColor = ConsoleColor.Blue; }
             Console.Write(street); p = 50 - street.Length; Console.Write(new string(' ', p)); Console.ResetColor(); Console.Write(" ║ ");
@@ -1330,7 +1333,7 @@ namespace ConsoleApp6
             //End
             //Begin 13
             Console.Write("║");
-            number = Convert.ToString(/**/num + 13); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
+            number = Convert.ToString(/**/num1 + 13); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
             if ((count - 1) >= (/**/num + 12)) { street = data.OutputStreetTab1(/**/num + 12); } else { street = " "; }
             if (/**/l == 13) { Console.BackgroundColor = ConsoleColor.Blue; }
             Console.Write(street); p = 50 - street.Length; Console.Write(new string(' ', p)); Console.ResetColor(); Console.Write(" ║ ");
@@ -1349,7 +1352,7 @@ namespace ConsoleApp6
             //End
             //Begin 14
             Console.Write("║");
-            number = Convert.ToString(/**/num + 14); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
+            number = Convert.ToString(/**/num1 + 14); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
             if ((count - 1) >= (/**/num + 13)) { street = data.OutputStreetTab1(/**/num + 13); } else { street = " "; }
             if (/**/l == 14) { Console.BackgroundColor = ConsoleColor.Blue; }
             Console.Write(street); p = 50 - street.Length; Console.Write(new string(' ', p)); Console.ResetColor(); Console.Write(" ║ ");
@@ -1368,7 +1371,7 @@ namespace ConsoleApp6
             //End
             //Begin 15
             Console.Write("║");
-            number = Convert.ToString(/**/num + 15); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
+            number = Convert.ToString(/**/num1 + 15); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
             if ((count - 1) >= (/**/num + 14)) { street = data.OutputStreetTab1(/**/num + 14); } else { street = " "; }
             if (/**/l == 15) { Console.BackgroundColor = ConsoleColor.Blue; }
             Console.Write(street); p = 50 - street.Length; Console.Write(new string(' ', p)); Console.ResetColor(); Console.Write(" ║ ");
@@ -1387,7 +1390,7 @@ namespace ConsoleApp6
             //End
             //Begin 16
             Console.Write("║");
-            number = Convert.ToString(/**/num + 16); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
+            number = Convert.ToString(/**/num1 + 16); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
             if ((count - 1) >= (/**/num + 15)) { street = data.OutputStreetTab1(/**/num + 15); } else { street = " "; }
             if (/**/l == 16) { Console.BackgroundColor = ConsoleColor.Blue; }
             Console.Write(street); p = 50 - street.Length; Console.Write(new string(' ', p)); Console.ResetColor(); Console.Write(" ║ ");
@@ -1406,7 +1409,7 @@ namespace ConsoleApp6
             //End
             //Begin 17
             Console.Write("║");
-            number = Convert.ToString(/**/num + 17); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
+            number = Convert.ToString(/**/num1 + 17); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
             if ((count - 1) >= (/**/num + 16)) { street = data.OutputStreetTab1(/**/num + 16); } else { street = " "; }
             if (/**/l == 17) { Console.BackgroundColor = ConsoleColor.Blue; }
             Console.Write(street); p = 50 - street.Length; Console.Write(new string(' ', p)); Console.ResetColor(); Console.Write(" ║ ");
@@ -1425,7 +1428,7 @@ namespace ConsoleApp6
             //End
             //Begin 18
             Console.Write("║");
-            number = Convert.ToString(/**/num + 18); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
+            number = Convert.ToString(/**/num1 + 18); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
             if ((count - 1) >= (/**/num + 17)) { street = data.OutputStreetTab1(/**/num + 17); } else { street = " "; }
             if (/**/l == 18) { Console.BackgroundColor = ConsoleColor.Blue; }
             Console.Write(street); p = 50 - street.Length; Console.Write(new string(' ', p)); Console.ResetColor(); Console.Write(" ║ ");
@@ -1444,7 +1447,7 @@ namespace ConsoleApp6
             //End
             //Begin 19
             Console.Write("║");
-            number = Convert.ToString(/**/num + 19); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
+            number = Convert.ToString(/**/num1 + 19); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
             if ((count - 1) >= (/**/num + 18)) { street = data.OutputStreetTab1(/**/num + 18); } else { street = " "; }
             if (/**/l == 19) { Console.BackgroundColor = ConsoleColor.Blue; }
             Console.Write(street); p = 50 - street.Length; Console.Write(new string(' ', p)); Console.ResetColor(); Console.Write(" ║ ");
@@ -1463,7 +1466,7 @@ namespace ConsoleApp6
             //End
             //Begin 20
             Console.Write("║");
-            number = Convert.ToString(/**/num + 20); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
+            number = Convert.ToString(/**/num1 + 20); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
             if ((count - 1) >= (/**/num + 19)) { street = data.OutputStreetTab1(/**/num + 19); } else { street = " "; }
             if (/**/l == 20) { Console.BackgroundColor = ConsoleColor.Blue; }
             Console.Write(street); p = 50 - street.Length; Console.Write(new string(' ', p)); Console.ResetColor(); Console.Write(" ║ ");
@@ -1497,24 +1500,33 @@ namespace ConsoleApp6
             Console.ResetColor();
             Console.WriteLine(" ║");
             Console.WriteLine("╙" + new string('─', 24) + "╨" + new string('─', 189) + "╨" + new string('─', 7) + "╨" + new string('─', 7) + "╜");
+            num1 = 0;
         }
 
         //Вывод подробной информации об улице
         public void PrintStreetMoreInfo(int ind)
         {
-            ConsoleKeyInfo key;
+            //Экземпляр класса с данными
+            Data data = new Data();
+
+            string name = data.OutputStreetNameTab1(ind - 1);
+            string len = data.OutputStreetLengthsTab1(ind - 1);
 
             //Константы для пунктов выбора
             const string Next = "Далее";
             const string Main = " Выход в главное меню ";
+            int p = 0;
 
             Console.WriteLine("╓" + new string('─', 3) + "╥" + new string('─', 52) + "╥" + new string('─', 52) + "╖");
             Console.WriteLine("║" + " № " + "║" + new string(' ', 19) + "Название улицы" + new string(' ', 19) + "║" + new string(' ', 21) + "Длина улицы" + new string(' ', 20) + "║");
             Console.WriteLine("╟" + new string('─', 3) + "╫" + new string('─', 52) + "╫" + new string('─', 52) + "╢");
-            int count = data.CountTab2();
+            p = 50 - name.Length;
+            Console.Write("║ "+ name + new string (' ',p) + " ║ ");
+            p = 50 - len.Length;
+            Console.WriteLine(len + new string (' ',p) + " ║");
 
+            Console.ReadKey();
 
-            do { key = Console.ReadKey(true); } while (key.Key != ConsoleKey.Enter);
         }
     }
 }

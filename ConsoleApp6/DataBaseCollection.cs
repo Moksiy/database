@@ -22,7 +22,7 @@ namespace ConsoleApp6
     {
         public string StreetName { get; set; }
         public string StreetLength { get; set; }
-        public ElementsTab1 Link { get; set; }            
+        public int Link { get; set; }            
     }
 
     //Класс с авто-свойствами для таблицы 3 "автостоянки"
@@ -31,7 +31,7 @@ namespace ConsoleApp6
         public string ParkingName { get; set; }
         public string ParkingAdress { get; set; }
         public string ParkingNumber { get; set; }
-        public ElementsTab1 Link { get; set; }
+        public int Link { get; set; }
     }
 
     public class Data
@@ -296,13 +296,20 @@ namespace ConsoleApp6
         //Метод удаления элементов по индексам из списка 2
         public void DeleteElementTab2(int i)
         {
-            
+            int j = Tab2List[i].Link;
+            Tab1List[j].Street.StreetLength = " ";
+            Tab1List[j].Street.StreetName = " ";
             Tab2List.RemoveAt(i);
+
         }
 
         //Метод удаления элементов по индексам из списка 3
         public void DeleteElementTab3(int i)
         {
+            int j = Tab3List[i].Link;
+            Tab1List[j].Parking.ParkingAdress = " ";
+            Tab1List[j].Parking.ParkingName = " ";
+            Tab1List[j].Parking.ParkingNumber = " ";
             Tab3List.RemoveAt(i);
         }
         
@@ -383,7 +390,7 @@ namespace ConsoleApp6
         {
             int count = CountTab1() - 1;
             Tab1List[count].Street = Tab2List[i];
-
+            Tab2List[i].Link = count;
         }
 
         //Метод добавления ссылки на элемент таблицы 3
@@ -391,6 +398,19 @@ namespace ConsoleApp6
         {
             int count = CountTab1() - 1;
             Tab1List[count].Parking = Tab3List[i];
+            Tab3List[i].Link = count;
+        }
+
+        //Метод вывода названия улицы из таблицы 1
+        public string OutputStreetNameTab1(int ind)
+        {
+            return Tab1List[ind].Street.StreetName;
+        }
+
+        //Метод вывода длины улицы из таблицы 1
+        public string OutputStreetLengthsTab1(int ind)
+        {
+            return Tab1List[ind].Street.StreetLength;
         }
 
         
