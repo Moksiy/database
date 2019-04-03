@@ -419,9 +419,23 @@ namespace ConsoleApp6
             return Tab1List[ind].Street.StreetLength;
         }
 
-        
-            
+        //Метод вывода названия автостоянки из таблицы 1
+        public string OutputParkingNameTab1(int ind)
+        {
+            return Tab1List[ind].Parking.ParkingName;
+        }
 
+        //Метод вывода адреса автостоянки из таблицы 1
+        public string OutputParkingAdressTab1(int ind)
+        {
+            return Tab1List[ind].Parking.ParkingAdress;
+        }
+            
+        //Метод вывода номера автостоянки из таблицы 1
+        public string OutputParkingNumberTab1(int ind)
+        {
+            return Tab1List[ind].Parking.ParkingNumber;
+        }
 
       
     }

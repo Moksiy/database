@@ -1511,22 +1511,61 @@ namespace ConsoleApp6
 
             string name = data.OutputStreetNameTab1(ind - 1);
             string len = data.OutputStreetLengthsTab1(ind - 1);
-
-            //Константы для пунктов выбора
-            const string Next = "Далее";
-            const string Main = " Выход в главное меню ";
+            string number = Convert.ToString(ind);
             int p = 0;
 
             Console.WriteLine("╓" + new string('─', 3) + "╥" + new string('─', 52) + "╥" + new string('─', 52) + "╖");
             Console.WriteLine("║" + " № " + "║" + new string(' ', 19) + "Название улицы" + new string(' ', 19) + "║" + new string(' ', 21) + "Длина улицы" + new string(' ', 20) + "║");
             Console.WriteLine("╟" + new string('─', 3) + "╫" + new string('─', 52) + "╫" + new string('─', 52) + "╢");
+            p = 3 - number.Length;
+            Console.Write("║" + number + new string(' ',p) + "║");
             p = 50 - name.Length;
-            Console.Write("║ "+ name + new string (' ',p) + " ║ ");
+            Console.Write(" "+ name + new string (' ',p) + " ║ ");
             p = 50 - len.Length;
             Console.WriteLine(len + new string (' ',p) + " ║");
-
+            Console.WriteLine("╟" + new string('─', 3) + "╨" + new string('─', 52) + "╨" + new string('─', 52) + "╢");
+            Console.WriteLine("║" + new string(' ',35) + "Нажмите любую клавишу чтобы закрыть окно" + new string(' ', 34) + "║");
+            Console.WriteLine("╙" + new string('─', 3) + "─" + new string('─', 52) + "─" + new string('─', 52) + "╜");
+            //╙ ╨ ╜
             Console.ReadKey();
 
+        }
+
+        //Вывод подробной информации об парковке
+        public void PrintParkingMoreInfo(int ind)
+        {
+            //Экземпляр класса с данными
+            Data data = new Data();
+
+            string name = data.OutputParkingNameTab1(ind - 1);
+            string adress = data.OutputParkingAdressTab1(ind - 1);
+            string numberp = data.OutputParkingNumberTab1(ind - 1);
+            string number = Convert.ToString(ind);
+            int p = 0;
+
+            Console.WriteLine("╓" + new string('─', 3) + "╥" + new string('─', 32) + "╥" + new string('─', 52) + "╥" + new string('─', 24) + "╖");
+            Console.WriteLine("║" + " № " + "║" + new string(' ', 6) + "Название автостоянки" + new string(' ', 6) + "║" + new string(' ', 18) + "Адрес автостоянки" + new string(' ', 17) + "║" + new string(' ', 2) + "Телефон автостоянки" + new string(' ', 3) + "║");
+            Console.WriteLine("╟" + new string('─', 3) + "╫" + new string('─', 32) + "╫" + new string('─', 52) + "╫" + new string('─', 24) + "╢");
+            Console.Write("║" + number);
+            p = 3 - number.Length;
+            Console.Write(new string(' ', p) + "║ ");
+            p = 30 - name.Length;
+            Console.Write(name);
+            Console.Write(new string(' ', p));
+            Console.Write(" ║ ");
+            p = 51 - adress.Length;
+            Console.Write(adress);
+            Console.Write(new string(' ', p));
+            Console.Write("║ ");
+            p = 23 - numberp.Length;
+            Console.Write(numberp);
+            Console.Write(new string(' ', p));
+            Console.WriteLine("║");
+            Console.WriteLine("╟" + new string('─', 3) + "╨" + new string('─', 32) + "╨" + new string('─', 52) + "╨" + new string('─', 24) + "╢");
+            Console.WriteLine("║" + new string(' ',37) + "Нажмите любую клавишу чтобы закрыть окно" + new string (' ',37) + "║");
+            Console.WriteLine("╙" + new string('─', 3) + "─" + new string('─', 32) + "─" + new string('─', 52) + "─" + new string('─', 24) + "╜");
+            //╙ ╨ ╜
+            Console.ReadKey();
         }
     }
 }

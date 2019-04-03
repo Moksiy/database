@@ -809,6 +809,16 @@ namespace ConsoleApp6
                                     if (num+3 <= data.CountTab1())
                                     {
                                         index = num+3;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintStreetMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -828,6 +838,16 @@ namespace ConsoleApp6
                                     if (num+4 <= data.CountTab1())
                                     {
                                         index = num+4;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintStreetMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -847,6 +867,16 @@ namespace ConsoleApp6
                                     if (num+5 <= data.CountTab1())
                                     {
                                         index = num+5;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintStreetMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -866,6 +896,16 @@ namespace ConsoleApp6
                                     if (num+6 <= data.CountTab1())
                                     {
                                         index = num+6;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintStreetMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -885,6 +925,16 @@ namespace ConsoleApp6
                                     if (num+7 <= data.CountTab1())
                                     {
                                         index = num+7;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintStreetMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -904,6 +954,16 @@ namespace ConsoleApp6
                                     if (num+8 <= data.CountTab1())
                                     {
                                         index = num+8;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintStreetMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -923,6 +983,16 @@ namespace ConsoleApp6
                                     if (num+9 <= data.CountTab1())
                                     {
                                         index = num+9;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintStreetMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -942,6 +1012,16 @@ namespace ConsoleApp6
                                     if (num+10 <= data.CountTab1())
                                     {
                                         index = num+10;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintStreetMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -961,6 +1041,16 @@ namespace ConsoleApp6
                                     if (num+11 <= data.CountTab1())
                                     {
                                         index = num+11;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintStreetMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -980,6 +1070,16 @@ namespace ConsoleApp6
                                     if (num+12 <= data.CountTab1())
                                     {
                                         index = num+12;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintStreetMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -999,6 +1099,16 @@ namespace ConsoleApp6
                                     if (num+13 <= data.CountTab1())
                                     {
                                         index = num+13;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintStreetMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -1018,6 +1128,16 @@ namespace ConsoleApp6
                                     if (num+14 <= data.CountTab1())
                                     {
                                         index = num+14;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintStreetMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -1037,6 +1157,16 @@ namespace ConsoleApp6
                                     if (num+15 <= data.CountTab1())
                                     {
                                         index = num+15;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintStreetMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -1056,6 +1186,16 @@ namespace ConsoleApp6
                                     if (num+16 <= data.CountTab1())
                                     {
                                         index = num+16;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintStreetMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -1075,6 +1215,16 @@ namespace ConsoleApp6
                                     if (num+17 <= data.CountTab1())
                                     {
                                         index = num+17;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintStreetMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -1094,6 +1244,16 @@ namespace ConsoleApp6
                                     if (num+18 <= data.CountTab1())
                                     {
                                         index = num+18;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintStreetMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -1113,6 +1273,16 @@ namespace ConsoleApp6
                                     if (num+19 <= data.CountTab1())
                                     {
                                         index = num+19;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintStreetMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -1132,6 +1302,16 @@ namespace ConsoleApp6
                                     if (num <= data.CountTab1())
                                     {
                                         index = num;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintParkingMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -1151,6 +1331,16 @@ namespace ConsoleApp6
                                     if (num+1 <= data.CountTab1())
                                     {
                                         index = num+1;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintParkingMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -1170,6 +1360,16 @@ namespace ConsoleApp6
                                     if (num+2 <= data.CountTab1())
                                     {
                                         index = num+2;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintParkingMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -1189,6 +1389,16 @@ namespace ConsoleApp6
                                     if (num+3 <= data.CountTab1())
                                     {
                                         index = num+3;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintParkingMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -1208,6 +1418,16 @@ namespace ConsoleApp6
                                     if (num+4 <= data.CountTab1())
                                     {
                                         index = num+4;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintParkingMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -1227,6 +1447,16 @@ namespace ConsoleApp6
                                     if (num+5 <= data.CountTab1())
                                     {
                                         index = num+5;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintParkingMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -1246,6 +1476,16 @@ namespace ConsoleApp6
                                     if (num+6 <= data.CountTab1())
                                     {
                                         index = num+6;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintParkingMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -1265,6 +1505,16 @@ namespace ConsoleApp6
                                     if (num+7 <= data.CountTab1())
                                     {
                                         index = num+7;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintParkingMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -1284,6 +1534,16 @@ namespace ConsoleApp6
                                     if (num+8 <= data.CountTab1())
                                     {
                                         index = num+8;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintParkingMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -1303,6 +1563,16 @@ namespace ConsoleApp6
                                     if (num+9 <= data.CountTab1())
                                     {
                                         index = num+9;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintParkingMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -1322,6 +1592,16 @@ namespace ConsoleApp6
                                     if (num+10 <= data.CountTab1())
                                     {
                                         index = num+10;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintParkingMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -1341,6 +1621,16 @@ namespace ConsoleApp6
                                     if (num+11 <= data.CountTab1())
                                     {
                                         index = num+11;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintParkingMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -1360,6 +1650,16 @@ namespace ConsoleApp6
                                     if (num+12 <= data.CountTab1())
                                     {
                                         index = num+12;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintParkingMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -1379,6 +1679,16 @@ namespace ConsoleApp6
                                     if (num+13 <= data.CountTab1())
                                     {
                                         index = num+13;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintParkingMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -1398,6 +1708,16 @@ namespace ConsoleApp6
                                     if (num+14 <= data.CountTab1())
                                     {
                                         index = num+14;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintParkingMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -1417,6 +1737,16 @@ namespace ConsoleApp6
                                     if (num+15 <= data.CountTab1())
                                     {
                                         index = num+15;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintParkingMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -1436,6 +1766,16 @@ namespace ConsoleApp6
                                     if (num+16 <= data.CountTab1())
                                     {
                                         index = num+16;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintParkingMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -1455,6 +1795,16 @@ namespace ConsoleApp6
                                     if (num+17 <= data.CountTab1())
                                     {
                                         index = num+17;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintParkingMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -1474,6 +1824,16 @@ namespace ConsoleApp6
                                     if (num+18 <= data.CountTab1())
                                     {
                                         index = num+18;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintParkingMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
@@ -1493,6 +1853,16 @@ namespace ConsoleApp6
                                     if (num+19 <= data.CountTab1())
                                     {
                                         index = num+19;
+
+                                        //Вызов меню подробной информации об улице
+                                        consolebd.PrintParkingMoreInfo(index);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов
+                                        consolebd.ActEvacuationTable(j, num);
+                                        OutputTabActMain();
                                     }
                                     else
                                     {
