@@ -39,7 +39,7 @@ namespace ConsoleApp6
         public const string Delete = "Удаление";
         public const string Edit = "Редактирование";
         public const string ExitMain = "                                 Выход в главное меню                                   ";
-        public const string Deleteind = " Удаление по номеру элемента ";
+        public const string Deleteind = "Удаление по номеру элемента";
         public const string BackBig = "                                         Назад                                          ";
         public const string AddStreet = "Добавить улицу";
         public const string AddCarparking = "Добавить автостоянку";
@@ -56,6 +56,10 @@ namespace ConsoleApp6
         public const string CarType1 = "Легковой";
         public const string CarType2 = "Грузовой малой тонажности";
         public const string CarType3 = "Грузовой большой тонажности";
+        public const string EditStreet = "Редактирование улиц";
+        public const string EditParking = "Редактирование автостоянок";
+        public const string EditAct = "Редактирование актов эвакуаций";
+        public const string DeleteName = "Удаление по названию";
 
 
         //Метод построения главного меню 1
@@ -326,20 +330,15 @@ namespace ConsoleApp6
             if (j == 1) { Console.BackgroundColor = ConsoleColor.Blue; }
             Console.Write(Deleteind);
             Console.ResetColor();
-            Console.WriteLine(new string(' ', 59) + "║");
+            Console.WriteLine(new string(' ', 61) + "║");
             Console.Write("║ " + " ");
             if (j == 2) { Console.BackgroundColor = ConsoleColor.Blue; }
-            Console.Write(DeleteParking);
+            Console.Write(DeleteName);
             Console.ResetColor();
-            Console.WriteLine(new string(' ', 67) + "║");
-            Console.Write("║ " + " ");
-            if (j == 3) { Console.BackgroundColor = ConsoleColor.Blue; }
-            Console.Write(DeleteAct);
-            Console.ResetColor();
-            Console.WriteLine(new string(' ', 65) + "║");
+            Console.WriteLine(new string(' ', 68) + "║");
             Console.WriteLine("╟" + new string('─', 90) + "╢");
             Console.Write("║ ");
-            if (j == 4) { Console.BackgroundColor = ConsoleColor.DarkRed; }
+            if (j == 3) { Console.BackgroundColor = ConsoleColor.DarkRed; }
             Console.Write(BackBig);
             Console.ResetColor();
             Console.WriteLine(" ║");
@@ -1566,6 +1565,36 @@ namespace ConsoleApp6
             Console.WriteLine("╙" + new string('─', 3) + "─" + new string('─', 32) + "─" + new string('─', 52) + "─" + new string('─', 24) + "╜");
             //╙ ╨ ╜
             Console.ReadKey();
+        }
+
+        //Метод построения меню редактирования элементов
+        public void EditElementsmenu(int j)
+        {
+            Console.WriteLine("╓" + new string('─', 90) + "╖");
+            Console.WriteLine("║" + new string(' ', 26) + "            Редактирование            " + new string(' ', 26) + "║");
+            Console.WriteLine("╟" + new string('─', 90) + "╢");
+            Console.Write("║ " + " ");
+            if (j == 1) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(EditStreet);
+            Console.ResetColor();
+            Console.WriteLine(new string(' ', 69) + "║");
+            Console.Write("║ " + " ");
+            if (j == 2) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(EditParking);
+            Console.ResetColor();
+            Console.WriteLine(new string(' ', 62) + "║");
+            Console.Write("║ " + " ");
+            if (j == 3) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(EditAct);
+            Console.ResetColor();
+            Console.WriteLine(new string(' ', 58) + "║");
+            Console.WriteLine("╟" + new string('─', 90) + "╢");
+            Console.Write("║ ");
+            if (j == 4) { Console.BackgroundColor = ConsoleColor.DarkRed; }
+            Console.Write(BackBig);
+            Console.ResetColor();
+            Console.WriteLine(" ║");
+            Console.WriteLine("╙" + new string('─', 90) + "╜");
         }
     }
 }

@@ -20,7 +20,7 @@ using System.Threading;
 
 
 
-//-------------->7112
+//-------------->7572
 
 
 
@@ -136,6 +136,8 @@ namespace ConsoleApp6
                                 //Очистка консоли
                                 Console.Clear();
 
+                                
+                                Console.ReadKey();
                                 break;
 
                             //Выход
@@ -2075,6 +2077,8 @@ namespace ConsoleApp6
                                 //Очистка консоли
                                 Console.Clear();
 
+                                //Метод построения меню
+                                EditElementsMenu();
                                 break;
 
                             //3 ПУНКТ ВЫХОД В ГЛАВНОЕ МЕНЮ
@@ -4195,15 +4199,15 @@ namespace ConsoleApp6
                         //UPARROW
                         case ConsoleKey.UpArrow:
                             j--;
-                            if (j < 1) { j = 4; }
-                            if (j > 4) { j = 1; }
+                            if (j < 1) { j = 3; }
+                            if (j > 3) { j = 1; }
                             break;
 
                         //DOWNARROW
                         case ConsoleKey.DownArrow:
                             j++;
-                            if (j < 1) { j = 4; }
-                            if (j > 4) { j = 1; }
+                            if (j < 1) { j = 3; }
+                            if (j > 3) { j = 1; }
                             break;
 
 
@@ -4311,12 +4315,8 @@ namespace ConsoleApp6
 
                                 break;
 
-                            case 3:
-
-                                break;
-
                             //Выход в главное меню
-                            case 4:
+                            case 3:
                                 //Очистка консоли
                                 Console.Clear();
 
@@ -4376,15 +4376,15 @@ namespace ConsoleApp6
                         //UPARROW
                         case ConsoleKey.UpArrow:
                             j--;
-                            if (j < 1) { j = 4; }
-                            if (j > 4) { j = 1; }
+                            if (j < 1) { j = 3; }
+                            if (j > 3) { j = 1; }
                             break;
 
                         //DOWNARROW
                         case ConsoleKey.DownArrow:
                             j++;
-                            if (j < 1) { j = 4; }
-                            if (j > 4) { j = 1; }
+                            if (j < 1) { j = 3; }
+                            if (j > 3) { j = 1; }
                             break;
                     }
 
@@ -4487,11 +4487,8 @@ namespace ConsoleApp6
                             case 2:
                                 break;
 
-                            case 3:
-                                break;
-
                             //Выход в главное меню удаления
-                            case 4:
+                            case 3:
                                 //Очистка консоли
                                 Console.Clear();
 
@@ -4550,15 +4547,15 @@ namespace ConsoleApp6
                         //UPARROW
                         case ConsoleKey.UpArrow:
                             j--;
-                            if (j < 1) { j = 4; }
-                            if (j > 4) { j = 1; }
+                            if (j < 1) { j = 3; }
+                            if (j > 3) { j = 1; }
                             break;
 
                         //DOWNARROW
                         case ConsoleKey.DownArrow:
                             j++;
-                            if (j < 1) { j = 4; }
-                            if (j > 4) { j = 1; }
+                            if (j < 1) { j = 3; }
+                            if (j > 3) { j = 1; }
                             break;
                     }
 
@@ -4661,12 +4658,8 @@ namespace ConsoleApp6
 
                                 break;
 
-                            case 3:
-
-                                break;
-
                             //Выход в главное меню
-                            case 4:
+                            case 3:
                                 //Очистка консоли
                                 Console.Clear();
 
@@ -5528,12 +5521,117 @@ namespace ConsoleApp6
             //Переменная для хранения информации о нажатой клавише
             ConsoleKeyInfo key;
 
+            //Переменная пункта меню
+            int j = 1;
+
+            //Вызов метода построения меню
+            consolebd.EditElementsmenu(1);
+
+            //Вызов вложенного метода
+            EditElementsMenuMain();
+
+            //Вложенный метод
+            void EditElementsMenuMain()
+            {
+
+                do
+                {
+                    //Считывание информации нажатой клавиши
+                    key = Console.ReadKey(true);
+
+                    if (key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow)
+                    {
+                        //Очистка консоли
+                        Console.Clear();
+
+                        switch (key.Key)
+                        {
+                            //UPARROW
+                            case ConsoleKey.UpArrow:
+                                j--;
+                                if (j < 1) { j = 4; }
+                                if (j > 4) { j = 1; }
+                                break;
+
+                            //DOWNARROW
+                            case ConsoleKey.DownArrow:
+                                j++;
+                                if (j < 1) { j = 4; }
+                                if (j > 4) { j = 1; }
+                                break;
+
+                        }
+
+                        //Вызов метода построения меню
+                        consolebd.EditElementsmenu(j);
+
+                        //Выбор пункта меню редактирования
+                        if (key.Key == ConsoleKey.Enter)
+                        {
+                            //Метод выбора
+                            switch (j)
+                            {
+                                //1 РЕДАКТИРОВАНИЕ УЛИЦ
+                                case 1:
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов метода построения меню удаления
+                                    EditStreets();
+                                    break;
+
+                                //2 РЕДАКТИРОВАНИЕ АВТОСТОЯНКИ
+                                case 2:
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Метод построения меню
+                                    EditParkings();
+                                    break;
+
+
+                                //3 ПУНКТ РЕДАКТИРОВАНИЕ АКТА
+                                case 3:
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Метод построения меню
+                                    EditActs();
+                                    break;
+
+                                //4 ПУНКТ ВЫХОД В ГЛАВНОЕ МЕНЮ
+                                case 4:
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов меню редактирования
+                                    consolebd.EditMenu(1);
+
+                                    //Вызов метода считывания клавиш
+                                    EditMenu();
+                                    break;
+                            }
+                        }
+                    }
+
+                } while (key.Key != ConsoleKey.Enter);
+
+            }
         }
 
         //Метод меню редактирования улиц
         public static void EditStreets()
         {
+            //Создание экземпляра класса с методами построения меню
+            Consolebd consolebd = new Consolebd();
 
+            //Переменная для хранения информации о нажатой клавише
+            ConsoleKeyInfo key;
+
+            //Переменная пункта меню
+            int j = 1;
+
+            
         }
 
         //Метод меню редактирования автостоянок
