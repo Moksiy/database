@@ -5649,7 +5649,10 @@ namespace ConsoleApp6
             //Вложенный метод
             void EditStreetsMain()
             {
+                //Очистка консоли
                 Console.Clear();
+
+                //Вызов метода построения меню
                 consolebd.EditStreetsMenu(j, num);
 
                 //основной блок выполнения
@@ -6556,6 +6559,354 @@ namespace ConsoleApp6
             }
         }
 
+        //Метод редактирования автостоянки
+        public static void EditElementParking(int index)
+        {
+            //Создание экземпляра класса с данными
+            Data data = new Data();
+
+            //Создание экземпляра класса с метода построения меню
+            Consolebd consolebd = new Consolebd();
+
+            //Переменная для выбора пункта меню
+            int j = 1;
+
+            //Переменная для хранения информации о нажатой клавише
+            ConsoleKeyInfo key;
+
+            //Переменные для передачи в список
+            string parkingname = " ";
+            string parkingadress = " ";
+            string parkingnumber = " ";
+
+            //Получение cтрок из списка
+            parkingname = data.OutPutPrkname(index - 1);
+
+            parkingadress = data.OutPutPrkadress(index - 1);
+
+            parkingnumber = data.OutPutPrknumber(index - 1);
+
+            //Вызов вложенного метода
+            EditElementParkingMain();
+
+            //Вложенный метод
+            void EditElementParkingMain()
+            {
+                //Очистка консоли
+                Console.Clear();
+
+                //Вызов метода построения меню редактирования автостоянки
+                consolebd.EditParkingElement(j, parkingname, parkingadress, parkingnumber);
+
+                do
+                {
+                    //Считывание инорфмации о нажатой клавише
+                    key = Console.ReadKey(true);
+
+                    if (key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow || key.Key == ConsoleKey.LeftArrow || key.Key == ConsoleKey.RightArrow || key.Key == ConsoleKey.Enter)
+                    {
+                        switch (key.Key)
+                        {
+                            //UPARROW
+                            case ConsoleKey.UpArrow:
+                                j--;
+                                if (j < 1) { j = 4; }
+                                if (j > 4) { j = 1; }
+                                break;
+
+                            //DOWNARROW
+                            case ConsoleKey.DownArrow:
+                                j++;
+                                if (j < 1) { j = 4; }
+                                if (j > 4) { j = 1; }
+                                break;
+
+                            //LEFTARROW
+                            case ConsoleKey.LeftArrow:
+                                if (j == 4 || j == 400)
+                                {
+                                    j /= 100;
+                                    if (j < 3) { j = 400; }
+                                    if (j > 400) { j = 3; }
+                                }
+                                break;
+
+                            //RIGHTARROW
+                            case ConsoleKey.RightArrow:
+                                if (j == 4 || j == 400)
+                                {
+                                    j *= 100;
+                                    if (j < 4) { j = 400; }
+                                    if (j > 400) { j = 4; }
+                                }
+                                break;
+                        }
+
+                        //Очистка консоли
+                        Console.Clear();
+
+                        //Вызов метода построения меню редактирования автостоянки
+                        consolebd.EditParkingElement(j, parkingname, parkingadress, parkingnumber);
+
+                        if (key.Key == ConsoleKey.Enter)
+                        {
+                            switch(j)
+                            {
+                                //ввод названия автостоянки
+                                case 1:
+                                    //Начало ввода названия автостоянки
+
+                                    //Обнуление переменной названия автостоянки
+                                    parkingname = " ";
+
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов метода построения текущего меню
+                                    //С передачей нуля в качестве параметра 
+                                    //Для того чтобы не было активных пунктов выбора меню
+                                    consolebd.EditParkingElement(0, parkingname, parkingadress, parkingnumber);
+
+                                    //перемещение каретки в нужное положение в таблице
+                                    Console.SetCursorPosition(20, 3);
+
+                                    //Считывание строки
+                                    parkingname = Console.ReadLine();
+
+                                    //Проверка на правильность ввода
+                                    if (parkingname == " " || parkingname == null || parkingname.Length > 50 || parkingname == "" || parkingname.Contains('\t'))
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов меню ошибки
+                                        consolebd.AttentionAddElement();
+
+                                        //обнуление переменной названия автостоянки
+                                        parkingname = " ";
+
+                                        //Повторный вызов метода построения меню добавления автостоянки
+                                        consolebd.EditParkingElement(j, parkingname, parkingadress, parkingnumber);
+
+                                        //Повторный вызов метода считывания клавиш
+                                        EditElementParkingMain();
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов метода построения меню добавления автостоянки
+                                        consolebd.EditParkingElement(j, parkingname, parkingadress, parkingnumber);
+
+                                        //Повторный вызов метода для считывания клавиш
+                                        EditElementParkingMain();
+                                    }
+
+                                    break;
+
+                                //Ввод адреса автостоянки
+                                case 2:
+                                    //Начало ввода адреса автостоянки
+
+                                    //обнуление переменной адреса автостоянки
+                                    parkingadress = " ";
+
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов метода построения текущего меню
+                                    //С передачей нуля в качестве параметра
+                                    //Для того чтобы не было активных пунктов выбора меню
+                                    consolebd.EditParkingElement(0, parkingname, parkingadress, parkingnumber);
+
+                                    //Перемещение каретки в нужное положение в табоице
+                                    Console.SetCursorPosition(20, 5);
+
+                                    //Считывание строки
+                                    parkingadress = Console.ReadLine();
+
+                                    //Проверка на правильность ввода
+                                    if (parkingadress == " " || parkingadress == null || parkingadress.Length > 50 || parkingadress == "" || parkingadress.Contains('\t'))
+                                    {
+                                        //Обнуление переменной
+                                        parkingadress = " ";
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов меню ошибки 
+                                        consolebd.AttentionAddElement();
+
+                                        //Вызов метода построения меню добавления элемента
+                                        consolebd.EditParkingElement(j, parkingname, parkingadress, parkingnumber);
+
+                                        //Вызов метода считывания нажатой клавиши
+                                        EditElementParkingMain();
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов метода построения меню
+                                        consolebd.EditParkingElement(j, parkingname, parkingadress, parkingnumber);
+
+                                        //Повторный вызов метода для считывания клаваиш
+                                        EditElementParkingMain();
+                                    }
+
+                                    break;
+
+                                //Ввод номера автостоянки
+                                case 3:
+                                    //начало ввода номера автостоянки
+
+                                    //Обнуление переменной номера автостоянки
+                                    parkingnumber = " ";
+
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов метода построения текущего меню
+                                    //с передачей нуля в качестве параметра
+                                    //для того чтобы не было активных пунктов меню выбора
+                                    consolebd.EditParkingElement(0, parkingname, parkingadress, parkingnumber);
+
+                                    //Перемещение каретки в нужное положение в таблице
+                                    Console.SetCursorPosition(20, 7);
+
+                                    //Считывание строки
+                                    parkingnumber = Console.ReadLine();
+
+                                    //Проверка на правильность ввода
+                                    if (parkingnumber == " " || parkingnumber == null || parkingnumber.Length > 50 || parkingnumber == "" || parkingnumber.Contains('\t'))
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов окошка ошибки
+                                        consolebd.AttentionAddElement();
+
+                                        //Обнуление переменной номера автостоянки
+                                        parkingnumber = " ";
+
+                                        //Повторный вызов метода построения меню добавления автостоянки
+                                        consolebd.EditParkingElement(j, parkingname, parkingadress, parkingnumber);
+
+                                        //Повторный вызов метода считывания клавиш
+                                        EditElementParkingMain();
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов метода построения меню
+                                        consolebd.EditParkingElement(j, parkingname, parkingadress, parkingnumber);
+
+                                        //Повторный вызов метода для считывания клавиш
+                                        EditElementParkingMain();
+                                    }
+                                    break;
+
+                                case 4:
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов меню построения главного меню добавления элемента
+                                    //С передачей в качестве параметра единицы
+                                    EditMenu();
+                                    break;
+
+                                //Сохранить
+                                //Введенная информация сохраняется и записывается в список
+                                //Далее происходит переход в главное меню добавления нового элемента
+                                case 400:
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Проверка на то, что все поля заполнены
+
+                                    //Объявление переменноых для хранения промежуточного результата
+                                    //Если поле удовлетворяет условиям заполнения и не пустое -> true, иначе false
+                                    bool prknameBool = false;
+                                    bool prkadressBool = false;
+                                    bool prknumberBool = false;
+
+                                    //Проверка на пустое поле для переменной названия автостоянки
+                                    if (parkingname == "" || parkingname == " ")
+                                    {
+                                        prknameBool = false;
+                                    }
+                                    else
+                                    {
+                                        prknameBool = true;
+                                    }
+
+                                    //Проверка на пустое поле для переменной адреса автостоянки
+                                    if (parkingadress == "" || parkingadress == " ")
+                                    {
+                                        prkadressBool = false;
+                                    }
+                                    else
+                                    {
+                                        prkadressBool = true;
+                                    }
+
+                                    //Проверка на пустое поле для переменной номера автостоянки
+                                    if (parkingnumber == "" || parkingnumber == " ")
+                                    {
+                                        prknumberBool = false;
+                                    }
+                                    else
+                                    {
+                                        prknumberBool = true;
+                                    }
+
+                                    //Финальная проверка результата
+                                    if (prknameBool == false || prkadressBool == false || prknumberBool == false)
+                                    {
+                                            //Очистка консоли
+                                            Console.Clear();
+
+                                            //Вызов метода построения меню предупреждения
+                                            consolebd.AttentionAlreadyHasParking();
+
+                                            //Повторный вызов метода добавления улицы
+                                            consolebd.EditParkingElement(j, parkingname, parkingadress, parkingnumber);
+
+                                            //Повторный вызов метода считывания клавиш
+                                            EditElementParkingMain();
+                                        
+                                    }
+                                    else
+                                    {
+                                        data.EditTab3(parkingname, parkingadress, parkingnumber, index-1);
+
+                                        //очистка консоли
+                                        Console.Clear();
+
+                                        //Переход в главное меню добавления элемента
+
+                                        //Вызов метода построения главного меню добавления нового элемента
+                                        EditMenu();
+                                    }
+                                    break;
+                            }
+                        }
+                    }
+
+                } while (key.Key != ConsoleKey.Enter);
+            }
+        }
+
+        //Метод редактирования акта эвакуации
+        public static void EditElementAct(int index)
+        {
+
+        }
+
         //Метод меню редактирования автостоянок
         public static void EditParkings()
         {
@@ -6576,6 +6927,620 @@ namespace ConsoleApp6
 
             //Переменная для хранения индекса элемента из списка
             int index = 0;
+
+            //Вызов вложенного метода
+            EditParkingsMain();
+
+            //Вложенный метод
+            void EditParkingsMain()
+            {
+                //Очистка консоли
+                Console.Clear();
+
+                //Вызов метода построения меню выбора улицы для редактирования
+                consolebd.EditParkingMenu(j, num);
+
+                do
+                {
+                    //Считывание информации о нажатой клавише
+                    key = Console.ReadKey(true);
+
+                    if (key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow || key.Key == ConsoleKey.LeftArrow || key.Key == ConsoleKey.RightArrow || key.Key == ConsoleKey.Enter)
+                    {
+                        //Очистка консоли
+                        Console.Clear();
+
+                        //Оператор выбора 
+                        switch (key.Key)
+                        {
+                            //UPARROW
+                            case ConsoleKey.UpArrow:
+                                if (j <= 21) { j--; if (j < 1) { j = 21; } if (j > 21) { j = 1; } }
+
+                                break;
+
+                            //DOWNARROW
+                            case ConsoleKey.DownArrow:
+                                if (j <= 21) { j++; if (j < 1) { j = 21; } if (j > 21) { j = 1; } }
+
+                                break;
+
+                            //LEFTARROW
+                            case ConsoleKey.LeftArrow:
+                                if (j == 21) { j = 210000; }
+                                else
+                                {
+                                    if (j == 210000) { j = 2100; }
+                                    else
+                                    {
+                                        if (j <= 20) { j *= 100; }
+                                        else { j /= 100; }
+                                    }
+                                }
+
+                                break;
+
+                            //RIGHTARROW
+                            case ConsoleKey.RightArrow:
+                                if (j == 21) { j = 2100; }
+                                else if (j == 210000) { j = 21; }
+                                else
+                                if (j == 2100) { j = 210000; }
+                                else
+                                {
+                                    if (j == 210000) { j = 21; }
+                                    else
+                                    {
+                                        if (j <= 20) { j *= 100; }
+                                        else { j /= 100; }
+                                    }
+                                }
+                                break;
+                        }
+
+                        consolebd.EditParkingMenu(j, num);
+
+                        if (key.Key == ConsoleKey.Enter)
+                        {
+                            switch(j)
+                            {
+                                case 1:
+                                    if (num <= data.CountTab3())
+                                    {
+                                        index = num;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementParking(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditParkingsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 2:
+                                    if (num+1 <= data.CountTab3())
+                                    {
+                                        index = num+1;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementParking(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditParkingsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 3:
+                                    if (num + 2 <= data.CountTab3())
+                                    {
+                                        index = num + 2;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementParking(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditParkingsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 4:
+                                    if (num + 3 <= data.CountTab3())
+                                    {
+                                        index = num + 3;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementParking(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditParkingsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 5:
+                                    if (num + 4 <= data.CountTab3())
+                                    {
+                                        index = num + 4;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementParking(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditParkingsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 6:
+                                    if (num + 5 <= data.CountTab3())
+                                    {
+                                        index = num + 5;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementParking(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditParkingsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 7:
+                                    if (num + 6 <= data.CountTab3())
+                                    {
+                                        index = num + 6;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementParking(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditParkingsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 8:
+                                    if (num + 7 <= data.CountTab3())
+                                    {
+                                        index = num + 7;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementParking(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditParkingsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 9:
+                                    if (num + 8 <= data.CountTab3())
+                                    {
+                                       index = num + 8;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementParking(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditParkingsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 10:
+                                    if (num + 9 <= data.CountTab3())
+                                    {
+                                        index = num + 9;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementParking(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditParkingsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 11:
+                                    if (num + 10 <= data.CountTab3())
+                                    {
+                                        index = num + 10;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementParking(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditParkingsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 12:
+                                    if (num + 11 <= data.CountTab3())
+                                    {
+                                        index = num + 11;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementParking(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditParkingsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 13:
+                                    if (num + 12 <= data.CountTab3())
+                                    {
+                                        index = num + 12;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementParking(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditParkingsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 14:
+                                    if (num + 13 <= data.CountTab3())
+                                    {
+                                        index = num + 13;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementParking(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditParkingsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 15:
+                                    if (num + 14 <= data.CountTab3())
+                                    {
+                                        index = num + 14;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementParking(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditParkingsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 16:
+                                    if (num + 15 <= data.CountTab3())
+                                    {
+                                        index = num + 15;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementParking(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditParkingsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 17:
+                                    if (num + 16 <= data.CountTab3())
+                                    {
+                                        index = num + 16;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementParking(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditParkingsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 18:
+                                    if (num + 17 <= data.CountTab3())
+                                    {
+                                        index = num + 17;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementParking(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditParkingsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 19:
+                                    if (num + 18 <= data.CountTab3())
+                                    {
+                                        index = num + 18;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementParking(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditParkingsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 20:
+                                    if (num + 19 <= data.CountTab3())
+                                    {
+                                        index = num + 19;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementParking(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditParkingsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 21:
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов метода построения меню
+                                    EditMenu();
+                                    break;
+
+                                case 2100:
+                                    num -= 20;
+                                    if (num < 1) { num = 81; }
+                                    if (num >= 100) { num = 1; }
+
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов метода считывания клавиш
+                                    EditParkingsMain();
+                                    break;
+
+                                case 210000:
+                                    num += 20;
+                                    if (num < 1) { num = 81; }
+                                    if (num >= 100) { num = 1; }
+
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов метода считывания клавиш
+                                    EditParkingsMain();
+                                    break;
+                            }
+                        }
+                    }
+
+                } while (key.Key != ConsoleKey.Enter);
+            }
         }
 
         //Метод меню редактирования актов эвакуации

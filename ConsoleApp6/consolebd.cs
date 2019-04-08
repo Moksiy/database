@@ -1649,6 +1649,64 @@ namespace ConsoleApp6
             Console.WriteLine("╙" + new string('─', 24) + "╨" + new string('─', 68) + "╨" + new string('─', 7) + "╨" + new string('─', 7) + "╜");
         }
 
+        //Метод построения меню выбора автостоянки для редактирования
+        public void EditParkingMenu(int j, int num)
+        {
+            const string Next = "Далее";
+            const string Main = " Выход в главное меню ";
+
+            Console.WriteLine("╓" + new string('─', 3) + "╥" + new string('─', 32) + "╥" + new string('─', 52) + "╥" + new string('─', 24) + "╖");
+            Console.WriteLine("║" + " № " + "║" + new string(' ', 6) + "Название автостоянки" + new string(' ', 6) + "║" + new string(' ', 18) + "Адрес автостоянки" + new string(' ', 17) + "║" + new string(' ', 2) + "Телефон автостоянки" + new string(' ', 3) + "║");
+            Console.WriteLine("╟" + new string('─', 3) + "╫" + new string('─', 32) + "╫" + new string('─', 52) + "╫" + new string('─', 24) + "╢");
+            int count = data.CountTab3();
+            string prkadress = " ";
+            string prkname = " ";
+            string prknumber = " ";
+            for (int i = num - 1; i < (num + 19); i++)
+            {
+                Console.Write("║");
+                string number = Convert.ToString(i + 1);
+                if (j == i + 1) { Console.BackgroundColor = ConsoleColor.Blue; }
+                Console.Write(number);
+                int g = 3 - number.Length;
+                Console.Write(new string(' ', g) + "║ ");
+                if ((count - 1) >= (i)) { prkname = data.OutPutPrkname(i); } else { prkname = " "; }
+                int p = 30 - prkname.Length;
+                Console.Write(prkname);
+                Console.Write(new string(' ', p));
+                Console.Write(" ║ ");
+                if ((count - 1) >= (i)) { prkadress = data.OutPutPrkadress(i); } else { prkadress = " "; }
+                p = 51 - prkadress.Length;
+                Console.Write(prkadress);
+                Console.Write(new string(' ', p));
+                Console.Write("║ ");
+                if ((count - 1) >= (i)) { prknumber = data.OutPutPrknumber(i); } else { prknumber = " "; }
+                p = 23 - prknumber.Length;
+                Console.Write(prknumber);
+                Console.Write(new string(' ', p));
+                Console.ResetColor();
+                Console.WriteLine("║");
+                Console.WriteLine("╟" + "───╫" + new string('─', 32) + "╫" + new string('─', 52) + "╫" + new string('─', 24) + "╢");
+            }
+            Console.WriteLine("╟" + new string('─', 3) + "╨" + new string('─', 20) + "╥" + new string('─', 11) + "╨" + new string('─', 52) + "╨" + new string('─', 8) + "╥" + new string('─', 7) + "╥" + new string('─', 7) + "╢");
+            Console.Write("║ ");
+            if (j == 21) { Console.BackgroundColor = ConsoleColor.DarkRed; }
+            Console.Write("  Меню редактирования ");
+            Console.ResetColor();
+            Console.Write(" ║");
+            Console.Write(new string(' ', 72));
+            Console.Write(" ║");
+            if (j == 2100) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(Back);
+            Console.ResetColor();
+            Console.Write("║ ");
+            if (j == 210000) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(Next);
+            Console.ResetColor();
+            Console.WriteLine(" ║");
+            Console.WriteLine("╙" + new string('─', 24) + "╨" + new string('─', 73) + "╨" + new string('─', 7) + "╨" + new string('─', 7) + "╜");
+        }
+
         //Метод построения меню редактирования выбранной улицы
         public void EditStreetElement(int j, string stname, string stlen)
         {
@@ -1685,9 +1743,46 @@ namespace ConsoleApp6
         }
 
         //Метод построения меню выбора автостоянки для редактирования
-        public void EditParkingsMenu(int j)
+        public void EditParkingElement(int j, string prkname, string prkadress, string prknumber)
         {
-
+            Console.WriteLine("╓" + new string('─', 90) + "╖");
+            Console.WriteLine("║" + new string(' ', 26) + "       Редактирование автостоянки     " + new string(' ', 26) + "║");
+            Console.WriteLine("╟" + new string('─', 17) + "╥" + new string('─', 72) + "╢");
+            Console.Write("║ ");
+            if (j == 1) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(ParkingName);
+            Console.ResetColor();
+            Console.Write(new string(' ', 6) + " ║ ");
+            Console.Write(prkname);
+            int p = 71 - prkname.Length;
+            Console.WriteLine(new string(' ', p) + "║");
+            Console.WriteLine("╟" + new string('─', 17) + "╫" + new string('─', 72) + "╢");
+            Console.Write("║ ");
+            if (j == 2) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(ParkingAdress);
+            Console.ResetColor();
+            Console.Write(new string(' ', 9) + " ║ " + prkadress);
+            p = 71 - prkadress.Length;
+            Console.WriteLine(new string(' ', p) + "║");
+            Console.WriteLine("╟" + new string('─', 17) + "╫" + new string('─', 72) + "╢");
+            Console.Write("║ ");
+            if (j == 3) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(ParkingNumber);
+            Console.ResetColor();
+            Console.Write(new string(' ', 7) + " ║ " + prknumber);
+            p = 71 - prknumber.Length;
+            Console.WriteLine(new string(' ', p) + "║");
+            Console.WriteLine("╟" + new string('─', 17) + "╨" + new string('─', 72) + "╢");
+            Console.Write("║" + new string(' ', 10));
+            if (j == 4) { Console.BackgroundColor = ConsoleColor.Red; }
+            Console.Write(Back);
+            Console.ResetColor();
+            Console.Write(new string(' ', 12) + "║ Выберете пункт для ввода ║" + new string(' ', 12));
+            if (j == 400) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(Save);
+            Console.ResetColor();
+            Console.WriteLine(new string(' ', 10) + "║");
+            Console.WriteLine("╙" + new string('─', 90) + "╜");
         }
 
         //Метод потсроения меню акта эвакуации для редактирования

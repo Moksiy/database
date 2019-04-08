@@ -444,6 +444,14 @@ namespace ConsoleApp6
             Tab2List[ind].StreetLength = strlen;
         }
 
+        //Метод редактирования элементов в таблице 3
+        public void EditTab3(string prkname, string prkadress, string prknumber, int ind)
+        {
+            Tab3List[ind].ParkingName = prkname;
+            Tab3List[ind].ParkingAdress = prkadress;
+            Tab3List[ind].ParkingNumber = prknumber;
+        }
+
       
     }
     
