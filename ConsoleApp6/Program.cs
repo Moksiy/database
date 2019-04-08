@@ -6303,7 +6303,10 @@ namespace ConsoleApp6
                     {
                         switch (key.Key)
                         {
+                            case ConsoleKey.DownArrow:
+                                break;
 
+                            
                         }
                     }
                 } while (key.Key != ConsoleKey.Enter);
