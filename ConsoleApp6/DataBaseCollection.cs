@@ -437,6 +437,13 @@ namespace ConsoleApp6
             return Tab1List[ind].Parking.ParkingNumber;
         }
 
+        //Метод редактирования элементов в таблице 2
+        public void EditTab2(string strname, string strlen, int ind)
+        {
+            Tab2List[ind].StreetName = strname;
+            Tab2List[ind].StreetLength = strlen;
+        }
+
       
     }
     

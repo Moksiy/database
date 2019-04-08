@@ -20,7 +20,7 @@ using System.Threading;
 
 
 
-//-------------->7572
+//-------------->8727
 
 
 
@@ -6276,9 +6276,9 @@ namespace ConsoleApp6
             string streetlength = " ";
 
             //Получение cтрок из списка
-            streetname = data.OutPutSt(index);
+            streetname = data.OutPutSt(index-1);
 
-            streetlength = data.OutPutStl(index);            
+            streetlength = data.OutPutStl(index-1);            
 
             //Вызов вложенного метода
             EditElementStreetMain();
@@ -6303,10 +6303,253 @@ namespace ConsoleApp6
                     {
                         switch (key.Key)
                         {
-                            case ConsoleKey.DownArrow:
+                            //UPARROW
+                            case ConsoleKey.UpArrow:
+                                j--;
+                                if (j < 1) { j = 3; }
+                                if (j > 3) { j = 1; }
                                 break;
 
-                            
+                            //DOWNARROW
+                            case ConsoleKey.DownArrow:
+                                j++;
+                                if (j < 1) { j = 3; }
+                                if (j > 3) { j = 1; }
+                                break;
+
+                            //LEFTARROW
+                            case ConsoleKey.LeftArrow:
+                                if (j == 3 || j == 300)
+                                {
+                                    j /= 100;
+                                    if (j < 3) { j = 300; }
+                                    if (j > 300) { j = 3; }
+                                }
+                                break;
+
+                            //RIGHTARROW
+                            case ConsoleKey.RightArrow:
+                                if (j == 3 || j == 300)
+                                {
+                                    j *= 100;
+                                    if (j < 3) { j = 300; }
+                                    if (j > 300) { j = 3; }
+                                }
+                                break;
+                        }
+
+                        //Очистка консоли
+                        Console.Clear();
+
+                        //Вызов метода построения меню редактирования улиц
+                        consolebd.EditStreetElement(j, streetname, streetlength);
+
+                        if (key.Key == ConsoleKey.Enter)
+                        {
+                            switch(j)
+                            {
+                                //Ввод названия улицы
+                                case 1:
+                                    //начало ввода названия улицы
+
+                                    //Обнуление переменной названия улицы
+                                    streetname = " ";
+
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов метода построения текущего меню
+                                    //С передачей нуля в качестве параметра 
+                                    //Для того чтобы не было активных пунктов выбора меню
+                                    consolebd.EditStreetElement(0, streetname, streetlength);
+
+                                    //Перемещение каретки в нужное положение в таблице
+                                    Console.SetCursorPosition(20, 3);
+
+                                    //Считывание строки
+                                    streetname = Console.ReadLine();
+
+                                    //Проверка на правильность ввода
+                                    if (streetname == " " || streetname == null || streetname.Length > 50 || streetname == "" || streetname.Contains('\t'))
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов меню ошибки
+                                        consolebd.AttentionAddElement();
+
+                                        //Обнуление переменной названия улицы
+                                        streetname = " ";
+
+                                        //Повторный вызов метода построения меню добавления улицы
+                                        consolebd.AddElemStreet(j, streetname, streetlength);
+
+                                        //Повторный вызов метода считывания клавиш
+                                        EditElementStreetMain();
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов метода построения меню 
+                                        consolebd.AddElemStreet(j, streetname, streetlength);
+
+                                        //Повторный вызов метода для считывания клавиш
+                                        EditElementStreetMain();
+                                    }
+                                    break;
+
+                                //Ввод длины улицы
+                                case 2:
+                                    //начало ввода длины улицы
+
+                                    //Обнуление переменной длины улицы
+                                    streetlength = " ";
+
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов метода построения текущего меню
+                                    //С передачей нуля в качестве параметра 
+                                    //Для того чтобы не было активных пунктов выбора меню
+                                    consolebd.EditStreetElement(0, streetname, streetlength);
+
+                                    //Перемещение каретки в нужное положение в таблице
+                                    Console.SetCursorPosition(20, 5);
+
+                                    //Считывание строки
+                                    streetlength = Console.ReadLine();
+
+                                    //Проверка на правильность ввода
+                                    if (streetlength == " " || streetlength == null || streetlength.Length > 50 || streetlength == "" || streetlength.Contains('\t'))
+                                    {
+                                        //Обнуление переменной 
+                                        streetlength = " ";
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов меню ошибки
+                                        consolebd.AttentionAddElement();
+
+                                        //Вызов метода построения меню добавления элемента
+                                        consolebd.AddElemStreet(j, streetname, streetlength);
+
+                                        //Вызов метода считывания нажатой клавиши
+                                        EditElementStreetMain();
+
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        double slen = 0;
+
+                                        //дополнительная проверка на возможность конвертации значения 
+                                        if (double.TryParse(streetlength, out slen))
+                                        {
+                                            //Конвертация
+                                            slen = Double.Parse(streetlength);
+
+                                            //Повторный вызов метода построения меню 
+                                            consolebd.EditStreetElement(j, streetname, streetlength);
+
+                                            //Повторный вызов метода для считывания клавиш
+                                            EditElementStreetMain();
+                                        }
+                                        else
+                                        {
+                                            //обнуление введенного значения
+                                            streetlength = " ";
+
+                                            //очистка консоли
+                                            Console.Clear();
+
+                                            //Вызов метода построения таблицы предупреждения
+                                            consolebd.AttentionAddElement();
+
+                                            //Повторный вызов меню добавления улицы
+                                            consolebd.AddElemStreet(j, streetname, streetlength);
+
+                                            //Вызов метода выбора пункта меню
+                                            EditElementStreetMain();
+                                        }
+                                    }
+                                    break;
+
+                                //Назад
+                                case 3:
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов меню построения главного меню добавления элемента
+                                    //С передачей в качестве параметра еденицы (для изначального отображения первого пункта меню)
+                                    EditMenu();
+                                    break;
+
+                                //Сохранить
+                                case 300:
+                                    //очистка консоли
+                                    Console.Clear();
+
+                                    //Проверка на то, что все поля заполнены
+
+                                    //Объявление переменных для хранения промежуточного результата
+                                    //Если поле удовлетворяет условиям заполнения и не пустое -> true, иначе false
+                                    bool strlengthBool = false;
+                                    bool strnameBool = false;
+
+                                    //Проверка на пустое поле для переменной имени улицы
+                                    if (streetname == "" || streetname == " ")
+                                    {
+                                        strnameBool = false;
+                                    }
+                                    else
+                                    {
+                                        strnameBool = true;
+                                    }
+
+                                    //Проверка на пустое поле для переменной длины улицы
+                                    if (streetlength == "" || streetlength == " ")
+                                    {
+                                        strlengthBool = false;
+                                    }
+                                    else
+                                    {
+                                        strlengthBool = true;
+                                    }
+
+                                    //Финальная проверка результата
+                                    if (strlengthBool == false || strnameBool == false)
+                                    {
+
+                                            //очистка консоли
+                                            Console.Clear();
+
+                                            //Вызов метода построения меню предупреждения
+                                            consolebd.AttentionAlreadyHasStreet();
+
+                                            //Повторный вызов метода добавления улицы
+                                            consolebd.AddElemStreet(j, streetname, streetlength);
+
+                                            //Повторный вызов метода считывания клавиш
+                                            EditElementStreetMain();
+                                        
+                                    }
+                                    else
+                                    {
+                                        data.EditTab2(streetname, streetlength, index-1);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения главного меню добовления нового элемента
+                                        EditMenu();
+                                    }
+                                    break;
+                            }
                         }
                     }
                 } while (key.Key != ConsoleKey.Enter);
