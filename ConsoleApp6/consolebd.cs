@@ -1568,7 +1568,7 @@ namespace ConsoleApp6
         }
 
         //Метод построения меню редактирования элементов
-        public void EditElementsmenu(int j)
+        public void EditElementsMenu(int j)
         {
             Console.WriteLine("╓" + new string('─', 90) + "╖");
             Console.WriteLine("║" + new string(' ', 26) + "            Редактирование            " + new string(' ', 26) + "║");
@@ -1595,6 +1595,105 @@ namespace ConsoleApp6
             Console.ResetColor();
             Console.WriteLine(" ║");
             Console.WriteLine("╙" + new string('─', 90) + "╜");
+        }
+
+        //Метод построения меню выбора улицы для редактирования
+        public void EditStreetsMenu(int j, int num)
+        {
+            const string Next = "Далее";        
+
+            Console.WriteLine("╓" + new string('─', 3) + "╥" + new string('─', 52) + "╥" + new string('─', 52) + "╖");
+            Console.WriteLine("║" + " № " + "║" + new string(' ', 19) + "Название улицы" + new string(' ', 19) + "║" + new string(' ', 21) + "Длина улицы" + new string(' ', 20) + "║");
+            Console.WriteLine("╟" + new string('─', 3) + "╫" + new string('─', 52) + "╫" + new string('─', 52) + "╢");
+            int count = data.CountTab2();
+            for (int i = num - 1; i < (num + 19); i++)
+            {
+                string strname = " ";
+                string strlength = " ";
+                Console.Write("║");
+                if (j == i + 1) { Console.BackgroundColor = ConsoleColor.Blue; }
+                string number = Convert.ToString(i + 1);
+                Console.Write(number);
+                int g = 3 - number.Length;
+                Console.Write(new string(' ', g) + "║ ");
+                if ((count - 1) >= (i)) { strname = data.OutPutSt(i); } else { strname = " "; }
+                int p = 50 - strname.Length;
+                Console.Write(strname);
+                Console.Write(new string(' ', p));
+                Console.Write(" ║ ");
+                if ((count - 1) >= (i)) { strlength = data.OutPutStl(i); } else { strlength = " "; }
+                p = 51 - strlength.Length;
+                Console.Write(strlength);
+                Console.Write(new string(' ', p));
+                Console.ResetColor();
+                Console.WriteLine("║");
+                Console.WriteLine("╟" + "───╫" + new string('─', 52) + "╫" + new string('─', 52) + "╢");
+
+            }
+            Console.WriteLine("╟" + new string('─', 3) + "╨" + new string('─', 20) + "╥" + new string('─', 31) + "╨" + new string('─', 36) + "╥" + new string('─', 7) + "╥" + new string('─', 7) + "╢");
+            Console.Write("║ ");
+            if (j == 21) { Console.BackgroundColor = ConsoleColor.DarkRed; }
+            Console.Write("  Меню редактирования ");
+            Console.ResetColor();
+            Console.Write(" ║");
+            Console.Write(new string(' ', 67));
+            Console.Write(" ║");
+            if (j == 2100) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(Back);
+            Console.ResetColor();
+            Console.Write("║ ");
+            if (j == 210000) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(Next);
+            Console.ResetColor();
+            Console.WriteLine(" ║");
+            Console.WriteLine("╙" + new string('─', 24) + "╨" + new string('─', 68) + "╨" + new string('─', 7) + "╨" + new string('─', 7) + "╜");
+        }
+
+        //Метод построения меню редактирования выбранной улицы
+        public void EditStreetElement(int j, string stname, string stlen)
+        {
+            Console.WriteLine("╓" + new string('─', 90) + "╖");            
+            Console.WriteLine("║" + new string(' ', 26) + "          Редактирование улицы        " + new string(' ', 26) + "║");
+            Console.WriteLine("╟" + new string('─', 17) + "╥" + new string('─', 72) + "╢");
+            Console.Write("║ ");
+            if (j == 1) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(StreetName);
+            Console.ResetColor();
+            Console.Write(" ║ ");
+            Console.Write(stname);
+            int p = 71 - stname.Length;
+            Console.WriteLine(new string(' ', p) + "║");
+            Console.WriteLine("╟" + new string('─', 17) + "╫" + new string('─', 72) + "╢");
+            Console.Write("║ ");
+            if (j == 2) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(StreetLength);
+            Console.ResetColor();
+            Console.Write("    ║ " + stlen);
+            p = 71 - stlen.Length;
+            Console.WriteLine(new string(' ', p) + "║");
+            Console.WriteLine("╟" + new string('─', 17) + "╨" + new string('─', 72) + "╢");
+            Console.Write("║" + new string(' ', 10));
+            if (j == 3) { Console.BackgroundColor = ConsoleColor.Red; }
+            Console.Write(Back);
+            Console.ResetColor();
+            Console.Write(new string(' ', 12) + "║ Выберете пункт для ввода ║" + new string(' ', 12));
+            if (j == 300) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(Save);
+            Console.ResetColor();
+            Console.WriteLine(new string(' ', 10) + "║");
+            Console.WriteLine("╙" + new string('─', 90) + "╜");
+        }
+
+        //Метод построения меню выбора автостоянки для редактирования
+        public void EditParkingsMenu(int j)
+        {
+
+        }
+
+        //Метод потсроения меню акта эвакуации для редактирования
+        public void EditActsMenu(int j)
+        {
+
         }
     }
 }
