@@ -136,10 +136,12 @@ namespace ConsoleApp6
                                 //Очистка консоли
                                 Console.Clear();
 
-                                
+
                                 Console.ReadKey();
 
+                                //TEST
                                 consolebd.EditActsMenu(2100, 1);
+                                //УДАЛИТЬ
                                 break;
 
                             //Выход
@@ -667,12 +669,12 @@ namespace ConsoleApp6
                         //Очистка консоли
                         Console.Clear();
 
-                        switch(key.Key)
+                        switch (key.Key)
                         {
                             //UPARROW
                             case ConsoleKey.UpArrow:
                                 if (j <= 21) { j--; if (j < 1) { j = 21; } if (j > 21) { j = 1; } }
-                                if (j > 21 && j <= 2100) { j -= 100; if (j < 100) { j = 2100; }  if (j > 2100) { j = 100; } }                             
+                                if (j > 21 && j <= 2100) { j -= 100; if (j < 100) { j = 2100; } if (j > 2100) { j = 100; } }
                                 break;
 
                             //DOWNARROW
@@ -693,13 +695,15 @@ namespace ConsoleApp6
                                         else { j /= 100; }
                                     }
                                 }
-                                
+
                                 break;
 
                             //RIGHTARROW
                             case ConsoleKey.RightArrow:
-                                if (j == 21) { j = 2100; } else if (j == 210000) { j = 21; } else
-                                if (j == 2100) { j = 210000; }
+                                if (j == 21) { j = 2100; }
+                                else if (j == 210000) { j = 21; }
+                                else
+     if (j == 2100) { j = 210000; }
                                 else
                                 {
                                     if (j == 210000) { j = 21; }
@@ -751,9 +755,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 2:
-                                    if (num+1 <= data.CountTab1())
+                                    if (num + 1 <= data.CountTab1())
                                     {
-                                        index = num+1;
+                                        index = num + 1;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintStreetMoreInfo(index);
@@ -781,9 +785,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 3:
-                                    if (num+2 <= data.CountTab1())
+                                    if (num + 2 <= data.CountTab1())
                                     {
-                                        index = num+2;
+                                        index = num + 2;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintStreetMoreInfo(index);
@@ -810,9 +814,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 4:
-                                    if (num+3 <= data.CountTab1())
+                                    if (num + 3 <= data.CountTab1())
                                     {
-                                        index = num+3;
+                                        index = num + 3;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintStreetMoreInfo(index);
@@ -839,9 +843,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 5:
-                                    if (num+4 <= data.CountTab1())
+                                    if (num + 4 <= data.CountTab1())
                                     {
-                                        index = num+4;
+                                        index = num + 4;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintStreetMoreInfo(index);
@@ -868,9 +872,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 6:
-                                    if (num+5 <= data.CountTab1())
+                                    if (num + 5 <= data.CountTab1())
                                     {
-                                        index = num+5;
+                                        index = num + 5;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintStreetMoreInfo(index);
@@ -897,9 +901,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 7:
-                                    if (num+6 <= data.CountTab1())
+                                    if (num + 6 <= data.CountTab1())
                                     {
-                                        index = num+6;
+                                        index = num + 6;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintStreetMoreInfo(index);
@@ -926,9 +930,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 8:
-                                    if (num+7 <= data.CountTab1())
+                                    if (num + 7 <= data.CountTab1())
                                     {
-                                        index = num+7;
+                                        index = num + 7;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintStreetMoreInfo(index);
@@ -955,9 +959,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 9:
-                                    if (num+8 <= data.CountTab1())
+                                    if (num + 8 <= data.CountTab1())
                                     {
-                                        index = num+8;
+                                        index = num + 8;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintStreetMoreInfo(index);
@@ -984,9 +988,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 10:
-                                    if (num+9 <= data.CountTab1())
+                                    if (num + 9 <= data.CountTab1())
                                     {
-                                        index = num+9;
+                                        index = num + 9;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintStreetMoreInfo(index);
@@ -1013,9 +1017,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 11:
-                                    if (num+10 <= data.CountTab1())
+                                    if (num + 10 <= data.CountTab1())
                                     {
-                                        index = num+10;
+                                        index = num + 10;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintStreetMoreInfo(index);
@@ -1042,9 +1046,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 12:
-                                    if (num+11 <= data.CountTab1())
+                                    if (num + 11 <= data.CountTab1())
                                     {
-                                        index = num+11;
+                                        index = num + 11;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintStreetMoreInfo(index);
@@ -1071,9 +1075,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 13:
-                                    if (num+12 <= data.CountTab1())
+                                    if (num + 12 <= data.CountTab1())
                                     {
-                                        index = num+12;
+                                        index = num + 12;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintStreetMoreInfo(index);
@@ -1100,9 +1104,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 14:
-                                    if (num+13 <= data.CountTab1())
+                                    if (num + 13 <= data.CountTab1())
                                     {
-                                        index = num+13;
+                                        index = num + 13;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintStreetMoreInfo(index);
@@ -1129,9 +1133,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 15:
-                                    if (num+14 <= data.CountTab1())
+                                    if (num + 14 <= data.CountTab1())
                                     {
-                                        index = num+14;
+                                        index = num + 14;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintStreetMoreInfo(index);
@@ -1158,9 +1162,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 16:
-                                    if (num+15 <= data.CountTab1())
+                                    if (num + 15 <= data.CountTab1())
                                     {
-                                        index = num+15;
+                                        index = num + 15;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintStreetMoreInfo(index);
@@ -1187,9 +1191,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 17:
-                                    if (num+16 <= data.CountTab1())
+                                    if (num + 16 <= data.CountTab1())
                                     {
-                                        index = num+16;
+                                        index = num + 16;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintStreetMoreInfo(index);
@@ -1216,9 +1220,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 18:
-                                    if (num+17 <= data.CountTab1())
+                                    if (num + 17 <= data.CountTab1())
                                     {
-                                        index = num+17;
+                                        index = num + 17;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintStreetMoreInfo(index);
@@ -1245,9 +1249,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 19:
-                                    if (num+18 <= data.CountTab1())
+                                    if (num + 18 <= data.CountTab1())
                                     {
-                                        index = num+18;
+                                        index = num + 18;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintStreetMoreInfo(index);
@@ -1274,9 +1278,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 20:
-                                    if (num+19 <= data.CountTab1())
+                                    if (num + 19 <= data.CountTab1())
                                     {
-                                        index = num+19;
+                                        index = num + 19;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintStreetMoreInfo(index);
@@ -1332,9 +1336,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 200:
-                                    if (num+1 <= data.CountTab1())
+                                    if (num + 1 <= data.CountTab1())
                                     {
-                                        index = num+1;
+                                        index = num + 1;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintParkingMoreInfo(index);
@@ -1361,9 +1365,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 300:
-                                    if (num+2 <= data.CountTab1())
+                                    if (num + 2 <= data.CountTab1())
                                     {
-                                        index = num+2;
+                                        index = num + 2;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintParkingMoreInfo(index);
@@ -1390,9 +1394,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 400:
-                                    if (num+3 <= data.CountTab1())
+                                    if (num + 3 <= data.CountTab1())
                                     {
-                                        index = num+3;
+                                        index = num + 3;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintParkingMoreInfo(index);
@@ -1419,9 +1423,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 500:
-                                    if (num+4 <= data.CountTab1())
+                                    if (num + 4 <= data.CountTab1())
                                     {
-                                        index = num+4;
+                                        index = num + 4;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintParkingMoreInfo(index);
@@ -1448,9 +1452,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 600:
-                                    if (num+5 <= data.CountTab1())
+                                    if (num + 5 <= data.CountTab1())
                                     {
-                                        index = num+5;
+                                        index = num + 5;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintParkingMoreInfo(index);
@@ -1477,9 +1481,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 700:
-                                    if (num+6 <= data.CountTab1())
+                                    if (num + 6 <= data.CountTab1())
                                     {
-                                        index = num+6;
+                                        index = num + 6;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintParkingMoreInfo(index);
@@ -1506,9 +1510,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 800:
-                                    if (num+7 <= data.CountTab1())
+                                    if (num + 7 <= data.CountTab1())
                                     {
-                                        index = num+7;
+                                        index = num + 7;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintParkingMoreInfo(index);
@@ -1535,9 +1539,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 900:
-                                    if (num+8 <= data.CountTab1())
+                                    if (num + 8 <= data.CountTab1())
                                     {
-                                        index = num+8;
+                                        index = num + 8;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintParkingMoreInfo(index);
@@ -1564,9 +1568,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 1000:
-                                    if (num+9 <= data.CountTab1())
+                                    if (num + 9 <= data.CountTab1())
                                     {
-                                        index = num+9;
+                                        index = num + 9;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintParkingMoreInfo(index);
@@ -1593,9 +1597,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 1100:
-                                    if (num+10 <= data.CountTab1())
+                                    if (num + 10 <= data.CountTab1())
                                     {
-                                        index = num+10;
+                                        index = num + 10;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintParkingMoreInfo(index);
@@ -1622,9 +1626,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 1200:
-                                    if (num+11 <= data.CountTab1())
+                                    if (num + 11 <= data.CountTab1())
                                     {
-                                        index = num+11;
+                                        index = num + 11;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintParkingMoreInfo(index);
@@ -1651,9 +1655,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 1300:
-                                    if (num+12 <= data.CountTab1())
+                                    if (num + 12 <= data.CountTab1())
                                     {
-                                        index = num+12;
+                                        index = num + 12;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintParkingMoreInfo(index);
@@ -1680,9 +1684,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 1400:
-                                    if (num+13 <= data.CountTab1())
+                                    if (num + 13 <= data.CountTab1())
                                     {
-                                        index = num+13;
+                                        index = num + 13;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintParkingMoreInfo(index);
@@ -1709,9 +1713,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 1500:
-                                    if (num+14 <= data.CountTab1())
+                                    if (num + 14 <= data.CountTab1())
                                     {
-                                        index = num+14;
+                                        index = num + 14;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintParkingMoreInfo(index);
@@ -1738,9 +1742,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 1600:
-                                    if (num+15 <= data.CountTab1())
+                                    if (num + 15 <= data.CountTab1())
                                     {
-                                        index = num+15;
+                                        index = num + 15;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintParkingMoreInfo(index);
@@ -1767,9 +1771,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 1700:
-                                    if (num+16 <= data.CountTab1())
+                                    if (num + 16 <= data.CountTab1())
                                     {
-                                        index = num+16;
+                                        index = num + 16;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintParkingMoreInfo(index);
@@ -1796,9 +1800,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 1800:
-                                    if (num+17 <= data.CountTab1())
+                                    if (num + 17 <= data.CountTab1())
                                     {
-                                        index = num+17;
+                                        index = num + 17;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintParkingMoreInfo(index);
@@ -1825,9 +1829,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 1900:
-                                    if (num+18 <= data.CountTab1())
+                                    if (num + 18 <= data.CountTab1())
                                     {
-                                        index = num+18;
+                                        index = num + 18;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintParkingMoreInfo(index);
@@ -1854,9 +1858,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 2000:
-                                    if (num+19 <= data.CountTab1())
+                                    if (num + 19 <= data.CountTab1())
                                     {
-                                        index = num+19;
+                                        index = num + 19;
 
                                         //Вызов меню подробной информации об улице
                                         consolebd.PrintParkingMoreInfo(index);
@@ -1892,7 +1896,7 @@ namespace ConsoleApp6
                                     //Вызов метода считывания клавиш
                                     Main();
                                     break;
-                                
+
                                 case 2100:
                                     num -= 20;
                                     if (num < 1) { num = 81; }
@@ -3257,7 +3261,7 @@ namespace ConsoleApp6
                                             Console.Clear();
 
                                             //Объявление переменно для хранения информации о нажатой клавише
-                                            ConsoleKeyInfo key2;                        
+                                            ConsoleKeyInfo key2;
 
                                             //Вывод меню добавления элемента
                                             consolebd.AddElemStreet(j1, strname, strlength);
@@ -5643,7 +5647,7 @@ namespace ConsoleApp6
             int index = 0;
 
             //Вызов метода построения меню выбора улицы
-            consolebd.EditStreetsMenu(1,1);
+            consolebd.EditStreetsMenu(1, 1);
 
             //Вызов вложенного метода
             EditStreetsMain();
@@ -5674,13 +5678,13 @@ namespace ConsoleApp6
                             //UPARROW
                             case ConsoleKey.UpArrow:
                                 if (j <= 21) { j--; if (j < 1) { j = 21; } if (j > 21) { j = 1; } }
-                                
+
                                 break;
 
                             //DOWNARROW
                             case ConsoleKey.DownArrow:
                                 if (j <= 21) { j++; if (j < 1) { j = 21; } if (j > 21) { j = 1; } }
-                               
+
                                 break;
 
                             //LEFTARROW
@@ -5749,9 +5753,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 2:
-                                    if (num+1 <= data.CountTab2())
+                                    if (num + 1 <= data.CountTab2())
                                     {
-                                        index = num+1;
+                                        index = num + 1;
 
                                         //Очистка консоли
                                         Console.Clear();
@@ -6281,9 +6285,9 @@ namespace ConsoleApp6
             string streetlength = " ";
 
             //Получение cтрок из списка
-            streetname = data.OutPutSt(index-1);
+            streetname = data.OutPutSt(index - 1);
 
-            streetlength = data.OutPutStl(index-1);            
+            streetlength = data.OutPutStl(index - 1);
 
             //Вызов вложенного метода
             EditElementStreetMain();
@@ -6351,7 +6355,7 @@ namespace ConsoleApp6
 
                         if (key.Key == ConsoleKey.Enter)
                         {
-                            switch(j)
+                            switch (j)
                             {
                                 //Ввод названия улицы
                                 case 1:
@@ -6530,22 +6534,22 @@ namespace ConsoleApp6
                                     if (strlengthBool == false || strnameBool == false)
                                     {
 
-                                            //очистка консоли
-                                            Console.Clear();
+                                        //очистка консоли
+                                        Console.Clear();
 
-                                            //Вызов метода построения меню предупреждения
-                                            consolebd.AttentionAlreadyHasStreet();
+                                        //Вызов метода построения меню предупреждения
+                                        consolebd.AttentionAlreadyHasStreet();
 
-                                            //Повторный вызов метода добавления улицы
-                                            consolebd.AddElemStreet(j, streetname, streetlength);
+                                        //Повторный вызов метода добавления улицы
+                                        consolebd.AddElemStreet(j, streetname, streetlength);
 
-                                            //Повторный вызов метода считывания клавиш
-                                            EditElementStreetMain();
-                                        
+                                        //Повторный вызов метода считывания клавиш
+                                        EditElementStreetMain();
+
                                     }
                                     else
                                     {
-                                        data.EditTab2(streetname, streetlength, index-1);
+                                        data.EditTab2(streetname, streetlength, index - 1);
 
                                         //Очистка консоли
                                         Console.Clear();
@@ -6652,7 +6656,7 @@ namespace ConsoleApp6
 
                         if (key.Key == ConsoleKey.Enter)
                         {
-                            switch(j)
+                            switch (j)
                             {
                                 //ввод названия автостоянки
                                 case 1:
@@ -6869,22 +6873,22 @@ namespace ConsoleApp6
                                     //Финальная проверка результата
                                     if (prknameBool == false || prkadressBool == false || prknumberBool == false)
                                     {
-                                            //Очистка консоли
-                                            Console.Clear();
+                                        //Очистка консоли
+                                        Console.Clear();
 
-                                            //Вызов метода построения меню предупреждения
-                                            consolebd.AttentionAlreadyHasParking();
+                                        //Вызов метода построения меню предупреждения
+                                        consolebd.AttentionAlreadyHasParking();
 
-                                            //Повторный вызов метода добавления улицы
-                                            consolebd.EditParkingElement(j, parkingname, parkingadress, parkingnumber);
+                                        //Повторный вызов метода добавления улицы
+                                        consolebd.EditParkingElement(j, parkingname, parkingadress, parkingnumber);
 
-                                            //Повторный вызов метода считывания клавиш
-                                            EditElementParkingMain();
-                                        
+                                        //Повторный вызов метода считывания клавиш
+                                        EditElementParkingMain();
+
                                     }
                                     else
                                     {
-                                        data.EditTab3(parkingname, parkingadress, parkingnumber, index-1);
+                                        data.EditTab3(parkingname, parkingadress, parkingnumber, index - 1);
 
                                         //очистка консоли
                                         Console.Clear();
@@ -6925,9 +6929,14 @@ namespace ConsoleApp6
             string cartype = " ";
             string streetname = " ";
             string parkingname = " ";
+            string streetlen = " ";
+            string parkingadress = " ";
+            string parkingnumber = " ";
+            int indexStreet = 0;
+            int indexParking = 0;
 
             //Получение строк из списка
-            gps = data.OutPutGPS(index-1);
+            gps = data.OutPutGPS(index - 1);
             typevio = data.OutPutTypeVio(index - 1);
             carnum = data.OutPutCarNum(index - 1);
             cartype = data.OutPutCarType(index - 1);
@@ -6940,7 +6949,427 @@ namespace ConsoleApp6
             //Вложенный метод
             void EditElementActMain()
             {
+                //Очистка консоли
+                Console.Clear();
 
+                //Вызов метода построения меню редактирования акта
+                consolebd.EditActElement(j, gps, typevio, carnum, cartype, streetname, parkingname);
+
+                do
+                {
+                    //Считывание информации о нажатой клавише
+                    key = Console.ReadKey(true);
+
+                    //Очистка консоли
+                    Console.Clear();
+
+                    if (key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow || key.Key == ConsoleKey.LeftArrow || key.Key == ConsoleKey.RightArrow || key.Key == ConsoleKey.Enter)
+                    {
+                        //Оператор присваивания пункта меню
+                        switch (key.Key)
+                        {
+                            //UPARROW
+                            case ConsoleKey.UpArrow:
+                                j--;
+                                if (j < 1) { j = 7; }
+                                if (j > 7) { j = 1; }
+                                break;
+
+                            //DOWNARROW
+                            case ConsoleKey.DownArrow:
+                                j++;
+                                if (j < 1) { j = 7; }
+                                if (j > 7) { j = 1; }
+                                break;
+
+                            //LEFTARROW
+                            case ConsoleKey.LeftArrow:
+                                if (j == 7 || j == 700)
+                                {
+                                    j /= 100;
+                                    if (j < 7) { j = 700; }
+                                    if (j > 700) { j = 7; }
+                                }
+                                break;
+
+                            //RIGHTARROW
+                            case ConsoleKey.RightArrow:
+                                if (j == 7 || j == 700)
+                                {
+                                    j *= 100;
+                                    if (j < 7) { j = 700; }
+                                    if (j > 700) { j = 7; }
+                                }
+                                break;
+                        }
+
+                        //Вызов метода построения меню редактирования акта эвакуации
+                        consolebd.EditActElement(j, gps, typevio, carnum, cartype, streetname, parkingname);
+
+                        //Выбор пункта меню добавления акта эвакуации
+                        if (key.Key == ConsoleKey.Enter)
+                        {
+                            //Выбор пункта меню
+                            switch (j)
+                            {
+                                //Ввод GPS-координат
+                                case 1:
+                                    //Начало ввода gps-координат
+
+                                    //обнуление переменной gps - координат
+                                    gps = "";
+
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов метода построения текущего меню
+                                    //с передачей нуля в качестве параметра
+                                    //для того чтобы не было активных пунктов выбора ввода
+                                    consolebd.EditActElement(0, gps, typevio, carnum, cartype, streetname, parkingname);
+
+                                    //перемещение каретки в нужное положение в таблице
+                                    Console.SetCursorPosition(22, 3);
+
+                                    //Считывание строки
+                                    gps = Console.ReadLine();
+
+                                    //Проверка на правильность ввода
+                                    if (gps == " " || gps == null || gps == "" || gps.Length > 50 || gps.Contains('\t'))
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов меню ошибки
+                                        consolebd.AttentionAddElement();
+
+                                        //Обнуление переменной gps-координат
+                                        gps = " ";
+
+                                        //Повторный вызов метода построения меню добавления акта эвакуации
+                                        consolebd.EditActElement(j, gps, typevio, carnum, cartype, streetname, parkingname);
+
+                                        //Повторный вызов метода считывания клавиш
+                                        EditElementActMain();
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов метода построения меню добавления акта эвакуации
+                                        consolebd.EditActElement(j, gps, typevio, carnum, cartype, streetname, parkingname);
+
+                                        //Повторный вызов метода считывания клавиш в текущем меню
+                                        EditElementActMain();
+                                    }
+
+                                    break;
+
+                                //Ввод типа нарушения
+                                case 2:
+                                    //начало ввода типа нарушения
+
+                                    //Обнуление переменной типа нарушения
+                                    typevio = " ";
+
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов метода построения меню выбора типа нарушения
+                                    typevio = ChoiseTypeVoilation();
+
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Повторный вызов метода построения меню добавления акта эвакуации
+                                    consolebd.EditActElement(j, gps, typevio, carnum, cartype, streetname, parkingname);
+
+                                    //Повторный вызов метода для считывания клавиш
+                                    EditElementActMain();
+                                    break;
+
+                                //Ввод номера автомобиля
+                                case 3:
+                                    //Начало ввода номера автомобиля
+
+                                    //Обнуление переменной номера автомобиля
+                                    carnum = " ";
+
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов метода построения текущего меню
+                                    //С передачей нуля в качестве параметра
+                                    //Для того чтобы не было активных пунктов выбора меню
+                                    consolebd.EditActElement(j, gps, typevio, carnum, cartype, streetname, parkingname);
+
+                                    //Перемещение каретки в нужное положение в таблице
+                                    Console.SetCursorPosition(22, 7);
+
+                                    //Считывание строки
+                                    carnum = Console.ReadLine();
+
+                                    //проверка на правильность ввода
+                                    if (carnum == "" || carnum == " " || carnum == null || carnum.Length > 50 || carnum.Contains('\t'))
+                                    {
+                                        //обнуление переменной
+                                        carnum = " ";
+
+                                        //очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов меню ошибки 
+                                        consolebd.AttentionAddElement();
+
+                                        //Вызов метода построения меню для добавления акта эвакуации
+                                        consolebd.EditActElement(j, gps, typevio, carnum, cartype, streetname, parkingname);
+
+                                        //Вызов метода считывания нажатой клавиши
+                                        EditElementActMain();
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Повторный вызов метода построения меню
+                                        consolebd.EditActElement(j, gps, typevio, carnum, cartype, streetname, parkingname);
+
+                                        //Повторный вызов метода для считывания клавиш
+                                        EditElementActMain();
+                                    }
+
+                                    break;
+
+                                //Добавление типа автомобиля
+                                case 4:
+                                    //начало ввода типа автомобиля
+
+                                    //Обнуление переменной типа автомобиля
+                                    cartype = " ";
+
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов метода построения меню выбора типа нарушения
+                                    cartype = ChoiseTypeOfCar();
+
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Повторный вызов метода построения меню добавления акта эвакуации
+                                    consolebd.EditActElement(j, gps, typevio, carnum, cartype, streetname, parkingname);
+
+                                    //Повторный вызов метода для считывания клавиш
+                                    EditElementActMain();
+                                    break;
+
+                                //Улица
+                                case 5:
+                                    //Начало выбора улицы
+
+                                    //обнуление переменной улицы
+                                    streetname = " ";
+
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Переменная, принимающая значение количества элементов в списке
+                                    int elementsintab = data.CountTab2();
+
+
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //ChoiseStreet();
+
+                                    //Вызов метода выбора улицы из существующих
+                                    int index2 = ChoiseStreet();
+
+                                    //передача индекса в переменную
+                                    indexStreet = index2 - 1;
+
+                                    //Присвоение 
+                                    if (indexStreet < 0) { streetname = " "; } else { streetname = data.OutPutSt(index2 - 1); }
+
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов метода построения меню добавления акта эвакуации
+                                    consolebd.EditActElement(j, gps, typevio, carnum, cartype, streetname, parkingname);
+
+                                    //Вызов метода считывания клавиш
+                                    EditElementActMain();
+
+
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    break;
+
+                                //Автостоянка
+                                case 6:
+                                    //Начало выбора автостоянки
+
+                                    //Обнуление переменной автостоянки
+                                    parkingname = " ";
+
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //переменная, принимающая значение количества элементов в списке
+                                    int elementsintab2 = data.CountTab3();
+
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов метода выбора автостоянки из существующих
+                                    int index1 = ChoiseParking();
+
+                                    //передача индекса в переменную
+                                    indexParking = index1 - 1;
+
+                                    //Присвоение
+                                    if (indexParking < 0) { parkingname = " "; } else { parkingname = data.OutPutPrkname(index1 - 1); }
+
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов метода построения меню добавления акта эвакуации
+                                    consolebd.EditActElement(j, gps, typevio, carnum, cartype, streetname, parkingname);
+
+                                    //Вызов метода считывания клавиш
+                                    EditElementActMain();
+
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    break;
+
+                                //Назад
+                                case 7:
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов главного меню добавления элемента
+                                    //с передачей в качестве параметра еденицы
+                                    EditMenu();
+                                    break;
+
+                                //Сохранить
+                                //Введенная информация сохраняется и записывается в список
+                                //Далее происходит преход в главное меню добавления нового элемента
+                                case 700:
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Проверка на то, что все поля заполнены
+
+                                    //Объявление переменных для сохранения промежуточного результата
+                                    //Если поле удовлетворяет условиям заполнения и не пустое -> true, иначе false
+                                    bool GPSBool = false;
+                                    bool typevioBool = false;
+                                    bool numofcarBool = false;
+                                    bool typeofcarBool = false;
+                                    bool streetBool = false;
+                                    bool parkingBool = false;
+
+                                    //Проверка на пустое поле для переменной gps
+                                    if (gps == " " || gps == "")
+                                    {
+                                        GPSBool = false;
+                                    }
+                                    else
+                                    {
+                                        GPSBool = true;
+                                    }
+
+                                    //Проверка на пустое поле для переменной типа нарушения
+                                    if (typevio == "" || typevio == " ")
+                                    {
+                                        typevioBool = false;
+                                    }
+                                    else
+                                    {
+                                        typevioBool = true;
+                                    }
+
+                                    //Проверка на пустое поле для переменной номера автомобиля
+                                    if (carnum == "" || carnum == " ")
+                                    {
+                                        numofcarBool = false;
+                                    }
+                                    else
+                                    {
+                                        numofcarBool = true;
+                                    }
+
+                                    //Проверка на пустое поле для переменной типа автомобиля
+                                    if (cartype == "" || cartype == " ")
+                                    {
+                                        typeofcarBool = false;
+                                    }
+                                    else
+                                    {
+                                        typeofcarBool = true;
+                                    }
+
+                                    //Проверка на пустое поле для переменной улицы
+                                    if (streetname == "" || streetname == " ")
+                                    {
+                                        streetBool = false;
+                                    }
+                                    else
+                                    {
+                                        streetBool = true;
+                                    }
+
+                                    //Проверка на пустое поле для переменной парковки
+                                    if (parkingname == "" || parkingname == " ")
+                                    {
+                                        parkingBool = false;
+                                    }
+                                    else
+                                    {
+                                        parkingBool = true;
+                                    }
+
+                                    if (GPSBool == false || typevioBool == false || numofcarBool == false || typeofcarBool == false || streetBool == false || parkingBool == false)
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.AttentionNullableFields();
+
+                                        //Повторный вызов метода добавления акта эвакуации
+                                        EditElementActMain();
+                                    }
+                                    else
+                                    {
+                                        streetlen = data.OutPutSt(indexStreet);
+
+                                        parkingadress = data.OutPutPrkadress(indexParking);
+
+                                        parkingnumber = data.OutPutPrknumber(indexParking);
+
+                                        data.EditTab1(gps, typevio, carnum, cartype, streetname, streetlen, parkingname, parkingadress, parkingnumber, index, indexStreet, indexParking);
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //переход в главное меню добавления элемента
+                                        EditMenu();
+                                    }
+
+                                    break;
+
+                            }
+                        }
+
+                    }
+
+                } while (key.Key != ConsoleKey.Enter);
             }
         }
 
@@ -7039,7 +7468,7 @@ namespace ConsoleApp6
 
                         if (key.Key == ConsoleKey.Enter)
                         {
-                            switch(j)
+                            switch (j)
                             {
                                 case 1:
                                     if (num <= data.CountTab3())
@@ -7067,9 +7496,9 @@ namespace ConsoleApp6
                                     break;
 
                                 case 2:
-                                    if (num+1 <= data.CountTab3())
+                                    if (num + 1 <= data.CountTab3())
                                     {
-                                        index = num+1;
+                                        index = num + 1;
 
                                         //Очистка консоли
                                         Console.Clear();
@@ -7244,7 +7673,7 @@ namespace ConsoleApp6
                                 case 9:
                                     if (num + 8 <= data.CountTab3())
                                     {
-                                       index = num + 8;
+                                        index = num + 8;
 
                                         //Очистка консоли
                                         Console.Clear();
@@ -7583,8 +8012,640 @@ namespace ConsoleApp6
         //Метод меню редактирования актов эвакуации
         public static void EditActs()
         {
+            //Создание экземпляра класса с данными
+            Data data = new Data();
 
-        }      
+            //Создание экземпляра класса с методами построения меню
+            Consolebd consolebd = new Consolebd();
+
+            //Переменная для хранения информации о нажатой клавише
+            ConsoleKeyInfo key;
+
+            //Переменная пункта меню
+            int j = 1;
+
+            //Переменная для передачи индекса элемента
+            int num = 1;
+
+            //Переменная для хранения индекса элемента из списка
+            int index = 0;
+
+            //Вызов вложенного метода
+            EditActsMain();
+
+            //Вложенный метод
+            void EditActsMain()
+            {
+                //Очистка консоли
+                Console.Clear();
+
+                //Вызов метода построения меню выбора акта эвакуации для редактирования
+                consolebd.EditActsMenu(j, num);
+
+                do
+                {
+                    //Считывание информации о нажатой клавише
+                    key = Console.ReadKey(true);
+
+                    if (key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow || key.Key == ConsoleKey.LeftArrow || key.Key == ConsoleKey.RightArrow || key.Key == ConsoleKey.Enter)
+                    {
+                        //Очистка консоли
+                        Console.Clear();
+
+                        //Оператор выбора 
+                        switch (key.Key)
+                        {
+                            //UPARROW
+                            case ConsoleKey.UpArrow:
+                                if (j <= 21) { j--; if (j < 1) { j = 21; } if (j > 21) { j = 1; } }
+
+                                break;
+
+                            //DOWNARROW
+                            case ConsoleKey.DownArrow:
+                                if (j <= 21) { j++; if (j < 1) { j = 21; } if (j > 21) { j = 1; } }
+
+                                break;
+
+                            //LEFTARROW
+                            case ConsoleKey.LeftArrow:
+                                if (j == 21) { j = 210000; }
+                                else
+                                {
+                                    if (j == 210000) { j = 2100; }
+                                    else
+                                    {
+                                        if (j <= 20) { j *= 100; }
+                                        else { j /= 100; }
+                                    }
+                                }
+
+                                break;
+
+                            //RIGHTARROW
+                            case ConsoleKey.RightArrow:
+                                if (j == 21) { j = 2100; }
+                                else if (j == 210000) { j = 21; }
+                                else
+                                if (j == 2100) { j = 210000; }
+                                else
+                                {
+                                    if (j == 210000) { j = 21; }
+                                    else
+                                    {
+                                        if (j <= 20) { j *= 100; }
+                                        else { j /= 100; }
+                                    }
+                                }
+                                break;
+                        }
+
+                        //Вызов метода построения меню выбора акта для редактирования
+                        consolebd.EditActsMenu(j, num);
+
+                        if (key.Key == ConsoleKey.Enter)
+                        {
+                            switch (j)
+                            {
+                                case 1:
+                                    if (num <= data.CountTab1())
+                                    {
+                                        index = num;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementAct(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditActsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 2:
+                                    if (num + 1 <= data.CountTab1())
+                                    {
+                                        index = num + 1;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementAct(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditActsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 3:
+                                    if (num + 2 <= data.CountTab1())
+                                    {
+                                        index = num + 2;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementAct(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditActsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 4:
+                                    if (num + 3 <= data.CountTab1())
+                                    {
+                                        index = num + 3;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementAct(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditActsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 5:
+                                    if (num + 4 <= data.CountTab1())
+                                    {
+                                        index = num + 4;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementAct(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditActsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 6:
+                                    if (num + 5 <= data.CountTab1())
+                                    {
+                                        index = num + 5;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementAct(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditActsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 7:
+                                    if (num + 6 <= data.CountTab1())
+                                    {
+                                        index = num + 6;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementAct(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditActsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 8:
+                                    if (num + 7 <= data.CountTab1())
+                                    {
+                                        index = num + 7;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementAct(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditActsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 9:
+                                    if (num + 8 <= data.CountTab1())
+                                    {
+                                        index = num + 8;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementAct(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditActsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 10:
+                                    if (num + 9 <= data.CountTab1())
+                                    {
+                                        index = num + 9;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementAct(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditActsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 11:
+                                    if (num + 10 <= data.CountTab1())
+                                    {
+                                        index = num + 10;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementAct(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditActsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 12:
+                                    if (num + 11 <= data.CountTab1())
+                                    {
+                                        index = num + 11;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementAct(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditActsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 13:
+                                    if (num + 12 <= data.CountTab1())
+                                    {
+                                        index = num + 12;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementAct(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditActsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 14:
+                                    if (num + 13 <= data.CountTab1())
+                                    {
+                                        index = num + 13;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementAct(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditActsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 15:
+                                    if (num + 14 <= data.CountTab1())
+                                    {
+                                        index = num + 14;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementAct(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditActsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 16:
+                                    if (num + 15 <= data.CountTab1())
+                                    {
+                                        index = num + 15;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementAct(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditActsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 17:
+                                    if (num + 16 <= data.CountTab1())
+                                    {
+                                        index = num + 16;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementAct(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditActsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 18:
+                                    if (num + 17 <= data.CountTab1())
+                                    {
+                                        index = num + 17;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementAct(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditActsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 19:
+                                    if (num + 18 <= data.CountTab1())
+                                    {
+                                        index = num + 18;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementAct(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditActsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 20:
+                                    if (num + 19 <= data.CountTab1())
+                                    {
+                                        index = num + 19;
+
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода редактирования улицы
+                                        EditElementAct(index);
+                                    }
+                                    else
+                                    {
+                                        //Очистка консоли
+                                        Console.Clear();
+
+                                        //Вызов метода построения окна предупреждения
+                                        consolebd.Attention();
+
+                                        //Повторный вызов
+                                        EditActsMain();
+                                    }
+                                    index = 0;
+                                    break;
+
+                                case 21:
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов метода построения меню
+                                    EditMenu();
+                                    break;
+
+                                case 2100:
+                                    num -= 20;
+                                    if (num < 1) { num = 81; }
+                                    if (num >= 100) { num = 1; }
+
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов метода считывания клавиш
+                                    EditActsMain();
+                                    break;
+
+                                case 210000:
+                                    num += 20;
+                                    if (num < 1) { num = 81; }
+                                    if (num >= 100) { num = 1; }
+
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов метода считывания клавиш
+                                    EditActsMain();
+                                    break;
+                            }
+
+                        }
+                    }
+
+                } while (key.Key != ConsoleKey.Enter);
+            }
+        }
 
     }
 }
