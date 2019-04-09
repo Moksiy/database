@@ -1786,9 +1786,66 @@ namespace ConsoleApp6
         }
 
         //Метод потсроения меню акта эвакуации для редактирования
-        public void EditActsMenu(int j)
+        public void EditActsMenu(int j, int num)
         {
+            Data data = new Data();
+            //Константы для пунктов выбора
+            const string Next = "Далее";
+            const string Main = " Выход в главное меню ";
+            //                                 №                           Улица                   Автостоянка                       GPS                Тип нарушения                 Номер машины                  Тип машины
+            Console.WriteLine("╓" + new string('─', 3) + "╥" + new string('─', 52) + "╥" + new string('─', 52) + "╥" + new string('─', 32) + "╥" + new string('─', 43) + "╥" + new string('─', 12) + "╥" + new string('─', 30) + "╖");
+            Console.WriteLine("║" + " № " + "║" + new string(' ', 23) + "Улица" + new string(' ', 24) + "║" + new string(' ', 20) + "Автостоянка" + new string(' ', 21) + "║" + new string(' ', 9) + "GPS-координаты" + new string(' ', 9) + "║" + new string(' ', 15) + "Тип нарушения" + new string(' ', 15) + "║" + new string(' ', 0) + "Номер машины" + new string(' ', 0) + "║" + new string(' ', 8) + "Тип автомобиля" + new string(' ', 8) + "║");
+            Console.WriteLine("╟" + new string('─', 3) + "╫" + new string('─', 52) + "╫" + new string('─', 52) + "╫" + new string('─', 32) + "╫" + new string('─', 43) + "╫" + new string('─', 12) + "╫" + new string('─', 30) + "╢");
+            int count = data.CountTab1();
+            string street = " ";
+            string parking = " ";
+            string GPS = " ";
+            string typeVio = " ";
+            string carnum = " ";
+            string cartype = " ";
+            string number = " ";
+            int p = 0;
+            int num1 = 0;
+            num1 = num - 1;
+            num--;
 
+            for (int i = num - 1; i < (num + 19); i++)
+            {
+                Console.Write("║");
+                if (/**/j == i + 2) { Console.BackgroundColor = ConsoleColor.Blue; }
+                number = Convert.ToString(/**/num1 + 1); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
+                if ((count - 1) >= (/**/i+1)) { street = data.OutputStreetTab1(/**/i+1); } else { street = " "; }               
+                Console.Write(street); p = 50 - street.Length; Console.Write(new string(' ', p)); Console.Write(" ║ ");               
+                if ((count - 1) >= (/**/i+1)) { parking = data.OutputParkingTab1(/**/i+1); } else { parking = " "; }
+                Console.Write(parking); p = 50 - parking.Length; Console.Write(new string(' ', p)); Console.Write(" ║ ");
+                if ((count - 1) >= (/**/i+1)) { GPS = data.OutPutGPS(/**/i+1); } else { GPS = " "; }
+                Console.Write(GPS); p = 30 - GPS.Length; Console.Write(new string(' ', p) + " ║ ");
+                if ((count - 1) >= (/**/i+1)) { typeVio = data.OutPutTypeVio(/**/i+1); } else { typeVio = " "; }
+                Console.Write(typeVio); p = 41 - typeVio.Length; Console.Write(new string(' ', p) + " ║ ");
+                if ((count - 1) >= (/**/i+1)) { carnum = data.OutPutCarNum(/**/i+1); } else { carnum = " "; }
+                Console.Write(carnum); p = 10 - carnum.Length; Console.Write(new string(' ', p) + " ║ ");
+                if ((count - 1) >= (/**/i+1)) { cartype = data.OutPutCarType(/**/i+1); } else { cartype = " "; }
+                Console.Write(cartype); p = 28 - cartype.Length; Console.Write(new string(' ', p)); Console.ResetColor(); Console.WriteLine(" ║");
+                Console.WriteLine("╟" + new string('─', 3) + "╫" + new string('─', 52) + "╫" + new string('─', 52) + "╫" + new string('─', 32) + "╫" + new string('─', 43) + "╫" + new string('─', 12) + "╫" + new string('─', 30) + "╢");
+            }
+            Console.WriteLine("╟" + new string('─', 3) + "╨" + new string('─', 20) + "╥" + new string('─', 31) + "╨" + new string('─', 52) + "╨" + new string('─', 32) + "╨" + new string('─', 43) + "╨" + new string('─', 12) + "╨" + new string('─', 14) + "╥" + new string('─', 7) + "╥" + new string('─', 7) + "╢");
+            Console.Write("║ ");
+            if (j == 21) { Console.BackgroundColor = ConsoleColor.DarkRed; }
+            Console.Write(Main);
+            Console.ResetColor();
+            Console.Write(" ║");
+            Console.Write(new string(' ', 188));
+            Console.Write(" ║");
+            if (j == 2100) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(Back);
+            Console.ResetColor();
+            Console.Write("║ ");
+            if (j == 210000) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(Next);
+            Console.ResetColor();
+            Console.WriteLine(" ║");
+            Console.WriteLine("╙" + new string('─', 24) + "╨" + new string('─', 189) + "╨" + new string('─', 7) + "╨" + new string('─', 7) + "╜");
+            Console.WriteLine();
         }
     }
 }

@@ -20,7 +20,7 @@ using System.Threading;
 
 
 
-//-------------->8727
+//-------------->9811
 
 
 
@@ -138,6 +138,8 @@ namespace ConsoleApp6
 
                                 
                                 Console.ReadKey();
+
+                                consolebd.EditActsMenu(2100, 1);
                                 break;
 
                             //Выход
@@ -6904,7 +6906,42 @@ namespace ConsoleApp6
         //Метод редактирования акта эвакуации
         public static void EditElementAct(int index)
         {
+            //Создание экземпляра класса с данными
+            Data data = new Data();
 
+            //Создание экземпляра класса с метода построения меню
+            Consolebd consolebd = new Consolebd();
+
+            //Переменная для выбора пункта меню
+            int j = 1;
+
+            //Переменная для хранения информации о нажатой клавише
+            ConsoleKeyInfo key;
+
+            //Переменные для передачи в список
+            string gps = " ";
+            string typevio = " ";
+            string carnum = " ";
+            string cartype = " ";
+            string streetname = " ";
+            string parkingname = " ";
+
+            //Получение строк из списка
+            gps = data.OutPutGPS(index-1);
+            typevio = data.OutPutTypeVio(index - 1);
+            carnum = data.OutPutCarNum(index - 1);
+            cartype = data.OutPutCarType(index - 1);
+            streetname = data.OutputStreetNameTab1(index - 1);
+            parkingname = data.OutputParkingNameTab1(index - 1);
+
+            //Вызов вложенного метода
+            EditElementActMain();
+
+            //Вложенный метод
+            void EditElementActMain()
+            {
+
+            }
         }
 
         //Метод меню редактирования автостоянок
