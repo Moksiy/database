@@ -460,11 +460,8 @@ namespace ConsoleApp6
             Tab1List[ind].TypeViolation = tpvio;
             Tab1List[ind].CarNumber = carnum;
             Tab1List[ind].CarType = cartp;
-            Tab1List[ind].Street.StreetName = streetname;
-            Tab1List[ind].Street.StreetLength = streetlen;
-            Tab1List[ind].Parking.ParkingName = parkingname;
-            Tab1List[ind].Parking.ParkingAdress = parkingadress;
-            Tab1List[ind].Parking.ParkingNumber = parkingnumber;
+            Tab1List[ind].Street = Tab2List[ind1];
+            Tab1List[ind].Parking = Tab3List[ind2];
             Tab2List[ind1].Link = ind;
             Tab3List[ind2].Link = ind;
         }

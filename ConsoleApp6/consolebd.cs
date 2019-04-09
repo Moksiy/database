@@ -1863,7 +1863,6 @@ namespace ConsoleApp6
             Data data = new Data();
             //Константы для пунктов выбора
             const string Next = "Далее";
-            const string Main = " Выход в главное меню ";
             //                                 №                           Улица                   Автостоянка                       GPS                Тип нарушения                 Номер машины                  Тип машины
             Console.WriteLine("╓" + new string('─', 3) + "╥" + new string('─', 52) + "╥" + new string('─', 52) + "╥" + new string('─', 32) + "╥" + new string('─', 43) + "╥" + new string('─', 12) + "╥" + new string('─', 30) + "╖");
             Console.WriteLine("║" + " № " + "║" + new string(' ', 23) + "Улица" + new string(' ', 24) + "║" + new string(' ', 20) + "Автостоянка" + new string(' ', 21) + "║" + new string(' ', 9) + "GPS-координаты" + new string(' ', 9) + "║" + new string(' ', 15) + "Тип нарушения" + new string(' ', 15) + "║" + new string(' ', 0) + "Номер машины" + new string(' ', 0) + "║" + new string(' ', 8) + "Тип автомобиля" + new string(' ', 8) + "║");
@@ -1903,7 +1902,7 @@ namespace ConsoleApp6
             Console.WriteLine("╟" + new string('─', 3) + "╨" + new string('─', 20) + "╥" + new string('─', 31) + "╨" + new string('─', 52) + "╨" + new string('─', 32) + "╨" + new string('─', 43) + "╨" + new string('─', 12) + "╨" + new string('─', 14) + "╥" + new string('─', 7) + "╥" + new string('─', 7) + "╢");
             Console.Write("║ ");
             if (j == 21) { Console.BackgroundColor = ConsoleColor.DarkRed; }
-            Console.Write(Main);
+            Console.Write("  Меню редактирования ");
             Console.ResetColor();
             Console.Write(" ║");
             Console.Write(new string(' ', 188));
