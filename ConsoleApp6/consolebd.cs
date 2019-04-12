@@ -656,6 +656,7 @@ namespace ConsoleApp6
         {
             //Создание экземпляра класса с данными
             Data data = new Data();
+            string Add = "Добавить";
 
             //объявление переменной для хранения количества элементов в списке
             int count = data.CountTab2();
@@ -682,7 +683,7 @@ namespace ConsoleApp6
                 Console.WriteLine("╓" + new string('─', 60) + "╖");
                 Console.WriteLine("║" + new string(' ', 15) + "         Выберите улицу       " + new string(' ', 15) + "║");
                 string st;
-                if ((counttab - 1) >= (num -1)) { st = data.OutPutSt(num-1); } else { st = " "; }
+                if ((counttab - 1) >= (num - 1)) { st = data.OutPutSt(num - 1); } else { st = " "; }
                 int p = 58 - st.Length;
                 Console.Write("║ ");
                 if (l == 1) { Console.BackgroundColor = ConsoleColor.Blue; }
@@ -735,11 +736,16 @@ namespace ConsoleApp6
                 if ((counttab - 1) >= (num + 9)) { st = data.OutPutSt(num + 9); } else { st = " "; }
                 p = 58 - st.Length;
                 Console.Write("║ ");
-                if (l == 11) { Console.BackgroundColor = ConsoleColor.Red; } Console.Write(Back); Console.ResetColor();
-                Console.Write(new string (' ',44));
-                if (l == 1100) { Console.BackgroundColor = ConsoleColor.Blue; } Console.Write(Next); Console.ResetColor();
+                if (l == 11) { Console.BackgroundColor = ConsoleColor.Red; }
+                Console.Write(Back); Console.ResetColor();
+                Console.Write(new string(' ', 18));
+                if (l == 1100) { Console.BackgroundColor = ConsoleColor.Red; }
+                Console.Write(Add); Console.ResetColor();
+                Console.Write(new string(' ', 18));
+                if (l == 110000) { Console.BackgroundColor = ConsoleColor.Blue; }
+                Console.Write(Next); Console.ResetColor();
                 Console.WriteLine(" ║");
-                Console.WriteLine("╙" + new string('─',60) + "╜");
+                Console.WriteLine("╙" + new string('─', 60) + "╜");
             }
 
             void Table2(int num, int l, int counttab)
@@ -747,7 +753,7 @@ namespace ConsoleApp6
                 Console.WriteLine("╓" + new string('─', 60) + "╖");
                 Console.WriteLine("║" + new string(' ', 15) + "         Выберите улицу       " + new string(' ', 15) + "║");
                 string st;
-                if ((counttab - 1) >= (num -1)) { st = data.OutPutSt(num - 1); } else { st = " "; }
+                if ((counttab - 1) >= (num - 1)) { st = data.OutPutSt(num - 1); } else { st = " "; }
                 int p = 58 - st.Length;
                 Console.Write("║ ");
                 if (l == 1) { Console.BackgroundColor = ConsoleColor.Blue; }
@@ -803,7 +809,12 @@ namespace ConsoleApp6
                 Console.Write("║ ");
                 if (l == 11) { Console.BackgroundColor = ConsoleColor.Red; }
                 Console.Write(Back); Console.ResetColor();
-                Console.Write(new string(' ', 51));
+                Console.Write(new string(' ', 18));
+                if (l == 1100) { Console.BackgroundColor = ConsoleColor.Red; }
+                Console.Write(Add); Console.ResetColor();
+                Console.Write(new string(' ', 18));
+                if (l == 110000) { Console.BackgroundColor = ConsoleColor.Blue; }
+                Console.Write(Next); Console.ResetColor();
                 Console.WriteLine(" ║");
                 Console.WriteLine("╙" + new string('─', 60) + "╜");
             }
@@ -814,6 +825,7 @@ namespace ConsoleApp6
         {
             //Создание экземпляра класса с данными
             Data data = new Data();
+            string Add = "Добавить";
 
             //Объявление переменной для хранения количества элементов в списке
             int count = data.CountTab3();
@@ -895,8 +907,11 @@ namespace ConsoleApp6
                 Console.Write("║ ");
                 if (l == 11) { Console.BackgroundColor = ConsoleColor.Red; }
                 Console.Write(Back); Console.ResetColor();
-                Console.Write(new string(' ', 44));
-                if (l == 1100) { Console.BackgroundColor = ConsoleColor.Blue; }
+                Console.Write(new string(' ', 18));
+                if (l == 1100) { Console.BackgroundColor = ConsoleColor.Red; }
+                Console.Write(Add); Console.ResetColor();
+                Console.Write(new string(' ', 18));
+                if (l == 110000) { Console.BackgroundColor = ConsoleColor.Blue; }
                 Console.Write(Next); Console.ResetColor();
                 Console.WriteLine(" ║");
                 Console.WriteLine("╙" + new string('─', 60) + "╜");
@@ -963,7 +978,12 @@ namespace ConsoleApp6
                 Console.Write("║ ");
                 if (l == 11) { Console.BackgroundColor = ConsoleColor.Red; }
                 Console.Write(Back); Console.ResetColor();
-                Console.Write(new string(' ', 51));
+                Console.Write(new string(' ', 18));
+                if (l == 1100) { Console.BackgroundColor = ConsoleColor.Red; }
+                Console.Write(Add); Console.ResetColor();
+                Console.Write(new string(' ', 18));
+                if (l == 110000) { Console.BackgroundColor = ConsoleColor.Blue; }
+                Console.Write(Next); Console.ResetColor();
                 Console.WriteLine(" ║");
 
                 Console.WriteLine("╙" + new string('─', 60) + "╜");
@@ -1087,7 +1107,7 @@ namespace ConsoleApp6
             const string Next = "Далее";
             const string Main = " Выход в главное меню ";
             //                                 №                           Улица                   Автостоянка                       GPS                Тип нарушения                 Номер машины                  Тип машины
-            Console.WriteLine("╓" + new string('─', 3) + "╥" + new string('─', 52) + "╥" + new string('─', 52) + "╥" + new string('─', 32) + "╥" + new string('─', 43) + "╥" + new string('─', 12) + "╥" + new string('─', 30)  + "╖");
+            Console.WriteLine("╓" + new string('─', 3) + "╥" + new string('─', 52) + "╥" + new string('─', 52) + "╥" + new string('─', 32) + "╥" + new string('─', 43) + "╥" + new string('─', 12) + "╥" + new string('─', 30) + "╖");
             Console.WriteLine("║" + " № " + "║" + new string(' ', 23) + "Улица" + new string(' ', 24) + "║" + new string(' ', 20) + "Автостоянка" + new string(' ', 21) + "║" + new string(' ', 9) + "GPS-координаты" + new string(' ', 9) + "║" + new string(' ', 15) + "Тип нарушения" + new string(' ', 15) + "║" + new string(' ', 0) + "Номер машины" + new string(' ', 0) + "║" + new string(' ', 8) + "Тип автомобиля" + new string(' ', 8) + "║");
             Console.WriteLine("╟" + new string('─', 3) + "╫" + new string('─', 52) + "╫" + new string('─', 52) + "╫" + new string('─', 32) + "╫" + new string('─', 43) + "╫" + new string('─', 12) + "╫" + new string('─', 30) + "╢");
             int count = data.CountTab1();
@@ -1111,32 +1131,32 @@ namespace ConsoleApp6
             if (/**/l == 100) { Console.BackgroundColor = ConsoleColor.Blue; }
             if ((count - 1) >= (/**/num)) { parking = data.OutputParkingTab1(/**/num); } else { parking = " "; }
             Console.Write(parking); p = 50 - parking.Length; Console.Write(new string(' ', p)); Console.ResetColor(); Console.Write(" ║ ");
-            if ((count - 1) >= (/**/num)) {GPS = data.OutPutGPS(/**/num); } else { GPS = " "; }
+            if ((count - 1) >= (/**/num)) { GPS = data.OutPutGPS(/**/num); } else { GPS = " "; }
             Console.Write(GPS); p = 30 - GPS.Length; Console.Write(new string(' ', p) + " ║ ");
             if ((count - 1) >= (/**/num)) { typeVio = data.OutPutTypeVio(/**/num); } else { typeVio = " "; }
             Console.Write(typeVio); p = 41 - typeVio.Length; Console.Write(new string(' ', p) + " ║ ");
             if ((count - 1) >= (/**/num)) { carnum = data.OutPutCarNum(/**/num); } else { carnum = " "; }
-            Console.Write(carnum); p = 10 - carnum.Length; Console.Write(new string (' ',p) + " ║ ");
+            Console.Write(carnum); p = 10 - carnum.Length; Console.Write(new string(' ', p) + " ║ ");
             if ((count - 1) >= (/**/num)) { cartype = data.OutPutCarType(/**/num); } else { cartype = " "; }
-            Console.Write(cartype); p = 28 - cartype.Length; Console.WriteLine(new string (' ',p) + " ║");
+            Console.Write(cartype); p = 28 - cartype.Length; Console.WriteLine(new string(' ', p) + " ║");
             Console.WriteLine("╟" + new string('─', 3) + "╫" + new string('─', 52) + "╫" + new string('─', 52) + "╫" + new string('─', 32) + "╫" + new string('─', 43) + "╫" + new string('─', 12) + "╫" + new string('─', 30) + "╢");
             //End
             //Begin 2
             Console.Write("║");
             number = Convert.ToString(/**/num1 + 2); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
-            if ((count - 1) >= (/**/num+1)) { street = data.OutputStreetTab1(/**/num+1); } else { street = " "; }
+            if ((count - 1) >= (/**/num + 1)) { street = data.OutputStreetTab1(/**/num + 1); } else { street = " "; }
             if (/**/l == 2) { Console.BackgroundColor = ConsoleColor.Blue; }
             Console.Write(street); p = 50 - street.Length; Console.Write(new string(' ', p)); Console.ResetColor(); Console.Write(" ║ ");
             if (/**/l == 200) { Console.BackgroundColor = ConsoleColor.Blue; }
-            if ((count - 1) >= (/**/num+1)) { parking = data.OutputParkingTab1(/**/num+1); } else { parking = " "; }
+            if ((count - 1) >= (/**/num + 1)) { parking = data.OutputParkingTab1(/**/num + 1); } else { parking = " "; }
             Console.Write(parking); p = 50 - parking.Length; Console.Write(new string(' ', p)); Console.ResetColor(); Console.Write(" ║ ");
-            if ((count - 1) >= (/**/num+1)) { GPS = data.OutPutGPS(/**/num+1); } else { GPS = " "; }
+            if ((count - 1) >= (/**/num + 1)) { GPS = data.OutPutGPS(/**/num + 1); } else { GPS = " "; }
             Console.Write(GPS); p = 30 - GPS.Length; Console.Write(new string(' ', p) + " ║ ");
-            if ((count - 1) >= (/**/num+1)) { typeVio = data.OutPutTypeVio(/**/num+1); } else { typeVio = " "; }
+            if ((count - 1) >= (/**/num + 1)) { typeVio = data.OutPutTypeVio(/**/num + 1); } else { typeVio = " "; }
             Console.Write(typeVio); p = 41 - typeVio.Length; Console.Write(new string(' ', p) + " ║ ");
-            if ((count - 1) >= (/**/num+1)) { carnum = data.OutPutCarNum(/**/num+1); } else { carnum = " "; }
+            if ((count - 1) >= (/**/num + 1)) { carnum = data.OutPutCarNum(/**/num + 1); } else { carnum = " "; }
             Console.Write(carnum); p = 10 - carnum.Length; Console.Write(new string(' ', p) + " ║ ");
-            if ((count - 1) >= (/**/num+1)) { cartype = data.OutPutCarType(/**/num+1); } else { cartype = " "; }
+            if ((count - 1) >= (/**/num + 1)) { cartype = data.OutPutCarType(/**/num + 1); } else { cartype = " "; }
             Console.Write(cartype); p = 28 - cartype.Length; Console.WriteLine(new string(' ', p) + " ║");
             Console.WriteLine("╟" + new string('─', 3) + "╫" + new string('─', 52) + "╫" + new string('─', 52) + "╫" + new string('─', 32) + "╫" + new string('─', 43) + "╫" + new string('─', 12) + "╫" + new string('─', 30) + "╢");
             //End
@@ -1517,13 +1537,13 @@ namespace ConsoleApp6
             Console.WriteLine("║" + " № " + "║" + new string(' ', 19) + "Название улицы" + new string(' ', 19) + "║" + new string(' ', 21) + "Длина улицы" + new string(' ', 20) + "║");
             Console.WriteLine("╟" + new string('─', 3) + "╫" + new string('─', 52) + "╫" + new string('─', 52) + "╢");
             p = 3 - number.Length;
-            Console.Write("║" + number + new string(' ',p) + "║");
+            Console.Write("║" + number + new string(' ', p) + "║");
             p = 50 - name.Length;
-            Console.Write(" "+ name + new string (' ',p) + " ║ ");
+            Console.Write(" " + name + new string(' ', p) + " ║ ");
             p = 50 - len.Length;
-            Console.WriteLine(len + new string (' ',p) + " ║");
+            Console.WriteLine(len + new string(' ', p) + " ║");
             Console.WriteLine("╟" + new string('─', 3) + "╨" + new string('─', 52) + "╨" + new string('─', 52) + "╢");
-            Console.WriteLine("║" + new string(' ',35) + "Нажмите любую клавишу чтобы закрыть окно" + new string(' ', 34) + "║");
+            Console.WriteLine("║" + new string(' ', 35) + "Нажмите любую клавишу чтобы закрыть окно" + new string(' ', 34) + "║");
             Console.WriteLine("╙" + new string('─', 3) + "─" + new string('─', 52) + "─" + new string('─', 52) + "╜");
             //╙ ╨ ╜
             Console.ReadKey();
@@ -1561,7 +1581,7 @@ namespace ConsoleApp6
             Console.Write(new string(' ', p));
             Console.WriteLine("║");
             Console.WriteLine("╟" + new string('─', 3) + "╨" + new string('─', 32) + "╨" + new string('─', 52) + "╨" + new string('─', 24) + "╢");
-            Console.WriteLine("║" + new string(' ',37) + "Нажмите любую клавишу чтобы закрыть окно" + new string (' ',37) + "║");
+            Console.WriteLine("║" + new string(' ', 37) + "Нажмите любую клавишу чтобы закрыть окно" + new string(' ', 37) + "║");
             Console.WriteLine("╙" + new string('─', 3) + "─" + new string('─', 32) + "─" + new string('─', 52) + "─" + new string('─', 24) + "╜");
             //╙ ╨ ╜
             Console.ReadKey();
@@ -1600,7 +1620,7 @@ namespace ConsoleApp6
         //Метод построения меню выбора улицы для редактирования
         public void EditStreetsMenu(int j, int num)
         {
-            const string Next = "Далее";        
+            const string Next = "Далее";
 
             Console.WriteLine("╓" + new string('─', 3) + "╥" + new string('─', 52) + "╥" + new string('─', 52) + "╖");
             Console.WriteLine("║" + " № " + "║" + new string(' ', 19) + "Название улицы" + new string(' ', 19) + "║" + new string(' ', 21) + "Длина улицы" + new string(' ', 20) + "║");
@@ -1710,7 +1730,7 @@ namespace ConsoleApp6
         //Метод построения меню редактирования выбранной улицы
         public void EditStreetElement(int j, string stname, string stlen)
         {
-            Console.WriteLine("╓" + new string('─', 90) + "╖");            
+            Console.WriteLine("╓" + new string('─', 90) + "╖");
             Console.WriteLine("║" + new string(' ', 26) + "          Редактирование улицы        " + new string(' ', 26) + "║");
             Console.WriteLine("╟" + new string('─', 17) + "╥" + new string('─', 72) + "╢");
             Console.Write("║ ");
@@ -1788,7 +1808,7 @@ namespace ConsoleApp6
         //Метод построения меню выбора акта эвакуации для редактирования
         public void EditActElement(int j, string gps, string typeviolation, string numberofcar, string typeofcar, string street, string parking)
         {
-            Console.WriteLine("╓" + new string('─', 90) + "╖");         
+            Console.WriteLine("╓" + new string('─', 90) + "╖");
             Console.WriteLine("║" + new string(' ', 26) + "      Редактирование акта эвакуации   " + new string(' ', 26) + "║");
             Console.WriteLine("╟" + new string('─', 19) + "╥" + new string('─', 70) + "╢");
             Console.Write("║ ");
@@ -1884,18 +1904,18 @@ namespace ConsoleApp6
             {
                 Console.Write("║");
                 if (/**/j == i + 2) { Console.BackgroundColor = ConsoleColor.Blue; }
-                number = Convert.ToString(/**/i+2); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
-                if ((count - 1) >= (/**/i+1)) { street = data.OutputStreetTab1(/**/i+1); } else { street = " "; }               
-                Console.Write(street); p = 50 - street.Length; Console.Write(new string(' ', p)); Console.Write(" ║ ");               
-                if ((count - 1) >= (/**/i+1)) { parking = data.OutputParkingTab1(/**/i+1); } else { parking = " "; }
+                number = Convert.ToString(/**/i + 2); Console.Write(number); p = 3 - number.Length; Console.Write(new string(' ', p) + "║ ");
+                if ((count - 1) >= (/**/i + 1)) { street = data.OutputStreetTab1(/**/i + 1); } else { street = " "; }
+                Console.Write(street); p = 50 - street.Length; Console.Write(new string(' ', p)); Console.Write(" ║ ");
+                if ((count - 1) >= (/**/i + 1)) { parking = data.OutputParkingTab1(/**/i + 1); } else { parking = " "; }
                 Console.Write(parking); p = 50 - parking.Length; Console.Write(new string(' ', p)); Console.Write(" ║ ");
-                if ((count - 1) >= (/**/i+1)) { GPS = data.OutPutGPS(/**/i+1); } else { GPS = " "; }
+                if ((count - 1) >= (/**/i + 1)) { GPS = data.OutPutGPS(/**/i + 1); } else { GPS = " "; }
                 Console.Write(GPS); p = 30 - GPS.Length; Console.Write(new string(' ', p) + " ║ ");
-                if ((count - 1) >= (/**/i+1)) { typeVio = data.OutPutTypeVio(/**/i+1); } else { typeVio = " "; }
+                if ((count - 1) >= (/**/i + 1)) { typeVio = data.OutPutTypeVio(/**/i + 1); } else { typeVio = " "; }
                 Console.Write(typeVio); p = 41 - typeVio.Length; Console.Write(new string(' ', p) + " ║ ");
-                if ((count - 1) >= (/**/i+1)) { carnum = data.OutPutCarNum(/**/i+1); } else { carnum = " "; }
+                if ((count - 1) >= (/**/i + 1)) { carnum = data.OutPutCarNum(/**/i + 1); } else { carnum = " "; }
                 Console.Write(carnum); p = 10 - carnum.Length; Console.Write(new string(' ', p) + " ║ ");
-                if ((count - 1) >= (/**/i+1)) { cartype = data.OutPutCarType(/**/i+1); } else { cartype = " "; }
+                if ((count - 1) >= (/**/i + 1)) { cartype = data.OutPutCarType(/**/i + 1); } else { cartype = " "; }
                 Console.Write(cartype); p = 28 - cartype.Length; Console.Write(new string(' ', p)); Console.ResetColor(); Console.WriteLine(" ║");
                 Console.WriteLine("╟" + new string('─', 3) + "╫" + new string('─', 52) + "╫" + new string('─', 52) + "╫" + new string('─', 32) + "╫" + new string('─', 43) + "╫" + new string('─', 12) + "╫" + new string('─', 30) + "╢");
             }

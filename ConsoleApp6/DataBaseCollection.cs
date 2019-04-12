@@ -22,7 +22,7 @@ namespace ConsoleApp6
     {
         public string StreetName { get; set; }
         public string StreetLength { get; set; }
-        public int Link { get; set; } = -1;         
+        //public int Link { get; set; } = -1;         
     }
 
     //Класс с авто-свойствами для таблицы 3 "автостоянки"
@@ -31,7 +31,7 @@ namespace ConsoleApp6
         public string ParkingName { get; set; }
         public string ParkingAdress { get; set; }
         public string ParkingNumber { get; set; }
-        public int Link { get; set; } = -1;
+        //public int Link { get; set; } = -1;
     }
 
     public class Data
@@ -45,7 +45,7 @@ namespace ConsoleApp6
         //Создание списка таблицы 3
         static List<ElementsTab3> Tab3List = new List<ElementsTab3>(100);
 
-        
+
 
         //Поле имени файла
         private static string filename;
@@ -175,7 +175,7 @@ namespace ConsoleApp6
                 return Tab2List[i].StreetLength;
             }
             else { return " "; }
-          
+
         }
 
         //Метод, возвращающий название автостоянки
@@ -251,7 +251,7 @@ namespace ConsoleApp6
         //Метод, возвращающий улицу из таблицы 1
         public string OutputStreetTab1(int i)
         {
-            if(Tab1List[i].Street.StreetName != null)
+            if (Tab1List[i].Street.StreetName != null)
             {
                 return Tab1List[i].Street.StreetName;
             }
@@ -296,12 +296,12 @@ namespace ConsoleApp6
         //Метод удаления элементов по индексам из списка 2
         public void DeleteElementTab2(int i)
         {
-            int j = Tab2List[i].Link;
-            if (Tab2List[i].Link != -1)
-            {
-                Tab1List[j].Street.StreetLength = " ";
-                Tab1List[j].Street.StreetName = " ";                
-            }
+            //int j = Tab2List[i].Link;
+            //if (Tab2List[i].Link != -1)
+            // {
+            //  Tab1List[j].Street.StreetLength = " ";
+            //  Tab1List[j].Street.StreetName = " ";                
+            // }
             Tab2List.RemoveAt(i);
 
         }
@@ -309,16 +309,16 @@ namespace ConsoleApp6
         //Метод удаления элементов по индексам из списка 3
         public void DeleteElementTab3(int i)
         {
-            int j = Tab3List[i].Link;
-            if (Tab3List[i].Link != -1)
-            {
-                Tab1List[j].Parking.ParkingAdress = " ";
-                Tab1List[j].Parking.ParkingName = " ";
-                Tab1List[j].Parking.ParkingNumber = " ";               
-            }
+            // int j = Tab3List[i].Link;
+            // if (Tab3List[i].Link != -1)
+            ////{
+            //   Tab1List[j].Parking.ParkingAdress = " ";
+            //    Tab1List[j].Parking.ParkingName = " ";
+            //    Tab1List[j].Parking.ParkingNumber = " ";               
+            // }
             Tab3List.RemoveAt(i);
         }
-        
+
         //Метод, возвращающий элемент списка таблицы 2 УЛИЦЫ
         public ElementsTab2 ReturnElementTab2(int i)
         {
@@ -396,7 +396,7 @@ namespace ConsoleApp6
         {
             int count = CountTab1() - 1;
             Tab1List[count].Street = Tab2List[i];
-            Tab2List[i].Link = count;
+            //Tab2List[i].Link = count;
         }
 
         //Метод добавления ссылки на элемент таблицы 3
@@ -404,7 +404,7 @@ namespace ConsoleApp6
         {
             int count = CountTab1() - 1;
             Tab1List[count].Parking = Tab3List[i];
-            Tab3List[i].Link = count;
+            //Tab3List[i].Link = count;
         }
 
         //Метод вывода названия улицы из таблицы 1
@@ -430,7 +430,7 @@ namespace ConsoleApp6
         {
             return Tab1List[ind].Parking.ParkingAdress;
         }
-            
+
         //Метод вывода номера автостоянки из таблицы 1
         public string OutputParkingNumberTab1(int ind)
         {
@@ -462,13 +462,13 @@ namespace ConsoleApp6
             Tab1List[ind].CarType = cartp;
             Tab1List[ind].Street = Tab2List[ind1];
             Tab1List[ind].Parking = Tab3List[ind2];
-            Tab2List[ind1].Link = ind;
-            Tab3List[ind2].Link = ind;
+            //Tab2List[ind1].Link = ind;
+            //Tab3List[ind2].Link = ind;
         }
 
-      
+
     }
-    
+
 
 
 }

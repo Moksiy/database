@@ -20,7 +20,7 @@ using System.Threading;
 
 
 
-//-------------->
+//-------------->11055
 
 
 
@@ -121,6 +121,7 @@ namespace ConsoleApp6
                             case 4:
                                 //Очистка консоли
                                 Console.Clear();
+                                Main();
                                 break;
 
                             //Редактирование
@@ -136,12 +137,17 @@ namespace ConsoleApp6
                                 //Очистка консоли
                                 Console.Clear();
 
+                                //TEST
+                                consolebd.ChoiseStreet(1, 1, 1);
+                                //УДАЛИТЬ
 
                                 Console.ReadKey();
 
-                                //TEST
-                                consolebd.EditActsMenu(2100, 1);
-                                //УДАЛИТЬ
+                                consolebd.ChoiseParking(1, 1, 10);
+
+                                Console.ReadKey();
+
+                                Main();
                                 break;
 
                             //Выход
@@ -296,6 +302,11 @@ namespace ConsoleApp6
 
                                 //Вызов метода для считывания клавиш
                                 AddStreet();
+
+                                consolebd.AddElement(1);
+
+                                //Повторный вызов метода
+                                AddCar();
                                 break;
 
                             //Добавить автостоянку
@@ -307,6 +318,10 @@ namespace ConsoleApp6
 
                                 //Вызов метода для считывания клавиш
                                 AddParking();
+
+                                consolebd.AddElement(1);
+
+                                AddCar();
                                 break;
 
                             //Добавить акт эвакуации
@@ -2553,10 +2568,7 @@ namespace ConsoleApp6
                                         //Переход в главное меню добавления элемента
 
                                         //Вызов метода построения главного меню добовления нового элемента
-                                        consolebd.AddElement(1);
-
-                                        //Вызов метода считывания клавиши
-                                        AddCar();
+                                        //consolebd.AddElement(1);
                                     }
                                     break;
                             }
@@ -2935,13 +2947,12 @@ namespace ConsoleApp6
                                         //очистка консоли
                                         Console.Clear();
 
+
+
                                         //Переход в главное меню добавления элемента
 
                                         //Вызов метода построения главного меню добавления нового элемента
-                                        consolebd.AddElement(1);
-
-                                        //Вызов метода считывания клавиши
-                                        AddCar();
+                                        //consolebd.AddElement(1);
                                     }
                                     break;
                             }
@@ -4901,10 +4912,13 @@ namespace ConsoleApp6
             //Вложенный метод
             void ChoiseStreetMain()
             {
+                Console.Clear();
+                consolebd.ChoiseStreet(j, num, counttab2);
 
                 //Основной блок выполнения программы
                 do
                 {
+
                     //Считывание информации с нажатой клавиши
                     key = Console.ReadKey(true);
 
@@ -4932,11 +4946,11 @@ namespace ConsoleApp6
 
                             //LEFTARROW
                             case ConsoleKey.LeftArrow:
-                                if (j == 11 || j == 1100)
+                                if (j == 11 || j == 1100 || j == 110000)
                                 {
                                     j /= 100;
-                                    if (j < 11) { j = 1100; }
-                                    if (j > 1100) { j = 11; }
+                                    if (j < 11) { j = 110000; }
+                                    if (j > 110000) { j = 11; }
                                     if (num == 91) { j = 11; }
                                     if (num == 101) { j = 11; }
                                 }
@@ -4944,11 +4958,11 @@ namespace ConsoleApp6
 
                             //RIGHTARROW
                             case ConsoleKey.RightArrow:
-                                if (j == 11 || j == 1100)
+                                if (j == 11 || j == 1100 || j == 110000)
                                 {
                                     j *= 100;
-                                    if (j < 11) { j = 1100; }
-                                    if (j > 1100) { j = 11; }
+                                    if (j < 11) { j = 110000; }
+                                    if (j > 110000) { j = 11; }
                                     if (num == 91) { j = 11; }
                                     if (num == 101) { j = 11; }
                                 }
@@ -5168,6 +5182,19 @@ namespace ConsoleApp6
                                     break;
 
                                 case 1100:
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    //Вызов метода добавления новой улицы
+                                    AddStreet();
+
+                                    counttab2 = data.CountTab2();
+
+                                    //Повторный вызов метода 
+                                    ChoiseStreetMain();
+                                    break;
+
+                                case 110000:
                                     if (num == 91) { j = 11; }
                                     if (num <= 91 && num > 10) { num += 10; }
                                     if (num == 1) { num = 11; }
@@ -5232,6 +5259,11 @@ namespace ConsoleApp6
             //Вложенный метод
             void ChoiseParkingMain()
             {
+                Console.Clear();
+
+                //Вызов метода построения меню
+                consolebd.ChoiseParking(j, num, counttab3);
+
                 //Основной блок выполнения программы
                 do
                 {
@@ -5262,11 +5294,11 @@ namespace ConsoleApp6
 
                             //LEFTARROW
                             case ConsoleKey.LeftArrow:
-                                if (j == 11 || j == 1100)
+                                if (j == 11 || j == 1100 || j == 110000)
                                 {
                                     j /= 100;
-                                    if (j < 11) { j = 1100; }
-                                    if (j > 1100) { j = 11; }
+                                    if (j < 11) { j = 110000; }
+                                    if (j > 110000) { j = 11; }
                                     if (num == 91) { j = 11; }
                                     if (num == 101) { j = 11; }
                                 }
@@ -5274,11 +5306,11 @@ namespace ConsoleApp6
 
                             //RIGHTARROW
                             case ConsoleKey.RightArrow:
-                                if (j == 11 || j == 1100)
+                                if (j == 11 || j == 1100 || j == 110000)
                                 {
                                     j *= 100;
-                                    if (j < 11) { j = 1100; }
-                                    if (j > 1100) { j = 11; }
+                                    if (j < 11) { j = 110000; }
+                                    if (j > 110000) { j = 11; }
                                     if (num == 91) { j = 11; }
                                     if (num == 101) { j = 11; }
                                 }
@@ -5489,6 +5521,17 @@ namespace ConsoleApp6
                                     break;
 
                                 case 1100:
+                                    Console.Clear();
+
+                                    AddParking();
+
+
+                                    counttab3 = data.CountTab3();
+
+                                    ChoiseParkingMain();
+                                    break;
+
+                                case 110000:
                                     if (num == 91) { j = 11; }
                                     if (num <= 91 && num > 10) { num += 10; }
                                     if (num == 1) { num = 11; }
@@ -7191,6 +7234,7 @@ namespace ConsoleApp6
 
                                     //Присвоение 
                                     if (indexStreet < 0) { streetname = " "; } else { streetname = data.OutPutSt(index2 - 1); }
+                                    if (indexStreet < 0) { streetlen = " "; } else { streetlen = data.OutPutStl(index2 - 1); }
 
                                     //Очистка консоли
                                     Console.Clear();
