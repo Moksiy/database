@@ -314,7 +314,7 @@ namespace ConsoleApp6
                                 Console.Clear();
 
                                 //Вызов метода построения меню добавления автостоянки
-                                consolebd.AddElemParking(j, " ", " ", " ");
+                                consolebd.AddElemParking(1, " ", " ", " ");
 
                                 //Вызов метода для считывания клавиш
                                 AddParking();
@@ -331,6 +331,10 @@ namespace ConsoleApp6
 
                                 //Вызов метода построения меню добавления автостоянки
                                 AddAct();
+
+                                consolebd.AddElement(1);
+
+                                AddCar();
                                 break;
 
                             //Выход в главное меню
@@ -2468,10 +2472,10 @@ namespace ConsoleApp6
 
                                     //Вызов меню построения главного меню добавления элемента
                                     //С передачей в качестве параметра еденицы (для изначального отображения первого пункта меню)
-                                    consolebd.AddElement(1);
+                                    //consolebd.AddElement(1);
 
                                     //Вызов метода по считыванию клавиш в главном меню добавления нового элемента
-                                    AddCar();
+                                    //AddCar();
                                     break;
 
                                 //Сохранить
@@ -2836,10 +2840,10 @@ namespace ConsoleApp6
 
                                     //Вызов меню построения главного меню добавления элемента
                                     //С передачей в качестве параметра единицы
-                                    consolebd.AddElement(1);
+                                    //consolebd.AddElement(1);
 
                                     //Вызов метода по считыванию клавиш в главном меню добавления нового элемента
-                                    AddCar();
+                                    //AddCar();
                                     break;
 
                                 //Сохранить
@@ -4037,10 +4041,10 @@ namespace ConsoleApp6
 
                                     //Вызов главного меню добавления элемента
                                     //с передачей в качестве параметра еденицы
-                                    consolebd.AddElement(1);
+                                    //consolebd.AddElement(1);
 
                                     //Вызов метода по считыванию клавиш в главном меню добавления нового элемента
-                                    AddCar();
+                                    //AddCar();
                                     break;
 
                                 //Сохранить
@@ -4163,8 +4167,8 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //переход в главное меню добавления элемента
-                                        consolebd.AddElement(1);
-                                        AddCar();
+                                        //consolebd.AddElement(1);
+                                        //AddCar();
                                     }
 
                                     break;
