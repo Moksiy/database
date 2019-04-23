@@ -59,13 +59,13 @@ namespace ConsoleApp6
                     {
                         case ConsoleKey.UpArrow:
                             j--;
-                            if (j < 1) { j = 7; }
-                            if (j > 7) { j = 1; }
+                            if (j < 1) { j = 8; }
+                            if (j > 8) { j = 1; }
                             break;
                         case ConsoleKey.DownArrow:
                             j++;
-                            if (j < 1) { j = 7; }
-                            if (j > 7) { j = 1; }
+                            if (j < 1) { j = 8; }
+                            if (j > 8) { j = 1; }
                             break;
                     }
 
@@ -132,18 +132,21 @@ namespace ConsoleApp6
                                 EditMenu();
                                 break;
 
-                            //Информация
+                            //Сортировка
                             case 6:
                                 //Очистка консоли
                                 Console.Clear();
 
+                                SortElements();
+                                break;
+
+                            //Информация
+                            case 7:
+                                //Очистка консоли
+                                Console.Clear();
+
                                 //TEST
-                                consolebd.ChoiseStreet(1, 1, 1);
-                                //УДАЛИТЬ
-
-                                Console.ReadKey();
-
-                                consolebd.ChoiseParking(1, 1, 10);
+                                consolebd.SortMenu(1);
 
                                 Console.ReadKey();
 
@@ -151,7 +154,7 @@ namespace ConsoleApp6
                                 break;
 
                             //Выход
-                            case 7:
+                            case 8:
                                 //Объявление переменной для передачи параметра
                                 int e = 2;
                                 //Очистка консоли
@@ -8695,5 +8698,116 @@ namespace ConsoleApp6
             }
         }
 
+        //Сортировка
+        public static void SortElements()
+        {
+            Consolebd consolebd = new Consolebd();
+            int j = 1;
+            Console.Clear();
+            consolebd.SortMenu(1);
+            ConsoleKeyInfo key;
+            do
+            {
+                key = Console.ReadKey(true);
+                if (key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow)
+                {
+                    Console.Clear();
+                    switch(key.Key)
+                    {
+                        case ConsoleKey.UpArrow:
+                            j--;
+                            if (j < 1) { j = 4; }
+                            if (j > 4) { j = 1; }
+                            break;
+                        case ConsoleKey.DownArrow:
+                            j++;
+                            if (j < 1) { j = 4; }
+                            if (j > 4) { j = 1; }
+                            break;
+                    }
+                    consolebd.SortMenu(j);
+                    if (key.Key == ConsoleKey.Enter)
+                    {
+                        switch(j)
+                        {
+                            case 1:
+                                SortStreets();
+                                break;
+
+                            case 2:
+                                SortParkings();
+                                break;
+
+                            case 3:
+                                SortActs();
+                                break;
+
+                            case 4:
+                                Console.Clear();
+                                Main();
+                                break;
+                        }
+                    }
+                }
+            } while (key.Key != ConsoleKey.Enter);
+
+        }
+
+        //Сортировка улиц
+        public static void SortStreets()
+        {
+            Consolebd consolebd = new Consolebd();
+            int j = 1;
+            Console.Clear();
+            consolebd.SortMenu(1);
+            ConsoleKeyInfo key;
+            do
+            {
+                key = Console.ReadKey(true);
+                if (key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow)
+                {
+                    Console.Clear();
+
+                }
+            } while (key.Key != ConsoleKey.Enter);
+        }
+
+        //Сортировка автостоянок
+        public static void SortParkings()
+        {
+            Consolebd consolebd = new Consolebd();
+            int j = 1;
+            Console.Clear();
+            consolebd.SortMenu(1);
+            ConsoleKeyInfo key;
+            do
+            {
+                key = Console.ReadKey(true);
+                if (key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow)
+                {
+                    Console.Clear();
+
+                }
+            } while (key.Key != ConsoleKey.Enter);
+        }
+
+        //Сортировка актов эвакуаций
+        public static void SortActs()
+        {
+            Consolebd consolebd = new Consolebd();
+            int j = 1;
+            Console.Clear();
+            consolebd.SortMenu(1);
+            ConsoleKeyInfo key;
+            do
+            {
+                key = Console.ReadKey(true);
+                if (key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow)
+                {
+                    Console.Clear();
+
+                }
+            } while (key.Key != ConsoleKey.Enter);
+        }
     }
 }

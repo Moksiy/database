@@ -97,12 +97,17 @@ namespace ConsoleApp6
             Console.WriteLine(new string(' ', 74) + "║");
             Console.Write("║ " + " ");
             if (j == 6) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write("Сортировка");
+            Console.ResetColor();
+            Console.WriteLine(new string(' ', 78) + "║");
+            Console.Write("║ " + " ");
+            if (j == 7) { Console.BackgroundColor = ConsoleColor.Blue; }
             Console.Write(Inform);
             Console.ResetColor();
             Console.WriteLine(new string(' ', 78) + "║");
             Console.WriteLine("╟" + new string('─', 90) + "╢");
             Console.Write("║ ");
-            if (j == 7) { Console.BackgroundColor = ConsoleColor.DarkRed; }
+            if (j == 8) { Console.BackgroundColor = ConsoleColor.DarkRed; }
             Console.Write(Exit1);
             Console.ResetColor();
             Console.WriteLine(" ║");
@@ -1937,6 +1942,54 @@ namespace ConsoleApp6
             Console.WriteLine(" ║");
             Console.WriteLine("╙" + new string('─', 24) + "╨" + new string('─', 189) + "╨" + new string('─', 7) + "╨" + new string('─', 7) + "╜");
             Console.WriteLine();
+        }
+
+        //Метод построения меню сортировки
+        public void SortMenu(int j)
+        {
+            Console.WriteLine("╓" + new string('─', 90) + "╖");
+            Console.WriteLine("║" + new string(' ', 26) + "           Сортировка элементов       " + new string(' ', 26) + "║");
+            Console.WriteLine("╟" + new string('─', 90) + "╢");
+            Console.Write("║ " + " ");
+            if (j == 1) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write("Сортировка улиц");
+            Console.ResetColor();
+            Console.WriteLine(new string(' ', 73) + "║");
+            Console.Write("║ " + " ");
+            if (j == 2) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write("Сортировка автостоянок");
+            Console.ResetColor();
+            Console.WriteLine(new string(' ', 66) + "║");
+            Console.Write("║ " + " ");
+            if (j == 3) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write("Сортировка актов эвакуаций");
+            Console.ResetColor();
+            Console.WriteLine(new string(' ', 62) + "║");
+            Console.WriteLine("╟" + new string('─', 90) + "╢");
+            Console.Write("║ ");
+            if (j == 4) { Console.BackgroundColor = ConsoleColor.DarkRed; }
+            Console.Write(ExitMain);
+            Console.ResetColor();
+            Console.WriteLine(" ║");
+            Console.WriteLine("╙" + new string('─', 90) + "╜");
+        }
+
+        //Метод построения меню сортировки улиц
+        public void SortStreets(int j)
+        {
+
+        }
+
+        //Метод построения меню сортировки улиц
+        public void SortParkings(int j)
+        {
+
+        }
+
+        //Метод построения меню сортировки актов эвакуаций
+        public void SortActs(int j)
+        {
+
         }
     }
 }
