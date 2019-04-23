@@ -146,7 +146,7 @@ namespace ConsoleApp6
                                 Console.Clear();
 
                                 //TEST
-                                consolebd.SortMenu(1);
+                                consolebd.SortActs(1);
 
                                 Console.ReadKey();
 
@@ -8759,15 +8759,63 @@ namespace ConsoleApp6
             Consolebd consolebd = new Consolebd();
             int j = 1;
             Console.Clear();
-            consolebd.SortMenu(1);
             ConsoleKeyInfo key;
+            consolebd.SortStreets(1);
+            Data data = new Data();
             do
             {
                 key = Console.ReadKey(true);
                 if (key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow)
                 {
                     Console.Clear();
+                    switch(key.Key)
+                    {
+                        case ConsoleKey.UpArrow:
+                            j--;
+                            if (j < 1) { j = 5; }
+                            if (j > 5) { j = 1; }
+                            break;
+                        case ConsoleKey.DownArrow:
+                            j++;
+                            if (j < 1) { j = 5; }
+                            if (j > 5) { j = 1; }
+                            break;
+                    }
+                    consolebd.SortStreets(j);
+                    if (key.Key == ConsoleKey.Enter)
+                    {
+                        switch (j)
+                        {
+                            //Название улицы А-Я
+                            case 1:
+                                data.SortStreetsNameA();
+                                SortElements();
+                                break;
 
+                            //Название улицы Я-А
+                            case 2:
+                                data.SortStreetsNameZ();
+                                SortElements();
+                                break;
+
+                            //Длина улицы по возрастанию
+                            case 3:
+                                data.SortStreetsLengthsIncrease();
+                                SortElements();
+                                break;
+
+                            //Длина улицы по убыванию
+                            case 4:
+                                data.SortStreetsLengthsDecrease();
+                                SortElements();
+                                break;
+
+                            //Выход
+                            case 5:
+                                SortElements();
+                                break;
+                        }
+                    }
                 }
             } while (key.Key != ConsoleKey.Enter);
         }
@@ -8778,15 +8826,63 @@ namespace ConsoleApp6
             Consolebd consolebd = new Consolebd();
             int j = 1;
             Console.Clear();
-            consolebd.SortMenu(1);
             ConsoleKeyInfo key;
+            consolebd.SortParkings(1);
+            Data data = new Data();
             do
             {
                 key = Console.ReadKey(true);
                 if (key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow)
                 {
                     Console.Clear();
+                    switch (key.Key)
+                    {
+                        case ConsoleKey.UpArrow:
+                            j--;
+                            if (j < 1) { j = 5; }
+                            if (j > 5) { j = 1; }
+                            break;
+                        case ConsoleKey.DownArrow:
+                            j++;
+                            if (j < 1) { j = 5; }
+                            if (j > 5) { j = 1; }
+                            break;
+                    }
+                    consolebd.SortParkings(j);
+                    if (key.Key == ConsoleKey.Enter)
+                    {
+                        switch (j)
+                        {
+                            //Сортировка по названию автостоянки А-Я
+                            case 1:
+                                data.SortParkingsNameA();
+                                SortElements();
+                                break;
 
+                            //Сортировка по названию автостоянки Я-А
+                            case 2:
+                                data.SortParkingsNameZ();
+                                SortElements();
+                                break;
+
+                            //Сортировка по адресу автостоянки А-Я
+                            case 3:
+                                data.SortParkingsAdressA();
+                                SortElements();
+                                break;
+
+                            //Сортировка по адресу автостоянки Я-А
+                            case 4:
+                                data.SortParkingsAdressZ();
+                                SortElements();
+                                break;
+                            
+                            //Выход
+                            case 5:
+                                SortElements();
+                                break;
+                        }
+                    }
                 }
             } while (key.Key != ConsoleKey.Enter);
         }
@@ -8797,15 +8893,63 @@ namespace ConsoleApp6
             Consolebd consolebd = new Consolebd();
             int j = 1;
             Console.Clear();
-            consolebd.SortMenu(1);
             ConsoleKeyInfo key;
+            consolebd.SortActs(1);
+            Data data = new Data();
             do
             {
                 key = Console.ReadKey(true);
                 if (key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow)
                 {
                     Console.Clear();
+                    switch (key.Key)
+                    {
+                        case ConsoleKey.UpArrow:
+                            j--;
+                            if (j < 1) { j = 5; }
+                            if (j > 5) { j = 1; }
+                            break;
+                        case ConsoleKey.DownArrow:
+                            j++;
+                            if (j < 1) { j = 5; }
+                            if (j > 5) { j = 1; }
+                            break;
+                    }
+                    consolebd.SortActs(j);
+                    if (key.Key == ConsoleKey.Enter)
+                    {
+                        switch (j)
+                        {
+                            //Улица А-Я
+                            case 1:
+                                data.SortActsStreetnameA();
+                                SortElements();
+                                break;
 
+                            //Улица Я-А
+                            case 2:
+                                data.SortActsStreetnameZ();
+                                SortElements();
+                                break;
+
+                            //Автостоянка А-Я
+                            case 3:
+                                data.SortActsParkingnameA();
+                                SortElements();
+                                break;
+
+                            //Автостоянка Я-А
+                            case 4:
+                                data.SortActsParkingnameZ();
+                                SortElements();
+                                break;
+
+                            //Выход
+                            case 5:
+                                SortElements();
+                                break;
+                        }
+                    }
                 }
             } while (key.Key != ConsoleKey.Enter);
         }

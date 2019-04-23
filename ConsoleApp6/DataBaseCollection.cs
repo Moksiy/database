@@ -466,7 +466,77 @@ namespace ConsoleApp6
             //Tab3List[ind2].Link = ind;
         }
 
+        //Метод сортировки элементов таблицы улиц по названию улицы А-Я
+        public void SortStreetsNameA()
+        {
+            
+        }
 
+        //Метод сортировки элементов таблицы улиц по названию улицы Я-А
+        public void SortStreetsNameZ()
+        {
+
+        }
+
+        //Метод сортировки элементов таблицы улиц по длине улицы по возрастанию
+        public void SortStreetsLengthsIncrease()
+        {
+
+        }
+
+        //Метод сортировки элементов таблицы улиц по длине улицы по убыванию
+        public void SortStreetsLengthsDecrease()
+        {
+
+        }
+
+        //Метод сортировки элементов таблицы автостоянок по названию автостоянки А-Я
+        public void SortParkingsNameA()
+        {
+
+        }
+
+        //Метод сортировки элементов таблицы автостоянок по названию автостоянки Я-А
+        public void SortParkingsNameZ()
+        {
+
+        }
+
+        //Метод сортировки элементов таблицы автостоянок по адресу автостоянки А-Я
+        public void SortParkingsAdressA()
+        {
+
+        }
+
+        //Метод сортировки элементов таблицы автостоянок по адресу автостоянки Я-А
+        public void SortParkingsAdressZ()
+        {
+
+        }
+
+        //Метод сортировки таблицы актов эвакуации по названию улицы А-Я
+        public void SortActsStreetnameA()
+        {
+
+        }
+
+        //Метод сортировки таблицы актов эвакуации по названию улицы Я-А
+        public void SortActsStreetnameZ()
+        {
+
+        }
+
+        //Метод сортировки таблицы актов эвакуации по названию автостоянки А-Я
+        public void SortActsParkingnameA()
+        {
+
+        }
+
+        //Метод сортировки таблицы актов эвакуации по названию автостоянки Я-А
+        public void SortActsParkingnameZ()
+        {
+
+        }
     }
 
 
