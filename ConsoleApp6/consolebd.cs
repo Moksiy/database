@@ -2078,5 +2078,35 @@ namespace ConsoleApp6
             Console.WriteLine(" ║");
             Console.WriteLine("╙" + new string('─', 90) + "╜");
         }
+
+        //Метод построения главного меню поиска
+        public void SearchMenu(int j)
+        {
+            Console.WriteLine("╓" + new string('─', 90) + "╖");
+            Console.WriteLine("║" + new string(' ', 26) + "              Поиск элементов         " + new string(' ', 26) + "║");
+            Console.WriteLine("╟" + new string('─', 90) + "╢");
+            Console.Write("║ " + " ");
+            if (j == 1) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write("Поиск улиц");
+            Console.ResetColor();
+            Console.WriteLine(new string(' ', 78) + "║");
+            Console.Write("║ " + " ");
+            if (j == 2) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write("Поиск автостоянок");
+            Console.ResetColor();
+            Console.WriteLine(new string(' ', 71) + "║");
+            Console.Write("║ " + " ");
+            if (j == 3) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write("Поиск актов эвакуаций");
+            Console.ResetColor();
+            Console.WriteLine(new string(' ', 67) + "║");
+            Console.WriteLine("╟" + new string('─', 90) + "╢");
+            Console.Write("║ ");
+            if (j == 4) { Console.BackgroundColor = ConsoleColor.DarkRed; }
+            Console.Write(ExitMain);
+            Console.ResetColor();
+            Console.WriteLine(" ║");
+            Console.WriteLine("╙" + new string('─', 90) + "╜");
+        }
     }
 }

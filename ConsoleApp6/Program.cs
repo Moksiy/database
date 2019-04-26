@@ -120,8 +120,7 @@ namespace ConsoleApp6
                             //Поиск
                             case 4:
                                 //Очистка консоли
-                                Console.Clear();
-                                Main();
+                                SearchElements();
                                 break;
 
                             //Редактирование
@@ -146,7 +145,7 @@ namespace ConsoleApp6
                                 Console.Clear();
 
                                 //TEST
-                                consolebd.SortActs(1);
+                                consolebd.SearchMenu(1);
 
                                 Console.ReadKey();
 
@@ -8952,6 +8951,79 @@ namespace ConsoleApp6
                     }
                 }
             } while (key.Key != ConsoleKey.Enter);
+        }
+
+        //Главное меню поиска
+        public static void SearchElements()
+        {
+            Consolebd consolebd = new Consolebd();
+            int j = 1;
+            Console.Clear();
+            consolebd.SearchMenu(1);
+            ConsoleKeyInfo key;
+            do
+            {
+                key = Console.ReadKey(true);
+                if (key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow)
+                {
+                    Console.Clear();
+                    switch (key.Key)
+                    {
+                        case ConsoleKey.UpArrow:
+                            j--;
+                            if (j < 1) { j = 4; }
+                            if (j > 4) { j = 1; }
+                            break;
+                        case ConsoleKey.DownArrow:
+                            j++;
+                            if (j < 1) { j = 4; }
+                            if (j > 4) { j = 1; }
+                            break;
+                    }
+                    consolebd.SearchMenu(j);
+                    if (key.Key == ConsoleKey.Enter)
+                    {
+                        switch (j)
+                        {
+                            case 1:
+                                
+                                break;
+
+                            case 2:
+                                
+                                break;
+
+                            case 3:
+                                
+                                break;
+
+                            case 4:
+                                Console.Clear();
+                                Main();
+                                break;
+                        }
+                    }
+                }
+            } while (key.Key != ConsoleKey.Enter);
+
+        }
+
+        //Поиск улиц
+        public static void SearchStreets()
+        {
+
+        }
+
+        //Поиск автостоянок
+        public static void SearchParkings()
+        {
+
+        }
+
+        //Поиск актов эвакуаций
+        public static void SearchActs()
+        {
+
         }
     }
 }
