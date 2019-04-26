@@ -568,7 +568,7 @@ namespace ConsoleApp6
             Console.WriteLine("║" + new string('─', 32) + "╫" + new string('─', 52) + "╫" + new string('─', 24) + "╢");
             foreach (var parking in Tab3List)
             {
-                if (parking.ParkingName.Contains(parkingname))
+                if (parking.ParkingName.Contains(parkingname) || parking.ParkingAdress.Contains(parkingname))
                 {
                     p = 31 - parking.ParkingName.Length;
                     Console.Write("║ " + parking.ParkingName + new string(' ', p) + "║ ");
