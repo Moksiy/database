@@ -2108,5 +2108,23 @@ namespace ConsoleApp6
             Console.WriteLine(" ║");
             Console.WriteLine("╙" + new string('─', 90) + "╜");
         }
+
+        //Метод построения меню поиска улиц
+        public void SearchStreets()
+        {
+
+        }
+
+        //Метод построения меню поиска автостоянок
+        public void SearchParkings()
+        {
+
+        }
+
+        //Метод построения меню поиска актов эвакуаций
+        public void SearchActs()
+        {
+
+        }
     }
 }

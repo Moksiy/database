@@ -9011,7 +9011,7 @@ namespace ConsoleApp6
         //Поиск улиц
         public static void SearchStreets()
         {
-
+            
         }
 
         //Поиск автостоянок
