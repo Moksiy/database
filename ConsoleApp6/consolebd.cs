@@ -2132,17 +2132,21 @@ namespace ConsoleApp6
         //Метод построения меню поиска автостоянок
         public void SearchParkings(int j, string search)
         {
-            Console.WriteLine("╓" + new string('─', 90) + "╖");
-            Console.WriteLine("║" + new string(' ', 26) + "            Поиск автостоянок         " + new string(' ', 26) + "║");
-            Console.WriteLine("╟" + new string('─', 90) + "╢");
-            Console.WriteLine("║  Ввод: " + new string(' ',82) + "║");
-            Console.WriteLine("╟" + new string('─', 90) + "╢");
+            Console.WriteLine("╓" + new string('─', 110) + "╖");
+            Console.WriteLine("║" + new string(' ', 36) + "            Поиск автостоянок         " + new string(' ', 36) + "║");
+            Console.WriteLine("╟" + new string('─', 32) + "─" + new string('─', 52) + "─" + new string('─', 24) + "╢");
+            Console.Write("║  "); if (j == 1) { Console.BackgroundColor = ConsoleColor.Blue; }
+            int p = 101 - search.Length;
+            Console.Write("Ввод: " + search + new string(' ', p));
+            Console.ResetColor(); Console.WriteLine(" ║");
+            data.SearchParking(search);
+            Console.WriteLine("║" + new string('─', 32) + "╨" + new string('─', 52) + "╨" + new string('─', 24) + "╢");
             Console.Write("║ ");
             if (j == 2) { Console.BackgroundColor = ConsoleColor.DarkRed; }
-            Console.Write(BackBig);
+            Console.Write(new string(' ', 11) + BackBig + new string(' ', 9));
             Console.ResetColor();
             Console.WriteLine(" ║");
-            Console.WriteLine("╙" + new string('─', 90) + "╜");
+            Console.WriteLine("╙" + new string('─', 110) + "╜");
 
         }
 

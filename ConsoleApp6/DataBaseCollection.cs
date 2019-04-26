@@ -558,6 +558,29 @@ namespace ConsoleApp6
                 }
             }
         }
+
+       //Метод поиска автостоянки
+        public void SearchParking(string parkingname)
+        {
+            int p = 0;
+            Console.WriteLine("║" + new string('─', 32) + "╥" + new string('─', 52) + "╥" + new string('─', 24) + "║");
+            Console.WriteLine("║" + new string(' ', 6) + "Название автостоянки" + new string(' ', 6) + "║" + new string(' ', 18) + "Адрес автостоянки" + new string(' ', 17) + "║" + new string(' ', 2) + "Телефон автостоянки" + new string(' ', 3) + "║");
+            Console.WriteLine("║" + new string('─', 32) + "╫" + new string('─', 52) + "╫" + new string('─', 24) + "╢");
+            foreach (var parking in Tab3List)
+            {
+                if (parking.ParkingName.Contains(parkingname))
+                {
+                    p = 31 - parking.ParkingName.Length;
+                    Console.Write("║ " + parking.ParkingName + new string(' ', p) + "║ ");
+                    p = 51 - parking.ParkingAdress.Length;
+                    Console.Write(parking.ParkingAdress + new string(' ', p) + "║ ");
+                    p = 23 - parking.ParkingNumber.Length;
+                    Console.Write(parking.ParkingNumber + new string(' ',p));
+                    Console.WriteLine("║");
+                    Console.WriteLine("║" + new string('─', 32) + "╫" + new string('─', 52) + "╫" + new string('─', 24) + "╢");
+                }
+            }
+        }
     }
 
 
