@@ -537,6 +537,27 @@ namespace ConsoleApp6
         {
 
         }
+
+        //Метод поиска улицы
+        public void SearchStreet(string streetname)
+        {
+            int p = 0;
+            Console.WriteLine("║" + new string('─', 3) + "─" + new string('─', 52) + "╥" + new string('─', 52) + "║");
+            Console.WriteLine("║" + "   " + " " + new string(' ', 19) + "Название улицы" + new string(' ', 19) + "║" + new string(' ', 21) + "Длина улицы" + new string(' ', 20) + "║");
+            Console.WriteLine("╟" + new string('─', 3) + "─" + new string('─', 52) + "╫" + new string('─', 52) + "╢");
+            foreach (var street in Tab2List)
+            {
+                if (street.StreetName.Contains(streetname))
+                {
+                    p = 55 - street.StreetName.Length;
+                    Console.Write("║ " + street.StreetName + new string(' ',p) + "║ ");
+                    p = 51 -street.StreetLength.Length;
+                    Console.Write(street.StreetLength + new string(' ',p));
+                    Console.WriteLine("║");
+                    Console.WriteLine("╟" + "────" + new string('─', 52) + "╫" + new string('─', 52) + "╢");
+                }
+            }
+        }
     }
 
 

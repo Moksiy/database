@@ -36,6 +36,8 @@ namespace ConsoleApp6
 
             Consolebd consolebd = new Consolebd();
 
+            Data data = new Data();
+
             //Инициализация переменной для считывания кливиши
             ConsoleKeyInfo key;
 
@@ -145,7 +147,7 @@ namespace ConsoleApp6
                                 Console.Clear();
 
                                 //TEST
-                                consolebd.SearchMenu(1);
+                                consolebd.SearchStreets(1,"Ком");
 
                                 Console.ReadKey();
 
@@ -8986,15 +8988,15 @@ namespace ConsoleApp6
                         switch (j)
                         {
                             case 1:
-                                
+                                SearchStreets();
                                 break;
 
                             case 2:
-                                
+                                SearchParkings();
                                 break;
 
                             case 3:
-                                
+                                SearchActs();
                                 break;
 
                             case 4:
@@ -9011,13 +9013,121 @@ namespace ConsoleApp6
         //Поиск улиц
         public static void SearchStreets()
         {
-            
+            Consolebd consolebd = new Consolebd();
+            int j = 1;
+            Console.Clear();
+            consolebd.SearchStreets(1, "                           ");
+            ConsoleKeyInfo key;
+            string street = "                          ";
+            SearchStreetMain();            
+            void SearchStreetMain()
+            {
+                do
+                {
+                    Console.Clear();
+                    consolebd.SearchStreets(j, street);
+                    key = Console.ReadKey(true);
+                    if (key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow)
+                    {
+                        Console.Clear();
+                        switch (key.Key)
+                        {
+                            case ConsoleKey.UpArrow:
+                                j--;
+                                if (j < 1) { j = 2; }
+                                if (j > 2) { j = 1; }
+                                break;
+                            case ConsoleKey.DownArrow:
+                                j++;
+                                if (j < 1) { j = 2; }
+                                if (j > 2) { j = 1; }
+                                break;
+                        }
+                        consolebd.SearchStreets(j, street);
+                        if (key.Key == ConsoleKey.Enter)
+                        {
+                            switch (j)
+                            {
+                                case 1:
+                                    Console.Clear();
+                                    consolebd.SearchStreets(0, street);
+                                    Console.SetCursorPosition(9, 3);
+                                    street = Console.ReadLine();
+                                    street.Trim();
+                                    if (street == "") { Console.Clear(); consolebd.Attention(); }
+                                    Console.Clear();
+                                    SearchStreetMain();
+                                    break;
+
+                                case 2:
+                                    SearchElements();
+                                    break;
+                            }
+                        }
+                    }
+
+                } while (key.Key != ConsoleKey.Enter);
+            }
         }
 
         //Поиск автостоянок
         public static void SearchParkings()
         {
+            Consolebd consolebd = new Consolebd();
+            int j = 1;
+            Console.Clear();
+            consolebd.SearchParkings(1, "                           ");
+            ConsoleKeyInfo key;
+            string parking = "                          ";
+            SearchParkingMain();
+            void SearchParkingMain()
+            {
+                do
+                {
+                    Console.Clear();
+                    consolebd.SearchParkings(j, parking);
+                    key = Console.ReadKey(true);
+                    if (key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow)
+                    {
+                        Console.Clear();
+                        switch (key.Key)
+                        {
+                            case ConsoleKey.UpArrow:
+                                j--;
+                                if (j < 1) { j = 2; }
+                                if (j > 2) { j = 1; }
+                                break;
+                            case ConsoleKey.DownArrow:
+                                j++;
+                                if (j < 1) { j = 2; }
+                                if (j > 2) { j = 1; }
+                                break;
+                        }
+                        consolebd.SearchParkings(j, parking);
+                        if (key.Key == ConsoleKey.Enter)
+                        {
+                            switch (j)
+                            {
+                                case 1:
+                                    Console.Clear();
+                                    consolebd.SearchParkings(0, parking);
+                                    Console.SetCursorPosition(9, 3);
+                                    parking = Console.ReadLine();
+                                    parking.Trim();
+                                    if (parking == "") { Console.Clear(); consolebd.Attention(); }
+                                    Console.Clear();
+                                    SearchParkingMain();
+                                    break;
 
+                                case 2:
+                                    SearchElements();
+                                    break;
+                            }
+                        }
+                    }
+
+                } while (key.Key != ConsoleKey.Enter);
+            }
         }
 
         //Поиск актов эвакуаций
