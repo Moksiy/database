@@ -2153,17 +2153,21 @@ namespace ConsoleApp6
         //Метод построения меню поиска актов эвакуаций
         public void SearchActs(int j, string search)
         {
-            Console.WriteLine("╓" + new string('─', 90) + "╖");
-            Console.WriteLine("║" + new string(' ', 26) + "          Поиск актов эвакуаций       " + new string(' ', 26) + "║");
-            Console.WriteLine("╟" + new string('─', 90) + "╢");
-            Console.WriteLine("║  Ввод: " + new string(' ', 82) + "║");
-            Console.WriteLine("╟" + new string('─', 90) + "╢");
+            Console.WriteLine("╓" + new string('─', 226) + "╖");
+            Console.WriteLine("║" + new string(' ', 94) + "          Поиск актов эвакуаций       " + new string(' ', 94) + "║");
+            Console.WriteLine("╟" + new string('─', 226) + "╢");
+            Console.Write("║  "); if (j == 1) { Console.BackgroundColor = ConsoleColor.Blue; }
+            int p = 217 - search.Length;
+            Console.Write("Ввод: " + search + new string(' ',p));
+            Console.ResetColor(); Console.WriteLine(" ║");
+            data.SearchAct(search);
+            Console.WriteLine("╟" + new string('─', 52) + "╨" + new string('─', 52) + "╨" + new string('─', 32) + "╨" + new string('─', 43) + "╨" + new string('─', 12) + "╨" + new string('─', 30) + "╢");
             Console.Write("║ ");
             if (j == 2) { Console.BackgroundColor = ConsoleColor.DarkRed; }
-            Console.Write(BackBig);
+            Console.Write(new string(' ',68) + BackBig + new string(' ',68));
             Console.ResetColor();
             Console.WriteLine(" ║");
-            Console.WriteLine("╙" + new string('─', 90) + "╜");
+            Console.WriteLine("╙" + new string('─', 226) + "╜");
         }
     }
 }

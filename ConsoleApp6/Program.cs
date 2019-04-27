@@ -147,7 +147,7 @@ namespace ConsoleApp6
                                 Console.Clear();
 
                                 //TEST
-                                consolebd.SearchStreets(1,"Ком");
+                                consolebd.SearchActs(1,"1");
 
                                 Console.ReadKey();
 
@@ -9133,7 +9133,61 @@ namespace ConsoleApp6
         //Поиск актов эвакуаций
         public static void SearchActs()
         {
+            Consolebd consolebd = new Consolebd();
+            int j = 1;
+            Console.Clear();
+            consolebd.SearchActs(1, "                           ");
+            ConsoleKeyInfo key;
+            string act = "                          ";
+            SearchActsMain();
+            void SearchActsMain()
+            {
+                do
+                {
+                    Console.Clear();
+                    consolebd.SearchActs(j, act);
+                    key = Console.ReadKey(true);
+                    if (key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow)
+                    {
+                        Console.Clear();
+                        switch (key.Key)
+                        {
+                            case ConsoleKey.UpArrow:
+                                j--;
+                                if (j < 1) { j = 2; }
+                                if (j > 2) { j = 1; }
+                                break;
+                            case ConsoleKey.DownArrow:
+                                j++;
+                                if (j < 1) { j = 2; }
+                                if (j > 2) { j = 1; }
+                                break;
+                        }
+                        consolebd.SearchActs(j, act);
+                        if (key.Key == ConsoleKey.Enter)
+                        {
+                            switch (j)
+                            {
+                                case 1:
+                                    Console.Clear();
+                                    consolebd.SearchActs(0, act);
+                                    Console.SetCursorPosition(9, 3);
+                                    act = Console.ReadLine();
+                                    act.Trim();
+                                    if (act == "") { Console.Clear(); consolebd.Attention(); }
+                                    Console.Clear();
+                                    SearchActsMain();
+                                    break;
 
+                                case 2:
+                                    SearchElements();
+                                    break;
+                            }
+                        }
+                    }
+
+                } while (key.Key != ConsoleKey.Enter);
+            }
         }
     }
 }

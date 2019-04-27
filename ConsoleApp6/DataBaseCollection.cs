@@ -581,6 +581,34 @@ namespace ConsoleApp6
                 }
             }
         }
+
+        //Метод поиска актов эвакуации
+        public void SearchAct(string actname)
+        {
+            int p = 0;
+            Console.WriteLine("╟" + new string('─', 52) + "╥" + new string('─', 52) + "╥" + new string('─', 32) + "╥" + new string('─', 43) + "╥" + new string('─', 12) + "╥" + new string('─', 30) + "╢");
+            Console.WriteLine("║" + new string(' ', 23) + "Улица" + new string(' ', 24) + "║" + new string(' ', 20) + "Автостоянка" + new string(' ', 21) + "║" + new string(' ', 9) + "GPS-координаты" + new string(' ', 9) + "║" + new string(' ', 15) + "Тип нарушения" + new string(' ', 15) + "║" + new string(' ', 0) + "Номер машины" + new string(' ', 0) + "║" + new string(' ', 8) + "Тип автомобиля" + new string(' ', 8) + "║");
+            Console.WriteLine("╟" + new string('─', 52) + "╫" + new string('─', 52) + "╫" + new string('─', 32) + "╫" + new string('─', 43) + "╫" + new string('─', 12) + "╫" + new string('─', 30) + "╢");
+            foreach (var act in Tab1List)
+            {
+                if (act.Street.StreetName.Contains(actname) || act.Parking.ParkingName.Contains(actname) || act.GPS.Contains(actname))
+                {
+                    p = 51 - act.Street.StreetName.Length;
+                    Console.Write("║ " + act.Street.StreetName + new string(' ',p) + "║ ");
+                    p = 51 - act.Parking.ParkingName.Length;
+                    Console.Write(act.Parking.ParkingName + new string(' ',p) + "║ ");
+                    p = 31 - act.GPS.Length;
+                    Console.Write(act.GPS + new string(' ',p) + "║ ");
+                    p = 42 - act.TypeViolation.Length;
+                    Console.Write(act.TypeViolation + new string(' ',p) + "║ ");
+                    p = 11 - act.CarNumber.Length;
+                    Console.Write(act.CarNumber + new string(' ',p) + "║ ");
+                    p = 29 - act.CarType.Length;
+                    Console.WriteLine(act.CarType + new string(' ',p) + "║");
+                    Console.WriteLine("╟" + new string('─', 52) + "╫" + new string('─', 52) + "╫" + new string('─', 32) + "╫" + new string('─', 43) + "╫" + new string('─', 12) + "╫" + new string('─', 30) + "╢");
+                }
+            }
+        }
     }
 
 
