@@ -504,7 +504,7 @@ namespace ConsoleApp6
             }
         }
 
-        //Метод сортировки элементов таблицы улиц по длине улицы по возрастанию
+        //Метод сортировки элементов таблицы улиц по длине улицы по возрастанию 
         public void SortStreetsLengthsIncrease()
         {
             int n = Tab2List.Count-1;
