@@ -469,13 +469,12 @@ namespace ConsoleApp6
         //Метод сортировки элементов таблицы улиц по названию улицы А-Я
         public void SortStreetsNameA()
         {
-            //ДОДЕЛАТЬ
             int n = Tab2List.Count - 1;
             for (int i = 0; i < n; i++)
             {
                 for (int j = i + 1; j < n + 1; j++)
                 {
-                    if (true)
+                    if (Tab2List[j].StreetName[0] < Tab2List[i].StreetName[0])
                     {
                         ElementsTab2 p = Tab2List[i];
                         Tab2List[i] = Tab2List[j];
@@ -488,13 +487,12 @@ namespace ConsoleApp6
         //Метод сортировки элементов таблицы улиц по названию улицы Я-А
         public void SortStreetsNameZ()
         {
-            //ДОДЕЛАТЬ
             int n = Tab2List.Count - 1;
             for (int i = 0; i < n; i++)
             {
                 for (int j = i + 1; j < n + 1; j++)
                 {
-                    if (true)
+                    if (Tab2List[j].StreetName[0] > Tab2List[i].StreetName[0])
                     {
                         ElementsTab2 p = Tab2List[i];
                         Tab2List[i] = Tab2List[j];
@@ -544,48 +542,145 @@ namespace ConsoleApp6
         public void SortParkingsNameA()
         {
 
+            int n = Tab3List.Count - 1;
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = i + 1; j < n + 1; j++)
+                {
+                    if (Tab3List[j].ParkingName[0] < Tab3List[i].ParkingName[0])
+                    {
+                        ElementsTab3 p = Tab3List[i];
+                        Tab3List[i] = Tab3List[j];
+                        Tab3List[j] = p;
+                    }
+                }
+            }
         }
 
         //Метод сортировки элементов таблицы автостоянок по названию автостоянки Я-А
         public void SortParkingsNameZ()
         {
-
+            int n = Tab3List.Count - 1;
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = i + 1; j < n + 1; j++)
+                {
+                    if (Tab3List[j].ParkingName[0] > Tab3List[i].ParkingName[0])
+                    {
+                        ElementsTab3 p = Tab3List[i];
+                        Tab3List[i] = Tab3List[j];
+                        Tab3List[j] = p;
+                    }
+                }
+            }
         }
 
         //Метод сортировки элементов таблицы автостоянок по адресу автостоянки А-Я
         public void SortParkingsAdressA()
         {
-
+            int n = Tab3List.Count - 1;
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = i + 1; j < n + 1; j++)
+                {
+                    if (Tab3List[j].ParkingAdress[0] < Tab3List[i].ParkingAdress[0])
+                    {
+                        ElementsTab3 p = Tab3List[i];
+                        Tab3List[i] = Tab3List[j];
+                        Tab3List[j] = p;
+                    }
+                }
+            }
         }
 
         //Метод сортировки элементов таблицы автостоянок по адресу автостоянки Я-А
         public void SortParkingsAdressZ()
         {
-
+            int n = Tab3List.Count - 1;
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = i + 1; j < n + 1; j++)
+                {
+                    if (Tab3List[j].ParkingAdress[0] > Tab3List[i].ParkingAdress[0])
+                    {
+                        ElementsTab3 p = Tab3List[i];
+                        Tab3List[i] = Tab3List[j];
+                        Tab3List[j] = p;
+                    }
+                }
+            }
         }
 
         //Метод сортировки таблицы актов эвакуации по названию улицы А-Я
         public void SortActsStreetnameA()
         {
-
+            int n = Tab1List.Count - 1;
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = i + 1; j < n + 1; j++)
+                {
+                    if (Tab1List[j].Street.StreetName[0] < Tab1List[i].Street.StreetName[0])
+                    {
+                        ElementsTab1 p = Tab1List[i];
+                        Tab1List[i] = Tab1List[j];
+                        Tab1List[j] = p;
+                    }
+                }
+            }
         }
 
         //Метод сортировки таблицы актов эвакуации по названию улицы Я-А
         public void SortActsStreetnameZ()
         {
-
+            int n = Tab1List.Count - 1;
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = i + 1; j < n + 1; j++)
+                {
+                    if (Tab1List[j].Street.StreetName[0] > Tab1List[i].Street.StreetName[0])
+                    {
+                        ElementsTab1 p = Tab1List[i];
+                        Tab1List[i] = Tab1List[j];
+                        Tab1List[j] = p;
+                    }
+                }
+            }
         }
 
         //Метод сортировки таблицы актов эвакуации по названию автостоянки А-Я
         public void SortActsParkingnameA()
         {
-
+            int n = Tab1List.Count - 1;
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = i + 1; j < n + 1; j++)
+                {
+                    if (Tab1List[j].Parking.ParkingName[0] < Tab1List[i].Parking.ParkingName[0])
+                    {
+                        ElementsTab1 p = Tab1List[i];
+                        Tab1List[i] = Tab1List[j];
+                        Tab1List[j] = p;
+                    }
+                }
+            }
         }
 
         //Метод сортировки таблицы актов эвакуации по названию автостоянки Я-А
         public void SortActsParkingnameZ()
         {
-
+            int n = Tab1List.Count - 1;
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = i + 1; j < n + 1; j++)
+                {
+                    if (Tab1List[j].Parking.ParkingName[0] > Tab1List[i].Parking.ParkingName[0])
+                    {
+                        ElementsTab1 p = Tab1List[i];
+                        Tab1List[i] = Tab1List[j];
+                        Tab1List[j] = p;
+                    }
+                }
+            }
         }
 
         //Метод поиска улицы
