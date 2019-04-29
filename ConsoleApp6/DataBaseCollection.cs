@@ -469,25 +469,75 @@ namespace ConsoleApp6
         //Метод сортировки элементов таблицы улиц по названию улицы А-Я
         public void SortStreetsNameA()
         {
-            
+            //ДОДЕЛАТЬ
+            int n = Tab2List.Count - 1;
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = i + 1; j < n + 1; j++)
+                {
+                    if (true)
+                    {
+                        ElementsTab2 p = Tab2List[i];
+                        Tab2List[i] = Tab2List[j];
+                        Tab2List[j] = p;
+                    }
+                }
+            }
         }
 
         //Метод сортировки элементов таблицы улиц по названию улицы Я-А
         public void SortStreetsNameZ()
         {
-
+            //ДОДЕЛАТЬ
+            int n = Tab2List.Count - 1;
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = i + 1; j < n + 1; j++)
+                {
+                    if (true)
+                    {
+                        ElementsTab2 p = Tab2List[i];
+                        Tab2List[i] = Tab2List[j];
+                        Tab2List[j] = p;
+                    }
+                }
+            }
         }
 
         //Метод сортировки элементов таблицы улиц по длине улицы по возрастанию
         public void SortStreetsLengthsIncrease()
         {
-
+            int n = Tab2List.Count-1;
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = i+1; j < n+1; j++)
+                {
+                    if (int.Parse(Tab2List[j].StreetLength) < int.Parse(Tab2List[i].StreetLength))
+                    {
+                        ElementsTab2 p = Tab2List[i];
+                        Tab2List[i] = Tab2List[j];
+                        Tab2List[j] = p;
+                    }
+                }
+            }
         }
 
         //Метод сортировки элементов таблицы улиц по длине улицы по убыванию
         public void SortStreetsLengthsDecrease()
         {
-
+            int n = Tab2List.Count - 1;
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = i + 1; j < n + 1; j++)
+                {
+                    if (int.Parse(Tab2List[j].StreetLength) > int.Parse(Tab2List[i].StreetLength))
+                    {
+                        ElementsTab2 p = Tab2List[i];
+                        Tab2List[i] = Tab2List[j];
+                        Tab2List[j] = p;
+                    }
+                }
+            }
         }
 
         //Метод сортировки элементов таблицы автостоянок по названию автостоянки А-Я
@@ -550,16 +600,16 @@ namespace ConsoleApp6
                 if (street.StreetName.Contains(streetname))
                 {
                     p = 55 - street.StreetName.Length;
-                    Console.Write("║ " + street.StreetName + new string(' ',p) + "║ ");
-                    p = 51 -street.StreetLength.Length;
-                    Console.Write(street.StreetLength + new string(' ',p));
+                    Console.Write("║ " + street.StreetName + new string(' ', p) + "║ ");
+                    p = 51 - street.StreetLength.Length;
+                    Console.Write(street.StreetLength + new string(' ', p));
                     Console.WriteLine("║");
                     Console.WriteLine("╟" + "────" + new string('─', 52) + "╫" + new string('─', 52) + "╢");
                 }
             }
         }
 
-       //Метод поиска автостоянки
+        //Метод поиска автостоянки
         public void SearchParking(string parkingname)
         {
             int p = 0;
@@ -575,7 +625,7 @@ namespace ConsoleApp6
                     p = 51 - parking.ParkingAdress.Length;
                     Console.Write(parking.ParkingAdress + new string(' ', p) + "║ ");
                     p = 23 - parking.ParkingNumber.Length;
-                    Console.Write(parking.ParkingNumber + new string(' ',p));
+                    Console.Write(parking.ParkingNumber + new string(' ', p));
                     Console.WriteLine("║");
                     Console.WriteLine("║" + new string('─', 32) + "╫" + new string('─', 52) + "╫" + new string('─', 24) + "╢");
                 }
@@ -594,17 +644,17 @@ namespace ConsoleApp6
                 if (act.Street.StreetName.Contains(actname) || act.Parking.ParkingName.Contains(actname) || act.GPS.Contains(actname))
                 {
                     p = 51 - act.Street.StreetName.Length;
-                    Console.Write("║ " + act.Street.StreetName + new string(' ',p) + "║ ");
+                    Console.Write("║ " + act.Street.StreetName + new string(' ', p) + "║ ");
                     p = 51 - act.Parking.ParkingName.Length;
-                    Console.Write(act.Parking.ParkingName + new string(' ',p) + "║ ");
+                    Console.Write(act.Parking.ParkingName + new string(' ', p) + "║ ");
                     p = 31 - act.GPS.Length;
-                    Console.Write(act.GPS + new string(' ',p) + "║ ");
+                    Console.Write(act.GPS + new string(' ', p) + "║ ");
                     p = 42 - act.TypeViolation.Length;
-                    Console.Write(act.TypeViolation + new string(' ',p) + "║ ");
+                    Console.Write(act.TypeViolation + new string(' ', p) + "║ ");
                     p = 11 - act.CarNumber.Length;
-                    Console.Write(act.CarNumber + new string(' ',p) + "║ ");
+                    Console.Write(act.CarNumber + new string(' ', p) + "║ ");
                     p = 29 - act.CarType.Length;
-                    Console.WriteLine(act.CarType + new string(' ',p) + "║");
+                    Console.WriteLine(act.CarType + new string(' ', p) + "║");
                     Console.WriteLine("╟" + new string('─', 52) + "╫" + new string('─', 52) + "╫" + new string('─', 32) + "╫" + new string('─', 43) + "╫" + new string('─', 12) + "╫" + new string('─', 30) + "╢");
                 }
             }
