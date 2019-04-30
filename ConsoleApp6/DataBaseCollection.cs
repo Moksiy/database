@@ -15,14 +15,15 @@ namespace ConsoleApp6
         public string CarType { get; set; }
         public ElementsTab2 Street { get; set; }
         public ElementsTab3 Parking { get; set; }
+        public int LinkStreet { get; set; } = -1;
+        public int LinkParking { get; set; } = -1;
     }
 
     //Класс с авто-свойствами для таблицы 2 "улицы"
     public class ElementsTab2
     {
         public string StreetName { get; set; }
-        public string StreetLength { get; set; }
-        //public int Link { get; set; } = -1;         
+        public string StreetLength { get; set; }       
     }
 
     //Класс с авто-свойствами для таблицы 3 "автостоянки"
@@ -31,7 +32,6 @@ namespace ConsoleApp6
         public string ParkingName { get; set; }
         public string ParkingAdress { get; set; }
         public string ParkingNumber { get; set; }
-        //public int Link { get; set; } = -1;
     }
 
     public class Data
@@ -296,12 +296,14 @@ namespace ConsoleApp6
         //Метод удаления элементов по индексам из списка 2
         public void DeleteElementTab2(int i)
         {
-            //int j = Tab2List[i].Link;
-            //if (Tab2List[i].Link != -1)
-            // {
-            //  Tab1List[j].Street.StreetLength = " ";
-            //  Tab1List[j].Street.StreetName = " ";                
-            // }
+            foreach (var Tab1 in Tab1List)
+            {
+                if (Tab1.Street.StreetName == Tab2List[i].StreetName)
+                {
+                    Tab1.Street.StreetName = " ";
+                    Tab1.Street.StreetLength = " ";
+                }
+            }
             Tab2List.RemoveAt(i);
 
         }
@@ -309,13 +311,15 @@ namespace ConsoleApp6
         //Метод удаления элементов по индексам из списка 3
         public void DeleteElementTab3(int i)
         {
-            // int j = Tab3List[i].Link;
-            // if (Tab3List[i].Link != -1)
-            ////{
-            //   Tab1List[j].Parking.ParkingAdress = " ";
-            //    Tab1List[j].Parking.ParkingName = " ";
-            //    Tab1List[j].Parking.ParkingNumber = " ";               
-            // }
+            foreach (var Tab1 in Tab1List)
+            {
+                if (Tab1.Parking.ParkingName == Tab3List[i].ParkingName && Tab1.Parking.ParkingAdress == Tab3List[i].ParkingAdress && Tab1.Parking.ParkingNumber == Tab3List[i].ParkingNumber)
+                {
+                    Tab1.Parking.ParkingAdress = " ";
+                    Tab1.Parking.ParkingName = " ";
+                    Tab1.Parking.ParkingNumber = " ";
+                }
+            }
             Tab3List.RemoveAt(i);
         }
 
