@@ -85,6 +85,12 @@ namespace ConsoleApp6
             Tab1List[ind1].Street = Tab2List[ind2];
         }
 
+        //Метод для добавления ссылки на автостоянку в таблицу 1
+        public void AddParking(int ind1, int ind2)
+        {
+            Tab1List[ind1].Parking = Tab3List[ind2];
+        }
+
         //Метод для ввода названия улицы в список
         public void AddElementStrname(string sname, int ind)
         {
@@ -302,6 +308,7 @@ namespace ConsoleApp6
                 {
                     Tab1.Street.StreetName = " ";
                     Tab1.Street.StreetLength = " ";
+                    Tab1.LinkStreet = -1;                    
                 }
             }
             Tab2List.RemoveAt(i);
@@ -318,6 +325,7 @@ namespace ConsoleApp6
                     Tab1.Parking.ParkingAdress = " ";
                     Tab1.Parking.ParkingName = " ";
                     Tab1.Parking.ParkingNumber = " ";
+                    Tab1.LinkParking = -1;
                 }
             }
             Tab3List.RemoveAt(i);
@@ -396,19 +404,15 @@ namespace ConsoleApp6
         }
 
         //Метод добавления ссылки на элемент таблицы 2
-        public void AddLinkTab2(int i)
+        public void AddLinkTab2(int index2, int index1)
         {
-            int count = CountTab1() - 1;
-            Tab1List[count].Street = Tab2List[i];
-            //Tab2List[i].Link = count;
+            Tab1List[index1].LinkStreet = index2;
         }
 
         //Метод добавления ссылки на элемент таблицы 3
-        public void AddlinkTab3(int i)
+        public void AddlinkTab3(int index3, int index1)
         {
-            int count = CountTab1() - 1;
-            Tab1List[count].Parking = Tab3List[i];
-            //Tab3List[i].Link = count;
+            Tab1List[index1].LinkParking = index3;
         }
 
         //Метод вывода названия улицы из таблицы 1
@@ -441,6 +445,18 @@ namespace ConsoleApp6
             return Tab1List[ind].Parking.ParkingNumber;
         }
 
+        //Метод возвращающий ссылку на улицу
+        public int OutputTab1LinkStreet(int ind)
+        {
+            return Tab1List[ind].LinkStreet;
+        }
+
+        //Метод возвращающий ссылку на автостоянку
+        public int OutputTab1LinkParking(int ind)
+        {
+            return Tab1List[ind].LinkParking;
+        }
+
         //Метод редактирования элементов в таблице 2
         public void EditTab2(string strname, string strlen, int ind)
         {
@@ -457,17 +473,17 @@ namespace ConsoleApp6
         }
 
         //Метод редактирования элементов таблицы 3
-        public void EditTab1(string GPS, string tpvio, string carnum, string cartp, string streetname, string streetlen, string parkingname, string parkingadress, string parkingnumber, int ind, int ind1, int ind2)
+        public void EditTab1(string GPS, string tpvio, string carnum, string cartp, string streetname, string streetlen, string parkingname, string parkingadress, string parkingnumber, int ind, int inds, int indp)
         {
             ind--;
             Tab1List[ind].GPS = GPS;
             Tab1List[ind].TypeViolation = tpvio;
             Tab1List[ind].CarNumber = carnum;
             Tab1List[ind].CarType = cartp;
-            Tab1List[ind].Street = Tab2List[ind1];
-            Tab1List[ind].Parking = Tab3List[ind2];
-            //Tab2List[ind1].Link = ind;
-            //Tab3List[ind2].Link = ind;
+            Tab1List[ind].Street = Tab2List[inds];
+            Tab1List[ind].Parking = Tab3List[indp];
+            Tab1List[ind].LinkStreet = inds;
+            Tab1List[ind].LinkParking = indp;
         }
 
         //Метод сортировки элементов таблицы улиц по названию улицы А-Я

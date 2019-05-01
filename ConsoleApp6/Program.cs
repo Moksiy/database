@@ -4163,16 +4163,16 @@ namespace ConsoleApp6
                                         //передача типа автомобиля в список
                                         data.AddTypeOfCar(typeofcar, ind);
 
-                                        data.AddLinkTab2(indexStreet);
+                                        data.AddLinkTab2(indexStreet, ind);
 
-                                        data.AddlinkTab3(indexParking);
+                                        data.AddlinkTab3(indexParking, ind);
+
+                                        data.AddStreet(ind, indexStreet);
+
+                                        data.AddParking(ind, indexParking);
 
                                         //Очистка консоли
                                         Console.Clear();
-
-                                        //переход в главное меню добавления элемента
-                                        //consolebd.AddElement(1);
-                                        //AddCar();
                                     }
 
                                     break;
@@ -6993,6 +6993,8 @@ namespace ConsoleApp6
             cartype = data.OutPutCarType(index - 1);
             streetname = data.OutputStreetNameTab1(index - 1);
             parkingname = data.OutputParkingNameTab1(index - 1);
+            indexStreet = data.OutputTab1LinkStreet(index - 1);
+            indexParking = data.OutputTab1LinkParking(index - 1);
 
             //Вызов вложенного метода
             EditElementActMain();
@@ -7231,8 +7233,6 @@ namespace ConsoleApp6
 
                                     //Очистка консоли
                                     Console.Clear();
-
-                                    //ChoiseStreet();
 
                                     //Вызов метода выбора улицы из существующих
                                     int index2 = ChoiseStreet();
