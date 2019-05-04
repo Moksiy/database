@@ -24,7 +24,7 @@ namespace ConsoleApp6
     public class ElementsTab2
     {
         public string StreetName { get; set; }
-        public string StreetLength { get; set; }       
+        public string StreetLength { get; set; }
     }
 
     //Класс с авто-свойствами для таблицы 3 "автостоянки"
@@ -309,7 +309,7 @@ namespace ConsoleApp6
                 {
                     Tab1.Street.StreetName = " ";
                     Tab1.Street.StreetLength = " ";
-                    Tab1.LinkStreet = -1;                    
+                    Tab1.LinkStreet = -1;
                 }
             }
             Tab2List.RemoveAt(i);
@@ -526,10 +526,10 @@ namespace ConsoleApp6
         //Метод сортировки элементов таблицы улиц по длине улицы по возрастанию 
         public void SortStreetsLengthsIncrease()
         {
-            int n = Tab2List.Count-1;
+            int n = Tab2List.Count - 1;
             for (int i = 0; i < n; i++)
             {
-                for (int j = i+1; j < n+1; j++)
+                for (int j = i + 1; j < n + 1; j++)
                 {
                     if (int.Parse(Tab2List[j].StreetLength) < int.Parse(Tab2List[i].StreetLength))
                     {
@@ -777,46 +777,126 @@ namespace ConsoleApp6
         }
 
         //Запись в файл
-        public void Writer()
+        public void Writer(string filename)
         {
-            var file = new FileInfo("Text.txt");
+            var file = new FileInfo(filename);
             StreamWriter writer = file.CreateText();
-
-
-            foreach(var tab1 in Tab1List)
+            //Запись 2Й таблицы
+            foreach (var tab2 in Tab2List)
             {
+                writer.WriteLine(tab2.StreetName);
+                writer.WriteLine(tab2.StreetLength);
+            }
+            writer.WriteLine(new string('|', 50));
+            //Запись 3й таблицы
+            foreach (var tab3 in Tab3List)
+            {
+                writer.WriteLine(tab3.ParkingName);
+                writer.WriteLine(tab3.ParkingAdress);
+                writer.WriteLine(tab3.ParkingNumber);
+            }
+            writer.WriteLine(new string('|', 50));
+            //Запись 1й таблицы
+            foreach (var tab1 in Tab1List)
+            {
+                writer.WriteLine(tab1.GPS);
+                writer.WriteLine(tab1.TypeViolation);
                 writer.WriteLine(tab1.CarNumber);
                 writer.WriteLine(tab1.CarType);
-                writer.WriteLine(tab1.GPS);
-                writer.WriteLine(tab1.LinkParking);
                 writer.WriteLine(tab1.LinkStreet);
-                writer.WriteLine(tab1.Parking.ParkingAdress);
-                writer.WriteLine(tab1.Parking.ParkingName);
-                writer.WriteLine(tab1.Parking.ParkingNumber);
-                writer.WriteLine(tab1.Street.StreetLength);
-                writer.WriteLine(tab1.Street.StreetName);
-                writer.WriteLine(tab1.TypeViolation);                
+                writer.WriteLine(tab1.LinkParking);
             }
-            writer.Write(writer.NewLine);
-            writer.WriteLine("АЛО");
             writer.Close();
-
         }
 
         //Чтение с файла
         public void Reader(string filename)
         {
+            //Очистка списков
+            this.ClearTab1();
+            this.ClearTab2();
+            this.ClearTab3();
             //StreamReader reader = File.OpenText(filename);
             StreamReader reader = File.OpenText("Text.txt");
             string input;
-            while ((input = reader.ReadLine()) != null)
+            while ((input = reader.ReadLine()) != null && input != "||||||||||||||||||||||||||||||||||||||||||||||||||")
             {
-                Console.WriteLine(input); 
+                Tab2List.Add(new ElementsTab2());
+                Tab2List[Tab2List.Count - 1].StreetName = input;
+                input = reader.ReadLine();
+                Tab2List[Tab2List.Count - 1].StreetLength = input;
+            }
+            while ((input = reader.ReadLine()) != null && input != "||||||||||||||||||||||||||||||||||||||||||||||||||")
+            {
+                Tab3List.Add(new ElementsTab3());
+                Tab3List[Tab3List.Count - 1].ParkingName = input;
+                input = reader.ReadLine();
+                Tab3List[Tab3List.Count - 1].ParkingAdress = input;
+                input = reader.ReadLine();
+                Tab3List[Tab3List.Count - 1].ParkingNumber = input;
+            }
+            while ((input = reader.ReadLine()) != null && input != "||||||||||||||||||||||||||||||||||||||||||||||||||")
+            {
+                Tab1List.Add(new ElementsTab1());
+                Tab1List[Tab1List.Count - 1].GPS = input;
+                input = reader.ReadLine();
+                Tab1List[Tab1List.Count - 1].TypeViolation = input;
+                input = reader.ReadLine();
+                Tab1List[Tab1List.Count - 1].CarNumber = input;
+                input = reader.ReadLine();
+                Tab1List[Tab1List.Count - 1].CarType = input;
+                input = reader.ReadLine();
+                Tab1List[Tab1List.Count - 1].LinkStreet = Convert.ToInt32(input);
+                Tab1List[Tab1List.Count - 1].Street = Tab2List[Convert.ToInt32(input)];                
+                input = reader.ReadLine();
+                Tab1List[Tab1List.Count - 1].LinkParking = Convert.ToInt32(input);
+                Tab1List[Tab1List.Count - 1].Parking = Tab3List[Convert.ToInt32(input)];
+            }
+            reader.Close();
+
+        }
+
+        //Очистка 1 таблицы
+        public void ClearTab1()
+        {
+            int count = Tab1List.Count;
+            if (count >= 1)
+            {
+                for (int i = count - 1; i > 0 - 1; i--)
+                {
+                    Tab1List.RemoveAt(0);
+                }
             }
         }
+
+        //Очистка 2 таблицы
+        public void ClearTab2()
+        {
+            int count = Tab2List.Count;
+            if (count >= 1)
+            {
+                for (int i = count - 1; i > 0 - 1; i--)
+                {
+                    Tab2List.RemoveAt(0);
+                }
+            }
+        }
+
+        //Очистка 3 таблицы
+        public void ClearTab3()
+        {
+            int count = Tab3List.Count;
+            if (count >= 1)
+            {
+                for (int i = count - 1; i > 0 - 1; i--)
+                {
+                    Tab3List.RemoveAt(0);
+                }
+            }
+        }
+
+
+
     }
-
-
-
 }
 

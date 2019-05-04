@@ -148,9 +148,9 @@ namespace ConsoleApp6
                                 Console.Clear();
 
                                 //TEST
-                                //data.Writer();
-                                data.Reader("1");
-                                Console.ReadKey();
+                                //data.Writer("Text.txt");
+                                data.Reader("Text.txt");
+                                //Console.ReadKey();
                                 Main();
                                 break;
 
