@@ -80,12 +80,6 @@ namespace ConsoleApp6
                         {
                             //Загрузка файла
                             case 1:
-                                //Очистка консоли
-                                Console.Clear();
-
-                                //Вызов метода построения меню добавления файла
-                                consolebd.SearchFileMain();
-
                                 //Вызов метода меню добавления файла для ввода имени файла
                                 SearchFileMain();
                                 break;
@@ -146,11 +140,11 @@ namespace ConsoleApp6
                             case 7:
                                 //Очистка консоли
                                 Console.Clear();
-
+                                consolebd.SearchFileMenu(1, "123");
                                 //TEST
                                 //data.Writer("Text.txt");
-                                data.Reader("Text.txt");
-                                //Console.ReadKey();
+                                //data.Reader("Text.txt");
+                                Console.ReadKey();
                                 Main();
                                 break;
 
@@ -1961,52 +1955,76 @@ namespace ConsoleApp6
         //Метод меню добавления файла
         public static void SearchFileMain()
         {
-            Console.Clear();
-
-            //Создание экземпляра класса с консольными таблицами
             Consolebd consolebd = new Consolebd();
-
-            consolebd.SearchFileMain();
-
-            //Создание экземпляра класса с хранящимися данными
-            Data data = new Data();
-
-            //Передача имени файла через свойство 
-            data.FileName = Console.ReadLine();
-
-            int FileNameLength = data.FileName.Length;
-
-            if (FileNameLength == 0)
-            {
-                AttentionSearchFile();
-            }
-
-            //Переменная, принимающая длину строки имени файла
-            int leng = data.FilenameLength();
-
-            //Проверка на длину строки
-
-            if (leng > 50)
-            {
-                Console.Clear();
-
-                consolebd.Attention();
-
-                Console.Clear();
-
-                consolebd.SearchFileMain();
-
-                SearchFileMain();
-
-            }
-
-            //Очистка консоли
+            int j = 1;
             Console.Clear();
-
-            //Вызов метода построения меню 2 добавления файла
-            consolebd.SearchFile1();
-
-
+            ConsoleKeyInfo key;
+            Data data = new Data();
+            consolebd.SearchFileMenu(j, data.FileName);
+            SearchFileMainM();
+            void SearchFileMainM()
+            {
+                Console.Clear();
+                consolebd.SearchFileMenu(j, data.FileName);
+                do
+                {
+                    key = Console.ReadKey(true);
+                    if (key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow)
+                    {
+                        Console.Clear();
+                        switch (key.Key)
+                        {
+                            case ConsoleKey.UpArrow:
+                                j--;
+                                if (j < 1) { j = 4; }
+                                if (j > 4) { j = 1; }
+                                break;
+                            case ConsoleKey.DownArrow:
+                                j++;
+                                if (j < 1) { j = 4; }
+                                if (j > 4) { j = 1; }
+                                break;
+                        }
+                        consolebd.SearchFileMenu(j, data.FileName);
+                        if (key.Key == ConsoleKey.Enter)
+                        {
+                            switch (j)
+                            {
+                                //Файл
+                                case 1:
+                                    Console.Clear();
+                                    consolebd.SearchFileMenu(0, " ");
+                                    Console.SetCursorPosition(9, 3);
+                                    data.FileName = Console.ReadLine();
+                                    data.FileName.Trim();
+                                    if (data.FileName == "") { Console.Clear(); consolebd.Attention(); }
+                                    Console.Clear();
+                                    SearchFileMainM();
+                                    break;
+                                //Чтение
+                                case 2:
+                                    if (data.FileName != " ")
+                                    {
+                                        data.Reader(data.FileName);
+                                    }
+                                    break;
+                                //Сохранение
+                                case 3:
+                                    if (data.FileName != " ")
+                                    {
+                                        data.Writer(data.FileName);
+                                    }
+                                    break;
+                                //Выход
+                                case 4:
+                                    Console.Clear();
+                                    Main();
+                                    break;
+                            }
+                        }
+                    }
+                } while (key.Key != ConsoleKey.Enter);
+            }
         }
 
         //Метод предупреждения в меню поиска файла
@@ -8713,7 +8731,7 @@ namespace ConsoleApp6
                 if (key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow)
                 {
                     Console.Clear();
-                    switch(key.Key)
+                    switch (key.Key)
                     {
                         case ConsoleKey.UpArrow:
                             j--;
@@ -8729,7 +8747,7 @@ namespace ConsoleApp6
                     consolebd.SortMenu(j);
                     if (key.Key == ConsoleKey.Enter)
                     {
-                        switch(j)
+                        switch (j)
                         {
                             case 1:
                                 SortStreets();
@@ -8769,7 +8787,7 @@ namespace ConsoleApp6
                 if (key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow)
                 {
                     Console.Clear();
-                    switch(key.Key)
+                    switch (key.Key)
                     {
                         case ConsoleKey.UpArrow:
                             j--;
@@ -8877,7 +8895,7 @@ namespace ConsoleApp6
                                 data.SortParkingsAdressZ();
                                 SortElements();
                                 break;
-                            
+
                             //Выход
                             case 5:
                                 SortElements();
@@ -9019,7 +9037,7 @@ namespace ConsoleApp6
             consolebd.SearchStreets(1, "                           ");
             ConsoleKeyInfo key;
             string street = "                          ";
-            SearchStreetMain();            
+            SearchStreetMain();
             void SearchStreetMain()
             {
                 do

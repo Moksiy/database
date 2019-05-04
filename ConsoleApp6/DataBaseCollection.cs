@@ -49,7 +49,7 @@ namespace ConsoleApp6
 
 
         //Поле имени файла
-        private static string filename;
+        private static string filename = " "; 
 
         //Свойство поля имени файла
         public string FileName

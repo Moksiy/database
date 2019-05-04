@@ -13,7 +13,7 @@ namespace ConsoleApp6
         Data data = new Data();
 
         //Поля для хранения пунктов меню
-        public const string SearchFile = "Загрузка файла";
+        public const string SearchFile = "Файл";
         public const string AddCar = "Добавление";
         public const string Tabs = "Таблицы";
         public const string Search = "Поиск";
@@ -60,6 +60,7 @@ namespace ConsoleApp6
         public const string EditParking = "Редактирование автостоянок";
         public const string EditAct = "Редактирование актов эвакуаций";
         public const string DeleteName = "Удаление по названию";
+        public const string File = "Файл: ";
 
 
         //Метод построения главного меню 1
@@ -74,7 +75,7 @@ namespace ConsoleApp6
             if (j == 1) { Console.BackgroundColor = ConsoleColor.Blue; }
             Console.Write(SearchFile);
             Console.ResetColor();
-            Console.WriteLine(new string(' ', 74) + "║");
+            Console.WriteLine(new string(' ', 84) + "║");
             Console.Write("║ " + " ");
             if (j == 2) { Console.BackgroundColor = ConsoleColor.Blue; }
             Console.Write(AddCar);
@@ -186,38 +187,7 @@ namespace ConsoleApp6
             Console.WriteLine("╙" + new string('─', 90) + "╜");
             Console.ReadKey();
             Console.Clear();
-        }
-
-        //Метод построения главного меню ввода имени файла
-        public void SearchFileMain()
-        {
-            Console.WriteLine("╓" + new string('─', 90) + "╖");
-            Console.WriteLine("║" + new string(' ', 26) + " Добавление эвакуированного автомобиля" + new string(' ', 26) + "║");
-            Console.WriteLine("║" + new string(' ', 26) + "             Загрузка файла           " + new string(' ', 26) + "║");
-            Console.WriteLine("╟" + new string('─', 90) + "╢");
-            Console.WriteLine("║ " + "Загруженный файл: " + new string(' ', 71) + "║");
-            Console.WriteLine("║" + new string(' ', 90) + "║");
-            Console.WriteLine("╙" + new string('─', 90) + "╜");
-            Console.Write("  Введите имя файла: ");
-
-        }
-
-        //Метод построения второго меню добавления файла
-        public void SearchFile1()
-        {
-            //Создание экземпляра класса с данными
-            Data data = new Data();
-
-            Console.WriteLine("╓" + new string('─', 90) + "╖");
-            Console.WriteLine("║" + new string(' ', 26) + "             Загрузка файла           " + new string(' ', 26) + "║");
-            Console.WriteLine("╟" + new string('─', 90) + "╢");
-            Console.Write("║ " + "Загруженный файл: ");
-            Console.Write(data.FileName);
-            int p = 71 - data.FilenameLength();
-            Console.WriteLine(new string(' ', p) + "║");
-            Console.WriteLine("║" + new string(' ', 90) + "║");
-            Console.WriteLine("╙" + new string('─', 90) + "╜");
-        }
+        }   
 
         //Метод построения меню вывода таблиц
         public void Tables(int c)
@@ -2168,6 +2138,36 @@ namespace ConsoleApp6
             Console.ResetColor();
             Console.WriteLine(" ║");
             Console.WriteLine("╙" + new string('─', 226) + "╜");
+        }
+
+        public void SearchFileMenu(int j, string name)
+        {
+            Console.WriteLine("╓" + new string('─', 90) + "╖");
+            Console.WriteLine("║" + new string(' ', 26) + "             Загрузка файла           " + new string(' ', 26) + "║");
+            Console.WriteLine("╟" + new string('─', 90) + "╢");
+            Console.Write("║ ");
+            if (j == 1) { Console.BackgroundColor = ConsoleColor.Blue; }
+            int p = 82 - data.FileName.Length;
+            Console.Write(File + data.FileName + new string(' ',p));
+            Console.ResetColor();
+            Console.WriteLine(" ║");
+            Console.WriteLine("╟" + new string('─', 90) + "╢");
+            Console.Write("║ ");
+            if (j == 2) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write("Чтение"); Console.ResetColor(); Console.Write(new string(' ',82));            
+            Console.WriteLine(" ║");
+            Console.Write("║ ");
+            if (j == 3) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write("Сохранение"); Console.ResetColor(); Console.Write(new string(' ', 78));
+            Console.ResetColor();
+            Console.WriteLine(" ║");
+            Console.WriteLine("╟" + new string('─', 90) + "╢");
+            Console.Write("║ ");
+            if (j == 4) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(BackBig); Console.ResetColor();
+            Console.ResetColor();
+            Console.WriteLine(" ║");
+            Console.WriteLine("╙" + new string('─', 90) + "╜");
         }
     }
 }
