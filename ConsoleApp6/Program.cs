@@ -148,10 +148,9 @@ namespace ConsoleApp6
                                 Console.Clear();
 
                                 //TEST
-                                consolebd.SearchActs(1,"1");
-
+                                //data.Writer();
+                                data.Reader("1");
                                 Console.ReadKey();
-
                                 Main();
                                 break;
 

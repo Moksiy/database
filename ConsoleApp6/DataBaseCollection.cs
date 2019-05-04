@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace ConsoleApp6
 {
@@ -772,6 +773,45 @@ namespace ConsoleApp6
                     Console.WriteLine(act.CarType + new string(' ', p) + "║");
                     Console.WriteLine("╟" + new string('─', 52) + "╫" + new string('─', 52) + "╫" + new string('─', 32) + "╫" + new string('─', 43) + "╫" + new string('─', 12) + "╫" + new string('─', 30) + "╢");
                 }
+            }
+        }
+
+        //Запись в файл
+        public void Writer()
+        {
+            var file = new FileInfo("Text.txt");
+            StreamWriter writer = file.CreateText();
+
+
+            foreach(var tab1 in Tab1List)
+            {
+                writer.WriteLine(tab1.CarNumber);
+                writer.WriteLine(tab1.CarType);
+                writer.WriteLine(tab1.GPS);
+                writer.WriteLine(tab1.LinkParking);
+                writer.WriteLine(tab1.LinkStreet);
+                writer.WriteLine(tab1.Parking.ParkingAdress);
+                writer.WriteLine(tab1.Parking.ParkingName);
+                writer.WriteLine(tab1.Parking.ParkingNumber);
+                writer.WriteLine(tab1.Street.StreetLength);
+                writer.WriteLine(tab1.Street.StreetName);
+                writer.WriteLine(tab1.TypeViolation);                
+            }
+            writer.Write(writer.NewLine);
+            writer.WriteLine("АЛО");
+            writer.Close();
+
+        }
+
+        //Чтение с файла
+        public void Reader(string filename)
+        {
+            //StreamReader reader = File.OpenText(filename);
+            StreamReader reader = File.OpenText("Text.txt");
+            string input;
+            while ((input = reader.ReadLine()) != null)
+            {
+                Console.WriteLine(input); 
             }
         }
     }
