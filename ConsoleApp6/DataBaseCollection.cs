@@ -777,9 +777,10 @@ namespace ConsoleApp6
         }
 
         //Запись в файл
-        public void Writer(string filename)
+        public void Writer()
         {
-            var file = new FileInfo(filename);
+            Data data = new Data();
+            var file = new FileInfo(data.FileName);
             StreamWriter writer = file.CreateText();
             //Запись 2Й таблицы
             foreach (var tab2 in Tab2List)
@@ -810,14 +811,15 @@ namespace ConsoleApp6
         }
 
         //Чтение с файла
-        public void Reader(string filename)
+        public void Reader()
         {
+            Data data = new Data();
             //Очистка списков
             this.ClearTab1();
             this.ClearTab2();
             this.ClearTab3();
             //StreamReader reader = File.OpenText(filename);
-            StreamReader reader = File.OpenText("Text.txt");
+            StreamReader reader = File.OpenText(data.FileName);
             string input;
             while ((input = reader.ReadLine()) != null && input != "||||||||||||||||||||||||||||||||||||||||||||||||||")
             {

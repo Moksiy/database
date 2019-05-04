@@ -82,6 +82,7 @@ namespace ConsoleApp6
                             case 1:
                                 //Вызов метода меню добавления файла для ввода имени файла
                                 SearchFileMain();
+                                Main();
                                 break;
 
                             //Добавить элемент
@@ -2005,14 +2006,14 @@ namespace ConsoleApp6
                                 case 2:
                                     if (data.FileName != " ")
                                     {
-                                        data.Reader(data.FileName);
+                                        data.Reader();
                                     }
                                     break;
                                 //Сохранение
                                 case 3:
                                     if (data.FileName != " ")
                                     {
-                                        data.Writer(data.FileName);
+                                        data.Writer();
                                     }
                                     break;
                                 //Выход
