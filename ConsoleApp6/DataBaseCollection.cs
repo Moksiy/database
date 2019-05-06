@@ -38,13 +38,13 @@ namespace ConsoleApp6
     public class Data
     {
         //Создание списка таблицы 1
-        static List<ElementsTab1> Tab1List = new List<ElementsTab1>(100);
+        public static List<ElementsTab1> Tab1List = new List<ElementsTab1>(100);
 
         //Создание списка таблицы 2
-        static List<ElementsTab2> Tab2List = new List<ElementsTab2>(100);
+        public static List<ElementsTab2> Tab2List = new List<ElementsTab2>(100);
 
         //Создание списка таблицы 3
-        static List<ElementsTab3> Tab3List = new List<ElementsTab3>(100);
+        public static List<ElementsTab3> Tab3List = new List<ElementsTab3>(100);
 
 
 

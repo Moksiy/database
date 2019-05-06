@@ -82,7 +82,7 @@ namespace ConsoleApp6
                             case 1:
                                 //Вызов метода меню добавления файла для ввода имени файла
                                 SearchFileMain();
-                                Main();
+                                //Main();
                                 break;
 
                             //Добавить элемент
@@ -2008,6 +2008,7 @@ namespace ConsoleApp6
                                     {
                                         data.Reader();
                                     }
+                                    Main();
                                     break;
                                 //Сохранение
                                 case 3:
@@ -2015,6 +2016,7 @@ namespace ConsoleApp6
                                     {
                                         data.Writer();
                                     }
+                                    Main();
                                     break;
                                 //Выход
                                 case 4:
