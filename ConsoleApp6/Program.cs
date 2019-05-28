@@ -29,7 +29,9 @@ namespace ConsoleApp6
 {
     public class Program
     {
-        //Метод для считывания клавиш в главном меню
+        /// <summary>
+        /// Метод для считывания клавиш в главном меню
+        /// </summary>
         public static void Main()
         {
             //Очистка консоли
@@ -174,7 +176,10 @@ namespace ConsoleApp6
 
         }
 
-        //Метод для считывания клавиш для подтверждения выхода из программы
+        /// <summary>
+        /// Метод для считывания клавиш для подтверждения выхода из программы
+        /// </summary>
+        /// <param name="e"></param>
         public static void ExitMenu(int e)
         {
             Consolebd consolebd = new Consolebd();
@@ -230,7 +235,9 @@ namespace ConsoleApp6
             } while (key.Key != ConsoleKey.Enter);
         }
 
-        //Метод для считывания клавиш в меню добавления элементов
+        /// <summary>
+        /// Метод для считывания клавиш в меню добавления элементов
+        /// </summary>
         public static void AddCar()
         {
 
@@ -354,7 +361,10 @@ namespace ConsoleApp6
 
         }
 
-        //Метод для считывания клавиш в меню выбора таблицы
+        /// <summary>
+        /// Метод для считывания клавиш в меню выбора таблицы
+        /// </summary>
+        /// <param name="c"></param>
         public static void Tables(int c)
         {
             //Создание экземпляра класса
@@ -424,7 +434,9 @@ namespace ConsoleApp6
             } while (key.Key != ConsoleKey.Enter);
         }
 
-        //Метод по выводу таблицы 1 таблицы улиц
+        /// <summary>
+        /// Метод по выводу таблицы 1 таблицы улиц
+        /// </summary>
         public static void OutputTabStr()
         {
             //Очистка консоли
@@ -533,7 +545,9 @@ namespace ConsoleApp6
             }
         }
 
-        //Метод по выводу таблицы 2 таблицы штрафных автостоянок
+        /// <summary>
+        /// Метод по выводу таблицы 2 таблицы штрафных автостоянок
+        /// </summary>
         public static void OutputTabPrk()
         {
             //Очистка консоли
@@ -642,7 +656,9 @@ namespace ConsoleApp6
             }
         }
 
-        //Метод по выводу таблицы 3 таблицы актов эвакуации
+        /// <summary>
+        /// Метод по выводу таблицы 3 таблицы актов эвакуации
+        /// </summary>
         public static void OutputTabAct()
         {
             //Создание экземпляра класса с данными
@@ -1953,7 +1969,9 @@ namespace ConsoleApp6
             }
         }
 
-        //Метод меню добавления файла
+        /// <summary>
+        /// Метод меню добавления файла
+        /// </summary>
         public static void SearchFileMain()
         {
             Consolebd consolebd = new Consolebd();
@@ -2030,7 +2048,9 @@ namespace ConsoleApp6
             }
         }
 
-        //Метод предупреждения в меню поиска файла
+        /// <summary>
+        /// Метод предупреждения в меню поиска файла
+        /// </summary>
         public static void AttentionSearchFile()
         {
             Consolebd consolebd = new Consolebd();
@@ -2056,7 +2076,9 @@ namespace ConsoleApp6
             } while (key.Key != ConsoleKey.Enter);
         }
 
-        //Метод меню редактирования элемента
+        /// <summary>
+        /// Метод меню редактирования элемента
+        /// </summary>
         public static void EditMenu()
         {
             //Очистка консоли
@@ -2147,7 +2169,9 @@ namespace ConsoleApp6
             } while (key.Key != ConsoleKey.Enter);
         }
 
-        //Метод меню удаления элемента
+        /// <summary>
+        /// Метод меню удаления элемента
+        /// </summary>
         public static void DeleteMenu()
         {
             //Очистка консоли
@@ -2263,7 +2287,9 @@ namespace ConsoleApp6
 
         }
 
-        //Метод меню добаваления улицы
+        /// <summary>
+        /// Метод меню добаваления улицы
+        /// </summary>
         public static void AddStreet()
         {
             //Переменные для считывания строки с клавиатуры, проверки, и далее передачи в список проверенной строки
@@ -2609,7 +2635,9 @@ namespace ConsoleApp6
             }
         }
 
-        //Метод меню добавления автостоянки
+        /// <summary>
+        /// Метод меню добавления автостоянки
+        /// </summary>
         public static void AddParking()
         {
             //Переменные для считывания строки с клавиатуры, проверки, и далее передачи в список проверенной строки
@@ -2991,7 +3019,9 @@ namespace ConsoleApp6
             }
         }
 
-        //Метод меню добавления акта эвакуации
+        /// <summary>
+        /// Метод меню добавления акта эвакуации
+        /// </summary>
         public static void AddAct()
         {
             //Переменные для считывания строки с клавиатуры, проверки, и далее передачи в список проверенной строки
@@ -4206,7 +4236,9 @@ namespace ConsoleApp6
 
         }
 
-        //Метод меню удаления улицы
+        /// <summary>
+        /// Метод меню удаления улицы
+        /// </summary>
         public static void DeleteStreet()
         {
             //Создание переменной для хранения номера выбранного пункта мпеню
@@ -4379,7 +4411,9 @@ namespace ConsoleApp6
             } while (key.Key != ConsoleKey.Enter);
         }
 
-        //Метод меню удаления автостоянки
+        /// <summary>
+        /// Метод меню удаления автостоянки
+        /// </summary>
         public static void DeleteParking()
         {
             //Очистка консоли
@@ -4550,7 +4584,9 @@ namespace ConsoleApp6
             } while (key.Key != ConsoleKey.Enter);
         }
 
-        //Метод меню удаления акта эвакуации
+        /// <summary>
+        /// Метод меню удаления акта эвакуации
+        /// </summary>
         public static void DeleteAct()
         {
             //Очистка консоли
@@ -4721,7 +4757,10 @@ namespace ConsoleApp6
             } while (key.Key != ConsoleKey.Enter);
         }
 
-        //Метод меню выбора типа нарушения
+        /// <summary>
+        /// Метод меню выбора типа нарушения
+        /// </summary>
+        /// <returns></returns>
         public static string ChoiseTypeVoilation()
         {
             //переменная для хранения типа нарушения
@@ -4815,7 +4854,10 @@ namespace ConsoleApp6
             return tpvio;
         }
 
-        //Метод меню выбора типа автомобиля
+        /// <summary>
+        /// Метод меню выбора типа автомобиля
+        /// </summary>
+        /// <returns></returns>
         public static string ChoiseTypeOfCar()
         {
             //Переменная для хранения типа автомобиля
@@ -4909,7 +4951,10 @@ namespace ConsoleApp6
             return cartp;
         }
 
-        //Метод меню выбора улицы из уже добавленных
+        /// <summary>
+        /// Метод меню выбора улицы из уже добавленных
+        /// </summary>
+        /// <returns></returns>
         public static int ChoiseStreet()
         {
             Data data = new Data();
@@ -5255,7 +5300,10 @@ namespace ConsoleApp6
             return index;
         }
 
-        //Метод меню выбора автостоянки из уже добавленных
+        /// <summary>
+        /// Метод меню выбора автостоянки из уже добавленных
+        /// </summary>
+        /// <returns></returns>
         public static int ChoiseParking()
         {
             //Переменная для хранения индекса элемента списка
@@ -5590,7 +5638,9 @@ namespace ConsoleApp6
             return index;
         }
 
-        //Метод меню редактирования элементов
+        /// <summary>
+        /// Метод меню редактирования элементов
+        /// </summary>
         public static void EditElementsMenu()
         {
             //Создание экземпляра класса с методами построения меню
@@ -5697,7 +5747,9 @@ namespace ConsoleApp6
             }
         }
 
-        //Метод меню редактирования улиц
+        /// <summary>
+        /// Метод меню редактирования улиц
+        /// </summary>
         public static void EditStreets()
         {
             //Создание экземпляра класса с данными
@@ -6337,7 +6389,10 @@ namespace ConsoleApp6
             }
         }
 
-        //метод редактирования улицы
+        /// <summary>
+        /// Метод редактирования улицы
+        /// </summary>
+        /// <param name="index"></param>
         public static void EditElementStreet(int index)
         {
             //Создание экземпляра класса с данными
@@ -6637,7 +6692,10 @@ namespace ConsoleApp6
             }
         }
 
-        //Метод редактирования автостоянки
+        /// <summary>
+        /// Метод редактирования автостоянки
+        /// </summary>
+        /// <param name="index"></param>
         public static void EditElementParking(int index)
         {
             //Создание экземпляра класса с данными
@@ -6979,7 +7037,10 @@ namespace ConsoleApp6
             }
         }
 
-        //Метод редактирования акта эвакуации
+        /// <summary>
+        /// Метод редактирования акта эвакуации
+        /// </summary>
+        /// <param name="index"></param>
         public static void EditElementAct(int index)
         {
             //Создание экземпляра класса с данными
@@ -7446,7 +7507,9 @@ namespace ConsoleApp6
             }
         }
 
-        //Метод меню редактирования автостоянок
+        /// <summary>
+        /// Метод меню редактирования автостоянок
+        /// </summary>
         public static void EditParkings()
         {
             //Создание экземпляра класса с данными
@@ -8082,7 +8145,9 @@ namespace ConsoleApp6
             }
         }
 
-        //Метод меню редактирования актов эвакуации
+        /// <summary>
+        /// Метод меню редактирования актов эвакуации
+        /// </summary>
         public static void EditActs()
         {
             //Создание экземпляра класса с данными
@@ -8720,7 +8785,9 @@ namespace ConsoleApp6
             }
         }
 
-        //Сортировка
+        /// <summary>
+        /// Сортировка
+        /// </summary>
         public static void SortElements()
         {
             Consolebd consolebd = new Consolebd();
@@ -8775,7 +8842,9 @@ namespace ConsoleApp6
 
         }
 
-        //Сортировка улиц
+        /// <summary>
+        /// Сортировка улиц
+        /// </summary>
         public static void SortStreets()
         {
             Consolebd consolebd = new Consolebd();
@@ -8842,7 +8911,9 @@ namespace ConsoleApp6
             } while (key.Key != ConsoleKey.Enter);
         }
 
-        //Сортировка автостоянок
+        /// <summary>
+        /// Сортировка автостоянок
+        /// </summary>
         public static void SortParkings()
         {
             Consolebd consolebd = new Consolebd();
@@ -8909,7 +8980,9 @@ namespace ConsoleApp6
             } while (key.Key != ConsoleKey.Enter);
         }
 
-        //Сортировка актов эвакуаций
+        /// <summary>
+        /// Сортировка актов эвакуаций
+        /// </summary>
         public static void SortActs()
         {
             Consolebd consolebd = new Consolebd();
@@ -8976,7 +9049,9 @@ namespace ConsoleApp6
             } while (key.Key != ConsoleKey.Enter);
         }
 
-        //Главное меню поиска
+        /// <summary>
+        /// Главное меню поиска
+        /// </summary>
         public static void SearchElements()
         {
             Consolebd consolebd = new Consolebd();
@@ -9031,7 +9106,9 @@ namespace ConsoleApp6
 
         }
 
-        //Поиск улиц
+        /// <summary>
+        /// Поиск улиц
+        /// </summary>
         public static void SearchStreets()
         {
             Consolebd consolebd = new Consolebd();
@@ -9091,7 +9168,9 @@ namespace ConsoleApp6
             }
         }
 
-        //Поиск автостоянок
+        /// <summary>
+        /// Поиск автостоянок
+        /// </summary>
         public static void SearchParkings()
         {
             Consolebd consolebd = new Consolebd();
@@ -9151,7 +9230,9 @@ namespace ConsoleApp6
             }
         }
 
-        //Поиск актов эвакуаций
+        /// <summary>
+        /// Поиск актов эвакуаций
+        /// </summary>
         public static void SearchActs()
         {
             Consolebd consolebd = new Consolebd();
