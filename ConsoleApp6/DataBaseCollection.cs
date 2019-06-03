@@ -531,7 +531,7 @@ namespace ConsoleApp6
             {
                 for (int j = i + 1; j < n + 1; j++)
                 {
-                    if (int.Parse(Tab2List[j].StreetLength) < int.Parse(Tab2List[i].StreetLength))
+                    if (double.Parse(Tab2List[j].StreetLength) < double.Parse(Tab2List[i].StreetLength))
                     {
                         ElementsTab2 p = Tab2List[i];
                         Tab2List[i] = Tab2List[j];
@@ -549,7 +549,7 @@ namespace ConsoleApp6
             {
                 for (int j = i + 1; j < n + 1; j++)
                 {
-                    if (int.Parse(Tab2List[j].StreetLength) > int.Parse(Tab2List[i].StreetLength))
+                    if (double.Parse(Tab2List[j].StreetLength) > double.Parse(Tab2List[i].StreetLength))
                     {
                         ElementsTab2 p = Tab2List[i];
                         Tab2List[i] = Tab2List[j];
