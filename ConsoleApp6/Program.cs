@@ -4385,8 +4385,6 @@ namespace ConsoleApp6
 
                                 //Вызов метода удаления
                                 DeleteStreetsSearch();
-
-                                DeleteMenu();
                                 break;
 
                             //Выход в главное меню
