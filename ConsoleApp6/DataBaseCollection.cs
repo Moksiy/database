@@ -305,14 +305,14 @@ namespace ConsoleApp6
         {
             foreach (var Tab1 in Tab1List)
             {
-                if (Tab1.Street.StreetName == Tab2List[i].StreetName)
+                if (Tab1.Street.StreetName == Tab2List[i-1].StreetName)
                 {
                     Tab1.Street.StreetName = " ";
                     Tab1.Street.StreetLength = " ";
                     Tab1.LinkStreet = -1;
                 }
             }
-            Tab2List.RemoveAt(i);
+            Tab2List.RemoveAt(i-1);
 
         }
 

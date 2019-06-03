@@ -1628,7 +1628,7 @@ namespace ConsoleApp6
             Console.WriteLine("╟" + new string('─', 3) + "╨" + new string('─', 20) + "╥" + new string('─', 31) + "╨" + new string('─', 36) + "╥" + new string('─', 7) + "╥" + new string('─', 7) + "╢");
             Console.Write("║ ");
             if (j == 21) { Console.BackgroundColor = ConsoleColor.DarkRed; }
-            Console.Write("  Меню редактирования ");
+            Console.Write("     Назад в меню     ");
             Console.ResetColor();
             Console.Write(" ║");
             Console.Write(new string(' ', 67));
@@ -1685,7 +1685,7 @@ namespace ConsoleApp6
             Console.WriteLine("╟" + new string('─', 3) + "╨" + new string('─', 20) + "╥" + new string('─', 11) + "╨" + new string('─', 52) + "╨" + new string('─', 8) + "╥" + new string('─', 7) + "╥" + new string('─', 7) + "╢");
             Console.Write("║ ");
             if (j == 21) { Console.BackgroundColor = ConsoleColor.DarkRed; }
-            Console.Write("  Меню редактирования ");
+            Console.Write("     Назад в меню     ");
             Console.ResetColor();
             Console.Write(" ║");
             Console.Write(new string(' ', 72));
@@ -1896,7 +1896,7 @@ namespace ConsoleApp6
             Console.WriteLine("╟" + new string('─', 3) + "╨" + new string('─', 20) + "╥" + new string('─', 31) + "╨" + new string('─', 52) + "╨" + new string('─', 32) + "╨" + new string('─', 43) + "╨" + new string('─', 12) + "╨" + new string('─', 14) + "╥" + new string('─', 7) + "╥" + new string('─', 7) + "╢");
             Console.Write("║ ");
             if (j == 21) { Console.BackgroundColor = ConsoleColor.DarkRed; }
-            Console.Write("  Меню редактирования ");
+            Console.Write("     Назад в меню     ");
             Console.ResetColor();
             Console.Write(" ║");
             Console.Write(new string(' ', 188));
