@@ -2083,7 +2083,7 @@ namespace ConsoleApp6
         }
 
         //Метод построения меню поиска улиц
-        public void SearchStreets(int j, string search)
+        public void SearchStreets(int j, string search, int num)
         {
             Console.WriteLine("╓" + new string('─', 109) + "╖");
             Console.WriteLine("║" + new string(' ', 35) + "                Поиск улиц            " + new string(' ', 36) + "║");
@@ -2092,18 +2092,26 @@ namespace ConsoleApp6
             int p = 100 - search.Length;
             Console.Write("Ввод: " + search + new string(' ', p));
             Console.ResetColor();  Console.WriteLine(" ║");
-            data.SearchStreet(search);
+            data.SearchStreet(search, num);
             Console.WriteLine("╟" + new string('─', 3) + "─" + new string('─', 20) + "─" + new string('─', 31) + "╨" + new string('─', 36) + "─" + new string('─', 7) + "─" + new string('─', 7) + "╢");
             Console.Write("║ ");
             if (j == 2) { Console.BackgroundColor = ConsoleColor.DarkRed; }
-            Console.Write(new string(' ',11) + BackBig + new string(' ', 8));
+            Console.Write("  Назад в меню  ");
+            Console.ResetColor();
+            Console.Write(new string(' ', 69));
+            if (j == 20) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(" Назад ");
+            Console.ResetColor();
+            Console.Write(new string(' ',8));
+            if (j == 200) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(" Далее ");
             Console.ResetColor();
             Console.WriteLine(" ║");
             Console.WriteLine("╙" + new string('─', 109) + "╜");
         }
 
         //Метод построения меню поиска автостоянок
-        public void SearchParkings(int j, string search)
+        public void SearchParkings(int j, string search, int num)
         {
             Console.WriteLine("╓" + new string('─', 110) + "╖");
             Console.WriteLine("║" + new string(' ', 36) + "            Поиск автостоянок         " + new string(' ', 36) + "║");
@@ -2112,13 +2120,21 @@ namespace ConsoleApp6
             int p = 101 - search.Length;
             Console.Write("Ввод: " + search + new string(' ', p));
             Console.ResetColor(); Console.WriteLine(" ║");
-            data.SearchParking(search);
+            data.SearchParking(search, num);
             Console.WriteLine("║" + new string('─', 32) + "╨" + new string('─', 52) + "╨" + new string('─', 24) + "╢");
             Console.Write("║ ");
             if (j == 2) { Console.BackgroundColor = ConsoleColor.DarkRed; }
-            Console.Write(new string(' ', 11) + BackBig + new string(' ', 9));
+            Console.Write("  Назад в меню  ");
             Console.ResetColor();
-            Console.WriteLine(" ║");
+            Console.Write(new string(' ', 69));
+            if (j == 20) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(" Назад ");
+            Console.ResetColor();
+            Console.Write(new string(' ', 8));
+            if (j == 200) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(" Далее ");
+            Console.ResetColor();
+            Console.WriteLine("  ║");
             Console.WriteLine("╙" + new string('─', 110) + "╜");
 
         }

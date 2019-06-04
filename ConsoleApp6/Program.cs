@@ -142,7 +142,7 @@ namespace ConsoleApp6
                             case 7:
                                 //Очистка консоли
                                 Console.Clear();
-                                consolebd.SearchFileMenu(1, "123");
+                                //consolebd.SearchStreets(200, "123");
                                 //TEST
                                 //data.Writer("Text.txt");
                                 //data.Reader("Text.txt");
@@ -9102,10 +9102,11 @@ namespace ConsoleApp6
         /// </summary>
         public static void SearchStreets()
         {
+            int num = 0;
             Consolebd consolebd = new Consolebd();
             int j = 1;
             Console.Clear();
-            consolebd.SearchStreets(1, "                           ");
+            consolebd.SearchStreets(1, "              ", num);
             ConsoleKeyInfo key;
             string street = "                          ";
             SearchStreetMain();
@@ -9114,42 +9115,58 @@ namespace ConsoleApp6
                 do
                 {
                     Console.Clear();
-                    consolebd.SearchStreets(j, street);
+                    consolebd.SearchStreets(j, street,num);
                     key = Console.ReadKey(true);
-                    if (key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow)
+                    if (key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow || key.Key == ConsoleKey.LeftArrow || key.Key == ConsoleKey.RightArrow)
                     {
                         Console.Clear();
                         switch (key.Key)
                         {
                             case ConsoleKey.UpArrow:
-                                j--;
-                                if (j < 1) { j = 2; }
-                                if (j > 2) { j = 1; }
+                                if (j==1) { j = 2; } else if (j == 20) { j = 1; } else if (j==200) { j = 1; } else if (j == 2) { j = 1; }
                                 break;
                             case ConsoleKey.DownArrow:
-                                j++;
-                                if (j < 1) { j = 2; }
-                                if (j > 2) { j = 1; }
+                                if (j == 1) { j = 2; } else
+                                if (j == 2) { j = 1; } else if (j == 20) { j = 1; } else if (j == 200) { j = 1; }
+                                break;
+                            case ConsoleKey.LeftArrow:
+                                if (j == 2) { j = 200; } else if (j == 20) { j = 2; } else if (j == 200) { j = 20; }
+                                break;
+                            case ConsoleKey.RightArrow:
+                                if (j == 2) { j = 20; } else if (j == 20) { j = 200; } else if (j == 200) { j = 2; }
                                 break;
                         }
-                        consolebd.SearchStreets(j, street);
+                        consolebd.SearchStreets(j, street,num);
                         if (key.Key == ConsoleKey.Enter)
                         {
                             switch (j)
                             {
                                 case 1:
                                     Console.Clear();
-                                    consolebd.SearchStreets(0, street);
+                                    street = "               ";
+                                    consolebd.SearchStreets(0, street,num);
                                     Console.SetCursorPosition(9, 3);
                                     street = Console.ReadLine();
                                     street.Trim();
-                                    if (street == "") { Console.Clear(); consolebd.Attention(); }
+                                    if (street == "") { Console.Clear(); consolebd.Attention(); /*street = "               ";*/ }
                                     Console.Clear();
                                     SearchStreetMain();
                                     break;
 
                                 case 2:
                                     SearchElements();
+                                    break;
+
+                                case 20:
+                                    num -= 20;
+                                    if (num > 101) { num = 1; } else if (num < 0) { num = 81; }
+                                    SearchStreetMain();
+                                    break;
+
+                                case 200:
+                                    num += 20;
+                                    if (num > 81) { num = 1; } else if (num < 0) { num = 81; }
+                                    SearchStreetMain();
                                     break;
                             }
                         }
@@ -9166,8 +9183,9 @@ namespace ConsoleApp6
         {
             Consolebd consolebd = new Consolebd();
             int j = 1;
+            int num = 1;
             Console.Clear();
-            consolebd.SearchParkings(1, "                           ");
+            consolebd.SearchParkings(1, "                           ", num);
             ConsoleKeyInfo key;
             string parking = "                          ";
             SearchParkingMain();
@@ -9176,42 +9194,59 @@ namespace ConsoleApp6
                 do
                 {
                     Console.Clear();
-                    consolebd.SearchParkings(j, parking);
+                    consolebd.SearchParkings(j, parking, num);
                     key = Console.ReadKey(true);
-                    if (key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow)
+                    if (key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow || key.Key == ConsoleKey.LeftArrow || key.Key == ConsoleKey.RightArrow)
                     {
                         Console.Clear();
                         switch (key.Key)
                         {
                             case ConsoleKey.UpArrow:
-                                j--;
-                                if (j < 1) { j = 2; }
-                                if (j > 2) { j = 1; }
+                                if (j == 1) { j = 2; } else if (j == 20) { j = 1; } else if (j == 200) { j = 1; } else if (j == 2) { j = 1; }
                                 break;
                             case ConsoleKey.DownArrow:
-                                j++;
-                                if (j < 1) { j = 2; }
-                                if (j > 2) { j = 1; }
+                                if (j == 1) { j = 2; }
+                                else
+                                if (j == 2) { j = 1; } else if (j == 20) { j = 1; } else if (j == 200) { j = 1; }
+                                break;
+                            case ConsoleKey.LeftArrow:
+                                if (j == 2) { j = 200; } else if (j == 20) { j = 2; } else if (j == 200) { j = 20; }
+                                break;
+                            case ConsoleKey.RightArrow:
+                                if (j == 2) { j = 20; } else if (j == 20) { j = 200; } else if (j == 200) { j = 2; }
                                 break;
                         }
-                        consolebd.SearchParkings(j, parking);
+                        consolebd.SearchParkings(j, parking, num);
                         if (key.Key == ConsoleKey.Enter)
                         {
                             switch (j)
                             {
                                 case 1:
+                                    parking = "                 ";
                                     Console.Clear();
-                                    consolebd.SearchParkings(0, parking);
+                                    consolebd.SearchParkings(0, parking, num);
                                     Console.SetCursorPosition(9, 3);
                                     parking = Console.ReadLine();
                                     parking.Trim();
-                                    if (parking == "") { Console.Clear(); consolebd.Attention(); }
+                                    if (parking == "") { Console.Clear(); consolebd.Attention(); parking = "              "; }
                                     Console.Clear();
                                     SearchParkingMain();
                                     break;
 
                                 case 2:
                                     SearchElements();
+                                    break;
+
+                                case 20:
+                                    num -= 20;
+                                    if (num > 101) { num = 1; } else if (num < 0) { num = 81; }
+                                    SearchParkingMain();
+                                    break;
+
+                                case 200:
+                                    num += 20;
+                                    if (num > 81) { num = 1; } else if (num < 0) { num = 81; }
+                                    SearchParkingMain();
                                     break;
                             }
                         }
@@ -9274,6 +9309,9 @@ namespace ConsoleApp6
 
                                 case 2:
                                     SearchElements();
+                                    break;
+
+                                case 20:
                                     break;
                             }
                         }

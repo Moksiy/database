@@ -705,43 +705,62 @@ namespace ConsoleApp6
         }
 
         //Метод поиска улицы
-        public void SearchStreet(string streetname)
+        public void SearchStreet(string streetname, int num)
         {
+            Data data = new Data();
+            List<ElementsTab2> streets = new List<ElementsTab2>();
+            foreach (var st in Tab2List)
+            {
+                if (st.StreetName.Contains(streetname) || st.StreetLength.Contains(streetname))
+                {
+                    streets.Add(st);
+                }
+            }
             int p = 0;
             Console.WriteLine("║" + new string('─', 3) + "─" + new string('─', 52) + "╥" + new string('─', 52) + "║");
             Console.WriteLine("║" + "   " + " " + new string(' ', 19) + "Название улицы" + new string(' ', 19) + "║" + new string(' ', 21) + "Длина улицы" + new string(' ', 20) + "║");
             Console.WriteLine("╟" + new string('─', 3) + "─" + new string('─', 52) + "╫" + new string('─', 52) + "╢");
-            foreach (var street in Tab2List)
+            for (int i = num; i < num+20; i++)
             {
-                if (street.StreetName.Contains(streetname))
+                if (streets.Count() > i)
                 {
-                    p = 55 - street.StreetName.Length;
-                    Console.Write("║ " + street.StreetName + new string(' ', p) + "║ ");
-                    p = 51 - street.StreetLength.Length;
-                    Console.Write(street.StreetLength + new string(' ', p));
+                    p = 55 - streets[i].StreetName.Length;
+                    Console.Write("║ " + streets[i].StreetName + new string(' ', p) + "║ ");
+                    p = 51 - streets[i].StreetLength.Length;
+                    Console.Write(streets[i].StreetLength + new string(' ', p));
                     Console.WriteLine("║");
                     Console.WriteLine("╟" + "────" + new string('─', 52) + "╫" + new string('─', 52) + "╢");
                 }
             }
+
         }
 
         //Метод поиска автостоянки
-        public void SearchParking(string parkingname)
+        public void SearchParking(string parkingname, int num)
         {
+            Data data = new Data();
+            List<ElementsTab3> parkings = new List<ElementsTab3>();
+            foreach (var pr in Tab3List)
+            {
+                if (pr.ParkingName.Contains(parkingname) || pr.ParkingAdress.Contains(parkingname) || pr.ParkingNumber.Contains(parkingname))
+                {
+                    parkings.Add(pr);
+                }
+            }
             int p = 0;
             Console.WriteLine("║" + new string('─', 32) + "╥" + new string('─', 52) + "╥" + new string('─', 24) + "║");
             Console.WriteLine("║" + new string(' ', 6) + "Название автостоянки" + new string(' ', 6) + "║" + new string(' ', 18) + "Адрес автостоянки" + new string(' ', 17) + "║" + new string(' ', 2) + "Телефон автостоянки" + new string(' ', 3) + "║");
             Console.WriteLine("║" + new string('─', 32) + "╫" + new string('─', 52) + "╫" + new string('─', 24) + "╢");
-            foreach (var parking in Tab3List)
+            for (int i = num; i < num + 20; i++)
             {
-                if (parking.ParkingName.Contains(parkingname) || parking.ParkingAdress.Contains(parkingname))
+                if (parkings.Count() > i)
                 {
-                    p = 31 - parking.ParkingName.Length;
-                    Console.Write("║ " + parking.ParkingName + new string(' ', p) + "║ ");
-                    p = 51 - parking.ParkingAdress.Length;
-                    Console.Write(parking.ParkingAdress + new string(' ', p) + "║ ");
-                    p = 23 - parking.ParkingNumber.Length;
-                    Console.Write(parking.ParkingNumber + new string(' ', p));
+                    p = 31 - parkings[i].ParkingName.Length;
+                    Console.Write("║ " + parkings[i].ParkingName + new string(' ', p) + "║ ");
+                    p = 51 - parkings[i].ParkingAdress.Length;
+                    Console.Write(parkings[i].ParkingAdress + new string(' ', p) + "║ ");
+                    p = 23 - parkings[i].ParkingNumber.Length;
+                    Console.Write(parkings[i].ParkingNumber + new string(' ', p));
                     Console.WriteLine("║");
                     Console.WriteLine("║" + new string('─', 32) + "╫" + new string('─', 52) + "╫" + new string('─', 24) + "╢");
                 }
