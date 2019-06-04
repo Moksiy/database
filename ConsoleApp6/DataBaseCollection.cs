@@ -49,7 +49,7 @@ namespace ConsoleApp6
 
 
         //Поле имени файла
-        private static string filename = " "; 
+        private static string filename = " ";
 
         //Свойство поля имени файла
         public string FileName
@@ -305,14 +305,14 @@ namespace ConsoleApp6
         {
             foreach (var Tab1 in Tab1List)
             {
-                if (Tab1.Street.StreetName == Tab2List[i-1].StreetName)
+                if (Tab1.Street.StreetName == Tab2List[i - 1].StreetName)
                 {
                     Tab1.Street.StreetName = " ";
                     Tab1.Street.StreetLength = " ";
                     Tab1.LinkStreet = -1;
                 }
             }
-            Tab2List.RemoveAt(i-1);
+            Tab2List.RemoveAt(i - 1);
 
         }
 
@@ -813,13 +813,14 @@ namespace ConsoleApp6
         //Чтение с файла
         public void Reader()
         {
+            Consolebd consolebd = new Consolebd();
             Data data = new Data();
             //Очистка списков
             this.ClearTab1();
             this.ClearTab2();
             this.ClearTab3();
-            //StreamReader reader = File.OpenText(filename);
-            StreamReader reader = File.OpenText(data.FileName);
+            StreamReader reader;
+            reader = File.OpenText(data.FileName);
             string input;
             while ((input = reader.ReadLine()) != null && input != "||||||||||||||||||||||||||||||||||||||||||||||||||")
             {
@@ -849,7 +850,7 @@ namespace ConsoleApp6
                 Tab1List[Tab1List.Count - 1].CarType = input;
                 input = reader.ReadLine();
                 Tab1List[Tab1List.Count - 1].LinkStreet = Convert.ToInt32(input);
-                Tab1List[Tab1List.Count - 1].Street = Tab2List[Convert.ToInt32(input)];                
+                Tab1List[Tab1List.Count - 1].Street = Tab2List[Convert.ToInt32(input)];
                 input = reader.ReadLine();
                 Tab1List[Tab1List.Count - 1].LinkParking = Convert.ToInt32(input);
                 Tab1List[Tab1List.Count - 1].Parking = Tab3List[Convert.ToInt32(input)];
