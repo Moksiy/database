@@ -753,14 +753,14 @@ namespace ConsoleApp6
             Console.WriteLine("║" + new string('─', 32) + "╫" + new string('─', 52) + "╫" + new string('─', 24) + "╢");
             for (int i = num; i < num + 20; i++)
             {
-                if (parkings.Count() > i)
+                if (parkings.Count() >= i)
                 {
-                    p = 31 - parkings[i].ParkingName.Length;
-                    Console.Write("║ " + parkings[i].ParkingName + new string(' ', p) + "║ ");
-                    p = 51 - parkings[i].ParkingAdress.Length;
-                    Console.Write(parkings[i].ParkingAdress + new string(' ', p) + "║ ");
-                    p = 23 - parkings[i].ParkingNumber.Length;
-                    Console.Write(parkings[i].ParkingNumber + new string(' ', p));
+                    p = 31 - parkings[i-1].ParkingName.Length;
+                    Console.Write("║ " + parkings[i-1].ParkingName + new string(' ', p) + "║ ");
+                    p = 51 - parkings[i-1].ParkingAdress.Length;
+                    Console.Write(parkings[i-1].ParkingAdress + new string(' ', p) + "║ ");
+                    p = 23 - parkings[i-1].ParkingNumber.Length;
+                    Console.Write(parkings[i-1].ParkingNumber + new string(' ', p));
                     Console.WriteLine("║");
                     Console.WriteLine("║" + new string('─', 32) + "╫" + new string('─', 52) + "╫" + new string('─', 24) + "╢");
                 }
@@ -768,28 +768,37 @@ namespace ConsoleApp6
         }
 
         //Метод поиска актов эвакуации
-        public void SearchAct(string actname)
+        public void SearchAct(string actname, int num)
         {
+            Data data = new Data();
+            List<ElementsTab1> acts = new List<ElementsTab1>();
+            foreach (var act in Tab1List)
+            {
+                if (act.CarNumber.Contains(actname) || act.CarType.Contains(actname) || act.GPS.Contains(actname) || act.Parking.ParkingName.Contains(actname) || act.Parking.ParkingAdress.Contains(actname) || act.Parking.ParkingNumber.Contains(actname) || act.Street.StreetName.Contains(actname) || act.Street.StreetLength.Contains(actname) || act.TypeViolation.Contains(actname))
+                {
+                    acts.Add(act);
+                }
+            }
             int p = 0;
             Console.WriteLine("╟" + new string('─', 52) + "╥" + new string('─', 52) + "╥" + new string('─', 32) + "╥" + new string('─', 43) + "╥" + new string('─', 12) + "╥" + new string('─', 30) + "╢");
             Console.WriteLine("║" + new string(' ', 23) + "Улица" + new string(' ', 24) + "║" + new string(' ', 20) + "Автостоянка" + new string(' ', 21) + "║" + new string(' ', 9) + "GPS-координаты" + new string(' ', 9) + "║" + new string(' ', 15) + "Тип нарушения" + new string(' ', 15) + "║" + new string(' ', 0) + "Номер машины" + new string(' ', 0) + "║" + new string(' ', 8) + "Тип автомобиля" + new string(' ', 8) + "║");
             Console.WriteLine("╟" + new string('─', 52) + "╫" + new string('─', 52) + "╫" + new string('─', 32) + "╫" + new string('─', 43) + "╫" + new string('─', 12) + "╫" + new string('─', 30) + "╢");
-            foreach (var act in Tab1List)
+            for (int i = num; i < num + 20; i++)
             {
-                if (act.Street.StreetName.Contains(actname) || act.Parking.ParkingName.Contains(actname) || act.GPS.Contains(actname))
+                if (acts.Count() >= i)
                 {
-                    p = 51 - act.Street.StreetName.Length;
-                    Console.Write("║ " + act.Street.StreetName + new string(' ', p) + "║ ");
-                    p = 51 - act.Parking.ParkingName.Length;
-                    Console.Write(act.Parking.ParkingName + new string(' ', p) + "║ ");
-                    p = 31 - act.GPS.Length;
-                    Console.Write(act.GPS + new string(' ', p) + "║ ");
-                    p = 42 - act.TypeViolation.Length;
-                    Console.Write(act.TypeViolation + new string(' ', p) + "║ ");
-                    p = 11 - act.CarNumber.Length;
-                    Console.Write(act.CarNumber + new string(' ', p) + "║ ");
-                    p = 29 - act.CarType.Length;
-                    Console.WriteLine(act.CarType + new string(' ', p) + "║");
+                    p = 51 - acts[i - 1].Street.StreetName.Length;
+                    Console.Write("║ " + acts[i - 1].Street.StreetName + new string(' ', p) + "║ ");
+                    p = 51 - acts[i - 1].Parking.ParkingName.Length;
+                    Console.Write(acts[i - 1].Parking.ParkingName + new string(' ', p) + "║ ");
+                    p = 31 - acts[i - 1].GPS.Length;
+                    Console.Write(acts[i - 1].GPS + new string(' ', p) + "║ ");
+                    p = 42 - acts[i - 1].TypeViolation.Length;
+                    Console.Write(acts[i - 1].TypeViolation + new string(' ', p) + "║ ");
+                    p = 11 - acts[i - 1].CarNumber.Length;
+                    Console.Write(acts[i - 1].CarNumber + new string(' ', p) + "║ ");
+                    p = 29 - acts[i - 1].CarType.Length;
+                    Console.WriteLine(acts[i - 1].CarType + new string(' ', p) + "║");
                     Console.WriteLine("╟" + new string('─', 52) + "╫" + new string('─', 52) + "╫" + new string('─', 32) + "╫" + new string('─', 43) + "╫" + new string('─', 12) + "╫" + new string('─', 30) + "╢");
                 }
             }

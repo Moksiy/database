@@ -142,10 +142,7 @@ namespace ConsoleApp6
                             case 7:
                                 //Очистка консоли
                                 Console.Clear();
-                                //consolebd.SearchStreets(200, "123");
-                                //TEST
-                                //data.Writer("Text.txt");
-                                //data.Reader("Text.txt");
+                                consolebd.SearchActs(21,"");
                                 Console.ReadKey();
                                 Main();
                                 break;
@@ -5804,14 +5801,20 @@ namespace ConsoleApp6
                         {
                             //UPARROW
                             case ConsoleKey.UpArrow:
-                                if (j == 21) { j = 20; } else if (j == 2100) { j = 20; }else if (j==210000) { j = 20; } else
-                                { j--;  if (j < 1) { j = 21; } }
+                                if (j == 21) { j = 20; }
+                                else if (j == 2100) { j = 20; }
+                                else if (j == 210000) { j = 20; }
+                                else
+                                { j--; if (j < 1) { j = 21; } }
 
                                 break;
 
                             //DOWNARROW
                             case ConsoleKey.DownArrow:
-                                if (j <= 0) { j = 1; } else if (j == 2100) { j = 1; } else if (j == 210000) { j = 1; } else
+                                if (j <= 0) { j = 1; }
+                                else if (j == 2100) { j = 1; }
+                                else if (j == 210000) { j = 1; }
+                                else
                                 { j++; if (j > 21) { j = 1; } }
                                 break;
 
@@ -5823,7 +5826,7 @@ namespace ConsoleApp6
                                     if (j == 210000) { j = 2100; }
                                     else
                                     {
-                                        if (j == 2100) { j = 21; } 
+                                        if (j == 2100) { j = 21; }
                                     }
                                 }
 
@@ -5835,7 +5838,7 @@ namespace ConsoleApp6
                                 else if (j == 210000) { j = 21; }
                                 else
                                 if (j == 2100) { j = 210000; }
-                               
+
                                 break;
                         }
 
@@ -9115,7 +9118,7 @@ namespace ConsoleApp6
                 do
                 {
                     Console.Clear();
-                    consolebd.SearchStreets(j, street,num);
+                    consolebd.SearchStreets(j, street, num);
                     key = Console.ReadKey(true);
                     if (key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow || key.Key == ConsoleKey.LeftArrow || key.Key == ConsoleKey.RightArrow)
                     {
@@ -9123,10 +9126,11 @@ namespace ConsoleApp6
                         switch (key.Key)
                         {
                             case ConsoleKey.UpArrow:
-                                if (j==1) { j = 2; } else if (j == 20) { j = 1; } else if (j==200) { j = 1; } else if (j == 2) { j = 1; }
+                                if (j == 1) { j = 2; } else if (j == 20) { j = 1; } else if (j == 200) { j = 1; } else if (j == 2) { j = 1; }
                                 break;
                             case ConsoleKey.DownArrow:
-                                if (j == 1) { j = 2; } else
+                                if (j == 1) { j = 2; }
+                                else
                                 if (j == 2) { j = 1; } else if (j == 20) { j = 1; } else if (j == 200) { j = 1; }
                                 break;
                             case ConsoleKey.LeftArrow:
@@ -9136,7 +9140,7 @@ namespace ConsoleApp6
                                 if (j == 2) { j = 20; } else if (j == 20) { j = 200; } else if (j == 200) { j = 2; }
                                 break;
                         }
-                        consolebd.SearchStreets(j, street,num);
+                        consolebd.SearchStreets(j, street, num);
                         if (key.Key == ConsoleKey.Enter)
                         {
                             switch (j)
@@ -9144,7 +9148,7 @@ namespace ConsoleApp6
                                 case 1:
                                     Console.Clear();
                                     street = "               ";
-                                    consolebd.SearchStreets(0, street,num);
+                                    consolebd.SearchStreets(0, street, num);
                                     Console.SetCursorPosition(9, 3);
                                     street = Console.ReadLine();
                                     street.Trim();
@@ -9263,6 +9267,7 @@ namespace ConsoleApp6
         {
             Consolebd consolebd = new Consolebd();
             int j = 1;
+            int num = 1;
             Console.Clear();
             consolebd.SearchActs(1, "                           ");
             ConsoleKeyInfo key;
@@ -9275,20 +9280,53 @@ namespace ConsoleApp6
                     Console.Clear();
                     consolebd.SearchActs(j, act);
                     key = Console.ReadKey(true);
-                    if (key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow)
+                    if (key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow || key.Key == ConsoleKey.LeftArrow || key.Key == ConsoleKey.RightArrow)
                     {
                         Console.Clear();
                         switch (key.Key)
                         {
+                            //UPARROW
                             case ConsoleKey.UpArrow:
-                                j--;
-                                if (j < 1) { j = 2; }
-                                if (j > 2) { j = 1; }
+                                if (j <= 21) { j--; if (j < 0) { j = 21; } if (j > 21) { j = 0; } }
+                                if (j > 21 && j <= 2100) { j -= 100; if (j < 100) { j = 2100; } if (j > 2100) { j = 100; } }
                                 break;
+
+                            //DOWNARROW
                             case ConsoleKey.DownArrow:
-                                j++;
-                                if (j < 1) { j = 2; }
-                                if (j > 2) { j = 1; }
+                                if (j <= 21) { j++; if (j < 0) { j = 21; } if (j > 21) { j = 0; } }
+                                if (j > 21 && j <= 2100) { j += 100; if (j < 100) { j = 2100; } if (j > 2100) { j = 100; } }
+                                break;
+
+                            //LEFTARROW
+                            case ConsoleKey.LeftArrow:
+                                if (j == 21) { j = 210000; }
+                                else
+                                {
+                                    if (j == 210000) { j = 2100; }
+                                    else
+                                    {
+                                        if (j <= 20) { j *= 100; }
+                                        else { j /= 100; }
+                                    }
+                                }
+
+                                break;
+
+                            //RIGHTARROW
+                            case ConsoleKey.RightArrow:
+                                if (j == 21) { j = 2100; }
+                                else if (j == 210000) { j = 21; }
+                                else
+     if (j == 2100) { j = 210000; }
+                                else
+                                {
+                                    if (j == 210000) { j = 21; }
+                                    else
+                                    {
+                                        if (j <= 20) { j *= 100; }
+                                        else { j /= 100; }
+                                    }
+                                }
                                 break;
                         }
                         consolebd.SearchActs(j, act);
@@ -9296,22 +9334,73 @@ namespace ConsoleApp6
                         {
                             switch (j)
                             {
-                                case 1:
+                                case 0:
                                     Console.Clear();
                                     consolebd.SearchActs(0, act);
                                     Console.SetCursorPosition(9, 3);
                                     act = Console.ReadLine();
                                     act.Trim();
-                                    if (act == "") { Console.Clear(); consolebd.Attention(); }
+                                    if (act == "") { Console.Clear(); consolebd.Attention(); /*     */}
                                     Console.Clear();
                                     SearchActsMain();
                                     break;
 
+                                case 1:
                                 case 2:
+                                case 3:
+                                case 4:
+                                case 5:
+                                case 6:
+                                case 7:
+                                case 8:
+                                case 9:
+                                case 10:
+                                case 11:
+                                case 12:
+                                case 13:
+                                case 14:
+                                case 15:
+                                case 16:
+                                case 17:
+                                case 18:
+                                case 19:
+                                case 20:
                                     SearchElements();
                                     break;
 
-                                case 20:
+                                case 21:
+                                    SearchElements();
+                                    break;
+
+                                case 100:
+                                case 200:
+                                case 300:
+                                case 400:
+                                case 500:
+                                case 600:
+                                case 700:
+                                case 800:
+                                case 900:
+                                case 1000:
+                                case 1100:
+                                case 1200:
+                                case 1300:
+                                case 1400:
+                                case 1500:
+                                case 1600:
+                                case 1700:
+                                case 1800:
+                                case 1900:
+                                case 2000:
+                                case 2100:
+                                    num -= 20;
+                                    if (num < 1) { num = 81; }
+                                    if (num >= 100) { num = 1; }
+                                    break;
+                                case 210000:
+                                    num += 20;
+                                    if (num < 1) { num = 81; }
+                                    if (num >= 100) { num = 1; }
                                     break;
                             }
                         }
@@ -10087,7 +10176,7 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab3(index-1);
+                                        data.DeleteElementTab3(index - 1);
                                         DeleteMenu();
                                     }
                                     else
@@ -10744,7 +10833,7 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab1(index-1);
+                                        data.DeleteElementTab1(index - 1);
                                         DeleteMenu();
                                     }
                                     else

@@ -2152,8 +2152,16 @@ namespace ConsoleApp6
             data.SearchAct(search);
             Console.WriteLine("╟" + new string('─', 52) + "╨" + new string('─', 52) + "╨" + new string('─', 32) + "╨" + new string('─', 43) + "╨" + new string('─', 12) + "╨" + new string('─', 30) + "╢");
             Console.Write("║ ");
-            if (j == 2) { Console.BackgroundColor = ConsoleColor.DarkRed; }
-            Console.Write(new string(' ',68) + BackBig + new string(' ',68));
+            if (j == 21) { Console.BackgroundColor = ConsoleColor.DarkRed; }
+            Console.Write("  Назад в меню  ");
+            Console.ResetColor();
+            Console.Write(new string(' ', 186));
+            if (j == 2100) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(" Назад ");
+            Console.ResetColor();
+            Console.Write(new string(' ', 8));
+            if (j == 210000) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(" Далее ");
             Console.ResetColor();
             Console.WriteLine(" ║");
             Console.WriteLine("╙" + new string('─', 226) + "╜");
