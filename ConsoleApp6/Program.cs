@@ -9366,7 +9366,9 @@ namespace ConsoleApp6
                                 case 18:
                                 case 19:
                                 case 20:
-                                    
+                                    consolebd.PrintStreetMoreInfo(1);
+                                    Console.ReadKey();
+                                    SearchActsMain();
                                     break;
 
                                 case 21:
@@ -9393,7 +9395,9 @@ namespace ConsoleApp6
                                 case 1800:
                                 case 1900:
                                 case 2000:
-
+                                    consolebd.PrintParkingMoreInfo(1);
+                                    Console.ReadKey();
+                                    SearchActsMain();
                                     break;
                                 case 2100:
                                     num -= 20;

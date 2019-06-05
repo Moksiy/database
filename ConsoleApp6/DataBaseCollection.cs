@@ -46,7 +46,25 @@ namespace ConsoleApp6
         //Создание списка таблицы 3
         public static List<ElementsTab3> Tab3List = new List<ElementsTab3>(100);
 
+        //Создание списка для поиска таблицы 1
+        public static List<ElementsTab1> SearchTab1 = new List<ElementsTab1>(100);
 
+        //Метод добавления в список поиска
+        public void AddElementsToSearchList(ElementsTab1 act)
+        {
+            SearchTab1.Add(act);
+        }
+
+        //Удаление из списка поиска таблицы 1
+        public void RemoveSearchList1()
+        {
+            int i = 0;
+            foreach (var item in SearchTab1)
+            {
+                SearchTab1.RemoveAt(i);
+                i++;
+            }
+        }
 
         //Поле имени файла
         private static string filename = " ";
@@ -720,7 +738,7 @@ namespace ConsoleApp6
             Console.WriteLine("║" + new string('─', 3) + "─" + new string('─', 52) + "╥" + new string('─', 52) + "║");
             Console.WriteLine("║" + "   " + " " + new string(' ', 19) + "Название улицы" + new string(' ', 19) + "║" + new string(' ', 21) + "Длина улицы" + new string(' ', 20) + "║");
             Console.WriteLine("╟" + new string('─', 3) + "─" + new string('─', 52) + "╫" + new string('─', 52) + "╢");
-            for (int i = num; i < num+20; i++)
+            for (int i = num; i < num + 20; i++)
             {
                 if (streets.Count() > i)
                 {
@@ -755,12 +773,12 @@ namespace ConsoleApp6
             {
                 if (parkings.Count() >= i)
                 {
-                    p = 31 - parkings[i-1].ParkingName.Length;
-                    Console.Write("║ " + parkings[i-1].ParkingName + new string(' ', p) + "║ ");
-                    p = 51 - parkings[i-1].ParkingAdress.Length;
-                    Console.Write(parkings[i-1].ParkingAdress + new string(' ', p) + "║ ");
-                    p = 23 - parkings[i-1].ParkingNumber.Length;
-                    Console.Write(parkings[i-1].ParkingNumber + new string(' ', p));
+                    p = 31 - parkings[i - 1].ParkingName.Length;
+                    Console.Write("║ " + parkings[i - 1].ParkingName + new string(' ', p) + "║ ");
+                    p = 51 - parkings[i - 1].ParkingAdress.Length;
+                    Console.Write(parkings[i - 1].ParkingAdress + new string(' ', p) + "║ ");
+                    p = 23 - parkings[i - 1].ParkingNumber.Length;
+                    Console.Write(parkings[i - 1].ParkingNumber + new string(' ', p));
                     Console.WriteLine("║");
                     Console.WriteLine("║" + new string('─', 32) + "╫" + new string('─', 52) + "╫" + new string('─', 24) + "╢");
                 }
@@ -778,6 +796,7 @@ namespace ConsoleApp6
                 if (act.CarNumber.Contains(actname) || act.CarType.Contains(actname) || act.GPS.Contains(actname) || act.Parking.ParkingName.Contains(actname) || act.Parking.ParkingAdress.Contains(actname) || act.Parking.ParkingNumber.Contains(actname) || act.Street.StreetName.Contains(actname) || act.Street.StreetLength.Contains(actname) || act.TypeViolation.Contains(actname))
                 {
                     acts.Add(act);
+                    AddElementsToSearchList(act);
                 }
             }
             int p = 0;
@@ -790,10 +809,10 @@ namespace ConsoleApp6
                 {
                     p = 51 - acts[i - 1].Street.StreetName.Length;
                     Console.Write("║ "); if (j == k) { Console.BackgroundColor = ConsoleColor.Blue; }
-                    Console.Write(acts[i - 1].Street.StreetName + new string(' ', p - 1)); Console.ResetColor(); Console.Write(" ║ ") ;
-                    if (j == k*100) { Console.BackgroundColor = ConsoleColor.Blue; }
+                    Console.Write(acts[i - 1].Street.StreetName + new string(' ', p - 1)); Console.ResetColor(); Console.Write(" ║ ");
+                    if (j == k * 100) { Console.BackgroundColor = ConsoleColor.Blue; }
                     p = 51 - acts[i - 1].Parking.ParkingName.Length;
-                    Console.Write(acts[i - 1].Parking.ParkingName + new string(' ', p - 1));  Console.ResetColor(); Console.Write(" ║ ");
+                    Console.Write(acts[i - 1].Parking.ParkingName + new string(' ', p - 1)); Console.ResetColor(); Console.Write(" ║ ");
                     p = 31 - acts[i - 1].GPS.Length;
                     Console.Write(acts[i - 1].GPS + new string(' ', p) + "║ ");
                     p = 42 - acts[i - 1].TypeViolation.Length;
@@ -802,15 +821,17 @@ namespace ConsoleApp6
                     Console.Write(acts[i - 1].CarNumber + new string(' ', p) + "║ ");
                     p = 29 - acts[i - 1].CarType.Length;
                     Console.WriteLine(acts[i - 1].CarType + new string(' ', p) + "║");
-                    Console.WriteLine("╟" + new string('─', 52) + "╫" + new string('─', 52) + "╫" + new string('─', 32) + "╫" + new string('─', 43) + "╫" + new string('─', 12) + "╫" + new string('─', 30) + "╢");                    
+                    Console.WriteLine("╟" + new string('─', 52) + "╫" + new string('─', 52) + "╫" + new string('─', 32) + "╫" + new string('─', 43) + "╫" + new string('─', 12) + "╫" + new string('─', 30) + "╢");
                 }
                 else
                 {
-                    Console.Write("║ "); if (j == k) { Console.BackgroundColor = ConsoleColor.Blue; } Console.Write(new string(' ',50));
+                    Console.Write("║ "); if (j == k) { Console.BackgroundColor = ConsoleColor.Yellow; }
+                    Console.Write(new string(' ', 50));
                     Console.ResetColor(); Console.Write(" ║ ");
-                    if (j == k * 100) { Console.BackgroundColor = ConsoleColor.Blue; } Console.Write(new string(' ',50));
+                    if (j == k * 100) { Console.BackgroundColor = ConsoleColor.Yellow; }
+                    Console.Write(new string(' ', 50));
                     Console.ResetColor(); Console.Write(" ║ ");
-                    Console.WriteLine(new string(' ', 31) + "║ " + new string(' ',42) + "║ " + new string(' ',11) + "║ " + new string(' ', 29) + "║");
+                    Console.WriteLine(new string(' ', 31) + "║ " + new string(' ', 42) + "║ " + new string(' ', 11) + "║ " + new string(' ', 29) + "║");
                     Console.WriteLine("╟" + new string('─', 52) + "╫" + new string('─', 52) + "╫" + new string('─', 32) + "╫" + new string('─', 43) + "╫" + new string('─', 12) + "╫" + new string('─', 30) + "╢");
                 }
                 k++;
