@@ -1502,7 +1502,6 @@ namespace ConsoleApp6
         {
             //Экземпляр класса с данными
             Data data = new Data();
-
             string name = data.OutputStreetNameTab1(ind - 1);
             string len = data.OutputStreetLengthsTab1(ind - 1);
             string number = Convert.ToString(ind);
@@ -1523,6 +1522,31 @@ namespace ConsoleApp6
             //╙ ╨ ╜
             Console.ReadKey();
 
+        }
+
+        public void PrintStreetMoreInfoSearch(int ind)
+        {
+            //Экземпляр класса с данными
+            Data data = new Data();
+            string name = data.OutPutSt(ind);
+            string len = data.OutPutStl(ind);
+            string number = Convert.ToString(ind);
+            int p = 0;
+
+            Console.WriteLine("╓" + new string('─', 3) + "╥" + new string('─', 52) + "╥" + new string('─', 52) + "╖");
+            Console.WriteLine("║" + " № " + "║" + new string(' ', 19) + "Название улицы" + new string(' ', 19) + "║" + new string(' ', 21) + "Длина улицы" + new string(' ', 20) + "║");
+            Console.WriteLine("╟" + new string('─', 3) + "╫" + new string('─', 52) + "╫" + new string('─', 52) + "╢");
+            p = 3 - number.Length;
+            Console.Write("║" + number + new string(' ', p) + "║");
+            p = 50 - name.Length;
+            Console.Write(" " + name + new string(' ', p) + " ║ ");
+            p = 50 - len.Length;
+            Console.WriteLine(len + new string(' ', p) + " ║");
+            Console.WriteLine("╟" + new string('─', 3) + "╨" + new string('─', 52) + "╨" + new string('─', 52) + "╢");
+            Console.WriteLine("║" + new string(' ', 35) + "Нажмите любую клавишу чтобы закрыть окно" + new string(' ', 34) + "║");
+            Console.WriteLine("╙" + new string('─', 3) + "─" + new string('─', 52) + "─" + new string('─', 52) + "╜");
+            //╙ ╨ ╜
+            Console.ReadKey();
         }
 
         //Вывод подробной информации об парковке

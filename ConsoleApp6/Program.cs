@@ -9265,9 +9265,11 @@ namespace ConsoleApp6
         /// </summary>
         public static void SearchActs()
         {
+            Data data = new Data();
             Consolebd consolebd = new Consolebd();
             int j = 0;
             int num = 1;
+            int index = 0;
             Console.Clear();
             consolebd.SearchActs(j, "                           ", num);
             ConsoleKeyInfo key;
@@ -9335,6 +9337,7 @@ namespace ConsoleApp6
                             switch (j)
                             {
                                 case 0:
+                                    data.RemoveSearchList1();
                                     act = "               ";
                                     Console.Clear();
                                     consolebd.SearchActs(-1, act, num);
@@ -9366,8 +9369,9 @@ namespace ConsoleApp6
                                 case 18:
                                 case 19:
                                 case 20:
-                                    consolebd.PrintStreetMoreInfo(1);
-                                    Console.ReadKey();
+                                    index = data.MoreInfoStreet(num + j-2);
+                                    consolebd.PrintStreetMoreInfoSearch(index);
+                                    //Console.ReadKey();
                                     SearchActsMain();
                                     break;
 
@@ -9395,6 +9399,7 @@ namespace ConsoleApp6
                                 case 1800:
                                 case 1900:
                                 case 2000:
+                                    
                                     consolebd.PrintParkingMoreInfo(1);
                                     Console.ReadKey();
                                     SearchActsMain();

@@ -58,12 +58,25 @@ namespace ConsoleApp6
         //Удаление из списка поиска таблицы 1
         public void RemoveSearchList1()
         {
-            int i = 0;
-            foreach (var item in SearchTab1)
+            for (int j = 0; j < SearchTab1.Count(); j++)
             {
-                SearchTab1.RemoveAt(i);
-                i++;
+                SearchTab1.RemoveAt(j);
             }
+        }
+
+        public int MoreInfoStreet(int index)
+        {
+            string streetname = "     ";
+            int indexstreet = 0;
+                streetname = SearchTab1[index].Street.StreetName;
+                for (int i = 0; i < Tab2List.Count(); i++)
+                {
+                    if (Tab2List[i].StreetName == streetname)
+                    {
+                        indexstreet = i;
+                    }
+                }            
+            return indexstreet;
         }
 
         //Поле имени файла
