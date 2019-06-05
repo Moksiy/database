@@ -9279,8 +9279,6 @@ namespace ConsoleApp6
             {
                 do
                 {
-                    Console.Clear();
-                    consolebd.SearchActs(j, act, num);
                     key = Console.ReadKey(true);
                     if (key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow || key.Key == ConsoleKey.LeftArrow || key.Key == ConsoleKey.RightArrow)
                     {
@@ -9319,7 +9317,7 @@ namespace ConsoleApp6
                                 if (j == 21) { j = 2100; }
                                 else if (j == 210000) { j = 21; }
                                 else
-     if (j == 2100) { j = 210000; }
+                                if (j == 2100) { j = 210000; }
                                 else
                                 {
                                     if (j == 210000) { j = 21; }
@@ -9336,8 +9334,7 @@ namespace ConsoleApp6
                         {
                             switch (j)
                             {
-                                case 0:
-                                    data.RemoveSearchList1();
+                                case 0:                                    
                                     act = "               ";
                                     Console.Clear();
                                     consolebd.SearchActs(-1, act, num);
@@ -9345,7 +9342,11 @@ namespace ConsoleApp6
                                     act = Console.ReadLine();
                                     act.Trim();
                                     if (act == "") { Console.Clear(); consolebd.Attention(); act = "                "; }
+                                    data.RemoveSearchList1();
+                                    data.DeleteSearchTab1();
+                                    data.AddSearchTab(act);
                                     Console.Clear();
+                                    consolebd.SearchActs(j, act, num);
                                     SearchActsMain();
                                     break;
 
@@ -9370,8 +9371,7 @@ namespace ConsoleApp6
                                 case 19:
                                 case 20:
                                     index = data.MoreInfoStreet(num + j-2);
-                                    consolebd.PrintStreetMoreInfoSearch(index);
-                                    //Console.ReadKey();
+                                    consolebd.PrintStreetMoreInfoSearch(index); 
                                     SearchActsMain();
                                     break;
 
@@ -9399,9 +9399,8 @@ namespace ConsoleApp6
                                 case 1800:
                                 case 1900:
                                 case 2000:
-                                    
-                                    consolebd.PrintParkingMoreInfo(1);
-                                    Console.ReadKey();
+                                    int indexp = data.MoreInfoParking(num + (j / 100) - 2);
+                                    consolebd.PrintParkingMoreInfoSearch(indexp);
                                     SearchActsMain();
                                     break;
                                 case 2100:

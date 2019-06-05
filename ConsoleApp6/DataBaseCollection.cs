@@ -49,6 +49,9 @@ namespace ConsoleApp6
         //Создание списка для поиска таблицы 1
         public static List<ElementsTab1> SearchTab1 = new List<ElementsTab1>(100);
 
+        //Создание списка для поиска улиц
+        public static List<ElementsTab2> SearchStreetTab = new List<ElementsTab2>(100);
+
         //Метод добавления в список поиска
         public void AddElementsToSearchList(ElementsTab1 act)
         {
@@ -68,6 +71,8 @@ namespace ConsoleApp6
         {
             string streetname = "     ";
             int indexstreet = 0;
+            if (SearchTab1.Count > index)
+            {
                 streetname = SearchTab1[index].Street.StreetName;
                 for (int i = 0; i < Tab2List.Count(); i++)
                 {
@@ -75,8 +80,28 @@ namespace ConsoleApp6
                     {
                         indexstreet = i;
                     }
-                }            
-            return indexstreet;
+                }
+
+                return indexstreet;
+            } else { return -1; }
+        }
+
+        public int MoreInfoParking(int index)
+        {
+            string parkingname = "        ";
+            int indexparking = 0;
+            if (SearchTab1.Count > index)
+            {
+                parkingname = SearchTab1[index].Parking.ParkingName;
+                for(int i = 0; i < Tab3List.Count(); i++)
+                {
+                    if (Tab3List[i].ParkingName == parkingname)
+                    {
+                        indexparking = i;
+                    }
+                }
+                return indexparking;
+            }else { return -1; }
         }
 
         //Поле имени файла
@@ -198,7 +223,7 @@ namespace ConsoleApp6
         //Метод, возвращающий название улицы
         public string OutPutSt(int i)
         {
-            if (CountTab2() > i && Tab2List[i] != null)
+            if (CountTab2() > i && i >=0)
             {
                 return Tab2List[i].StreetName;
             }
@@ -208,7 +233,7 @@ namespace ConsoleApp6
         //Метод, возвращающий длину улицы
         public string OutPutStl(int i)
         {
-            if (CountTab2() > i && Tab2List[i] != null)
+            if (CountTab2() > i && i >= 0)
             {
                 return Tab2List[i].StreetLength;
             }
@@ -798,42 +823,67 @@ namespace ConsoleApp6
             }
         }
 
+        //
+        public void SearchStreet(string street)
+        {
+            foreach(var elem in Tab2List)
+            {
+                if(elem.StreetName == street) { SearchStreetTab.Add(elem); }
+            }
+        }
+
+        public void AddSearchTab(string s)
+        {
+            foreach(var elem in Tab1List)
+            {
+                if (elem.CarNumber.Contains(s) || elem.CarType.Contains(s) || elem.GPS.Contains(s) || elem.Parking.ParkingAdress.Contains(s) || elem.Parking.ParkingName.Contains(s) || elem.Parking.ParkingNumber.Contains(s) || elem.Street.StreetName.Contains(s) || elem.Street.StreetLength.Contains(s) || elem.TypeViolation.Contains(s))
+                {
+                    SearchTab1.Add(elem);
+                }
+            }
+        }
+
+        public void DeleteSearchTab1()
+        {
+            for(int i = 0; i <  SearchTab1.Count(); i++)
+            {
+                SearchTab1.RemoveAt(i);
+            }
+        }
+
+        public int CountSearchStreets()
+        {
+            return SearchTab1.Count();
+        }
+
         //Метод поиска актов эвакуации
         public void SearchAct(string actname, int num, int j)
         {
             int k = 1;
             Data data = new Data();
-            List<ElementsTab1> acts = new List<ElementsTab1>();
-            foreach (var act in Tab1List)
-            {
-                if (act.CarNumber.Contains(actname) || act.CarType.Contains(actname) || act.GPS.Contains(actname) || act.Parking.ParkingName.Contains(actname) || act.Parking.ParkingAdress.Contains(actname) || act.Parking.ParkingNumber.Contains(actname) || act.Street.StreetName.Contains(actname) || act.Street.StreetLength.Contains(actname) || act.TypeViolation.Contains(actname))
-                {
-                    acts.Add(act);
-                    AddElementsToSearchList(act);
-                }
-            }
             int p = 0;
             Console.WriteLine("╟" + new string('─', 52) + "╥" + new string('─', 52) + "╥" + new string('─', 32) + "╥" + new string('─', 43) + "╥" + new string('─', 12) + "╥" + new string('─', 30) + "╢");
             Console.WriteLine("║" + new string(' ', 23) + "Улица" + new string(' ', 24) + "║" + new string(' ', 20) + "Автостоянка" + new string(' ', 21) + "║" + new string(' ', 9) + "GPS-координаты" + new string(' ', 9) + "║" + new string(' ', 15) + "Тип нарушения" + new string(' ', 15) + "║" + new string(' ', 0) + "Номер машины" + new string(' ', 0) + "║" + new string(' ', 8) + "Тип автомобиля" + new string(' ', 8) + "║");
             Console.WriteLine("╟" + new string('─', 52) + "╫" + new string('─', 52) + "╫" + new string('─', 32) + "╫" + new string('─', 43) + "╫" + new string('─', 12) + "╫" + new string('─', 30) + "╢");
             for (int i = num; i < num + 20; i++)
             {
-                if (acts.Count() >= i)
+
+                if (SearchTab1.Count() >= i)
                 {
-                    p = 51 - acts[i - 1].Street.StreetName.Length;
+                    p = 51 - SearchTab1[i - 1].Street.StreetName.Length;
                     Console.Write("║ "); if (j == k) { Console.BackgroundColor = ConsoleColor.Blue; }
-                    Console.Write(acts[i - 1].Street.StreetName + new string(' ', p - 1)); Console.ResetColor(); Console.Write(" ║ ");
+                    Console.Write(SearchTab1[i - 1].Street.StreetName + new string(' ', p - 1)); Console.ResetColor(); Console.Write(" ║ ");
                     if (j == k * 100) { Console.BackgroundColor = ConsoleColor.Blue; }
-                    p = 51 - acts[i - 1].Parking.ParkingName.Length;
-                    Console.Write(acts[i - 1].Parking.ParkingName + new string(' ', p - 1)); Console.ResetColor(); Console.Write(" ║ ");
-                    p = 31 - acts[i - 1].GPS.Length;
-                    Console.Write(acts[i - 1].GPS + new string(' ', p) + "║ ");
-                    p = 42 - acts[i - 1].TypeViolation.Length;
-                    Console.Write(acts[i - 1].TypeViolation + new string(' ', p) + "║ ");
-                    p = 11 - acts[i - 1].CarNumber.Length;
-                    Console.Write(acts[i - 1].CarNumber + new string(' ', p) + "║ ");
-                    p = 29 - acts[i - 1].CarType.Length;
-                    Console.WriteLine(acts[i - 1].CarType + new string(' ', p) + "║");
+                    p = 51 - SearchTab1[i - 1].Parking.ParkingName.Length;
+                    Console.Write(SearchTab1[i - 1].Parking.ParkingName + new string(' ', p - 1)); Console.ResetColor(); Console.Write(" ║ ");
+                    p = 31 - SearchTab1[i - 1].GPS.Length;
+                    Console.Write(SearchTab1[i - 1].GPS + new string(' ', p) + "║ ");
+                    p = 42 - SearchTab1[i - 1].TypeViolation.Length;
+                    Console.Write(SearchTab1[i - 1].TypeViolation + new string(' ', p) + "║ ");
+                    p = 11 - SearchTab1[i - 1].CarNumber.Length;
+                    Console.Write(SearchTab1[i - 1].CarNumber + new string(' ', p) + "║ ");
+                    p = 29 - SearchTab1[i - 1].CarType.Length;
+                    Console.WriteLine(SearchTab1[i - 1].CarType + new string(' ', p) + "║");
                     Console.WriteLine("╟" + new string('─', 52) + "╫" + new string('─', 52) + "╫" + new string('─', 32) + "╫" + new string('─', 43) + "╫" + new string('─', 12) + "╫" + new string('─', 30) + "╢");
                 }
                 else
