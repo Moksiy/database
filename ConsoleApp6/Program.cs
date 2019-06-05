@@ -9376,6 +9376,8 @@ namespace ConsoleApp6
                                     break;
 
                                 case 21:
+                                    data.DeleteSearchTab1();
+                                    data.RemoveSearchList1();
                                     SearchElements();
                                     break;
 
@@ -9419,7 +9421,7 @@ namespace ConsoleApp6
                         }
                     }
 
-                } while (key.Key != ConsoleKey.Enter);
+                } while (key.Key != ConsoleKey.Enter);                
             }
         }
 

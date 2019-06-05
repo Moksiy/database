@@ -244,7 +244,7 @@ namespace ConsoleApp6
         //Метод, возвращающий название автостоянки
         public string OutPutPrkname(int i)
         {
-            if (CountTab3() > i && Tab3List[i] != null)
+            if (CountTab3() > i && i>=0)
             {
                 return Tab3List[i].ParkingName;
             }
@@ -254,7 +254,7 @@ namespace ConsoleApp6
         //Метод, возвращающий адрес автостоянки
         public string OutPutPrkadress(int i)
         {
-            if (CountTab3() > i && Tab3List[i] != null)
+            if (CountTab3() > i && i>= 0)
             {
                 return Tab3List[i].ParkingAdress;
             }
@@ -264,7 +264,7 @@ namespace ConsoleApp6
         //Метод, возвращающий телефон автостоянки
         public string OutPutPrknumber(int i)
         {
-            if (CountTab3() > i && Tab3List[i] != null)
+            if (CountTab3() > i && i>=0)
             {
                 return Tab3List[i].ParkingNumber;
             }
