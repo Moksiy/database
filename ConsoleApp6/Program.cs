@@ -142,7 +142,7 @@ namespace ConsoleApp6
                             case 7:
                                 //Очистка консоли
                                 Console.Clear();
-                                consolebd.SearchActs(21,"");
+                                consolebd.SearchActs(1,"а",1);
                                 Console.ReadKey();
                                 Main();
                                 break;
@@ -9266,10 +9266,10 @@ namespace ConsoleApp6
         public static void SearchActs()
         {
             Consolebd consolebd = new Consolebd();
-            int j = 1;
+            int j = 0;
             int num = 1;
             Console.Clear();
-            consolebd.SearchActs(1, "                           ");
+            consolebd.SearchActs(j, "                           ", num);
             ConsoleKeyInfo key;
             string act = "                          ";
             SearchActsMain();
@@ -9278,7 +9278,7 @@ namespace ConsoleApp6
                 do
                 {
                     Console.Clear();
-                    consolebd.SearchActs(j, act);
+                    consolebd.SearchActs(j, act, num);
                     key = Console.ReadKey(true);
                     if (key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.DownArrow || key.Key == ConsoleKey.LeftArrow || key.Key == ConsoleKey.RightArrow)
                     {
@@ -9329,18 +9329,19 @@ namespace ConsoleApp6
                                 }
                                 break;
                         }
-                        consolebd.SearchActs(j, act);
+                        consolebd.SearchActs(j, act, num);
                         if (key.Key == ConsoleKey.Enter)
                         {
                             switch (j)
                             {
                                 case 0:
+                                    act = "               ";
                                     Console.Clear();
-                                    consolebd.SearchActs(0, act);
+                                    consolebd.SearchActs(-1, act, num);
                                     Console.SetCursorPosition(9, 3);
                                     act = Console.ReadLine();
                                     act.Trim();
-                                    if (act == "") { Console.Clear(); consolebd.Attention(); /*     */}
+                                    if (act == "") { Console.Clear(); consolebd.Attention(); act = "                "; }
                                     Console.Clear();
                                     SearchActsMain();
                                     break;
@@ -9365,7 +9366,7 @@ namespace ConsoleApp6
                                 case 18:
                                 case 19:
                                 case 20:
-                                    SearchElements();
+                                    
                                     break;
 
                                 case 21:
@@ -9392,15 +9393,19 @@ namespace ConsoleApp6
                                 case 1800:
                                 case 1900:
                                 case 2000:
+
+                                    break;
                                 case 2100:
                                     num -= 20;
                                     if (num < 1) { num = 81; }
                                     if (num >= 100) { num = 1; }
+                                    SearchActsMain();
                                     break;
                                 case 210000:
                                     num += 20;
                                     if (num < 1) { num = 81; }
                                     if (num >= 100) { num = 1; }
+                                    SearchActsMain();
                                     break;
                             }
                         }

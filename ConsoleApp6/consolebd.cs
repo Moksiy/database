@@ -2140,16 +2140,16 @@ namespace ConsoleApp6
         }
 
         //Метод построения меню поиска актов эвакуаций
-        public void SearchActs(int j, string search)
+        public void SearchActs(int j, string search, int num)
         {
             Console.WriteLine("╓" + new string('─', 226) + "╖");
             Console.WriteLine("║" + new string(' ', 94) + "          Поиск актов эвакуаций       " + new string(' ', 94) + "║");
             Console.WriteLine("╟" + new string('─', 226) + "╢");
-            Console.Write("║  "); if (j == 1) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write("║  "); if (j == 0) { Console.BackgroundColor = ConsoleColor.Blue; }
             int p = 217 - search.Length;
             Console.Write("Ввод: " + search + new string(' ',p));
             Console.ResetColor(); Console.WriteLine(" ║");
-            data.SearchAct(search);
+            data.SearchAct(search, num, j);
             Console.WriteLine("╟" + new string('─', 52) + "╨" + new string('─', 52) + "╨" + new string('─', 32) + "╨" + new string('─', 43) + "╨" + new string('─', 12) + "╨" + new string('─', 30) + "╢");
             Console.Write("║ ");
             if (j == 21) { Console.BackgroundColor = ConsoleColor.DarkRed; }
