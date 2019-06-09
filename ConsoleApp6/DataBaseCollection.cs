@@ -559,12 +559,6 @@ namespace ConsoleApp6
                         Tab2List[i] = Tab2List[j];
                         Tab2List[j] = p;
                     }
-                }
-            }
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = i + 1; j < n + 1; j++)
-                {
                     if (Tab2List[j].StreetName[0] == Tab2List[i].StreetName[0] && Tab2List[j].StreetName[1] < Tab2List[i].StreetName[1])
                     {
                         ElementsTab2 p = Tab2List[i];
@@ -590,12 +584,6 @@ namespace ConsoleApp6
                         Tab2List[i] = Tab2List[j];
                         Tab2List[j] = p;
                     }
-                }
-            }
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = i + 1; j < n + 1; j++)
-                {
                     if (Tab2List[j].StreetName[0] == Tab2List[i].StreetName[0] && Tab2List[j].StreetName[1] > Tab2List[i].StreetName[1])
                     {
                         ElementsTab2 p = Tab2List[i];
@@ -604,6 +592,7 @@ namespace ConsoleApp6
                     }
                 }
             }
+
         }
 
         //Метод сортировки элементов таблицы улиц по длине улицы по возрастанию 
@@ -657,12 +646,6 @@ namespace ConsoleApp6
                         Tab3List[i] = Tab3List[j];
                         Tab3List[j] = p;
                     }
-                }
-            }
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = i + 1; j < n + 1; j++)
-                {
                     if (Tab3List[j].ParkingName[0] == Tab3List[i].ParkingName[0] && Tab3List[j].ParkingName[1] < Tab3List[i].ParkingName[1])
                     {
                         ElementsTab3 p = Tab3List[i];
@@ -685,14 +668,8 @@ namespace ConsoleApp6
                     {
                         ElementsTab3 p = Tab3List[i];
                         Tab3List[i] = Tab3List[j];
-                        Tab3List[j] = p;
+                        Tab3List[j] = p;                        
                     }
-                }
-            }
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = i + 1; j < n + 1; j++)
-                {
                     if (Tab3List[j].ParkingName[0] == Tab3List[i].ParkingName[0] && Tab3List[j].ParkingName[1] > Tab3List[i].ParkingName[1])
                     {
                         ElementsTab3 p = Tab3List[i];
@@ -717,12 +694,6 @@ namespace ConsoleApp6
                         Tab3List[i] = Tab3List[j];
                         Tab3List[j] = p;
                     }
-                }
-            }
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = i + 1; j < n + 1; j++)
-                {
                     if (Tab3List[j].ParkingAdress[0] == Tab3List[i].ParkingAdress[0] && Tab3List[j].ParkingAdress[1] < Tab3List[i].ParkingAdress[1])
                     {
                         ElementsTab3 p = Tab3List[i];
@@ -747,12 +718,6 @@ namespace ConsoleApp6
                         Tab3List[i] = Tab3List[j];
                         Tab3List[j] = p;
                     }
-                }
-            }
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = i + 1; j < n + 1; j++)
-                {
                     if (Tab3List[j].ParkingAdress[0] == Tab3List[i].ParkingAdress[0] && Tab3List[j].ParkingAdress[1] > Tab3List[i].ParkingAdress[1])
                     {
                         ElementsTab3 p = Tab3List[i];
@@ -777,12 +742,6 @@ namespace ConsoleApp6
                         Tab1List[i] = Tab1List[j];
                         Tab1List[j] = p;
                     }
-                }
-            }
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = i + 1; j < n + 1; j++)
-                {
                     if (Tab1List[j].Street.StreetName[0] == Tab1List[i].Street.StreetName[0] && Tab1List[j].Street.StreetName[1] < Tab1List[i].Street.StreetName[1])
                     {
                         ElementsTab1 p = Tab1List[i];
@@ -807,12 +766,6 @@ namespace ConsoleApp6
                         Tab1List[i] = Tab1List[j];
                         Tab1List[j] = p;
                     }
-                }
-            }
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = i + 1; j < n + 1; j++)
-                {
                     if (Tab1List[j].Street.StreetName[0] == Tab1List[i].Street.StreetName[0] && Tab1List[j].Street.StreetName[1] > Tab1List[i].Street.StreetName[1])
                     {
                         ElementsTab1 p = Tab1List[i];
@@ -837,12 +790,6 @@ namespace ConsoleApp6
                         Tab1List[i] = Tab1List[j];
                         Tab1List[j] = p;
                     }
-                }
-            }
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = i + 1; j < n + 1; j++)
-                {
                     if (Tab1List[j].Parking.ParkingName[0] == Tab1List[i].Parking.ParkingName[0] && Tab1List[j].Parking.ParkingName[1] < Tab1List[i].Parking.ParkingName[1])
                     {
                         ElementsTab1 p = Tab1List[i];
@@ -867,12 +814,6 @@ namespace ConsoleApp6
                         Tab1List[i] = Tab1List[j];
                         Tab1List[j] = p;
                     }
-                }
-            }
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = i + 1; j < n + 1; j++)
-                {
                     if (Tab1List[j].Parking.ParkingName[0] == Tab1List[i].Parking.ParkingName[0] && Tab1List[j].Parking.ParkingName[1] > Tab1List[i].Parking.ParkingName[1])
                     {
                         ElementsTab1 p = Tab1List[i];
@@ -881,6 +822,7 @@ namespace ConsoleApp6
                     }
                 }
             }
+
         }
 
         //Метод поиска улицы
@@ -1104,8 +1046,8 @@ namespace ConsoleApp6
                     input = reader.ReadLine();
                     Tab1List[Tab1List.Count - 1].LinkParking = Convert.ToInt32(input);
                     Tab1List[Tab1List.Count - 1].Parking = Tab3List[Convert.ToInt32(input)];
-                }           
-            reader.Close();
+                }
+                reader.Close();
             }
             catch { Console.Clear(); consolebd.Attention(); data.FileName = ""; }
 
