@@ -142,7 +142,7 @@ namespace ConsoleApp6
                             case 7:
                                 //Очистка консоли
                                 Console.Clear();
-                                consolebd.SearchActs(1,"а",1);
+                                consolebd.SearchActs(1, "а", 1);
                                 Console.ReadKey();
                                 Main();
                                 break;
@@ -2011,7 +2011,7 @@ namespace ConsoleApp6
                                     Console.Clear();
                                     consolebd.SearchFileMenu(0, data.FileName);
                                     Console.SetCursorPosition(9, 3);
-                                    data.FileName = Console.ReadLine();
+                                    data.FileName = ReadString(50);
                                     data.FileName.Trim();
                                     if (data.FileName == "") { Console.Clear(); consolebd.Attention(); }
                                     Console.Clear();
@@ -2398,38 +2398,16 @@ namespace ConsoleApp6
                                     Console.SetCursorPosition(20, 3);
 
                                     //Считывание строки
-                                    strname = Console.ReadLine();
+                                    strname = ReadString(50);
 
-                                    //Проверка на правильность ввода
-                                    if (strname == " " || strname == null || strname.Length > 50 || strname == "" || strname.Contains('\t'))
-                                    {
-                                        //Очистка консоли
-                                        Console.Clear();
+                                    //Очистка консоли
+                                    Console.Clear();
 
-                                        //Вызов меню ошибки
-                                        consolebd.AttentionAddElement();
+                                    //Повторный вызов метода построения меню 
+                                    consolebd.AddElemStreet(j, strname, strlength);
 
-                                        //Обнуление переменной названия улицы
-                                        strname = " ";
-
-                                        //Повторный вызов метода построения меню добавления улицы
-                                        consolebd.AddElemStreet(j, strname, strlength);
-
-                                        //Повторный вызов метода считывания клавиш
-                                        AddStreetMain();
-                                    }
-                                    else
-                                    {
-                                        //Очистка консоли
-                                        Console.Clear();
-
-                                        //Повторный вызов метода построения меню 
-                                        consolebd.AddElemStreet(j, strname, strlength);
-
-                                        //Повторный вызов метода для считывания клавиш
-                                        AddStreetMain();
-                                    }
-
+                                    //Повторный вызов метода для считывания клавиш
+                                    AddStreetMain();
                                     break;
 
                                 //Ввод длины улицы
@@ -2451,29 +2429,8 @@ namespace ConsoleApp6
                                     Console.SetCursorPosition(20, 5);
 
                                     //Считывание строки
-                                    strlength = Console.ReadLine();
+                                    strlength = ReadString(20);
 
-                                    //Проверка на правильность ввода
-                                    if (strlength == " " || strlength == null || strlength.Length > 50 || strlength == "" || strlength.Contains('\t'))
-                                    {
-                                        //Обнуление переменной 
-                                        strlength = " ";
-
-                                        //Очистка консоли
-                                        Console.Clear();
-
-                                        //Вызов меню ошибки
-                                        consolebd.AttentionAddElement();
-
-                                        //Вызов метода построения меню добавления элемента
-                                        consolebd.AddElemStreet(j, strname, strlength);
-
-                                        //Вызов метода считывания нажатой клавиши
-                                        AddStreetMain();
-
-                                    }
-                                    else
-                                    {
                                         //Очистка консоли
                                         Console.Clear();
 
@@ -2508,7 +2465,6 @@ namespace ConsoleApp6
                                             //Вызов метода выбора пункта меню
                                             AddStreetMain();
                                         }
-                                    }
                                     break;
 
                                 //Назад
@@ -2517,13 +2473,6 @@ namespace ConsoleApp6
                                 case 3:
                                     //Очистка консоли
                                     Console.Clear();
-
-                                    //Вызов меню построения главного меню добавления элемента
-                                    //С передачей в качестве параметра еденицы (для изначального отображения первого пункта меню)
-                                    //consolebd.AddElement(1);
-
-                                    //Вызов метода по считыванию клавиш в главном меню добавления нового элемента
-                                    //AddCar();
                                     break;
 
                                 //Сохранить
@@ -2745,28 +2694,8 @@ namespace ConsoleApp6
                                     Console.SetCursorPosition(20, 3);
 
                                     //Считывание строки
-                                    prkname = Console.ReadLine();
+                                    prkname = ReadString(30);
 
-                                    //Проверка на правильность ввода
-                                    if (prkname == " " || prkname == null || prkname.Length > 30 || prkname == "" || prkname.Contains('\t'))
-                                    {
-                                        //Очистка консоли
-                                        Console.Clear();
-
-                                        //Вызов меню ошибки
-                                        consolebd.AttentionAddElement();
-
-                                        //обнуление переменной названия автостоянки
-                                        prkname = " ";
-
-                                        //Повторный вызов метода построения меню добавления автостоянки
-                                        consolebd.AddElemParking(j, prkname, prkadress, prknumber);
-
-                                        //Повторный вызов метода считывания клавиш
-                                        AddParkingMain();
-                                    }
-                                    else
-                                    {
                                         //Очистка консоли
                                         Console.Clear();
 
@@ -2774,9 +2703,7 @@ namespace ConsoleApp6
                                         consolebd.AddElemParking(j, prkname, prkadress, prknumber);
 
                                         //Повторный вызов метода для считывания клавиш
-                                        AddParkingMain();
-                                    }
-
+                                        AddParkingMain();                                    
                                     break;
 
                                 //Ввод адреса автостоянки
@@ -2798,28 +2725,8 @@ namespace ConsoleApp6
                                     Console.SetCursorPosition(20, 5);
 
                                     //Считывание строки
-                                    prkadress = Console.ReadLine();
+                                    prkadress = ReadString(50);
 
-                                    //Проверка на правильность ввода
-                                    if (prkadress == " " || prkadress == null || prkadress.Length > 50 || prkadress == "" || prkadress.Contains('\t'))
-                                    {
-                                        //Обнуление переменной
-                                        prkadress = " ";
-
-                                        //Очистка консоли
-                                        Console.Clear();
-
-                                        //Вызов меню ошибки 
-                                        consolebd.AttentionAddElement();
-
-                                        //Вызов метода построения меню добавления элемента
-                                        consolebd.AddElemParking(j, prkname, prkadress, prknumber);
-
-                                        //Вызов метода считывания нажатой клавиши
-                                        AddParkingMain();
-                                    }
-                                    else
-                                    {
                                         //Очистка консоли
                                         Console.Clear();
 
@@ -2828,8 +2735,6 @@ namespace ConsoleApp6
 
                                         //Повторный вызов метода для считывания клаваиш
                                         AddParkingMain();
-                                    }
-
                                     break;
 
                                 //Ввод номера автостоянки
@@ -2851,28 +2756,8 @@ namespace ConsoleApp6
                                     Console.SetCursorPosition(20, 7);
 
                                     //Считывание строки
-                                    prknumber = Console.ReadLine();
+                                    prknumber = ReadString(23);
 
-                                    //Проверка на правильность ввода
-                                    if (prknumber == " " || prknumber == null || prknumber.Length > 50 || prknumber == "" || prknumber.Contains('\t'))
-                                    {
-                                        //Очистка консоли
-                                        Console.Clear();
-
-                                        //Вызов окошка ошибки
-                                        consolebd.AttentionAddElement();
-
-                                        //Обнуление переменной номера автостоянки
-                                        prknumber = " ";
-
-                                        //Повторный вызов метода построения меню добавления автостоянки
-                                        consolebd.AddElemParking(j, prkname, prkadress, prknumber);
-
-                                        //Повторный вызов метода считывания клавиш
-                                        AddParkingMain();
-                                    }
-                                    else
-                                    {
                                         //Очистка консоли
                                         Console.Clear();
 
@@ -2881,7 +2766,6 @@ namespace ConsoleApp6
 
                                         //Повторный вызов метода для считывания клавиш
                                         AddParkingMain();
-                                    }
                                     break;
 
                                 case 4:
@@ -3136,28 +3020,8 @@ namespace ConsoleApp6
                                     Console.SetCursorPosition(22, 3);
 
                                     //Считывание строки
-                                    GPS = Console.ReadLine();
+                                    GPS = ReadString(50);
 
-                                    //Проверка на правильность ввода
-                                    if (GPS == " " || GPS == null || GPS == "" || GPS.Length > 50 || GPS.Contains('\t'))
-                                    {
-                                        //Очистка консоли
-                                        Console.Clear();
-
-                                        //Вызов меню ошибки
-                                        consolebd.AttentionAddElement();
-
-                                        //Обнуление переменной gps-координат
-                                        GPS = " ";
-
-                                        //Повторный вызов метода построения меню добавления акта эвакуации
-                                        consolebd.AddElemActEvacuation(j, GPS, typeviolation, numberofcar, typeofcar, streetname, parkingname);
-
-                                        //Повторный вызов метода считывания клавиш
-                                        AddActEvacuation();
-                                    }
-                                    else
-                                    {
                                         //Очистка консоли
                                         Console.Clear();
 
@@ -3166,8 +3030,6 @@ namespace ConsoleApp6
 
                                         //Повторный вызов метода считывания клавиш в текущем меню
                                         AddActEvacuation();
-                                    }
-
                                     break;
 
                                 //Ввод типа нарушения
@@ -3212,28 +3074,8 @@ namespace ConsoleApp6
                                     Console.SetCursorPosition(22, 7);
 
                                     //Считывание строки
-                                    numberofcar = Console.ReadLine();
+                                    numberofcar = ReadString(9);
 
-                                    //проверка на правильность ввода
-                                    if (numberofcar == "" || numberofcar == " " || numberofcar == null || numberofcar.Length > 50 || numberofcar.Contains('\t'))
-                                    {
-                                        //обнуление переменной
-                                        numberofcar = " ";
-
-                                        //очистка консоли
-                                        Console.Clear();
-
-                                        //Вызов меню ошибки 
-                                        consolebd.AttentionAddElement();
-
-                                        //Вызов метода построения меню для добавления акта эвакуации
-                                        consolebd.AddElemActEvacuation(j, GPS, typeviolation, numberofcar, typeofcar, streetname, parkingname);
-
-                                        //Вызов метода считывания нажатой клавиши
-                                        AddActEvacuation();
-                                    }
-                                    else
-                                    {
                                         //Очистка консоли
                                         Console.Clear();
 
@@ -3242,8 +3084,6 @@ namespace ConsoleApp6
 
                                         //Повторный вызов метода для считывания клавиш
                                         AddActEvacuation();
-                                    }
-
                                     break;
 
                                 //Добавление типа автомобиля
@@ -6501,28 +6341,7 @@ namespace ConsoleApp6
                                     Console.SetCursorPosition(20, 3);
 
                                     //Считывание строки
-                                    streetname = Console.ReadLine();
-
-                                    //Проверка на правильность ввода
-                                    if (streetname == " " || streetname == null || streetname.Length > 50 || streetname == "" || streetname.Contains('\t'))
-                                    {
-                                        //Очистка консоли
-                                        Console.Clear();
-
-                                        //Вызов меню ошибки
-                                        consolebd.AttentionAddElement();
-
-                                        //Обнуление переменной названия улицы
-                                        streetname = " ";
-
-                                        //Повторный вызов метода построения меню добавления улицы
-                                        consolebd.AddElemStreet(j, streetname, streetlength);
-
-                                        //Повторный вызов метода считывания клавиш
-                                        EditElementStreetMain();
-                                    }
-                                    else
-                                    {
+                                    streetname = ReadString(50);                                    
                                         //Очистка консоли
                                         Console.Clear();
 
@@ -6531,7 +6350,6 @@ namespace ConsoleApp6
 
                                         //Повторный вызов метода для считывания клавиш
                                         EditElementStreetMain();
-                                    }
                                     break;
 
                                 //Ввод длины улицы
@@ -6553,29 +6371,8 @@ namespace ConsoleApp6
                                     Console.SetCursorPosition(20, 5);
 
                                     //Считывание строки
-                                    streetlength = Console.ReadLine();
+                                    streetlength = ReadString(20);
 
-                                    //Проверка на правильность ввода
-                                    if (streetlength == " " || streetlength == null || streetlength.Length > 50 || streetlength == "" || streetlength.Contains('\t'))
-                                    {
-                                        //Обнуление переменной 
-                                        streetlength = " ";
-
-                                        //Очистка консоли
-                                        Console.Clear();
-
-                                        //Вызов меню ошибки
-                                        consolebd.AttentionAddElement();
-
-                                        //Вызов метода построения меню добавления элемента
-                                        consolebd.AddElemStreet(j, streetname, streetlength);
-
-                                        //Вызов метода считывания нажатой клавиши
-                                        EditElementStreetMain();
-
-                                    }
-                                    else
-                                    {
                                         //Очистка консоли
                                         Console.Clear();
 
@@ -6609,8 +6406,7 @@ namespace ConsoleApp6
 
                                             //Вызов метода выбора пункта меню
                                             EditElementStreetMain();
-                                        }
-                                    }
+                                        }                                    
                                     break;
 
                                 //Назад
@@ -6805,28 +6601,8 @@ namespace ConsoleApp6
                                     Console.SetCursorPosition(20, 3);
 
                                     //Считывание строки
-                                    parkingname = Console.ReadLine();
+                                    parkingname = ReadString(30);
 
-                                    //Проверка на правильность ввода
-                                    if (parkingname == " " || parkingname == null || parkingname.Length > 30 || parkingname == "" || parkingname.Contains('\t'))
-                                    {
-                                        //Очистка консоли
-                                        Console.Clear();
-
-                                        //Вызов меню ошибки
-                                        consolebd.AttentionAddElement();
-
-                                        //обнуление переменной названия автостоянки
-                                        parkingname = " ";
-
-                                        //Повторный вызов метода построения меню добавления автостоянки
-                                        consolebd.EditParkingElement(j, parkingname, parkingadress, parkingnumber);
-
-                                        //Повторный вызов метода считывания клавиш
-                                        EditElementParkingMain();
-                                    }
-                                    else
-                                    {
                                         //Очистка консоли
                                         Console.Clear();
 
@@ -6834,9 +6610,7 @@ namespace ConsoleApp6
                                         consolebd.EditParkingElement(j, parkingname, parkingadress, parkingnumber);
 
                                         //Повторный вызов метода для считывания клавиш
-                                        EditElementParkingMain();
-                                    }
-
+                                        EditElementParkingMain();                                    
                                     break;
 
                                 //Ввод адреса автостоянки
@@ -6858,28 +6632,8 @@ namespace ConsoleApp6
                                     Console.SetCursorPosition(20, 5);
 
                                     //Считывание строки
-                                    parkingadress = Console.ReadLine();
+                                    parkingadress = ReadString(50);
 
-                                    //Проверка на правильность ввода
-                                    if (parkingadress == " " || parkingadress == null || parkingadress.Length > 50 || parkingadress == "" || parkingadress.Contains('\t'))
-                                    {
-                                        //Обнуление переменной
-                                        parkingadress = " ";
-
-                                        //Очистка консоли
-                                        Console.Clear();
-
-                                        //Вызов меню ошибки 
-                                        consolebd.AttentionAddElement();
-
-                                        //Вызов метода построения меню добавления элемента
-                                        consolebd.EditParkingElement(j, parkingname, parkingadress, parkingnumber);
-
-                                        //Вызов метода считывания нажатой клавиши
-                                        EditElementParkingMain();
-                                    }
-                                    else
-                                    {
                                         //Очистка консоли
                                         Console.Clear();
 
@@ -6888,8 +6642,6 @@ namespace ConsoleApp6
 
                                         //Повторный вызов метода для считывания клаваиш
                                         EditElementParkingMain();
-                                    }
-
                                     break;
 
                                 //Ввод номера автостоянки
@@ -6911,28 +6663,8 @@ namespace ConsoleApp6
                                     Console.SetCursorPosition(20, 7);
 
                                     //Считывание строки
-                                    parkingnumber = Console.ReadLine();
+                                    parkingnumber = ReadString(23);
 
-                                    //Проверка на правильность ввода
-                                    if (parkingnumber == " " || parkingnumber == null || parkingnumber.Length > 50 || parkingnumber == "" || parkingnumber.Contains('\t'))
-                                    {
-                                        //Очистка консоли
-                                        Console.Clear();
-
-                                        //Вызов окошка ошибки
-                                        consolebd.AttentionAddElement();
-
-                                        //Обнуление переменной номера автостоянки
-                                        parkingnumber = " ";
-
-                                        //Повторный вызов метода построения меню добавления автостоянки
-                                        consolebd.EditParkingElement(j, parkingname, parkingadress, parkingnumber);
-
-                                        //Повторный вызов метода считывания клавиш
-                                        EditElementParkingMain();
-                                    }
-                                    else
-                                    {
                                         //Очистка консоли
                                         Console.Clear();
 
@@ -6941,7 +6673,6 @@ namespace ConsoleApp6
 
                                         //Повторный вызов метода для считывания клавиш
                                         EditElementParkingMain();
-                                    }
                                     break;
 
                                 case 4:
@@ -7164,28 +6895,8 @@ namespace ConsoleApp6
                                     Console.SetCursorPosition(22, 3);
 
                                     //Считывание строки
-                                    gps = Console.ReadLine();
+                                    gps = ReadString(50);
 
-                                    //Проверка на правильность ввода
-                                    if (gps == " " || gps == null || gps == "" || gps.Length > 50 || gps.Contains('\t'))
-                                    {
-                                        //Очистка консоли
-                                        Console.Clear();
-
-                                        //Вызов меню ошибки
-                                        consolebd.AttentionAddElement();
-
-                                        //Обнуление переменной gps-координат
-                                        gps = " ";
-
-                                        //Повторный вызов метода построения меню добавления акта эвакуации
-                                        consolebd.EditActElement(j, gps, typevio, carnum, cartype, streetname, parkingname);
-
-                                        //Повторный вызов метода считывания клавиш
-                                        EditElementActMain();
-                                    }
-                                    else
-                                    {
                                         //Очистка консоли
                                         Console.Clear();
 
@@ -7193,9 +6904,7 @@ namespace ConsoleApp6
                                         consolebd.EditActElement(j, gps, typevio, carnum, cartype, streetname, parkingname);
 
                                         //Повторный вызов метода считывания клавиш в текущем меню
-                                        EditElementActMain();
-                                    }
-
+                                        EditElementActMain();                 
                                     break;
 
                                 //Ввод типа нарушения
@@ -7240,28 +6949,8 @@ namespace ConsoleApp6
                                     Console.SetCursorPosition(22, 7);
 
                                     //Считывание строки
-                                    carnum = Console.ReadLine();
+                                    carnum = ReadString(10);
 
-                                    //проверка на правильность ввода
-                                    if (carnum == "" || carnum == " " || carnum == null || carnum.Length > 50 || carnum.Contains('\t'))
-                                    {
-                                        //обнуление переменной
-                                        carnum = " ";
-
-                                        //очистка консоли
-                                        Console.Clear();
-
-                                        //Вызов меню ошибки 
-                                        consolebd.AttentionAddElement();
-
-                                        //Вызов метода построения меню для добавления акта эвакуации
-                                        consolebd.EditActElement(j, gps, typevio, carnum, cartype, streetname, parkingname);
-
-                                        //Вызов метода считывания нажатой клавиши
-                                        EditElementActMain();
-                                    }
-                                    else
-                                    {
                                         //Очистка консоли
                                         Console.Clear();
 
@@ -7270,8 +6959,6 @@ namespace ConsoleApp6
 
                                         //Повторный вызов метода для считывания клавиш
                                         EditElementActMain();
-                                    }
-
                                     break;
 
                                 //Добавление типа автомобиля
@@ -9150,7 +8837,7 @@ namespace ConsoleApp6
                                     street = "               ";
                                     consolebd.SearchStreets(0, street, num);
                                     Console.SetCursorPosition(9, 3);
-                                    street = Console.ReadLine();
+                                    street = ReadString(50);
                                     street.Trim();
                                     if (street == "") { Console.Clear(); consolebd.Attention(); /*street = "               ";*/ }
                                     Console.Clear();
@@ -9230,7 +8917,7 @@ namespace ConsoleApp6
                                     Console.Clear();
                                     consolebd.SearchParkings(0, parking, num);
                                     Console.SetCursorPosition(9, 3);
-                                    parking = Console.ReadLine();
+                                    parking = ReadString(30);
                                     parking.Trim();
                                     if (parking == "") { Console.Clear(); consolebd.Attention(); parking = "              "; }
                                     Console.Clear();
@@ -9334,12 +9021,12 @@ namespace ConsoleApp6
                         {
                             switch (j)
                             {
-                                case 0:                                    
+                                case 0:
                                     act = "               ";
                                     Console.Clear();
                                     consolebd.SearchActs(-1, act, num);
                                     Console.SetCursorPosition(9, 3);
-                                    act = Console.ReadLine();
+                                    act = ReadString(50);
                                     act.Trim();
                                     if (act == "") { Console.Clear(); consolebd.Attention(); act = "                "; }
                                     data.RemoveSearchList1();
@@ -9370,8 +9057,8 @@ namespace ConsoleApp6
                                 case 18:
                                 case 19:
                                 case 20:
-                                    index = data.MoreInfoStreet(num + j-2);
-                                    consolebd.PrintStreetMoreInfoSearch(index); 
+                                    index = data.MoreInfoStreet(num + j - 2);
+                                    consolebd.PrintStreetMoreInfoSearch(index);
                                     SearchActsMain();
                                     break;
 
@@ -9421,7 +9108,7 @@ namespace ConsoleApp6
                         }
                     }
 
-                } while (key.Key != ConsoleKey.Enter);                
+                } while (key.Key != ConsoleKey.Enter);
             }
         }
 
@@ -11396,6 +11083,45 @@ namespace ConsoleApp6
                     }
 
                 } while (key.Key != ConsoleKey.Enter);
+            }
+        }
+
+        static string ReadString(int count)
+        {
+            StringBuilder sb = new StringBuilder(count);
+            int curStart = Console.CursorLeft;
+            int curOffset = 0;
+            ConsoleKeyInfo keyInfo;
+            do
+            {
+                keyInfo = Console.ReadKey(true);
+                if ((char.IsPunctuation(keyInfo.KeyChar) || char.IsLetterOrDigit(keyInfo.KeyChar)) && sb.Length < count)
+                {
+                    sb.Insert(curOffset, keyInfo.KeyChar);
+                    curOffset++;
+                    Console.Write(keyInfo.KeyChar);
+                }
+                if (keyInfo.Key == ConsoleKey.Backspace && curOffset > 0)
+                {
+                    curOffset--;
+                    sb.Remove(curOffset, 1);
+                    Console.CursorLeft = curStart;
+                    Console.Write(sb.ToString().PadRight(count));
+                }
+                if (keyInfo.Key == ConsoleKey.Delete && curOffset < sb.Length)
+                {
+                    sb.Remove(curOffset, 1);
+                    Console.CursorLeft = curStart;
+                    Console.Write(sb.ToString().PadRight(count));
+                }
+                Console.CursorLeft = curStart + curOffset;
+            }
+            while (!(keyInfo.Key == ConsoleKey.Enter && sb.Length > 0) && !(keyInfo.Key == ConsoleKey.Escape && sb.Length > 0));
+            Console.WriteLine();
+            if (keyInfo.Key == ConsoleKey.Escape) { return " "; }
+            else
+            {
+                return sb.ToString();
             }
         }
     }

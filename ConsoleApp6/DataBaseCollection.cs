@@ -83,7 +83,8 @@ namespace ConsoleApp6
                 }
 
                 return indexstreet;
-            } else { return -1; }
+            }
+            else { return -1; }
         }
 
         public int MoreInfoParking(int index)
@@ -93,7 +94,7 @@ namespace ConsoleApp6
             if (SearchTab1.Count > index)
             {
                 parkingname = SearchTab1[index].Parking.ParkingName;
-                for(int i = 0; i < Tab3List.Count(); i++)
+                for (int i = 0; i < Tab3List.Count(); i++)
                 {
                     if (Tab3List[i].ParkingName == parkingname)
                     {
@@ -101,7 +102,8 @@ namespace ConsoleApp6
                     }
                 }
                 return indexparking;
-            }else { return -1; }
+            }
+            else { return -1; }
         }
 
         //Поле имени файла
@@ -223,7 +225,7 @@ namespace ConsoleApp6
         //Метод, возвращающий название улицы
         public string OutPutSt(int i)
         {
-            if (CountTab2() > i && i >=0)
+            if (CountTab2() > i && i >= 0)
             {
                 return Tab2List[i].StreetName;
             }
@@ -244,7 +246,7 @@ namespace ConsoleApp6
         //Метод, возвращающий название автостоянки
         public string OutPutPrkname(int i)
         {
-            if (CountTab3() > i && i>=0)
+            if (CountTab3() > i && i >= 0)
             {
                 return Tab3List[i].ParkingName;
             }
@@ -254,7 +256,7 @@ namespace ConsoleApp6
         //Метод, возвращающий адрес автостоянки
         public string OutPutPrkadress(int i)
         {
-            if (CountTab3() > i && i>= 0)
+            if (CountTab3() > i && i >= 0)
             {
                 return Tab3List[i].ParkingAdress;
             }
@@ -264,7 +266,7 @@ namespace ConsoleApp6
         //Метод, возвращающий телефон автостоянки
         public string OutPutPrknumber(int i)
         {
-            if (CountTab3() > i && i>=0)
+            if (CountTab3() > i && i >= 0)
             {
                 return Tab3List[i].ParkingNumber;
             }
@@ -559,6 +561,19 @@ namespace ConsoleApp6
                     }
                 }
             }
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = i + 1; j < n + 1; j++)
+                {
+                    if (Tab2List[j].StreetName[0] == Tab2List[i].StreetName[0] && Tab2List[j].StreetName[1] < Tab2List[i].StreetName[1])
+                    {
+                        ElementsTab2 p = Tab2List[i];
+                        Tab2List[i] = Tab2List[j];
+                        Tab2List[j] = p;
+
+                    }
+                }
+            }
         }
 
         //Метод сортировки элементов таблицы улиц по названию улицы Я-А
@@ -570,6 +585,18 @@ namespace ConsoleApp6
                 for (int j = i + 1; j < n + 1; j++)
                 {
                     if (Tab2List[j].StreetName[0] > Tab2List[i].StreetName[0])
+                    {
+                        ElementsTab2 p = Tab2List[i];
+                        Tab2List[i] = Tab2List[j];
+                        Tab2List[j] = p;
+                    }
+                }
+            }
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = i + 1; j < n + 1; j++)
+                {
+                    if (Tab2List[j].StreetName[0] == Tab2List[i].StreetName[0] && Tab2List[j].StreetName[1] > Tab2List[i].StreetName[1])
                     {
                         ElementsTab2 p = Tab2List[i];
                         Tab2List[i] = Tab2List[j];
@@ -632,6 +659,18 @@ namespace ConsoleApp6
                     }
                 }
             }
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = i + 1; j < n + 1; j++)
+                {
+                    if (Tab3List[j].ParkingName[0] == Tab3List[i].ParkingName[0] && Tab3List[j].ParkingName[1] < Tab3List[i].ParkingName[1])
+                    {
+                        ElementsTab3 p = Tab3List[i];
+                        Tab3List[i] = Tab3List[j];
+                        Tab3List[j] = p;
+                    }
+                }
+            }
         }
 
         //Метод сортировки элементов таблицы автостоянок по названию автостоянки Я-А
@@ -643,6 +682,18 @@ namespace ConsoleApp6
                 for (int j = i + 1; j < n + 1; j++)
                 {
                     if (Tab3List[j].ParkingName[0] > Tab3List[i].ParkingName[0])
+                    {
+                        ElementsTab3 p = Tab3List[i];
+                        Tab3List[i] = Tab3List[j];
+                        Tab3List[j] = p;
+                    }
+                }
+            }
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = i + 1; j < n + 1; j++)
+                {
+                    if (Tab3List[j].ParkingName[0] == Tab3List[i].ParkingName[0] && Tab3List[j].ParkingName[1] > Tab3List[i].ParkingName[1])
                     {
                         ElementsTab3 p = Tab3List[i];
                         Tab3List[i] = Tab3List[j];
@@ -668,6 +719,18 @@ namespace ConsoleApp6
                     }
                 }
             }
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = i + 1; j < n + 1; j++)
+                {
+                    if (Tab3List[j].ParkingAdress[0] == Tab3List[i].ParkingAdress[0] && Tab3List[j].ParkingAdress[1] < Tab3List[i].ParkingAdress[1])
+                    {
+                        ElementsTab3 p = Tab3List[i];
+                        Tab3List[i] = Tab3List[j];
+                        Tab3List[j] = p;
+                    }
+                }
+            }
         }
 
         //Метод сортировки элементов таблицы автостоянок по адресу автостоянки Я-А
@@ -679,6 +742,18 @@ namespace ConsoleApp6
                 for (int j = i + 1; j < n + 1; j++)
                 {
                     if (Tab3List[j].ParkingAdress[0] > Tab3List[i].ParkingAdress[0])
+                    {
+                        ElementsTab3 p = Tab3List[i];
+                        Tab3List[i] = Tab3List[j];
+                        Tab3List[j] = p;
+                    }
+                }
+            }
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = i + 1; j < n + 1; j++)
+                {
+                    if (Tab3List[j].ParkingAdress[0] == Tab3List[i].ParkingAdress[0] && Tab3List[j].ParkingAdress[1] > Tab3List[i].ParkingAdress[1])
                     {
                         ElementsTab3 p = Tab3List[i];
                         Tab3List[i] = Tab3List[j];
@@ -704,6 +779,18 @@ namespace ConsoleApp6
                     }
                 }
             }
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = i + 1; j < n + 1; j++)
+                {
+                    if (Tab1List[j].Street.StreetName[0] == Tab1List[i].Street.StreetName[0] && Tab1List[j].Street.StreetName[1] < Tab1List[i].Street.StreetName[1])
+                    {
+                        ElementsTab1 p = Tab1List[i];
+                        Tab1List[i] = Tab1List[j];
+                        Tab1List[j] = p;
+                    }
+                }
+            }
         }
 
         //Метод сортировки таблицы актов эвакуации по названию улицы Я-А
@@ -715,6 +802,18 @@ namespace ConsoleApp6
                 for (int j = i + 1; j < n + 1; j++)
                 {
                     if (Tab1List[j].Street.StreetName[0] > Tab1List[i].Street.StreetName[0])
+                    {
+                        ElementsTab1 p = Tab1List[i];
+                        Tab1List[i] = Tab1List[j];
+                        Tab1List[j] = p;
+                    }
+                }
+            }
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = i + 1; j < n + 1; j++)
+                {
+                    if (Tab1List[j].Street.StreetName[0] == Tab1List[i].Street.StreetName[0] && Tab1List[j].Street.StreetName[1] > Tab1List[i].Street.StreetName[1])
                     {
                         ElementsTab1 p = Tab1List[i];
                         Tab1List[i] = Tab1List[j];
@@ -740,6 +839,18 @@ namespace ConsoleApp6
                     }
                 }
             }
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = i + 1; j < n + 1; j++)
+                {
+                    if (Tab1List[j].Parking.ParkingName[0] == Tab1List[i].Parking.ParkingName[0] && Tab1List[j].Parking.ParkingName[1] < Tab1List[i].Parking.ParkingName[1])
+                    {
+                        ElementsTab1 p = Tab1List[i];
+                        Tab1List[i] = Tab1List[j];
+                        Tab1List[j] = p;
+                    }
+                }
+            }
         }
 
         //Метод сортировки таблицы актов эвакуации по названию автостоянки  Я-А
@@ -751,6 +862,18 @@ namespace ConsoleApp6
                 for (int j = i + 1; j < n + 1; j++)
                 {
                     if (Tab1List[j].Parking.ParkingName[0] > Tab1List[i].Parking.ParkingName[0])
+                    {
+                        ElementsTab1 p = Tab1List[i];
+                        Tab1List[i] = Tab1List[j];
+                        Tab1List[j] = p;
+                    }
+                }
+            }
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = i + 1; j < n + 1; j++)
+                {
+                    if (Tab1List[j].Parking.ParkingName[0] == Tab1List[i].Parking.ParkingName[0] && Tab1List[j].Parking.ParkingName[1] > Tab1List[i].Parking.ParkingName[1])
                     {
                         ElementsTab1 p = Tab1List[i];
                         Tab1List[i] = Tab1List[j];
@@ -826,15 +949,15 @@ namespace ConsoleApp6
         //
         public void SearchStreet(string street)
         {
-            foreach(var elem in Tab2List)
+            foreach (var elem in Tab2List)
             {
-                if(elem.StreetName == street) { SearchStreetTab.Add(elem); }
+                if (elem.StreetName == street) { SearchStreetTab.Add(elem); }
             }
         }
 
         public void AddSearchTab(string s)
         {
-            foreach(var elem in Tab1List)
+            foreach (var elem in Tab1List)
             {
                 if (elem.CarNumber.Contains(s) || elem.CarType.Contains(s) || elem.GPS.Contains(s) || elem.Parking.ParkingAdress.Contains(s) || elem.Parking.ParkingName.Contains(s) || elem.Parking.ParkingNumber.Contains(s) || elem.Street.StreetName.Contains(s) || elem.Street.StreetLength.Contains(s) || elem.TypeViolation.Contains(s))
                 {
@@ -845,7 +968,7 @@ namespace ConsoleApp6
 
         public void DeleteSearchTab1()
         {
-            for(int i = 0; i <  SearchTab1.Count(); i++)
+            for (int i = 0; i < SearchTab1.Count(); i++)
             {
                 SearchTab1.RemoveAt(i);
             }
@@ -945,42 +1068,46 @@ namespace ConsoleApp6
             this.ClearTab2();
             this.ClearTab3();
             StreamReader reader;
-            reader = File.OpenText(data.FileName);
-            string input;
-            while ((input = reader.ReadLine()) != null && input != "||||||||||||||||||||||||||||||||||||||||||||||||||")
+            try
             {
-                Tab2List.Add(new ElementsTab2());
-                Tab2List[Tab2List.Count - 1].StreetName = input;
-                input = reader.ReadLine();
-                Tab2List[Tab2List.Count - 1].StreetLength = input;
-            }
-            while ((input = reader.ReadLine()) != null && input != "||||||||||||||||||||||||||||||||||||||||||||||||||")
-            {
-                Tab3List.Add(new ElementsTab3());
-                Tab3List[Tab3List.Count - 1].ParkingName = input;
-                input = reader.ReadLine();
-                Tab3List[Tab3List.Count - 1].ParkingAdress = input;
-                input = reader.ReadLine();
-                Tab3List[Tab3List.Count - 1].ParkingNumber = input;
-            }
-            while ((input = reader.ReadLine()) != null && input != "||||||||||||||||||||||||||||||||||||||||||||||||||")
-            {
-                Tab1List.Add(new ElementsTab1());
-                Tab1List[Tab1List.Count - 1].GPS = input;
-                input = reader.ReadLine();
-                Tab1List[Tab1List.Count - 1].TypeViolation = input;
-                input = reader.ReadLine();
-                Tab1List[Tab1List.Count - 1].CarNumber = input;
-                input = reader.ReadLine();
-                Tab1List[Tab1List.Count - 1].CarType = input;
-                input = reader.ReadLine();
-                Tab1List[Tab1List.Count - 1].LinkStreet = Convert.ToInt32(input);
-                Tab1List[Tab1List.Count - 1].Street = Tab2List[Convert.ToInt32(input)];
-                input = reader.ReadLine();
-                Tab1List[Tab1List.Count - 1].LinkParking = Convert.ToInt32(input);
-                Tab1List[Tab1List.Count - 1].Parking = Tab3List[Convert.ToInt32(input)];
-            }
+                reader = File.OpenText(data.FileName);
+                string input;
+                while ((input = reader.ReadLine()) != null && input != "||||||||||||||||||||||||||||||||||||||||||||||||||")
+                {
+                    Tab2List.Add(new ElementsTab2());
+                    Tab2List[Tab2List.Count - 1].StreetName = input;
+                    input = reader.ReadLine();
+                    Tab2List[Tab2List.Count - 1].StreetLength = input;
+                }
+                while ((input = reader.ReadLine()) != null && input != "||||||||||||||||||||||||||||||||||||||||||||||||||")
+                {
+                    Tab3List.Add(new ElementsTab3());
+                    Tab3List[Tab3List.Count - 1].ParkingName = input;
+                    input = reader.ReadLine();
+                    Tab3List[Tab3List.Count - 1].ParkingAdress = input;
+                    input = reader.ReadLine();
+                    Tab3List[Tab3List.Count - 1].ParkingNumber = input;
+                }
+                while ((input = reader.ReadLine()) != null && input != "||||||||||||||||||||||||||||||||||||||||||||||||||")
+                {
+                    Tab1List.Add(new ElementsTab1());
+                    Tab1List[Tab1List.Count - 1].GPS = input;
+                    input = reader.ReadLine();
+                    Tab1List[Tab1List.Count - 1].TypeViolation = input;
+                    input = reader.ReadLine();
+                    Tab1List[Tab1List.Count - 1].CarNumber = input;
+                    input = reader.ReadLine();
+                    Tab1List[Tab1List.Count - 1].CarType = input;
+                    input = reader.ReadLine();
+                    Tab1List[Tab1List.Count - 1].LinkStreet = Convert.ToInt32(input);
+                    Tab1List[Tab1List.Count - 1].Street = Tab2List[Convert.ToInt32(input)];
+                    input = reader.ReadLine();
+                    Tab1List[Tab1List.Count - 1].LinkParking = Convert.ToInt32(input);
+                    Tab1List[Tab1List.Count - 1].Parking = Tab3List[Convert.ToInt32(input)];
+                }           
             reader.Close();
+            }
+            catch { Console.Clear(); consolebd.Attention(); data.FileName = ""; }
 
         }
 
