@@ -142,7 +142,7 @@ namespace ConsoleApp6
                             case 7:
                                 //Очистка консоли
                                 Console.Clear();
-                                consolebd.SearchActs(1, "а", 1);
+                                consolebd.Information();
                                 Console.ReadKey();
                                 Main();
                                 break;
