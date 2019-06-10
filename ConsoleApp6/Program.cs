@@ -4168,12 +4168,6 @@ namespace ConsoleApp6
 
                                     //обнуление переменной после неверного присвоения
                                     ind = " ";
-
-                                    //Вызов метода повторного построения меню удаления 
-                                    //consolebd.DeleteElementIndex();
-
-                                    //Повторный вызов текущего метода
-                                    //DeleteStreet();
                                 }
 
                                 //Дикремент для корректной работы
@@ -11095,7 +11089,7 @@ namespace ConsoleApp6
             do
             {
                 keyInfo = Console.ReadKey(true);
-                if ((char.IsPunctuation(keyInfo.KeyChar) || char.IsLetterOrDigit(keyInfo.KeyChar)) && sb.Length < count)
+                if ((char.IsPunctuation(keyInfo.KeyChar) || char.IsLetterOrDigit(keyInfo.KeyChar) || char.IsUpper(keyInfo.KeyChar) || char.IsWhiteSpace(keyInfo.KeyChar)) && sb.Length < count)
                 {
                     sb.Insert(curOffset, keyInfo.KeyChar);
                     curOffset++;
@@ -11117,10 +11111,10 @@ namespace ConsoleApp6
                 Console.CursorLeft = curStart + curOffset;
             }
             while (!(keyInfo.Key == ConsoleKey.Enter && sb.Length > 0) && !(keyInfo.Key == ConsoleKey.Escape && sb.Length > 0));
-            Console.WriteLine();
             if (keyInfo.Key == ConsoleKey.Escape) { return " "; }
             else
             {
+                sb[sb.Length-1] = ' ';
                 return sb.ToString();
             }
         }

@@ -359,35 +359,30 @@ namespace ConsoleApp6
         }
 
         //Метод удаления элементов по индексам из списка 2
-        public void DeleteElementTab2(int i)
+        public void DeleteElementTab2(int ind)
         {
-            foreach (var Tab1 in Tab1List)
+            for (int i = 0; i < Tab1List.Count(); i++)
             {
-                if (Tab1.Street.StreetName == Tab2List[i - 1].StreetName)
+                if (Tab1List[i].Street.StreetName == Tab2List[ind - 1].StreetName)
                 {
-                    Tab1.Street.StreetName = " ";
-                    Tab1.Street.StreetLength = " ";
-                    Tab1.LinkStreet = -1;
+                    Tab1List.RemoveAt(i);
                 }
             }
-            Tab2List.RemoveAt(i - 1);
+            Tab2List.RemoveAt(ind - 1);
 
         }
 
         //Метод удаления элементов по индексам из списка 3
-        public void DeleteElementTab3(int i)
+        public void DeleteElementTab3(int ind)
         {
-            foreach (var Tab1 in Tab1List)
+            for (int i = 0; i < Tab1List.Count(); i ++)
             {
-                if (Tab1.Parking.ParkingName == Tab3List[i].ParkingName && Tab1.Parking.ParkingAdress == Tab3List[i].ParkingAdress && Tab1.Parking.ParkingNumber == Tab3List[i].ParkingNumber)
+                if (Tab1List[i].Parking.ParkingName == Tab3List[ind].ParkingName && Tab1List[i].Parking.ParkingAdress == Tab3List[ind].ParkingAdress && Tab1List[i].Parking.ParkingNumber == Tab3List[ind].ParkingNumber)
                 {
-                    Tab1.Parking.ParkingAdress = " ";
-                    Tab1.Parking.ParkingName = " ";
-                    Tab1.Parking.ParkingNumber = " ";
-                    Tab1.LinkParking = -1;
+                    Tab1List.RemoveAt(i);
                 }
             }
-            Tab3List.RemoveAt(i);
+            Tab3List.RemoveAt(ind);
         }
 
         //Метод, возвращающий элемент списка таблицы 2 УЛИЦЫ
