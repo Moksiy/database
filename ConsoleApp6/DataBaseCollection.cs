@@ -366,6 +366,7 @@ namespace ConsoleApp6
                 if (Tab1List[i].Street.StreetName == Tab2List[ind - 1].StreetName)
                 {
                     Tab1List.RemoveAt(i);
+                    i--;
                 }
             }
             Tab2List.RemoveAt(ind - 1);
@@ -373,7 +374,7 @@ namespace ConsoleApp6
         }
 
         //Метод удаления элементов по индексам из списка 3
-        public void DeleteElementTab3(int ind)
+        public void DeleteElementTab3(int ind) 
         {
             for (int i = 0; i < Tab1List.Count(); i ++)
             {
