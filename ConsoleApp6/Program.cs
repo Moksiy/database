@@ -142,7 +142,8 @@ namespace ConsoleApp6
                             case 7:
                                 //Очистка консоли
                                 Console.Clear();
-                                consolebd.Information();
+                                //consolebd.Information();
+                                consolebd.AcceptDelete(2, "Комсомольская");
                                 Console.ReadKey();
                                 Main();
                                 break;
@@ -184,6 +185,7 @@ namespace ConsoleApp6
 
 
             do
+
             {
                 // Считывание нажатой клавиши
                 key = Console.ReadKey(true);
@@ -2431,40 +2433,40 @@ namespace ConsoleApp6
                                     //Считывание строки
                                     strlength = ReadString(20);
 
-                                        //Очистка консоли
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    double slen = 0;
+
+                                    //дополнительная проверка на возможность конвертации значения 
+                                    if (double.TryParse(strlength, out slen))
+                                    {
+                                        //Конвертация
+                                        slen = Double.Parse(strlength);
+
+                                        //Повторный вызов метода построения меню 
+                                        consolebd.AddElemStreet(j, strname, strlength);
+
+                                        //Повторный вызов метода для считывания клавиш
+                                        AddStreetMain();
+                                    }
+                                    else
+                                    {
+                                        //обнуление введенного значения
+                                        strlength = " ";
+
+                                        //очистка консоли
                                         Console.Clear();
 
-                                        double slen = 0;
+                                        //Вызов метода построения таблицы предупреждения
+                                        consolebd.AttentionAddElement();
 
-                                        //дополнительная проверка на возможность конвертации значения 
-                                        if (double.TryParse(strlength, out slen))
-                                        {
-                                            //Конвертация
-                                            slen = Double.Parse(strlength);
+                                        //Повторный вызов меню добавления улицы
+                                        consolebd.AddElemStreet(j, strname, strlength);
 
-                                            //Повторный вызов метода построения меню 
-                                            consolebd.AddElemStreet(j, strname, strlength);
-
-                                            //Повторный вызов метода для считывания клавиш
-                                            AddStreetMain();
-                                        }
-                                        else
-                                        {
-                                            //обнуление введенного значения
-                                            strlength = " ";
-
-                                            //очистка консоли
-                                            Console.Clear();
-
-                                            //Вызов метода построения таблицы предупреждения
-                                            consolebd.AttentionAddElement();
-
-                                            //Повторный вызов меню добавления улицы
-                                            consolebd.AddElemStreet(j, strname, strlength);
-
-                                            //Вызов метода выбора пункта меню
-                                            AddStreetMain();
-                                        }
+                                        //Вызов метода выбора пункта меню
+                                        AddStreetMain();
+                                    }
                                     break;
 
                                 //Назад
@@ -2696,14 +2698,14 @@ namespace ConsoleApp6
                                     //Считывание строки
                                     prkname = ReadString(30);
 
-                                        //Очистка консоли
-                                        Console.Clear();
+                                    //Очистка консоли
+                                    Console.Clear();
 
-                                        //Повторный вызов метода построения меню добавления автостоянки
-                                        consolebd.AddElemParking(j, prkname, prkadress, prknumber);
+                                    //Повторный вызов метода построения меню добавления автостоянки
+                                    consolebd.AddElemParking(j, prkname, prkadress, prknumber);
 
-                                        //Повторный вызов метода для считывания клавиш
-                                        AddParkingMain();                                    
+                                    //Повторный вызов метода для считывания клавиш
+                                    AddParkingMain();
                                     break;
 
                                 //Ввод адреса автостоянки
@@ -2727,14 +2729,14 @@ namespace ConsoleApp6
                                     //Считывание строки
                                     prkadress = ReadString(50);
 
-                                        //Очистка консоли
-                                        Console.Clear();
+                                    //Очистка консоли
+                                    Console.Clear();
 
-                                        //Повторный вызов метода построения меню
-                                        consolebd.AddElemParking(j, prkname, prkadress, prknumber);
+                                    //Повторный вызов метода построения меню
+                                    consolebd.AddElemParking(j, prkname, prkadress, prknumber);
 
-                                        //Повторный вызов метода для считывания клаваиш
-                                        AddParkingMain();
+                                    //Повторный вызов метода для считывания клаваиш
+                                    AddParkingMain();
                                     break;
 
                                 //Ввод номера автостоянки
@@ -2758,14 +2760,14 @@ namespace ConsoleApp6
                                     //Считывание строки
                                     prknumber = ReadString(23);
 
-                                        //Очистка консоли
-                                        Console.Clear();
+                                    //Очистка консоли
+                                    Console.Clear();
 
-                                        //Повторный вызов метода построения меню
-                                        consolebd.AddElemParking(j, prkname, prkadress, prknumber);
+                                    //Повторный вызов метода построения меню
+                                    consolebd.AddElemParking(j, prkname, prkadress, prknumber);
 
-                                        //Повторный вызов метода для считывания клавиш
-                                        AddParkingMain();
+                                    //Повторный вызов метода для считывания клавиш
+                                    AddParkingMain();
                                     break;
 
                                 case 4:
@@ -3022,14 +3024,14 @@ namespace ConsoleApp6
                                     //Считывание строки
                                     GPS = ReadString(50);
 
-                                        //Очистка консоли
-                                        Console.Clear();
+                                    //Очистка консоли
+                                    Console.Clear();
 
-                                        //Повторный вызов метода построения меню добавления акта эвакуации
-                                        consolebd.AddElemActEvacuation(j, GPS, typeviolation, numberofcar, typeofcar, streetname, parkingname);
+                                    //Повторный вызов метода построения меню добавления акта эвакуации
+                                    consolebd.AddElemActEvacuation(j, GPS, typeviolation, numberofcar, typeofcar, streetname, parkingname);
 
-                                        //Повторный вызов метода считывания клавиш в текущем меню
-                                        AddActEvacuation();
+                                    //Повторный вызов метода считывания клавиш в текущем меню
+                                    AddActEvacuation();
                                     break;
 
                                 //Ввод типа нарушения
@@ -3076,14 +3078,14 @@ namespace ConsoleApp6
                                     //Считывание строки
                                     numberofcar = ReadString(9);
 
-                                        //Очистка консоли
-                                        Console.Clear();
+                                    //Очистка консоли
+                                    Console.Clear();
 
-                                        //Повторный вызов метода построения меню
-                                        consolebd.AddElemActEvacuation(j, GPS, typeviolation, numberofcar, typeofcar, streetname, parkingname);
+                                    //Повторный вызов метода построения меню
+                                    consolebd.AddElemActEvacuation(j, GPS, typeviolation, numberofcar, typeofcar, streetname, parkingname);
 
-                                        //Повторный вызов метода для считывания клавиш
-                                        AddActEvacuation();
+                                    //Повторный вызов метода для считывания клавиш
+                                    AddActEvacuation();
                                     break;
 
                                 //Добавление типа автомобиля
@@ -6335,15 +6337,15 @@ namespace ConsoleApp6
                                     Console.SetCursorPosition(20, 3);
 
                                     //Считывание строки
-                                    streetname = ReadString(50);                                    
-                                        //Очистка консоли
-                                        Console.Clear();
+                                    streetname = ReadString(50);
+                                    //Очистка консоли
+                                    Console.Clear();
 
-                                        //Повторный вызов метода построения меню 
-                                        consolebd.AddElemStreet(j, streetname, streetlength);
+                                    //Повторный вызов метода построения меню 
+                                    consolebd.AddElemStreet(j, streetname, streetlength);
 
-                                        //Повторный вызов метода для считывания клавиш
-                                        EditElementStreetMain();
+                                    //Повторный вызов метода для считывания клавиш
+                                    EditElementStreetMain();
                                     break;
 
                                 //Ввод длины улицы
@@ -6367,40 +6369,40 @@ namespace ConsoleApp6
                                     //Считывание строки
                                     streetlength = ReadString(20);
 
-                                        //Очистка консоли
+                                    //Очистка консоли
+                                    Console.Clear();
+
+                                    double slen = 0;
+
+                                    //дополнительная проверка на возможность конвертации значения 
+                                    if (double.TryParse(streetlength, out slen))
+                                    {
+                                        //Конвертация
+                                        slen = Double.Parse(streetlength);
+
+                                        //Повторный вызов метода построения меню 
+                                        consolebd.EditStreetElement(j, streetname, streetlength);
+
+                                        //Повторный вызов метода для считывания клавиш
+                                        EditElementStreetMain();
+                                    }
+                                    else
+                                    {
+                                        //обнуление введенного значения
+                                        streetlength = " ";
+
+                                        //очистка консоли
                                         Console.Clear();
 
-                                        double slen = 0;
+                                        //Вызов метода построения таблицы предупреждения
+                                        consolebd.AttentionAddElement();
 
-                                        //дополнительная проверка на возможность конвертации значения 
-                                        if (double.TryParse(streetlength, out slen))
-                                        {
-                                            //Конвертация
-                                            slen = Double.Parse(streetlength);
+                                        //Повторный вызов меню добавления улицы
+                                        consolebd.AddElemStreet(j, streetname, streetlength);
 
-                                            //Повторный вызов метода построения меню 
-                                            consolebd.EditStreetElement(j, streetname, streetlength);
-
-                                            //Повторный вызов метода для считывания клавиш
-                                            EditElementStreetMain();
-                                        }
-                                        else
-                                        {
-                                            //обнуление введенного значения
-                                            streetlength = " ";
-
-                                            //очистка консоли
-                                            Console.Clear();
-
-                                            //Вызов метода построения таблицы предупреждения
-                                            consolebd.AttentionAddElement();
-
-                                            //Повторный вызов меню добавления улицы
-                                            consolebd.AddElemStreet(j, streetname, streetlength);
-
-                                            //Вызов метода выбора пункта меню
-                                            EditElementStreetMain();
-                                        }                                    
+                                        //Вызов метода выбора пункта меню
+                                        EditElementStreetMain();
+                                    }
                                     break;
 
                                 //Назад
@@ -6597,14 +6599,14 @@ namespace ConsoleApp6
                                     //Считывание строки
                                     parkingname = ReadString(30);
 
-                                        //Очистка консоли
-                                        Console.Clear();
+                                    //Очистка консоли
+                                    Console.Clear();
 
-                                        //Повторный вызов метода построения меню добавления автостоянки
-                                        consolebd.EditParkingElement(j, parkingname, parkingadress, parkingnumber);
+                                    //Повторный вызов метода построения меню добавления автостоянки
+                                    consolebd.EditParkingElement(j, parkingname, parkingadress, parkingnumber);
 
-                                        //Повторный вызов метода для считывания клавиш
-                                        EditElementParkingMain();                                    
+                                    //Повторный вызов метода для считывания клавиш
+                                    EditElementParkingMain();
                                     break;
 
                                 //Ввод адреса автостоянки
@@ -6628,14 +6630,14 @@ namespace ConsoleApp6
                                     //Считывание строки
                                     parkingadress = ReadString(50);
 
-                                        //Очистка консоли
-                                        Console.Clear();
+                                    //Очистка консоли
+                                    Console.Clear();
 
-                                        //Повторный вызов метода построения меню
-                                        consolebd.EditParkingElement(j, parkingname, parkingadress, parkingnumber);
+                                    //Повторный вызов метода построения меню
+                                    consolebd.EditParkingElement(j, parkingname, parkingadress, parkingnumber);
 
-                                        //Повторный вызов метода для считывания клаваиш
-                                        EditElementParkingMain();
+                                    //Повторный вызов метода для считывания клаваиш
+                                    EditElementParkingMain();
                                     break;
 
                                 //Ввод номера автостоянки
@@ -6659,14 +6661,14 @@ namespace ConsoleApp6
                                     //Считывание строки
                                     parkingnumber = ReadString(23);
 
-                                        //Очистка консоли
-                                        Console.Clear();
+                                    //Очистка консоли
+                                    Console.Clear();
 
-                                        //Повторный вызов метода построения меню
-                                        consolebd.EditParkingElement(j, parkingname, parkingadress, parkingnumber);
+                                    //Повторный вызов метода построения меню
+                                    consolebd.EditParkingElement(j, parkingname, parkingadress, parkingnumber);
 
-                                        //Повторный вызов метода для считывания клавиш
-                                        EditElementParkingMain();
+                                    //Повторный вызов метода для считывания клавиш
+                                    EditElementParkingMain();
                                     break;
 
                                 case 4:
@@ -6891,14 +6893,14 @@ namespace ConsoleApp6
                                     //Считывание строки
                                     gps = ReadString(50);
 
-                                        //Очистка консоли
-                                        Console.Clear();
+                                    //Очистка консоли
+                                    Console.Clear();
 
-                                        //Повторный вызов метода построения меню добавления акта эвакуации
-                                        consolebd.EditActElement(j, gps, typevio, carnum, cartype, streetname, parkingname);
+                                    //Повторный вызов метода построения меню добавления акта эвакуации
+                                    consolebd.EditActElement(j, gps, typevio, carnum, cartype, streetname, parkingname);
 
-                                        //Повторный вызов метода считывания клавиш в текущем меню
-                                        EditElementActMain();                 
+                                    //Повторный вызов метода считывания клавиш в текущем меню
+                                    EditElementActMain();
                                     break;
 
                                 //Ввод типа нарушения
@@ -6945,14 +6947,14 @@ namespace ConsoleApp6
                                     //Считывание строки
                                     carnum = ReadString(10);
 
-                                        //Очистка консоли
-                                        Console.Clear();
+                                    //Очистка консоли
+                                    Console.Clear();
 
-                                        //Повторный вызов метода построения меню
-                                        consolebd.EditActElement(j, gps, typevio, carnum, cartype, streetname, parkingname);
+                                    //Повторный вызов метода построения меню
+                                    consolebd.EditActElement(j, gps, typevio, carnum, cartype, streetname, parkingname);
 
-                                        //Повторный вызов метода для считывания клавиш
-                                        EditElementActMain();
+                                    //Повторный вызов метода для считывания клавиш
+                                    EditElementActMain();
                                     break;
 
                                 //Добавление типа автомобиля
@@ -9217,7 +9219,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab2(index);
+                                        if (AcceptDelition(index, 2))
+                                        {
+                                            data.DeleteElementTab2(index);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -9243,7 +9248,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab2(index);
+                                        if (AcceptDelition(index, 2))
+                                        {
+                                            data.DeleteElementTab2(index);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -9269,7 +9277,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab2(index);
+                                        if (AcceptDelition(index, 2))
+                                        {
+                                            data.DeleteElementTab2(index);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -9295,7 +9306,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab2(index);
+                                        if (AcceptDelition(index, 2))
+                                        {
+                                            data.DeleteElementTab2(index);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -9321,7 +9335,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab2(index);
+                                        if (AcceptDelition(index, 2))
+                                        {
+                                            data.DeleteElementTab2(index);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -9347,7 +9364,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab2(index);
+                                        if (AcceptDelition(index, 2))
+                                        {
+                                            data.DeleteElementTab2(index);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -9373,7 +9393,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab2(index);
+                                        if (AcceptDelition(index, 2))
+                                        {
+                                            data.DeleteElementTab2(index);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -9399,7 +9422,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab2(index);
+                                        if (AcceptDelition(index, 2))
+                                        {
+                                            data.DeleteElementTab2(index);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -9425,7 +9451,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab2(index);
+                                        if (AcceptDelition(index, 2))
+                                        {
+                                            data.DeleteElementTab2(index);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -9451,7 +9480,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab2(index);
+                                        if (AcceptDelition(index, 2))
+                                        {
+                                            data.DeleteElementTab2(index);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -9477,7 +9509,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab2(index);
+                                        if (AcceptDelition(index, 2))
+                                        {
+                                            data.DeleteElementTab2(index);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -9503,7 +9538,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab2(index);
+                                        if (AcceptDelition(index, 2))
+                                        {
+                                            data.DeleteElementTab2(index);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -9529,7 +9567,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab2(index);
+                                        if (AcceptDelition(index, 2))
+                                        {
+                                            data.DeleteElementTab2(index);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -9555,7 +9596,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab2(index);
+                                        if (AcceptDelition(index, 2))
+                                        {
+                                            data.DeleteElementTab2(index);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -9581,7 +9625,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab2(index);
+                                        if (AcceptDelition(index, 2))
+                                        {
+                                            data.DeleteElementTab2(index);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -9607,7 +9654,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab2(index);
+                                        if (AcceptDelition(index, 2))
+                                        {
+                                            data.DeleteElementTab2(index);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -9633,7 +9683,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab2(index);
+                                        if (AcceptDelition(index, 2))
+                                        {
+                                            data.DeleteElementTab2(index);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -9659,7 +9712,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab2(index);
+                                        if (AcceptDelition(index, 2))
+                                        {
+                                            data.DeleteElementTab2(index);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -9685,7 +9741,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab2(index);
+                                        if (AcceptDelition(index, 2))
+                                        {
+                                            data.DeleteElementTab2(index);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -9711,7 +9770,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab2(index);
+                                        if (AcceptDelition(index, 2))
+                                        {
+                                            data.DeleteElementTab2(index);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -9872,7 +9934,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab3(index - 1);
+                                        if (AcceptDelition(index, 3))
+                                        {
+                                            data.DeleteElementTab3(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -9898,7 +9963,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab3(index - 1);
+                                        if (AcceptDelition(index, 3))
+                                        {
+                                            data.DeleteElementTab3(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -9924,7 +9992,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab3(index - 1);
+                                        if (AcceptDelition(index, 3))
+                                        {
+                                            data.DeleteElementTab3(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -9950,7 +10021,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab3(index - 1);
+                                        if (AcceptDelition(index, 3))
+                                        {
+                                            data.DeleteElementTab3(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -9976,7 +10050,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab3(index - 1);
+                                        if (AcceptDelition(index, 3))
+                                        {
+                                            data.DeleteElementTab3(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -10002,7 +10079,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab3(index - 1);
+                                        if (AcceptDelition(index, 3))
+                                        {
+                                            data.DeleteElementTab3(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -10028,7 +10108,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab3(index - 1);
+                                        if (AcceptDelition(index, 3))
+                                        {
+                                            data.DeleteElementTab3(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -10054,7 +10137,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab3(index - 1);
+                                        if (AcceptDelition(index, 3))
+                                        {
+                                            data.DeleteElementTab3(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -10080,7 +10166,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab3(index - 1);
+                                        if (AcceptDelition(index, 3))
+                                        {
+                                            data.DeleteElementTab3(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -10106,7 +10195,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab3(index - 1);
+                                        if (AcceptDelition(index, 3))
+                                        {
+                                            data.DeleteElementTab3(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -10132,7 +10224,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab3(index - 1);
+                                        if (AcceptDelition(index, 3))
+                                        {
+                                            data.DeleteElementTab3(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -10158,7 +10253,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab3(index - 1);
+                                        if (AcceptDelition(index, 3))
+                                        {
+                                            data.DeleteElementTab3(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -10184,7 +10282,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab3(index - 1);
+                                        if (AcceptDelition(index, 3))
+                                        {
+                                            data.DeleteElementTab3(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -10210,7 +10311,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab3(index - 1);
+                                        if (AcceptDelition(index, 3))
+                                        {
+                                            data.DeleteElementTab3(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -10236,7 +10340,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab3(index - 1);
+                                        if (AcceptDelition(index, 3))
+                                        {
+                                            data.DeleteElementTab3(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -10262,7 +10369,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab3(index - 1);
+                                        if (AcceptDelition(index, 3))
+                                        {
+                                            data.DeleteElementTab3(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -10288,7 +10398,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab3(index - 1);
+                                        if (AcceptDelition(index, 3))
+                                        {
+                                            data.DeleteElementTab3(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -10314,7 +10427,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab3(index - 1);
+                                        if (AcceptDelition(index, 3))
+                                        {
+                                            data.DeleteElementTab3(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -10340,7 +10456,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab3(index - 1);
+                                        if (AcceptDelition(index, 3))
+                                        {
+                                            data.DeleteElementTab3(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -10366,7 +10485,10 @@ namespace ConsoleApp6
                                         Console.Clear();
 
                                         //Вызов метода редактирования улицы
-                                        data.DeleteElementTab3(index - 1);
+                                        if (AcceptDelition(index, 3))
+                                        {
+                                            data.DeleteElementTab3(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -10528,8 +10650,11 @@ namespace ConsoleApp6
                                         //Очистка консоли
                                         Console.Clear();
 
-                                        //Вызов метода редактирования улицы
-                                        data.DeleteElementTab1(index - 1);
+                                        if (AcceptDelition(index, 1))
+                                        {
+                                            //Вызов метода редактирования улицы
+                                            data.DeleteElementTab1(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -10554,8 +10679,11 @@ namespace ConsoleApp6
                                         //Очистка консоли
                                         Console.Clear();
 
-                                        //Вызов метода редактирования улицы
-                                        data.DeleteElementTab1(index - 1);
+                                        if (AcceptDelition(index, 1))
+                                        {
+                                            //Вызов метода редактирования улицы
+                                            data.DeleteElementTab1(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -10580,8 +10708,11 @@ namespace ConsoleApp6
                                         //Очистка консоли
                                         Console.Clear();
 
-                                        //Вызов метода редактирования улицы
-                                        data.DeleteElementTab1(index - 1);
+                                        if (AcceptDelition(index, 1))
+                                        {
+                                            //Вызов метода редактирования улицы
+                                            data.DeleteElementTab1(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -10606,8 +10737,11 @@ namespace ConsoleApp6
                                         //Очистка консоли
                                         Console.Clear();
 
-                                        //Вызов метода редактирования улицы
-                                        data.DeleteElementTab1(index - 1);
+                                        if (AcceptDelition(index, 1))
+                                        {
+                                            //Вызов метода редактирования улицы
+                                            data.DeleteElementTab1(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -10632,8 +10766,11 @@ namespace ConsoleApp6
                                         //Очистка консоли
                                         Console.Clear();
 
-                                        //Вызов метода редактирования улицы
-                                        data.DeleteElementTab1(index - 1);
+                                        if (AcceptDelition(index, 1))
+                                        {
+                                            //Вызов метода редактирования улицы
+                                            data.DeleteElementTab1(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -10658,8 +10795,11 @@ namespace ConsoleApp6
                                         //Очистка консоли
                                         Console.Clear();
 
-                                        //Вызов метода редактирования улицы
-                                        data.DeleteElementTab1(index - 1);
+                                        if (AcceptDelition(index, 1))
+                                        {
+                                            //Вызов метода редактирования улицы
+                                            data.DeleteElementTab1(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -10684,8 +10824,11 @@ namespace ConsoleApp6
                                         //Очистка консоли
                                         Console.Clear();
 
-                                        //Вызов метода редактирования улицы
-                                        data.DeleteElementTab1(index - 1);
+                                        if (AcceptDelition(index, 1))
+                                        {
+                                            //Вызов метода редактирования улицы
+                                            data.DeleteElementTab1(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -10710,8 +10853,11 @@ namespace ConsoleApp6
                                         //Очистка консоли
                                         Console.Clear();
 
-                                        //Вызов метода редактирования улицы
-                                        data.DeleteElementTab1(index - 1);
+                                        if (AcceptDelition(index, 1))
+                                        {
+                                            //Вызов метода редактирования улицы
+                                            data.DeleteElementTab1(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -10736,8 +10882,11 @@ namespace ConsoleApp6
                                         //Очистка консоли
                                         Console.Clear();
 
-                                        //Вызов метода редактирования улицы
-                                        data.DeleteElementTab1(index - 1);
+                                        if (AcceptDelition(index, 1))
+                                        {
+                                            //Вызов метода редактирования улицы
+                                            data.DeleteElementTab1(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -10762,8 +10911,11 @@ namespace ConsoleApp6
                                         //Очистка консоли
                                         Console.Clear();
 
-                                        //Вызов метода редактирования улицы
-                                        data.DeleteElementTab1(index - 1);
+                                        if (AcceptDelition(index, 1))
+                                        {
+                                            //Вызов метода редактирования улицы
+                                            data.DeleteElementTab1(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -10788,8 +10940,11 @@ namespace ConsoleApp6
                                         //Очистка консоли
                                         Console.Clear();
 
-                                        //Вызов метода редактирования улицы
-                                        data.DeleteElementTab1(index - 1);
+                                        if (AcceptDelition(index, 1))
+                                        {
+                                            //Вызов метода редактирования улицы
+                                            data.DeleteElementTab1(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -10814,8 +10969,11 @@ namespace ConsoleApp6
                                         //Очистка консоли
                                         Console.Clear();
 
-                                        //Вызов метода редактирования улицы
-                                        data.DeleteElementTab1(index - 1);
+                                        if (AcceptDelition(index, 1))
+                                        {
+                                            //Вызов метода редактирования улицы
+                                            data.DeleteElementTab1(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -10840,8 +10998,11 @@ namespace ConsoleApp6
                                         //Очистка консоли
                                         Console.Clear();
 
-                                        //Вызов метода редактирования улицы
-                                        data.DeleteElementTab1(index - 1);
+                                        if (AcceptDelition(index, 1))
+                                        {
+                                            //Вызов метода редактирования улицы
+                                            data.DeleteElementTab1(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -10866,8 +11027,11 @@ namespace ConsoleApp6
                                         //Очистка консоли
                                         Console.Clear();
 
-                                        //Вызов метода редактирования улицы
-                                        data.DeleteElementTab1(index - 1);
+                                        if (AcceptDelition(index, 1))
+                                        {
+                                            //Вызов метода редактирования улицы
+                                            data.DeleteElementTab1(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -10892,8 +11056,11 @@ namespace ConsoleApp6
                                         //Очистка консоли
                                         Console.Clear();
 
-                                        //Вызов метода редактирования улицы
-                                        data.DeleteElementTab1(index - 1);
+                                        if (AcceptDelition(index, 1))
+                                        {
+                                            //Вызов метода редактирования улицы
+                                            data.DeleteElementTab1(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -10918,8 +11085,11 @@ namespace ConsoleApp6
                                         //Очистка консоли
                                         Console.Clear();
 
-                                        //Вызов метода редактирования улицы
-                                        data.DeleteElementTab1(index - 1);
+                                        if (AcceptDelition(index, 1))
+                                        {
+                                            //Вызов метода редактирования улицы
+                                            data.DeleteElementTab1(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -10944,8 +11114,11 @@ namespace ConsoleApp6
                                         //Очистка консоли
                                         Console.Clear();
 
-                                        //Вызов метода редактирования улицы
-                                        data.DeleteElementTab1(index - 1);
+                                        if (AcceptDelition(index, 1))
+                                        {
+                                            //Вызов метода редактирования улицы
+                                            data.DeleteElementTab1(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -10970,8 +11143,11 @@ namespace ConsoleApp6
                                         //Очистка консоли
                                         Console.Clear();
 
-                                        //Вызов метода редактирования улицы
-                                        data.DeleteElementTab1(index - 1);
+                                        if (AcceptDelition(index, 1))
+                                        {
+                                            //Вызов метода редактирования улицы
+                                            data.DeleteElementTab1(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -10996,8 +11172,11 @@ namespace ConsoleApp6
                                         //Очистка консоли
                                         Console.Clear();
 
-                                        //Вызов метода редактирования улицы
-                                        data.DeleteElementTab1(index - 1);
+                                        if (AcceptDelition(index, 1))
+                                        {
+                                            //Вызов метода редактирования улицы
+                                            data.DeleteElementTab1(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -11022,8 +11201,11 @@ namespace ConsoleApp6
                                         //Очистка консоли
                                         Console.Clear();
 
-                                        //Вызов метода редактирования улицы
-                                        data.DeleteElementTab1(index - 1);
+                                        if (AcceptDelition(index, 1))
+                                        {
+                                            //Вызов метода редактирования улицы
+                                            data.DeleteElementTab1(index - 1);
+                                        }
                                         DeleteMenu();
                                     }
                                     else
@@ -11114,9 +11296,60 @@ namespace ConsoleApp6
             if (keyInfo.Key == ConsoleKey.Escape) { return " "; }
             else
             {
-                sb[sb.Length-1] = ' ';
+                sb[sb.Length - 1] = ' ';
                 return sb.ToString();
             }
+        }
+
+        /// <summary>
+        /// Подтверждение удаления
+        /// </summary>
+        /// <returns></returns>
+        static bool AcceptDelition(int index, int signal)
+        {
+            string name;            
+            bool result = false;
+            Data data = new Data();
+            Consolebd consolebd = new Consolebd();
+            int j = 2;
+            if (signal == 2) { name = data.OutPutSt(index-1); } else if (signal == 3) { name = data.OutPutPrkname(index-1); } else { name = "Акт эвакуации"; }
+            ConsoleKeyInfo key;
+            consolebd.AcceptDelete(j, name);
+            do
+            {
+                key = Console.ReadKey(true);
+                if (key.Key == ConsoleKey.LeftArrow || key.Key == ConsoleKey.RightArrow || key.Key == ConsoleKey.Enter)
+                {
+                    Console.Clear();
+                    switch (key.Key)
+                    {
+                        case ConsoleKey.RightArrow:
+                            j++;
+                            if (j > 2) { j = 1; }
+                            if (j < 1) { j = 2; }
+                            break;
+
+                        case ConsoleKey.LeftArrow:
+                            j--;
+                            if (j > 2) { j = 1; }
+                            if (j < 1) { j = 2; }
+                            break;
+                    }
+                    consolebd.AcceptDelete(j,name);
+                    if (key.Key == ConsoleKey.Enter)
+                    {
+                        switch (j)
+                        {
+                            case 1:
+                                result = true;
+                                break;
+                            case 2:
+                                break;
+                        }
+                    }
+                }
+            } while (key.Key != ConsoleKey.Enter);
+            return result;
         }
     }
 }

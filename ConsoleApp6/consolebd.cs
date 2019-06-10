@@ -2281,5 +2281,31 @@ namespace ConsoleApp6
             Console.WriteLine("╙" + new string('─', 110) + "╜");
 
         }
+
+        public void AcceptDelete(int e, string name)
+        {
+            Console.WriteLine("╓" + new string('─', 90) + "╖");
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine("║" + new string(' ', 90) + "║");
+            }
+            Console.WriteLine("║" + new string(' ', 24) + "      Вы уверены, что хотите удалить?     " + new string(' ', 24) + "║");
+            int p = 70 - name.Length;
+            int p1 = p / 2;
+            int p2 = 90 - p1 - name.Length - 10;
+            Console.WriteLine("║" + new string(' ', 10) + new string(' ',p1) + name + new string(' ', p2) + "║");
+            Console.WriteLine("║" + new string(' ', 90) + "║");
+            Console.Write("║" + new string(' ', 33));
+            if (e == 1) { Console.BackgroundColor = ConsoleColor.DarkRed; }
+            Console.Write(Yes);
+            Console.ResetColor();
+            Console.Write(new string(' ', 10));
+            if (e == 2) { Console.BackgroundColor = ConsoleColor.Blue; }
+            Console.Write(No);
+            Console.ResetColor();
+            Console.WriteLine(new string(' ', 33) + "║");
+            Console.WriteLine("║" + new string(' ', 90) + "║");
+            Console.WriteLine("╙" + new string('─', 90) + "╜");
+        }
     }
 }

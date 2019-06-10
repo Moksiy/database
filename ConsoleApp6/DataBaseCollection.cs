@@ -381,6 +381,7 @@ namespace ConsoleApp6
                 if (Tab1List[i].Parking.ParkingName == Tab3List[ind].ParkingName && Tab1List[i].Parking.ParkingAdress == Tab3List[ind].ParkingAdress && Tab1List[i].Parking.ParkingNumber == Tab3List[ind].ParkingNumber)
                 {
                     Tab1List.RemoveAt(i);
+                    i--;
                 }
             }
             Tab3List.RemoveAt(ind);
