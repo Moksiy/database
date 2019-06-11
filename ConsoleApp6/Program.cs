@@ -8787,6 +8787,7 @@ namespace ConsoleApp6
         /// </summary>
         public static void SearchStreets()
         {
+            Data data = new Data();
             int num = 0;
             Consolebd consolebd = new Consolebd();
             int j = 1;
