@@ -175,7 +175,7 @@ namespace ConsoleApp6
         /// <summary>
         /// Метод для считывания клавиш для подтверждения выхода из программы
         /// </summary>
-        /// <param name="e"></param>
+        /// <param name="e">Индекс пункта меню</param>
         public static void ExitMenu(int e)
         {
             Consolebd consolebd = new Consolebd();
@@ -361,7 +361,7 @@ namespace ConsoleApp6
         /// <summary>
         /// Метод для считывания клавиш в меню выбора таблицы
         /// </summary>
-        /// <param name="c"></param>
+        /// <param name="c">Индекс пункта меню</param>
         public static void Tables(int c)
         {
             //Создание экземпляра класса
@@ -4595,7 +4595,7 @@ namespace ConsoleApp6
         /// <summary>
         /// Метод меню выбора типа нарушения
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Тип нарушения</returns>
         public static string ChoiseTypeVoilation()
         {
             //переменная для хранения типа нарушения
@@ -4692,7 +4692,7 @@ namespace ConsoleApp6
         /// <summary>
         /// Метод меню выбора типа автомобиля
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Тип автомобиля</returns>
         public static string ChoiseTypeOfCar()
         {
             //Переменная для хранения типа автомобиля
@@ -4789,7 +4789,7 @@ namespace ConsoleApp6
         /// <summary>
         /// Метод меню выбора улицы из уже добавленных
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Индекс улицы</returns>
         public static int ChoiseStreet()
         {
             Data data = new Data();
@@ -5138,7 +5138,7 @@ namespace ConsoleApp6
         /// <summary>
         /// Метод меню выбора автостоянки из уже добавленных
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Индекс автостоянки</returns>
         public static int ChoiseParking()
         {
             //Переменная для хранения индекса элемента списка
@@ -6225,7 +6225,7 @@ namespace ConsoleApp6
         /// <summary>
         /// Метод редактирования улицы
         /// </summary>
-        /// <param name="index"></param>
+        /// <param name="index">Индекс Улицы</param>
         public static void EditElementStreet(int index)
         {
             //Создание экземпляра класса с данными
@@ -6484,7 +6484,7 @@ namespace ConsoleApp6
         /// <summary>
         /// Метод редактирования автостоянки
         /// </summary>
-        /// <param name="index"></param>
+        /// <param name="index">Индекс автостоянки</param>
         public static void EditElementParking(int index)
         {
             //Создание экземпляра класса с данными
@@ -6764,7 +6764,7 @@ namespace ConsoleApp6
         /// <summary>
         /// Метод редактирования акта эвакуации
         /// </summary>
-        /// <param name="index"></param>
+        /// <param name="index">Индекс Акта Эвакуации</param>
         public static void EditElementAct(int index)
         {
             //Создание экземпляра класса с данными
@@ -11303,7 +11303,7 @@ namespace ConsoleApp6
         /// <summary>
         /// Подтверждение удаления
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Булево значение подтверждения/не подтверждения удаления элемента</returns>
         static bool AcceptDelition(int index, int signal)
         {
             string name;            
