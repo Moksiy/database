@@ -142,8 +142,7 @@ namespace ConsoleApp6
                             case 7:
                                 //Очистка консоли
                                 Console.Clear();
-                                //consolebd.Information();
-                                consolebd.AcceptDelete(2, "Комсомольская");
+                                consolebd.Information();
                                 Console.ReadKey();
                                 Main();
                                 break;
@@ -8833,9 +8832,9 @@ namespace ConsoleApp6
                                     street = "               ";
                                     consolebd.SearchStreets(0, street, num);
                                     Console.SetCursorPosition(9, 3);
-                                    street = ReadString(50);
+                                    street = Console.ReadLine();
                                     street.Trim();
-                                    if (street == "") { Console.Clear(); consolebd.Attention(); /*street = "               ";*/ }
+                                    if (street == "") { Console.Clear(); consolebd.Attention(); street = "               "; }
                                     Console.Clear();
                                     SearchStreetMain();
                                     break;
@@ -8913,7 +8912,7 @@ namespace ConsoleApp6
                                     Console.Clear();
                                     consolebd.SearchParkings(0, parking, num);
                                     Console.SetCursorPosition(9, 3);
-                                    parking = ReadString(30);
+                                    parking = Console.ReadLine();
                                     parking.Trim();
                                     if (parking == "") { Console.Clear(); consolebd.Attention(); parking = "              "; }
                                     Console.Clear();
@@ -9022,7 +9021,7 @@ namespace ConsoleApp6
                                     Console.Clear();
                                     consolebd.SearchActs(-1, act, num);
                                     Console.SetCursorPosition(9, 3);
-                                    act = ReadString(50);
+                                    act = Console.ReadLine();
                                     act.Trim();
                                     if (act == "") { Console.Clear(); consolebd.Attention(); act = "                "; }
                                     data.RemoveSearchList1();
@@ -11297,7 +11296,7 @@ namespace ConsoleApp6
             else
             {
                 sb[sb.Length - 1] = ' ';
-                return sb.ToString();
+                return Convert.ToString(sb);
             }
         }
 
