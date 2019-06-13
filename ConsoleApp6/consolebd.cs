@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Media;
 
 namespace ConsoleApp6
 {
@@ -172,6 +173,9 @@ namespace ConsoleApp6
         //Метод построения меню предупреждения
         public void Attention()
         {
+            System.Media.SoundPlayer sp2 = new System.Media.SoundPlayer("Roblox.wav");
+            sp2.Load();
+            sp2.Play();
             for (int i = 0; i < 4; i++)
             {
                 Console.WriteLine("");
@@ -184,7 +188,7 @@ namespace ConsoleApp6
             Console.WriteLine("║" + new string(' ', 90) + "║");
             Console.WriteLine("║" + new string(' ', 26) + " Нажмите любую клавишу для продолжения" + new string(' ', 26) + "║");
             Console.WriteLine("║" + new string(' ', 90) + "║");
-            Console.WriteLine("╙" + new string('─', 90) + "╜");
+            Console.WriteLine("╙" + new string('─', 90) + "╜");            
             Console.ReadKey();
             Console.Clear();
         }   
@@ -235,6 +239,10 @@ namespace ConsoleApp6
             Console.WriteLine("║" + new string(' ', 30) + " Нажмите Enter для продолжения" + new string(' ', 30) + "║");
             Console.WriteLine("║" + new string(' ', 90) + "║");
             Console.WriteLine("╙" + new string('─', 90) + "╜");
+            System.Media.SoundPlayer sp2 = new System.Media.SoundPlayer();
+            sp2.SoundLocation = "Roblox.wav";
+            sp2.Load();
+            sp2.Play();
             Console.ReadKey();
         }
 
@@ -384,6 +392,10 @@ namespace ConsoleApp6
             Console.WriteLine("║" + new string(' ', 26) + " Нажмите любую клавишу для продолжения" + new string(' ', 26) + "║");
             Console.WriteLine("║" + new string(' ', 90) + "║");
             Console.WriteLine("╙" + new string('─', 90) + "╜");
+            System.Media.SoundPlayer sp2 = new System.Media.SoundPlayer();
+            sp2.SoundLocation = "Roblox.wav";
+            sp2.Load();
+            sp2.Play();
             Console.ReadKey();
 
         }
@@ -401,6 +413,10 @@ namespace ConsoleApp6
             Console.WriteLine("║" + new string(' ', 26) + " Нажмите любую клавишу для продолжения" + new string(' ', 26) + "║");
             Console.WriteLine("║" + new string(' ', 90) + "║");
             Console.WriteLine("╙" + new string('─', 90) + "╜");
+            System.Media.SoundPlayer sp2 = new System.Media.SoundPlayer();
+            sp2.SoundLocation = "Roblox.wav";
+            sp2.Load();
+            sp2.Play();
             Console.ReadKey();
         }
 
@@ -417,6 +433,10 @@ namespace ConsoleApp6
             Console.WriteLine("║" + new string(' ', 26) + " Нажмите любую клавишу для продолжения" + new string(' ', 26) + "║");
             Console.WriteLine("║" + new string(' ', 90) + "║");
             Console.WriteLine("╙" + new string('─', 90) + "╜");
+            System.Media.SoundPlayer sp2 = new System.Media.SoundPlayer();
+            sp2.SoundLocation = "Roblox.wav";
+            sp2.Load();
+            sp2.Play();
             Console.ReadKey();
         }
 
@@ -433,6 +453,10 @@ namespace ConsoleApp6
             Console.WriteLine("║" + new string(' ', 26) + " Нажмите любую клавишу для продолжения" + new string(' ', 26) + "║");
             Console.WriteLine("║" + new string(' ', 90) + "║");
             Console.WriteLine("╙" + new string('─', 90) + "╜");
+            System.Media.SoundPlayer sp2 = new System.Media.SoundPlayer();
+            sp2.SoundLocation = "Roblox.wav";
+            sp2.Load();
+            sp2.Play();
             Console.ReadKey();
         }
 
@@ -491,6 +515,10 @@ namespace ConsoleApp6
             Console.WriteLine("║" + new string(' ', 26) + " Нажмите любую клавишу для продолжения" + new string(' ', 26) + "║");
             Console.WriteLine("║" + new string(' ', 90) + "║");
             Console.WriteLine("╙" + new string('─', 90) + "╜");
+            System.Media.SoundPlayer sp2 = new System.Media.SoundPlayer();
+            sp2.SoundLocation = "Roblox.wav";
+            sp2.Load();
+            sp2.Play();
             Console.ReadKey();
         }
 
